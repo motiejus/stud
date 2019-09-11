@@ -1,4 +1,14 @@
 Nesu tikras, kaip tai veikia. Kol kas dedu resursus, kurie gali būti įdomūs atsakyti į klausimą.
 
+Mokslinė problema - kaip kiekybiškai įvertinti ir, jei įmanoma, vizualiai
+pateikti informaciją apie žemėlapio suvokimo klaidas, neišvengiamai
+atsirandančias apibendrinant kartoschemų informaciją stambesniais teritoriniais
+vienetais. Pridėti pavyzdžiai, kur gyventojų tankumo duomenys apibendrinti
+skirtingu detalumo lygmeniu
+
+Apžvelgę Jums prieinamus šaltinius, pabandykite įvertinti, kiek pasaulio mastu
+priartėta prie šios problemos sprendimo. Pasirenkite trumpai pristatyti
+analizuotus šaltinius ir juose siūlomų sprendimo metodų esmę. Papasakokite,
+kaip atlikote tyrimą. 
 
 How to Lie With Maps -- https://books.google.lt/books?id=MwdRDwAAQBAJ&lpg=PP8&ots=NtuUI4GdZa&dq=visual%20perception%20mistakes%20in%20maps&lr&hl=lt&pg=PA8#v=onepage&q&f=false
