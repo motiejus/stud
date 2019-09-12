@@ -1,14 +1,50 @@
-Nesu tikras, kaip tai veikia. Kol kas dedu resursus, kurie gali būti įdomūs atsakyti į klausimą.
+Kol kas dedu resursus, kurie gali būti įdomūs atsakyti į klausimą.
 
-Mokslinė problema - kaip kiekybiškai įvertinti ir, jei įmanoma, vizualiai
-pateikti informaciją apie žemėlapio suvokimo klaidas, neišvengiamai
-atsirandančias apibendrinant kartoschemų informaciją stambesniais teritoriniais
-vienetais. Pridėti pavyzdžiai, kur gyventojų tankumo duomenys apibendrinti
-skirtingu detalumo lygmeniu
+Ieškojau šiuose puslapiuose:
+- google scholar
+- VU bibliotekos elektroniniuose ištekliuose
 
-Apžvelgę Jums prieinamus šaltinius, pabandykite įvertinti, kiek pasaulio mastu
-priartėta prie šios problemos sprendimo. Pasirenkite trumpai pristatyti
-analizuotus šaltinius ir juose siūlomų sprendimo metodų esmę. Papasakokite,
-kaip atlikote tyrimą. 
+Nurodydamas pagrindinius raktinius žodžius įvairiomis kombinacijomis, įskaitant:
+- decreasing detail
+- increasing mistakes
+- evaluate perception
+- cartography/maps
 
-How to Lie With Maps -- https://books.google.lt/books?id=MwdRDwAAQBAJ&lpg=PP8&ots=NtuUI4GdZa&dq=visual%20perception%20mistakes%20in%20maps&lr&hl=lt&pg=PA8#v=onepage&q&f=false
+Rasti resursai apžvelgti žemiau.
+
+How to lie with maps, 3rd edition
+---------------------------------
+
+Autorius: Mark Monmonier
+Pirmi keliasdešimt puslapių vieši[1].
+
+Kaip nurodo pavadinimas, knyga nurodo pagrindinius žemėlapių "melus". Tačiau
+nemini apie suvokimo klaidas ar jų skaičiavimą, neminimi tyrimai.
+
+
+Lying with Maps
+---------------
+
+Knygos "How to lie with maps" santrumpa. Autorius: Mark Monmonier
+Pilnas tekstas pasiekiamas per VU biblioteką[2].
+
+Tai veda į galbūt įdomų straipsnį: 
+JENKS,G.F.andCASPALL, F. C. (1971). Error on choroplethicmaps: Definition,
+measurement, reduction.Annals of the Asso-ciation of American
+Geographers61217–244.[3]
+
+Žiūrime, kas cituojame, ir randame kelis:
+- Assessing the effect of attribute uncertainty on the robustness of choropleth map classification
+Ningchuan Xiao , Catherine A. Calder & Marc P. Armstrong [4]
+
+Tačiau straipsnio pamatyti sistema neleidžia.
+
+Pabaigai
+--------
+
+Radau straipsnių, rašančių panašia tema, tačiau ne tiksliai to, ko ieškau.
+
+[1] https://books.google.lt/books?id=MwdRDwAAQBAJ&lpg=PP8&ots=NtuUI4GdZa&dq=visual%20perception%20mistakes%20in%20maps&lr&hl=lt&pg=PA8#v=onepage&q&f=false
+[2]: https://projecteuclid.org/download/pdfview_1/euclid.ss/1124891287
+[3]: https://www.tandfonline.com/doi/abs/10.1111/j.1467-8306.1971.tb00779.x
+[4]: https://www.tandfonline.com/doi/abs/10.1080/13658810600894307
