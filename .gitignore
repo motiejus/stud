@@ -1,2 +1,4 @@
 .vagrant
 .*.sw[op]
+*.bak
+.DS_Store
