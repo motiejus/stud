@@ -1,4 +1,11 @@
 .vagrant
+.DS_Store
 .*.sw[op]
 *.bak
-.DS_Store
+*.report
+*.aux
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
