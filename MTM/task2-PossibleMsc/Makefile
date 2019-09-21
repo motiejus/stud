@@ -1,2 +1,2 @@
 report.pdf: report.tex
-	pdflatex $<
+	latexmk $<
