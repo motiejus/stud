@@ -1,4 +1,5 @@
 useful commands:
+- distance
 - zoom ext
 - line
 - trim / extend
@@ -9,3 +10,6 @@ useful commands:
 
 - f8: perpendicular
 - f2: console
+
+questions:
+- how to measure exact angle from XY axis? E.g. K1.

@@ -10,3 +10,6 @@
 *.log
 *.pdf
 *.out
+*.dwl
+*.dwl2
+*.bak

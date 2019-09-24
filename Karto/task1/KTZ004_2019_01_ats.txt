@@ -1,0 +1,206 @@
+Uzduotis Nr. 
+*******
+Braize(Motiejus Jakštys)
+*******_*******
+=== Apskaiciuotos tasku koordinates (0.000 tikslumu) ===
+Taskas Nr.1 koordinates
+X = *******
+Y = *******
+Taskas Nr.7 koordinates
+X = *******
+Y = *******
+Taskas Nr.5 koordinates
+X = *******
+Y = *******
+Taskas Nr.10 koordinates
+X = *******
+Y = *******
+=== Apskaiciuoti atkarpu ilgiai (0.000 tikslumu) ===
+Atkarpa D1-2
+*******
+Atkarpa D2-3
+*******
+Atkarpa D4-5
+*******
+Atkarpa D5-6
+*******
+Atkarpa D7-8
+*******
+Atkarpa D7-12
+*******
+Atkarpa D9-10
+*******
+Atkarpa D10-11
+*******
+=== Apskaiciuoti kampai (laipsniais &  0.0001 tikslumu) ===
+Kampas Nr. K1
+*******
+Kampas Nr. K2
+*******
+Kampas Nr. K5-1
+*******
+Kampas Nr. K5-2
+*******
+Kampas Nr. K7-1
+*******
+Kampas Nr. K7-2
+*******
+Kampas Nr. K10-1
+*******
+Kampas Nr. K10-2
+*******
+=== Apskaiciuoti atstumai iki brez.remelio (0.001 tikslumu)===
+Dr17
+*******
+Dr19
+*******
+Dr20
+*******
+Dr24
+*******
+=============== Ismatuota brezinyje ================
+=== Tasku koordinates (0.001 tikslumu) ===
+Tasko Nr.2 koordinates
+X= *******
+Y= *******
+Tasko Nr.3 koordinates
+X= *******
+Y= *******
+Tasko Nr.4 koordinates
+X= *******
+Y= *******
+Tasko Nr.6 koordinates
+X= *******
+Y= *******
+Tasko Nr.8 koordinates
+X= *******
+Y= *******
+Tasko Nr.9 koordinates
+X= *******
+Y= *******
+Tasko Nr.11 koordinates
+X= *******
+Y= *******
+Tasko Nr.12 koordinates
+X= *******
+Y= *******
+Tasko Nr.13 koordinates
+X= *******
+Y= *******
+Tasko Nr.14 koordinates
+X= *******
+Y= *******
+Tasko Nr.15 koordinates
+X= *******
+Y= *******
+Tasko Nr.16 koordinates
+X= *******
+Y= *******
+Tasko Nr.T17 koordinates
+X= *******
+Y= *******
+Tasko Nr.18 koordinates
+X= *******
+Y= *******
+Tasko Nr.T19 koordinates
+X= *******
+Y= *******
+Tasko Nr.T20 koordinates
+X= *******
+Y= *******
+Tasko Nr.21 koordinates
+X= *******
+Y= *******
+Tasko Nr.22 koordinates
+X= *******
+Y= *******
+Tasko Nr.23 koordinates
+X= *******
+Y= *******
+Tasko Nr.T24 koordinates
+X= *******
+Y= *******
+Tasko Nr.25 koordinates
+X= *******
+Y= *******
+Tasko Nr.26 koordinates
+X= *******
+Y= *******
+=== Atkarpu ilgiai(0.001 m tikslumu) ===
+Atkarpa 1-6
+*******
+Atkarpa 3-4
+*******
+Atkarpa 8-9
+*******
+Atkarpa 11-12
+*******
+Atkarpa 9-12
+*******
+Atkarpa 7-11
+*******
+Atkarpa 14-16
+*******
+Atkarpa 13-15
+*******
+Atkarpa T19-T24
+*******
+Atkarpa T17-T20
+*******
+=== Figuru plotai(m2) ir perimetrai(m) (0.001 tikslumu) ===
+Figuros Nr.P1 plotas
+*******
+Figuros Nr.P1 perimetras
+*******
+Figuros Nr.P2 plotas
+*******
+Figuros Nr.P2 perimetras
+*******
+Figuros Nr.P3 plotas
+*******
+Figuros Nr.P3 perimetras
+*******
+Figuros Nr.P4 plotas
+*******
+Figuros Nr.P4 perimetras
+*******
+Figuros Nr.P5 plotas
+*******
+Figuros Nr.P5 perimetras
+*******
+Figuros Nr.P6 plotas
+*******
+Figuros Nr.P6 perimetras
+*******
+Figuros Nr.P7 plotas
+*******
+Figuros Nr.P7 perimetras
+*******
+Figuros Nr.P8 plotas
+*******
+Figuros Nr.P8 perimetras
+*******
+Figuros Nr.P9 plotas
+*******
+Figuros Nr.P9 perimetras
+*******
+Figuros Nr.P10 plotas
+*******
+Figuros Nr.P10 perimetras
+*******
+Figuros Nr.P11 plotas
+*******
+Figuros Nr.P11 perimetras
+*******
+Figuros Nr.P12 plotas
+*******
+Figuros Nr.P12 perimetras
+*******
+Figuros Nr.P13 plotas
+*******
+Figuros Nr.P13 perimetras
+*******
+Bendras plotas (pagal isorini kontura)
+*******
+Bendras perimetras (pagal isorini kontura)
+*******
