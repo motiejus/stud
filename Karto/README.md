@@ -1,5 +1,5 @@
 useful commands:
-- distance
+- distance/measuregeom
 - zoom ext
 - line
 - trim / extend
@@ -13,3 +13,7 @@ useful commands:
 
 questions:
 - how to measure exact angle from XY axis? E.g. K1.
+- are donuts really meant to be that small?
+- "ID" command still uses 4 decimal points.
+- TODO: validate all corners.
+- TODO: measure distances to borders.

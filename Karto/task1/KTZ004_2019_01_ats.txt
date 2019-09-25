@@ -4,113 +4,113 @@ Braize(Motiejus Jakštys)
 *******_*******
 === Apskaiciuotos tasku koordinates (0.000 tikslumu) ===
 Taskas Nr.1 koordinates
-X = *******
-Y = *******
+X = 5053.385
+Y = 5896.569
 Taskas Nr.7 koordinates
-X = *******
-Y = *******
+X = 5162.960
+Y = 5091.992
 Taskas Nr.5 koordinates
-X = *******
-Y = *******
+X = 4418.327
+Y = 5223.450 
 Taskas Nr.10 koordinates
-X = *******
-Y = *******
+X = 4647.239
+Y = 6250.681
 === Apskaiciuoti atkarpu ilgiai (0.000 tikslumu) ===
 Atkarpa D1-2
-*******
+475.004
 Atkarpa D2-3
-*******
+833.977
 Atkarpa D4-5
-*******
+613.512
 Atkarpa D5-6
-*******
+1240.092
 Atkarpa D7-8
-*******
+571.314
 Atkarpa D7-12
-*******
+738.846
 Atkarpa D9-10
-*******
+341.471
 Atkarpa D10-11
-*******
+591.744
 === Apskaiciuoti kampai (laipsniais &  0.0001 tikslumu) ===
 Kampas Nr. K1
-*******
+69.9705
 Kampas Nr. K2
-*******
+79.5494
 Kampas Nr. K5-1
-*******
+27.5822
 Kampas Nr. K5-2
-*******
+171.9616
 Kampas Nr. K7-1
-*******
+46.7800
 Kampas Nr. K7-2
-*******
+27.3816
 Kampas Nr. K10-1
-*******
+101.8414
 Kampas Nr. K10-2
-*******
+115.2866
 === Apskaiciuoti atstumai iki brez.remelio (0.001 tikslumu)===
 Dr17
-*******
+368.787
 Dr19
-*******
+458.486
 Dr20
-*******
+411.445
 Dr24
-*******
+341.014
 =============== Ismatuota brezinyje ================
 === Tasku koordinates (0.001 tikslumu) ===
 Tasko Nr.2 koordinates
-X= *******
-Y= *******
+X= 5215.613
+Y= 6342.843
 Tasko Nr.3 koordinates
-X= *******
-Y= *******
+X= 4395.933
+Y= 6494.579
 Tasko Nr.4 koordinates
-X= *******
-Y= *******
+X= 4647.239
+Y= 6250.219
 Tasko Nr.6 koordinates
-X= *******
-Y= *******
+X= 5646.6971
+Y= 5396.8604
 Tasko Nr.8 koordinates
-X= *******
-Y= *******
+X= 4656.117
+Y= 5354.748
 Tasko Nr.9 koordinates
-X= *******
-Y= *******
+X= 4441.278
+Y= 5977.993
 Tasko Nr.11 koordinates
-X= *******
-Y= *******
+X= 5226.390
+Y= 6128.791
 Tasko Nr.12 koordinates
-X= *******
-Y= *******
+X= 5668.460
+Y= 5630.411
 Tasko Nr.13 koordinates
-X= *******
-Y= *******
+X= 4803.995
+Y= 5277.453
 Tasko Nr.14 koordinates
-X= *******
-Y= *******
+X= 4588.198
+Y= 5549.515
 Tasko Nr.15 koordinates
-X= *******
-Y= *******
+X= 5144.314
+Y= 6145.994
 Tasko Nr.16 koordinates
-X= *******
-Y= *******
+X= 5155.448
+Y= 5811.003
 Tasko Nr.T17 koordinates
-X= *******
-Y= *******
+X= 5447.657
+Y= 5879.369
 Tasko Nr.18 koordinates
-X= *******
-Y= *******
+X= 5535.965
+Y= 5489.416
 Tasko Nr.T19 koordinates
-X= *******
-Y= *******
+X= 5032.739
+Y= 5310.22
 Tasko Nr.T20 koordinates
-X= *******
-Y= *******
+X= 4548.391
+Y= 5666.59
 Tasko Nr.21 koordinates
-X= *******
-Y= *******
+X= 4664.160
+Y= 5694.041
 Tasko Nr.22 koordinates
 X= *******
 Y= *******
