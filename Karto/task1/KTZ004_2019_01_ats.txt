@@ -61,71 +61,71 @@ Dr24
 =============== Ismatuota brezinyje ================
 === Tasku koordinates (0.001 tikslumu) ===
 Tasko Nr.2 koordinates
-X= 5215.613
+X= 5216.076
 Y= 6342.843
 Tasko Nr.3 koordinates
 X= 4395.933
-Y= 6494.579
+Y= 6494.116
 Tasko Nr.4 koordinates
-X= 4647.239
-Y= 6250.219
+X= 4702.396
+Y= 5767.235
 Tasko Nr.6 koordinates
-X= 5646.6971
-Y= 5396.8604
+X= 5646.235
+Y= 5396.860
 Tasko Nr.8 koordinates
-X= 4656.117
+X= 4655.654
 Y= 5354.748
 Tasko Nr.9 koordinates
-X= 4441.278
-Y= 5977.993
+X= 4441.128
+Y= 5978.430
 Tasko Nr.11 koordinates
 X= 5226.390
-Y= 6128.791
+Y= 6129.253
 Tasko Nr.12 koordinates
-X= 5668.460
+X= 5668.923
 Y= 5630.411
 Tasko Nr.13 koordinates
 X= 4803.995
-Y= 5277.453
+Y= 5277.916
 Tasko Nr.14 koordinates
-X= 4588.198
+X= 4588.661
 Y= 5549.515
 Tasko Nr.15 koordinates
-X= 5144.314
-Y= 6145.994
+X= 5144.472
+Y= 6146.429
 Tasko Nr.16 koordinates
 X= 5155.448
-Y= 5811.003
+Y= 5810.541
 Tasko Nr.T17 koordinates
 X= 5447.657
-Y= 5879.369
+Y= 5879.832 
 Tasko Nr.18 koordinates
-X= 5535.965
+X= 5536.427
 Y= 5489.416
 Tasko Nr.T19 koordinates
-X= 5032.739
-Y= 5310.22
+X= 5032.281
+Y= 5310.155
 Tasko Nr.T20 koordinates
 X= 4548.391
-Y= 5666.59
+Y= 5666.589
 Tasko Nr.21 koordinates
 X= 4664.160
 Y= 5694.041
 Tasko Nr.22 koordinates
-X= *******
-Y= *******
+X= 4940.526
+Y= 5759.576
 Tasko Nr.23 koordinates
-X= *******
-Y= *******
+X= 4551.748
+Y= 6124.547 
 Tasko Nr.T24 koordinates
-X= *******
-Y= *******
+X= 4806.004
+Y= 6418.480
 Tasko Nr.25 koordinates
-X= *******
-Y= *******
+X= 5419.339
+Y= 5364.817
 Tasko Nr.26 koordinates
-X= *******
-Y= *******
+X= 4848.894
+Y= 6208.401
 === Atkarpu ilgiai(0.001 m tikslumu) ===
 Atkarpa 1-6
 *******
@@ -199,8 +199,8 @@ Figuros Nr.P12 perimetras
 Figuros Nr.P13 plotas
 *******
 Figuros Nr.P13 perimetras
-*******
+    *******
 Bendras plotas (pagal isorini kontura)
-*******
+    *******
 Bendras perimetras (pagal isorini kontura)
-*******
+    *******
