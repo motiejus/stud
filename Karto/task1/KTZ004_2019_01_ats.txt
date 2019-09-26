@@ -128,46 +128,46 @@ X= 4848.894
 Y= 6208.401
 === Atkarpu ilgiai(0.001 m tikslumu) ===
 Atkarpa 1-6
-*******
+775.357
 Atkarpa 3-4
-*******
+788.845
 Atkarpa 8-9
-*******
+659.546
 Atkarpa 11-12
-*******
+666.842
 Atkarpa 9-12
-*******
+1276.165
 Atkarpa 7-11
-*******
+1039.199
 Atkarpa 14-16
-*******
+624.005
 Atkarpa 13-15
-*******
+932.866
 Atkarpa T19-T24
-*******
+1131.187
 Atkarpa T17-T20
-*******
+924.203
 === Figuru plotai(m2) ir perimetrai(m) (0.001 tikslumu) ===
 Figuros Nr.P1 plotas
-*******
+46365.382
 Figuros Nr.P1 perimetras
-*******
+1130.394
 Figuros Nr.P2 plotas
-*******
+72800.889
 Figuros Nr.P2 perimetras
-*******
+1400.092
 Figuros Nr.P3 plotas
-*******
+92239.198
 Figuros Nr.P3 perimetras
-*******
+1325.476
 Figuros Nr.P4 plotas
-*******
+74439.583
 Figuros Nr.P4 perimetras
-*******
+1116.860
 Figuros Nr.P5 plotas
-*******
+Area = 72699.034, Perimeter = 1142.471
 Figuros Nr.P5 perimetras
-*******
+
 Figuros Nr.P6 plotas
 *******
 Figuros Nr.P6 perimetras
