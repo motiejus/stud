@@ -165,42 +165,42 @@ Figuros Nr.P4 plotas
 Figuros Nr.P4 perimetras
 1116.860
 Figuros Nr.P5 plotas
-Area = 72699.034, Perimeter = 1142.471
+72699.034
 Figuros Nr.P5 perimetras
-
+1142.471
 Figuros Nr.P6 plotas
-*******
+88156.513
 Figuros Nr.P6 perimetras
-*******
+1396.717
 Figuros Nr.P7 plotas
-*******
+63891.378
 Figuros Nr.P7 perimetras
-*******
+1102.371
 Figuros Nr.P8 plotas
-*******
+7329.505
 Figuros Nr.P8 perimetras
-*******
+405.844
 Figuros Nr.P9 plotas
-*******
+152546.687
 Figuros Nr.P9 perimetras
-*******
+1509.355
 Figuros Nr.P10 plotas
-*******
+186640.898
 Figuros Nr.P10 perimetras
-*******
+1739.717
 Figuros Nr.P11 plotas
-*******
+136089.340
 Figuros Nr.P11 perimetras
-*******
+1576.707
 Figuros Nr.P12 plotas
-*******
+83197.918
 Figuros Nr.P12 perimetras
-*******
+1380.399
 Figuros Nr.P13 plotas
-*******
+12259.515
 Figuros Nr.P13 perimetras
-    *******
+    543.739
 Bendras plotas (pagal isorini kontura)
-    *******
+    1097314.349
 Bendras perimetras (pagal isorini kontura)
-    *******
+    4854.827
