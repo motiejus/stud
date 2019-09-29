@@ -13,3 +13,4 @@
 *.dwl
 *.dwl2
 *.bak
+__pycache__
