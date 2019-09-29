@@ -1,7 +1,7 @@
 Uzduotis Nr. 
-*******
-Braize(Motiejus Jakštys)
-*******_*******
+KTZ004_2019_01
+Braize(Pavarde_Vardas)
+Motiejus_Jakstys
 === Apskaiciuotos tasku koordinates (0.000 tikslumu) ===
 Taskas Nr.1 koordinates
 X = 5053.385
@@ -199,8 +199,8 @@ Figuros Nr.P12 perimetras
 Figuros Nr.P13 plotas
 12259.515
 Figuros Nr.P13 perimetras
-    543.739
+543.739
 Bendras plotas (pagal isorini kontura)
-    1097314.349
+1097314.349
 Bendras perimetras (pagal isorini kontura)
-    4854.827
+4854.827
