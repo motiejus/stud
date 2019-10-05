@@ -1,0 +1,144 @@
+Uzduotis Nr. 
+*******
+Braize(Pavarde_Vardas)
+*******_*******
+=== Apskaiciuotos tasku koordinates (0.000 tikslumu)===
+Taskas Nr.1 koordinates
+X = *******
+Y = *******
+Taskas Nr.2 koordinates
+X = *******
+Y = *******
+Taskas Nr.3 koordinates
+X = *******
+Y = *******
+=== Apskaiciuoti apsaugos zonos plociai (0.000 tikslumu) ===
+Apsaugos zonos A1 plotis
+*******
+Apsaugos zonos A2 plotis
+*******
+Apsaugos zonos A3 plotis
+*******
+Apsaugos zonos A4 plotis
+*******
+Apsaugos zonos A5 plotis
+*******
+Apsaugos zonos A6 plotis
+*******
+=== Apskaiciuoti keliu plociai nuo asies (0.000 tikslumu) ===
+1 kelio plotis nuo asies (A7 (1 kelias))
+*******
+2 kelio plotis nuo asies (A8 (2 kelias))
+*******
+3 kelio plotis nuo asies (A9 (3 kelias))
+*******
+=== Apskaiciuoti kampai (laipsniais, 0.0001 tikslumu) ===
+Kampas Nr. K1-1
+*******
+Kampas Nr. K1-2
+*******
+Kampas Nr. K2-1
+*******
+Kampas Nr. K2-2
+*******
+Kampas Nr. K3-1
+*******
+Kampas Nr. K3-2
+*******
+=============== Ismatuota (apskaiciuota) brezinyje ================
+=== Tasku koordinates (0.001 tikslumu) ===
+Tasko Nr.4 koordinates
+X= *******
+Y= *******
+Tasko Nr.5 koordinates
+X= *******
+Y= *******
+Tasko Nr.6 koordinates
+X= *******
+Y= *******
+Tasko Nr.7 koordinates
+X= *******
+Y= *******
+Tasko Nr.8 koordinates
+X= *******
+Y= *******
+Tasko Nr.9 koordinates
+X= *******
+Y= *******
+Tasko Nr.10 koordinates
+X= *******
+Y= *******
+Tasko Nr.11 koordinates
+X= *******
+Y= *******
+Tasko Nr.12 koordinates
+X= *******
+Y= *******
+=== Koordinaciu tinklo pradzios koordinates (0.001 tikslumu) ===
+X= *******
+Y= *******
+=== Pusiaukampiniu susikirtimo tasko (Nr.13) koordinates (0.001 tikslumu) ===
+X= *******
+Y= *******
+=== Atkarpu ilgiai(0.001 tikslumu) ===
+Atkarpa 1-5
+*******
+Atkarpa 5-2
+*******
+Atkarpa 2-6
+*******
+Atkarpa 6-3
+*******
+Atkarpa 3-4
+*******
+Atkarpa 4-1
+*******
+=== Teritoriju plotai ir perimetrai(0.001 tikslumu) ===
+Sklypo (savartyno) [1-5-2-6-3-4-1] plotas (be keliais uzimamo ploto)
+*******
+Visas keliais uzimamas plotas sklypo (tik savartyno) ribose
+*******
+Visas sklypo (tik savartyno) perimetras
+*******
+Apsaugos zonos plotas (be keliais uzimamo ploto)
+*******
+Visas keliais uzimamas plotas tik apsaugos zonos ribose
+*******
+Apsaugos zonos ribos (su valstybiniu misku) ilgis (be keliu plociu)
+*******
+Apsaugos zonos ribos (su gamyklos teritorija) ilgis (be keliu plociu)
+*******
+=== Mokesciai i valstybes biudzeta uz visa (nurodyta) ekspl.laika (Eu 0.01 tikslumu) ===
+Visos teritorijos eksploatacijos terminas (men.) (duotas)
+*******
+Sklypo (savartyno) teritorijos 1 aro prieziuros mokestis (Eur.men.) (duotas)
+*******
+Visas sklypo(savartyno be keliu) teritorijos prieziuros mokestis (Eur.)
+*******
+Apsaugos zonos (be keliu) 1ha prieziuros mokestis (Eur./men.) (duotas)
+*******
+Visas Apsaugos zonos (be keliu) prieziuros mokestis (Eur.)
+*******
+Keliu 1 m2 prieziuros mokestis (Eur./men) (duotas)
+*******
+Visas keliu prieziuros mokestis (Eur.)
+*******
+Visas mokestis i valstybes biudzeta (Eur.)
+*******
+=== Medziagu,reikalingu aps.zonos aptverimui,kiekiai ir kaina ===
+Spygliuotos vielos 1m kaina (duota) (0.01 Eu)
+*******
+Spygliuotos vielos eiliu skaicius (duota)
+*******
+Visas spygliuotos vielos ilgis (0.01 m tikslumu)
+*******
+Visos reikalingos spygliuotos vielos kaina (0.01 Eu tikslumu)
+*******
+Vielos tinklo 1m2 kaina (duota) (0.01 Eu)
+*******
+Vielos tinklo tvoros aukstis (duotas) (0.01 m)
+*******
+Visas vielos tinklo tvoros plotas (0.01 m2)
+*******
+Visa reikalingos vielos tinklo tvoros kaina (0.01 Eu tikslumu)
+*******
