@@ -12,10 +12,8 @@ useful commands:
 - f2: console
 
 questions:
-+ how to measure exact angle from XY axis? E.g. K1.
-  measure
-- are donuts really meant to be that small?
-+ "ID" command still uses 4 decimal points.
-  units
-- TODO: validate all corners.
-- TODO: measure distances to borders.
+- differences in LKS94?
+  -  https://epsg.io/3346
+  -  https://epsg.io/4669
+  -  https://epsg.io/4951
+  -  https://epsg.io/4950
