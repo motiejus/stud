@@ -10,14 +10,14 @@ Pagal duotus duomenis apskaiciuoti (ivedant nurodytas pataisas) braizymui reikal
  
 === Pradiniu tasku koordinates (LKS94 sistemoje) ===
 1
-X = 6171050.082 + B = 6171052.502
-Y = 586491.217 + B = 586493.637
+X = 6161051.782 + B = 6161054.202
+Y = 383492.324 + B = 383494.744
 2
-X = 6171121.58 + C = 6171126.296
-Y = 586544.037 + B = 586546.457
+X = 6161104.602 + C = 6161109.318
+Y = 383563.822 + B = 383566.242
 3
-X = 6171135.686 + B = 6171138.106
-Y = 586464.874 + A = 586470.802
+X = 6161024.833 + B = 6161027.253
+Y = 383578.848 + A = 383584.776
  
 === Apsaugos zonos plociai ===
 A1 = 15.235 + C = 19.951
