@@ -110,13 +110,13 @@ Apsaugos zonos ribos (su gamyklos teritorija) ilgis (be keliu plociu)
 462.791
 === Mokesciai i valstybes biudzeta uz visa (nurodyta) ekspl.laika (Eu 0.01 tikslumu) ===
 Visos teritorijos eksploatacijos terminas (men.) (duotas)
-*******
+168.23
 Sklypo (savartyno) teritorijos 1 aro prieziuros mokestis (Eur.men.) (duotas)
-*******
+53.08
 Visas sklypo(savartyno be keliu) teritorijos prieziuros mokestis (Eur.)
-*******
+493803.93
 Apsaugos zonos (be keliu) 1ha prieziuros mokestis (Eur./men.) (duotas)
-*******
+1073.97
 Visas Apsaugos zonos (be keliu) prieziuros mokestis (Eur.)
 *******
 Keliu 1 m2 prieziuros mokestis (Eur./men) (duotas)
