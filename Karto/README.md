@@ -20,3 +20,7 @@ questions:
   -  https://epsg.io/4950
 - what to click to create an xline with the same offset (accept suggestion)?
 - how to draw a semicircular?
+- how to add a dimension text (kelio ašis)?
+- how to make a legend?
+- how to add labels to the coordinate system?
+- how to scale the overlay sheet of paper?
