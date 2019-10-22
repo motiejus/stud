@@ -7,6 +7,7 @@ useful commands:
 - "signature": sketch
 - donut
 - xline: for coordinate axis (infinite lines)
+- aeclayerorder
 
 - f8: perpendicular
 - f2: console
@@ -17,3 +18,5 @@ questions:
   -  https://epsg.io/4669
   -  https://epsg.io/4951
   -  https://epsg.io/4950
+- what to click to create an xline with the same offset (accept suggestion)?
+- how to draw a semicircular?
