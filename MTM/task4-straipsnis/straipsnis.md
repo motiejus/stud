@@ -72,8 +72,6 @@ Užklausos
 
 **Kokie oro uostai yra labiausiai nutolę vienas nuo kito?**
 
-Išrinkime 10 porų:
-
 ```
 SELECT
     a.country AS a_country,
@@ -82,19 +80,43 @@ SELECT
     b.country AS b_country,
     b.name AS b_name,
     b.iata AS b_iata,
-    to_char(st_distance (a.geom, b.geom, TRUE) / 1000, '99999.99') AS distance_km
+    to_char(st_distance (a.geom, b.geom, FALSE) / 1000, '99999.99') AS distance_km
 FROM
     airports a,
     airports b
 WHERE
-    a.gid > b.gid
+    a.iata != '\N'
+    AND b.iata != '\N'
+    AND a.gid > b.gid
 ORDER BY
     distance_km DESC
 LIMIT 10;
 ```
 
+**Kurie du oro uosta yra arčiausiai vienas kito?**
+```
+SELECT
+    a.country AS a_country,
+    a.name AS a_name,
+    a.iata AS a_iata,
+    b.country AS b_country,
+    b.name AS b_name,
+    b.iata AS b_iata,
+    to_char(st_distance (a.geom, b.geom, FALSE) / 1000, '0.99') AS distance_km
+FROM
+    airports a,
+    airports b
+WHERE
+    a.iata != '\N'
+    AND b.iata != '\N'
+    AND a.gid > b.gid
+ORDER BY
+    distance_km ASC
+LIMIT 10;
+```
 
-**Kurie du oro uosta yra arčiausiai vienas kito? O toje pačioje šalyje?**
+Pakeitus `DESC` į `ASC` ankstesnėje užklausoje gauname:
+
 **Kokį atstumą skristume aplink žemę, jei iš Vilniaus skristume ta pačia platuma?**
 **Kiek kartų reikia nuskristi United Economy klase aplink žemę Vilniaus
   platumoje, kad uždirbtume [nemokamus pusryčius][2]?**
