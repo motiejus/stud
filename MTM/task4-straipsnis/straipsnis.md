@@ -1,15 +1,16 @@
-Trumpas įvadas į GIS programuotojui
-===================================
+Trumpas programuotojo įvadas į PostGIS
+======================================
 
 Jei tau nesvetimos duomenų bazės ar programavimas, ir iš žinių norėjote
 daugiau, šis įrašas -- jums. Labai trumpai susipažinsime, kaip sukurti
 "erdvinę" duomenų bazę ir leisti naudingas užklausas.
 
 Turinys:
-- Kas yra PostGis?
-- Užduoties aprašymas.
-- Užduoties vykdymas.
-- Pavyzdžiai.
+
+* Kas yra PostGis?
+* Užduoties aprašymas.
+* Užduoties vykdymas.
+* Pavyzdžiai.
 
 Kas yra PostGis?
 ----------------
@@ -28,9 +29,10 @@ Duomenų bazės sukūrimas
 -----------------------
 
 Susidarys iš kelių dalių:
-- Duomenų bazės sukūrimas.
-- Duomenų importavimas.
-- Užklausos.
+
+* Duomenų bazės sukūrimas.
+* Duomenų importavimas.
+* Užklausos.
 
 Oro uostų informaciją gausime iš [openflights.org][3]; `airports.dat` failas
 jūsų patogumui yra šioje repositorijoje. Sukurkime ir importuokime duomenų bazę
@@ -193,15 +195,18 @@ LIMIT 10;
  RAS  | Sardar-e-Jangal Airport              | Iran          | -12.19
 ```
 
-Pabaiga
--------
+Pabaigai
+--------
 
-Kaip matėme šiame įraše, PostGis suteikia erdvines funkcijas, duomenų tipus ir
-indeksus prie patogios ir pažįstamos PostgreSQL sąsajos.
+PostGis prie pažįstamos ir galingos PostgreSQL sąsajos suteikia erdvines
+funkcijas, duomenų tipus ir indeksavimo galimybes. Susipažinus su PostgreSQL,
+importuoti erdvinius duomenis ir pradėti juos analizuoti yra gana nedidelis
+šuolis.
 
 Užduotys susidomėjusiam skaitytojui:
+
 * Kodėl artimiausių oro uostų užklausoje naudojome [<->][5], o
-  tolimiausių -- [st_distance][6]?
+  tolimiausių -- [`st_distance`][6]?
 * Kokį atstumą skristume aplink žemę, jei iš Vilniaus skristume ta pačia platuma?
 * Kiek kartų reikia nuskristi United Economy klase aplink žemę Vilniaus
   platumoje, kad uždirbtume [nemokamus pusryčius][2]?
