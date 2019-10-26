@@ -205,7 +205,7 @@ Pabaigai
 --------
 
 PostGis prie pažįstamos ir galingos PostgreSQL sąsajos suteikia erdvines
-funkcijas, duomenų tipus ir indeksavimo galimybes. Jau žinant PostgreSQL,
+[funkcijas, duomenų tipus ir indeksavimo galimybes][9]. Jau žinant PostgreSQL,
 importuoti erdvinius duomenis ir pradėti juos analizuoti yra gana nedidelis
 šuolis.
 
@@ -227,3 +227,4 @@ Užduotys susidomėjusiam skaitytojui:
 [6]: https://postgis.net/docs/ST_Distance.html
 [7]: https://www.united.com/ual/en/us/fly/mileageplus/premier/full-premier-benefits-chart.html
 [8]: https://goo.gl/maps/3usBcUHDWnefVmab6
+[9]: https://postgis.net/docs/reference.html
