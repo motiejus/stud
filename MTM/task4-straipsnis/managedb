@@ -1,0 +1,23 @@
+#!/bin/bash
+set -xeuo pipefail
+
+if [[ $1 == init ]]; then
+    mkdir -p db && initdb db
+    pg_ctl -D db -l db/logfile start
+
+    psql postgres \
+        -c 'CREATE DATABASE airportgames;' \
+        -c 'CREATE USER airportgames;' \
+        -c 'GRANT ALL PRIVILEGES ON DATABASE airportgames to airportgames;'
+    psql -d airportgames \
+        -c 'CREATE EXTENSION postgis'
+fi
+
+if [[ $1 == start ]]; then
+    pg_ctl -D db -l db/logfile start
+fi
+
+
+if [[ $1 == stop ]]; then
+    pg_ctl -D db -l db/logfile stop
+fi
