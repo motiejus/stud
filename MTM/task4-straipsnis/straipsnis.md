@@ -80,7 +80,7 @@ SELECT
     b.country AS b_country,
     b.name AS b_name,
     b.iata AS b_iata,
-    to_char(st_distance (a.geom, b.geom, FALSE) / 1000, '99999.99') AS distance_km
+    to_char(st_distance (a.geom, b.geom, TRUE) / 1000, '99999.99') AS distance_km
 FROM
     airports a,
     airports b
@@ -91,9 +91,21 @@ WHERE
 ORDER BY
     distance_km DESC
 LIMIT 10;
+    a_country     |               a_name                | a_iata |        b_country        |               b_name               | b_iata | distance_km
+------------------+-------------------------------------+--------+-------------------------+------------------------------------+--------+-------------
+ China            | Zhangjiakou Ningyuan Airport        | ZQZ    | Argentina               | Antoine de Saint Exupéry Airport   | OES    |  20002.42
+ Saudi Arabia     | King Khaled Air Base                | KMX    | French Polynesia        | Pukarua Airport                    | PUK    |  20000.78
+ Indonesia        | Radin Inten II (Branti) Airport     | TKG    | Colombia                | Mariquita Airport                  | MQU    |  20000.53
+ French Polynesia | Napuka Island Airport               | NAU    | Ethiopia                | Axum Airport                       | AXU    |  20000.47
+ Nicaragua        | Corn Island                         | RNI    | Cocos (Keeling) Islands | Cocos (Keeling) Islands Airport    | CCK    |  20000.20
+ China            | Jinggangshan Airport                | JGS    | Argentina               | Teniente Benjamin Matienzo Airport | TUC    |  19999.93
+ Malaysia         | Long Lellang Airport                | LGL    | Brazil                  | Tefé Airport                       | TFF    |  19998.43
+ New Zealand      | Hamilton International Airport      | HLZ    | Spain                   | Córdoba Airport                    | ODB    |  19998.36
+ Indonesia        | Sultan Mahmud Badaruddin II Airport | PLM    | Colombia                | Benito Salas Airport               | NVA    |  19998.19
+ Malaysia         | Sultan Ismail Petra Airport         | KBR    | Peru                    | Chachapoyas Airport                | CHH    |  19998.13
 ```
 
-**Kurie du oro uosta yra arčiausiai vienas kito?**
+**Kurie oro uostai yra arčiausiai vienas kito?**
 ```
 SELECT
     a.country AS a_country,
@@ -102,7 +114,7 @@ SELECT
     b.country AS b_country,
     b.name AS b_name,
     b.iata AS b_iata,
-    to_char(st_distance (a.geom, b.geom, FALSE) / 1000, '0.99') AS distance_km
+    to_char(st_distance (a.geom, b.geom, TRUE) / 1000, '99999.99') AS distance_km
 FROM
     airports a,
     airports b
@@ -113,9 +125,19 @@ WHERE
 ORDER BY
     distance_km ASC
 LIMIT 10;
+    a_country     |                a_name                 | a_iata |    b_country     |                       b_name                        | b_iata | distance_km
+------------------+---------------------------------------+--------+------------------+-----------------------------------------------------+--------+-------------
+ Australia        | Shute Harbour Airport                 | JHQ    | Australia        | Whitsunday Island Airport                           | WSY    |      0.14
+ Papua New Guinea | Nadunumu Airport                      | NDN    | Papua New Guinea | Kagi Airport                                        | KGW    |      1.83
+ Papua New Guinea | Kagi Airport                          | KGW    | Papua New Guinea | Efogi Airport                                       | EFG    |      2.24
+ Rwanda           | Gisenyi Airport                       | GYI    | Congo (Kinshasa) | Goma International Airport                          | GOM    |      2.38
+ United Kingdom   | Westray Airport                       | WRY    | United Kingdom   | Papa Westray Airport                                | PPW    |      2.83
+ Papua New Guinea | Nadunumu Airport                      | NDN    | Papua New Guinea | Efogi Airport                                       | EFG    |      2.92
+ Papua New Guinea | Bodinumu Airport                      | BNM    | Papua New Guinea | Kagi Airport                                        | KGW    |      3.13
+ Virgin Islands   | Charlotte Amalie Harbor Seaplane Base | SPB    | Virgin Islands   | Cyril E. King Airport                               | STT    |      3.46
+ United States    | Brown Field Municipal Airport         | SDM    | Mexico           | General Abelardo L. Rodríguez International Airport | TIJ    |      3.59
+ French Guiana    | Saint-Laurent-du-Maroni Airport       | LDX    | Suriname         | Albina Airport                                      | ABN    |      3.71
 ```
-
-Pakeitus `DESC` į `ASC` ankstesnėje užklausoje gauname:
 
 **Kokį atstumą skristume aplink žemę, jei iš Vilniaus skristume ta pačia platuma?**
 **Kiek kartų reikia nuskristi United Economy klase aplink žemę Vilniaus
