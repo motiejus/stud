@@ -1,48 +1,35 @@
 Trumpas programuotojo įvadas į PostGIS
 ======================================
 
-Jei tau nesvetimos duomenų bazės ar programavimas, ir iš žinių norėjote
-daugiau, šis įrašas -- jums. Labai trumpai susipažinsime, kaip sukurti
-"erdvinę" duomenų bazę ir leisti naudingas užklausas.
+Kai mokėmės duomenų bazių, paprastai pavyzdiniai duomenų bazių modeliai būdavo
+gana panašūs vienas į kitą ir nuobodūs: sumodeliuoti biblioteką, sumodeliuoti
+"draugų" duomenų bazę, ar gyvūnų klasifikaciją.
 
-Turinys:
-
-* Kas yra PostGis?
-* Užduoties aprašymas.
-* Užduoties vykdymas.
-* Pavyzdžiai.
+Šis įrašas parodys, kaip prie žinomų SQL duomenų tipų galima pridėti erdvinius,
+ir kokias įdomias užklausas galime: sukursime tarptautinių oro uostų duomenų
+bazę (nebijokite, duomenis importuosime), užduosime ir atsakysime keletą įdomių
+klausimų.
 
 Kas yra PostGis?
 ----------------
 
-PostGis yra PostgreSQL įskiepis, pridedantis naujų duomenų tipų ir funkcijų,
-skirtų dirbti su erdve. Ką tai reiškia? Išspręskime užduotį ir sužinosime.
-
-Užduotis
---------
-
-Susikurkime PostgreSQL lentelę su viso pasaulio oro uostais (bent tais, kurie
-turi [IATA kodą][1]) ir pažaiskime su duomenimis. Toliau tekste -- atsakymas į keletą 
-su kelionėmis ir oro uostais susijusių klausimų.
+PostGis yra PostgreSQL priedas. PostGis prideda PostgreSQL naujų tipų ir
+funkcijų, skirtų dirbti su erdviniais duomenimis. Ką tai reiškia? Išspręskime
+užduotį ir sužinosime.
 
 Duomenų bazės sukūrimas
 -----------------------
 
-Susidarys iš kelių dalių:
-
-* Duomenų bazės sukūrimas.
-* Duomenų importavimas.
-* Užklausos.
-
-Oro uostų informaciją gausime iš [openflights.org][3]; `airports.dat` failas
-jūsų patogumui yra šioje repositorijoje. Sukurkime ir importuokime duomenų bazę
-(skriptai paprasti, rekomenduoju peržiūrėti):
+Susikurkime PostgreSQL lentelę su viso pasaulio oro uostais (bent tais, kurie
+turi [IATA kodą][1]). Oro uostų informaciją gausime iš [openflights.org][3].
 
 ```
 $ ./managedb init
 ```
 
-Sukūrėme duombazę su visais oro uostais; patikrinkime, kas viduje:
+Visi skriptai ir `airports.dat` (oro uostų informacija) yra [šioje
+repositorijoje][2]; skriptai nedideli, todėl labai rekomenduoju peržiūrėti bent
+jau `sql` failus. Patikrinkime, kas viduje:
 
 ```
 psql airportgames <<<"
@@ -63,6 +50,12 @@ WHERE
  RIX  | Riga International Airport    |   56.92  |   23.97   |    11
  VNO  | Vilnius International Airport |   54.63  |   25.29   |   198
 ```
+
+Matome Vilniaus, Rygos ir Talino oro uostų informaciją: IATA kodą, pavadinimą,
+ilgumą, platumą, aukštį virš jūros lygio metrais.
+
+Dabar, kai turime visus oro uostus, užduokime kelis įdomesnius klausimus apie
+oro uostus.
 
 Užklausos
 ---------
@@ -101,6 +94,11 @@ LIMIT 10;
  Malaysia         | KBR    | Peru                    | CHH    |  19998.13
 ```
 
+Turint galvoje, kad pusė atstumo aplink žemę ties ekvatoriais yra 20037.50 km
+(ties poliais - 20004 km!), atstumas tarp tolimiausių oro uostų yra gana arti
+teorinio maksimumo: trūksta tik 35km iki teorinio maksimumo ties ekvatoriumi,
+ir tik 2km iki teorinio maksimumo ties poliais.
+
 **Kurie oro uostai yra arčiausiai vienas kito?**
 ```
 SELECT
@@ -108,6 +106,8 @@ SELECT
     a.iata AS a_iata,
     b.country AS b_country,
     b.iata AS b_iata,
+    to_char(st_y (a.geom), 'FMSG999.0000') || ',' || to_char(st_x (a.geom), 'FMSG999.0000') AS a_latlng,
+    to_char(st_y (b.geom), 'FMSG999.0000') || ',' || to_char(st_x (b.geom), 'FMSG999.0000') AS b_latlng,
     to_char(st_distance (a.geom, b.geom, TRUE) / 1000, '99999.99') AS distance_km
 FROM
     airports a,
@@ -120,22 +120,25 @@ ORDER BY
     a.geom <-> b.geom ASC
 LIMIT 10;
 
-    a_country     | a_iata |    b_country     | b_iata | distance_km
-------------------+--------+------------------+--------+-------------
- Australia        | JHQ    | Australia        | WSY    |      0.14
- Papua New Guinea | NDN    | Papua New Guinea | KGW    |      1.83
- Papua New Guinea | KGW    | Papua New Guinea | EFG    |      2.24
- Rwanda           | GYI    | Congo (Kinshasa) | GOM    |      2.38
- United Kingdom   | WRY    | United Kingdom   | PPW    |      2.83
- Papua New Guinea | NDN    | Papua New Guinea | EFG    |      2.92
- Papua New Guinea | BNM    | Papua New Guinea | KGW    |      3.13
- Virgin Islands   | SPB    | Virgin Islands   | STT    |      3.46
- United States    | SDM    | Mexico           | TIJ    |      3.59
- French Guiana    | LDX    | Suriname         | ABN    |      3.71
+    a_country     | a_iata |    b_country     | b_iata |      a_latlng      |      b_latlng      | distance_km
+------------------+--------+------------------+--------+--------------------+--------------------+-------------
+ Australia        | JHQ    | Australia        | WSY    | -20.2772,+148.7556 | -20.2761,+148.7550 |      0.14
+ Papua New Guinea | NDN    | Papua New Guinea | KGW    | -9.1436,+147.6842  | -9.1359,+147.6694  |      1.83
+ Papua New Guinea | KGW    | Papua New Guinea | EFG    | -9.1359,+147.6694  | -9.1538,+147.6598  |      2.24
+ Rwanda           | GYI    | Congo (Kinshasa) | GOM    | -1.6772,+29.2589   | -1.6708,+29.2385   |      2.38
+ Papua New Guinea | NDN    | Papua New Guinea | EFG    | -9.1436,+147.6842  | -9.1538,+147.6598  |      2.92
+ Papua New Guinea | BNM    | Papua New Guinea | KGW    | -9.1078,+147.6667  | -9.1359,+147.6694  |      3.13
+ Virgin Islands   | SPB    | Virgin Islands   | STT    | +18.3386,-64.9407  | +18.3373,-64.9734  |      3.46
+ United States    | SDM    | Mexico           | TIJ    | +32.5723,-116.9800 | +32.5411,-116.9700 |      3.59
+ French Guiana    | LDX    | Suriname         | ABN    | +5.4831,-54.0344   | +5.5127,-54.0501   |      3.71
+ Papua New Guinea | BNM    | Papua New Guinea | NDN    | -9.1078,+147.6667  | -9.1436,+147.6842  |      4.40
 ```
 
-Dėl pirmų 4 oro uostų įrodymų neradau, kad jie greta, bet WRY ir PPW
-tikrai [netoli][4].
+140 metrų atstumu esantys JHQ ir WSY oro uostai Australijoje atrodo kaip tas
+pats objektas.  `NDN` ir `KGW` atrodo kaip du [skirtingi nupjautos žolės
+ruožai, skirti nusileisti lėktuvams][4], užskaitysime!  Ketvirtosios vietos
+laimėtojus tarp Ruandos ir Kongo [skiria 2.38 km][8], ir tai jau tikri nemaži
+oro uostai.
 
 **Aukščiausiai virš jūros lygio esantys oro uostai?**
 
@@ -195,11 +198,14 @@ LIMIT 10;
  RAS  | Sardar-e-Jangal Airport              | Iran          | -12.19
 ```
 
+Aukštai ir žemai esantiems oro uostams turbūt komentarų daug nereikia. Tik
+abejais atvejais aiškūs pirmųjų vietų laimėtojai.
+
 Pabaigai
 --------
 
 PostGis prie pažįstamos ir galingos PostgreSQL sąsajos suteikia erdvines
-funkcijas, duomenų tipus ir indeksavimo galimybes. Susipažinus su PostgreSQL,
+funkcijas, duomenų tipus ir indeksavimo galimybes. Jau žinant PostgreSQL,
 importuoti erdvinius duomenis ir pradėti juos analizuoti yra gana nedidelis
 šuolis.
 
@@ -207,14 +213,17 @@ Užduotys susidomėjusiam skaitytojui:
 
 * Kodėl artimiausių oro uostų užklausoje naudojome [<->][5], o
   tolimiausių -- [`st_distance`][6]?
-* Kokį atstumą skristume aplink žemę, jei iš Vilniaus skristume ta pačia platuma?
+* Kokį atstumą skristume aplink žemę, jei iš Vilniaus skristume visą laiką ta
+  pačia platuma?
 * Kiek kartų reikia nuskristi United Economy klase aplink žemę Vilniaus
-  platumoje, kad uždirbtume [nemokamus pusryčius][2]?
+  platumoje, kad uždirbtume [nemokamus pusryčius][7]?
 
 
 [1]: https://en.wikipedia.org/wiki/International_Air_Transport_Association_code
-[2]: https://www.united.com/ual/en/us/fly/mileageplus/premier/full-premier-benefits-chart.html
+[2]: https://github.com/motiejus/stud/tree/master/MTM/task4-straipsnis
 [3]: https://openflights.org/data.html
-[4]: https://goo.gl/maps/CCkqFvhN9rWfrsxT6
+[4]: https://goo.gl/maps/RD3d9fsH8NwzAnsYA
 [5]: https://postgis.net/docs/geometry_distance_knn.html
 [6]: https://postgis.net/docs/ST_Distance.html
+[7]: https://www.united.com/ual/en/us/fly/mileageplus/premier/full-premier-benefits-chart.html
+[8]: https://goo.gl/maps/3usBcUHDWnefVmab6
