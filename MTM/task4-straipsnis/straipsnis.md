@@ -37,14 +37,13 @@ Susidarys iš kelių dalių:
 - Duomenų importavimas.
 - Užklausos.
 
-Duomenų bazės sukūrimui galite naudoti skriptą:
+Oro uostų informaciją gausime iš [openflights.org][3]; `airports.dat` failas
+jūsų patogumui yra šioje repositorijoje. Sukurkime ir importuokime duomenų bazę
+(skriptai paprasti, rekomenduoju peržiūrėti):
 
 ```
-./managedb init
-psql airportgames < init.sql
+$ ./managedb init
 ```
-
-Atsisiųskime oro uostų informaciją [airports.dat][3] faile ir importuokime į duomenų bazę:
 
 
 
