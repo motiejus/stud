@@ -48,8 +48,8 @@ WHERE
 Matome Vilniaus, Rygos ir Talino oro uostų informaciją: IATA kodą, pavadinimą,
 ilgumą, platumą, aukštį virš jūros lygio metrais.
 
-Dabar, kai turime visus oro uostus, užduokime kelis įdomesnius klausimus apie
-oro uostus.
+Dabar, kai informacija ranka pasiekiama, užduokime kelis įdomesnius klausimus,
+ir juos atsakykime.
 
 Užklausos
 ---------
@@ -128,8 +128,8 @@ LIMIT 10;
  Papua New Guinea | BNM    | Papua New Guinea | NDN    | -9.1078,+147.6667  | -9.1436,+147.6842  |      4.40
 ```
 
-140 metrų atstumu esantys JHQ ir WSY oro uostai Australijoje atrodo kaip tas
-pats objektas.  `NDN` ir `KGW` atrodo kaip du [skirtingi nupjautos žolės
+140 metrų atstumu esantys JHQ ir WSY oro uostai Australijoje atrodo kaip [tas
+pats objektas][10]. `NDN` ir `KGW` atrodo kaip du [nupjautos žolės
 ruožai, skirti nusileisti lėktuvams][4], užskaitysime!  Ketvirtosios vietos
 laimėtojus tarp Ruandos ir Kongo [skiria 2.38 km][8], ir tai jau tikri nemaži
 oro uostai.
@@ -200,17 +200,15 @@ Pabaigai
 
 PostGis prie pažįstamos ir galingos PostgreSQL sąsajos suteikia erdvines
 [funkcijas, duomenų tipus ir indeksavimo galimybes][9]. Jau žinant PostgreSQL,
-importuoti erdvinius duomenis ir pradėti juos analizuoti yra gana nedidelis
-šuolis.
+importuoti erdvinius duomenis ir pradėti juos analizuoti reikia tikrai ne daug.
 
 Užduotys susidomėjusiam skaitytojui:
 
 * Kodėl artimiausių oro uostų užklausoje naudojome [<->][5], o
   tolimiausių -- [`st_distance`][6]?
-* Kokį atstumą skristume aplink žemę, jei iš Vilniaus skristume visą laiką ta
-  pačia platuma?
+* Kokį atstumą skristume aplink žemę Vilniaus platuma?
 * Kiek kartų reikia nuskristi United Economy klase aplink žemę Vilniaus
-  platumoje, kad uždirbtume [nemokamus pusryčius][7]?
+  platuma, kad uždirbtume [nemokamus pusryčius][7]?
 
 
 [1]: https://en.wikipedia.org/wiki/International_Air_Transport_Association_code
@@ -222,3 +220,4 @@ Užduotys susidomėjusiam skaitytojui:
 [7]: https://www.united.com/ual/en/us/fly/mileageplus/premier/full-premier-benefits-chart.html
 [8]: https://goo.gl/maps/3usBcUHDWnefVmab6
 [9]: https://postgis.net/docs/reference.html
+[10]: https://goo.gl/maps/T6WQhT2FDUdymnRB9
