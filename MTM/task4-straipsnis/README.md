@@ -230,6 +230,23 @@ LIMIT 15;
  Grise Fiord Airport              | Canada     | +76.4261,-82.9092
 ```
 
+**Atstumas tarp šiauriausio ir piečiausio oro uosto?**
+
+```
+SELECT
+    to_char(
+      st_distance (
+        (SELECT geom FROM airports WHERE name = 'South Pole Station Airport'),
+        (SELECT geom FROM airports WHERE name = 'Alert Airport'),
+        TRUE
+      )/1000,
+    '99999.99') AS km;
+
+    km
+-----------
+  19168.26
+```
+
 Pabaigai
 --------
 
