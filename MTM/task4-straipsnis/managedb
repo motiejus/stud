@@ -5,8 +5,11 @@ if [[ $1 == init ]]; then
     mkdir -p db && initdb db
     pg_ctl -D db -l db/logfile start
 
-    psql -c 'CREATE EXTENSION postgis;'
-    psql < init.sql
+    psql postgres \
+        -c 'CREATE DATABASE airportgames;'
+    psql -d airportgames \
+        -c 'CREATE EXTENSION postgis;'
+    psql -d airportgames < init.sql
 fi
 
 if [[ $1 == start ]]; then
