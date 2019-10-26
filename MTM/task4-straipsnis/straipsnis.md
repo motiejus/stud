@@ -21,13 +21,8 @@ Užduotis
 --------
 
 Susikurkime PostgreSQL lentelę su viso pasaulio oro uostais (bent tais, kurie
-turi [IATA kodą][1]) ir pažaiskime su duomenimis. Turėdami visus pasaulio oro
-uostus galime sugalvoti daug klausimų, bet man šiuo metu įdomu:
-- kokie du oro uostai yra labiausiai nutolę vienas nuo kito?
-- kurie du oro uosta yra arčiausiai vienas kito? O toje pačioje šalyje?
-- kokį atstumą skristume aplink žemę, jei iš Vilniaus skristume ta pačia platuma?
-- kiek kartų reikia nuskristi United Economy klase aplink žemę Vilniaus
-  platumoje, kad uždirbtume [nemokamus pusryčius][2]?
+turi [IATA kodą][1]) ir pažaiskime su duomenimis. Toliau tekste -- atsakymas į keletą 
+su kelionėmis ir oro uostais susijusių klausimų.
 
 Duomenų bazės sukūrimas
 -----------------------
@@ -75,10 +70,8 @@ Užklausos
 ```
 SELECT
     a.country AS a_country,
-    a.name AS a_name,
     a.iata AS a_iata,
     b.country AS b_country,
-    b.name AS b_name,
     b.iata AS b_iata,
     to_char(st_distance (a.geom, b.geom, TRUE) / 1000, '99999.99') AS distance_km
 FROM
@@ -91,28 +84,27 @@ WHERE
 ORDER BY
     distance_km DESC
 LIMIT 10;
-    a_country     |               a_name                | a_iata |        b_country        |               b_name               | b_iata | distance_km
-------------------+-------------------------------------+--------+-------------------------+------------------------------------+--------+-------------
- China            | Zhangjiakou Ningyuan Airport        | ZQZ    | Argentina               | Antoine de Saint Exupéry Airport   | OES    |  20002.42
- Saudi Arabia     | King Khaled Air Base                | KMX    | French Polynesia        | Pukarua Airport                    | PUK    |  20000.78
- Indonesia        | Radin Inten II (Branti) Airport     | TKG    | Colombia                | Mariquita Airport                  | MQU    |  20000.53
- French Polynesia | Napuka Island Airport               | NAU    | Ethiopia                | Axum Airport                       | AXU    |  20000.47
- Nicaragua        | Corn Island                         | RNI    | Cocos (Keeling) Islands | Cocos (Keeling) Islands Airport    | CCK    |  20000.20
- China            | Jinggangshan Airport                | JGS    | Argentina               | Teniente Benjamin Matienzo Airport | TUC    |  19999.93
- Malaysia         | Long Lellang Airport                | LGL    | Brazil                  | Tefé Airport                       | TFF    |  19998.43
- New Zealand      | Hamilton International Airport      | HLZ    | Spain                   | Córdoba Airport                    | ODB    |  19998.36
- Indonesia        | Sultan Mahmud Badaruddin II Airport | PLM    | Colombia                | Benito Salas Airport               | NVA    |  19998.19
- Malaysia         | Sultan Ismail Petra Airport         | KBR    | Peru                    | Chachapoyas Airport                | CHH    |  19998.13
+
+    a_country     | a_iata |        b_country        | b_iata | distance_km
+------------------+--------+-------------------------+--------+-------------
+ China            | ZQZ    | Argentina               | OES    |  20002.42
+ Saudi Arabia     | KMX    | French Polynesia        | PUK    |  20000.78
+ Indonesia        | TKG    | Colombia                | MQU    |  20000.53
+ French Polynesia | NAU    | Ethiopia                | AXU    |  20000.47
+ Nicaragua        | RNI    | Cocos (Keeling) Islands | CCK    |  20000.20
+ China            | JGS    | Argentina               | TUC    |  19999.93
+ Malaysia         | LGL    | Brazil                  | TFF    |  19998.43
+ New Zealand      | HLZ    | Spain                   | ODB    |  19998.36
+ Indonesia        | PLM    | Colombia                | NVA    |  19998.19
+ Malaysia         | KBR    | Peru                    | CHH    |  19998.13
 ```
 
 **Kurie oro uostai yra arčiausiai vienas kito?**
 ```
 SELECT
     a.country AS a_country,
-    a.name AS a_name,
     a.iata AS a_iata,
     b.country AS b_country,
-    b.name AS b_name,
     b.iata AS b_iata,
     to_char(st_distance (a.geom, b.geom, TRUE) / 1000, '99999.99') AS distance_km
 FROM
@@ -123,27 +115,101 @@ WHERE
     AND b.iata != '\N'
     AND a.gid > b.gid
 ORDER BY
-    distance_km ASC
+    a.geom <-> b.geom ASC
 LIMIT 10;
-    a_country     |                a_name                 | a_iata |    b_country     |                       b_name                        | b_iata | distance_km
-------------------+---------------------------------------+--------+------------------+-----------------------------------------------------+--------+-------------
- Australia        | Shute Harbour Airport                 | JHQ    | Australia        | Whitsunday Island Airport                           | WSY    |      0.14
- Papua New Guinea | Nadunumu Airport                      | NDN    | Papua New Guinea | Kagi Airport                                        | KGW    |      1.83
- Papua New Guinea | Kagi Airport                          | KGW    | Papua New Guinea | Efogi Airport                                       | EFG    |      2.24
- Rwanda           | Gisenyi Airport                       | GYI    | Congo (Kinshasa) | Goma International Airport                          | GOM    |      2.38
- United Kingdom   | Westray Airport                       | WRY    | United Kingdom   | Papa Westray Airport                                | PPW    |      2.83
- Papua New Guinea | Nadunumu Airport                      | NDN    | Papua New Guinea | Efogi Airport                                       | EFG    |      2.92
- Papua New Guinea | Bodinumu Airport                      | BNM    | Papua New Guinea | Kagi Airport                                        | KGW    |      3.13
- Virgin Islands   | Charlotte Amalie Harbor Seaplane Base | SPB    | Virgin Islands   | Cyril E. King Airport                               | STT    |      3.46
- United States    | Brown Field Municipal Airport         | SDM    | Mexico           | General Abelardo L. Rodríguez International Airport | TIJ    |      3.59
- French Guiana    | Saint-Laurent-du-Maroni Airport       | LDX    | Suriname         | Albina Airport                                      | ABN    |      3.71
+
+    a_country     | a_iata |    b_country     | b_iata | distance_km
+------------------+--------+------------------+--------+-------------
+ Australia        | JHQ    | Australia        | WSY    |      0.14
+ Papua New Guinea | NDN    | Papua New Guinea | KGW    |      1.83
+ Papua New Guinea | KGW    | Papua New Guinea | EFG    |      2.24
+ Rwanda           | GYI    | Congo (Kinshasa) | GOM    |      2.38
+ United Kingdom   | WRY    | United Kingdom   | PPW    |      2.83
+ Papua New Guinea | NDN    | Papua New Guinea | EFG    |      2.92
+ Papua New Guinea | BNM    | Papua New Guinea | KGW    |      3.13
+ Virgin Islands   | SPB    | Virgin Islands   | STT    |      3.46
+ United States    | SDM    | Mexico           | TIJ    |      3.59
+ French Guiana    | LDX    | Suriname         | ABN    |      3.71
 ```
 
-**Kokį atstumą skristume aplink žemę, jei iš Vilniaus skristume ta pačia platuma?**
-**Kiek kartų reikia nuskristi United Economy klase aplink žemę Vilniaus
-  platumoje, kad uždirbtume [nemokamus pusryčius][2]?**
+Dėl pirmų 4 oro uostų įrodymų neradau, kad jie greta, bet WRY ir PPW
+tikrai [netoli][4].
+
+**Aukščiausiai virš jūros lygio esantys oro uostai?**
+
+```
+SELECT
+    iata,
+    name,
+    country,
+    to_char(st_z (geom), '9999') AS altitude_m
+FROM
+    airports
+ORDER BY
+    altitude_m DESC
+LIMIT 10;
+
+ iata |                  name                  | country | altitude_m
+------+----------------------------------------+---------+------------
+ DCY  | Daocheng Yading Airport                | China   |  4411
+ BPX  | Qamdo Bangda Airport                   | China   |  4334
+ KGT  | Kangding Airport                       | China   |  4280
+ NGQ  | Ngari Gunsa Airport                    | China   |  4274
+ LPB  | El Alto International Airport          | Bolivia |  4071
+ POI  | Capitan Nicolas Rojas Airport          | Bolivia |  3936
+ YUS  | Yushu Batang Airport                   | China   |  3906
+ \N   | Copacabana Airport                     | Bolivia |  3838
+ JUL  | Inca Manco Capac International Airport | Peru    |  3826
+ GMQ  | Golog Maqin Airport                    | China   |  3787
+```
+
+**Žemiausiai po jūros lygiu esantys oro uostai?**
+
+```
+SELECT
+    iata,
+    name,
+    country,
+    to_char(st_z (geom), 'FMSG999.00') AS altitude_m
+FROM
+    airports
+WHERE
+    iata != '\N'
+ORDER BY
+    st_z (geom) ASC
+LIMIT 10;
+
+ iata |                 name                 |    country    | altitude_m
+------+--------------------------------------+---------------+------------
+ MTZ  | Bar Yehuda Airfield                  | Israel        | -385.88
+ EIY  | Ein Yahav Airfield                   | Israel        | -49.99
+ TRM  | Jacqueline Cochran Regional Airport  | United States | -35.05
+ GUW  | Atyrau Airport                       | Kazakhstan    | -21.95
+ RZR  | Ramsar Airport                       | Iran          | -21.34
+ ASF  | Astrakhan Airport                    | Russia        | -19.81
+ NSH  | Noshahr Airport                      | Iran          | -18.59
+ IPL  | Imperial County Airport              | United States | -16.46
+ NJK  | El Centro NAF Airport (Vraciu Field) | United States | -12.80
+ RAS  | Sardar-e-Jangal Airport              | Iran          | -12.19
+```
+
+Pabaiga
+-------
+
+Kaip matėme šiame įraše, PostGis suteikia erdvines funkcijas, duomenų tipus ir
+indeksus prie patogios ir pažįstamos PostgreSQL sąsajos.
+
+Užduotys susidomėjusiam skaitytojui:
+* Kodėl artimiausių oro uostų užklausoje naudojome [<->][5], o
+  tolimiausių -- [st_distance][6]?
+* Kokį atstumą skristume aplink žemę, jei iš Vilniaus skristume ta pačia platuma?
+* Kiek kartų reikia nuskristi United Economy klase aplink žemę Vilniaus
+  platumoje, kad uždirbtume [nemokamus pusryčius][2]?
 
 
 [1]: https://en.wikipedia.org/wiki/International_Air_Transport_Association_code
 [2]: https://www.united.com/ual/en/us/fly/mileageplus/premier/full-premier-benefits-chart.html
 [3]: https://openflights.org/data.html
+[4]: https://goo.gl/maps/CCkqFvhN9rWfrsxT6
+[5]: https://postgis.net/docs/geometry_distance_knn.html
+[6]: https://postgis.net/docs/ST_Distance.html
