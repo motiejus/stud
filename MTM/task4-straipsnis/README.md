@@ -1,21 +1,13 @@
-Trumpas programuotojo įvadas į PostGIS
-======================================
+Pasaulio oro uostų įdomybės
+===========================
 
 Kai mokėmės duomenų bazių, paprastai pavyzdiniai duomenų bazių modeliai būdavo
 gana panašūs vienas į kitą ir nuobodūs: sumodeliuoti biblioteką, sumodeliuoti
 "draugų" duomenų bazę, ar gyvūnų klasifikaciją.
 
-Šis įrašas parodys, kaip prie žinomų SQL duomenų tipų galima pridėti erdvinius,
-ir kokias įdomias užklausas galime: sukursime tarptautinių oro uostų duomenų
-bazę (nebijokite, duomenis importuosime), užduosime ir atsakysime keletą įdomių
-klausimų.
-
-Kas yra PostGis?
-----------------
-
-PostGis yra PostgreSQL priedas. PostGis prideda PostgreSQL naujų tipų ir
-funkcijų, skirtų dirbti su erdviniais duomenimis. Ką tai reiškia? Išspręskime
-užduotį ir sužinosime.
+Šis įrašas parodys, kaip prie nuobodžių SQL tipų greitai galima pridėti
+erdvinius, ir iš karto kokius įdomius klausimus galime uždavinėti. Apie oro
+uostus. :)
 
 Duomenų bazės sukūrimas
 -----------------------
@@ -28,8 +20,10 @@ $ ./managedb init
 ```
 
 Visi skriptai ir `airports.dat` (oro uostų informacija) yra [šioje
-repositorijoje][2]; skriptai nedideli, todėl labai rekomenduoju peržiūrėti bent
-jau `sql` failus. Patikrinkime, kas viduje:
+repositorijoje][2]; skriptai nedideli. Kad suprastumėte toliau esančias SQL
+užklausas, rekomenduoju perskaityti `init.sql`.
+
+Kai duombazė sukurta ir duomenys importuoti, patikrinkime, kas viduje:
 
 ```
 psql airportgames <<<"
