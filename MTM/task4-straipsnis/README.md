@@ -192,8 +192,43 @@ LIMIT 10;
  RAS  | Sardar-e-Jangal Airport              | Iran          | -12.19
 ```
 
-Aukštai ir žemai esantiems oro uostams turbūt komentarų daug nereikia. Tik
-abejais atvejais aiškūs pirmųjų vietų laimėtojai.
+Aukštai ir žemai esantiems oro uostams turbūt komentarų daug nereikia. Tiesa,
+abejose kategorijose turime aiškias šalis-lyderes.
+
+**Arčiausiai ašigalių esantys oro uostai?**
+
+Čia nusižengsime iki šiol buvusiai taisyklei filtruoti oro uostus tik su IATA kodais. Jūsų malonumui:
+```
+SELECT
+    name,
+    country,
+    to_char(st_y (geom), 'FMSG999.0000') || ',' || to_char(st_x (geom), 'FMSG999.0000') AS a_latlng
+FROM
+    airports
+WHERE
+    gid != 13011
+ORDER BY
+    abs(st_y (geom)) DESC
+LIMIT 15;
+
+               name               |  country   |      a_latlng
+----------------------------------+------------+--------------------
+ South Pole Station Airport       | Antarctica | -90.0000,+.0000
+ Alert Airport                    | Canada     | +82.5178,-62.2806
+ Nagurskoye                       | Russia     | +80.8032,+47.6636
+ Eureka Airport                   | Canada     | +79.9947,-85.8142
+ Ny-Ålesund Airport (Hamnerabben) | Svalbard   | +78.9275,+11.8743
+ Pyramiden Heliport               | Norway     | +78.6523,+16.3372
+ Svalbard Airport, Longyear       | Norway     | +78.2461,+15.4656
+ McMurdo Station Pegasus Field    | Antarctica | -77.9634,+166.5250
+ Svea Airport                     | Svalbard   | +77.8969,+16.7250
+ Williams Field                   | Antarctica | -77.8674,+167.0570
+ McMurdo Station Ice Runway       | Antarctica | -77.8540,+166.4690
+ Siorapaluk Heliport              | Greenland  | +77.7865,-70.6387
+ Qaanaaq Airport                  | Greenland  | +77.4886,-69.3887
+ Thule Air Base                   | Greenland  | +76.5312,-68.7032
+ Grise Fiord Airport              | Canada     | +76.4261,-82.9092
+```
 
 Pabaigai
 --------
@@ -209,7 +244,6 @@ Užduotys susidomėjusiam skaitytojui:
 * Kokį atstumą skristume aplink žemę Vilniaus platuma?
 * Kiek kartų reikia nuskristi United Economy klase aplink žemę Vilniaus
   platuma, kad uždirbtume [nemokamus pusryčius][7]?
-
 
 [1]: https://en.wikipedia.org/wiki/International_Air_Transport_Association_code
 [2]: https://github.com/motiejus/stud/tree/master/MTM/task4-straipsnis
