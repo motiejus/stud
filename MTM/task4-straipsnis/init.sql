@@ -19,6 +19,8 @@ CREATE TABLE airports (
     CONSTRAINT enforce_geotype_geom CHECK (geometrytype(geom) = 'POINT'::text OR geom IS NULL),
     CONSTRAINT enforce_srid_geom CHECK (st_srid(geom) = 4326)
 );
+-- create index for faster spatial lookups
+CREATE INDEX idx_geom ON airports USING GIN (geom);
 
 -- import data from airports.dat
 \copy airports(gid, name, city, country, iata, icao, latitude, longitude, altitude, timezone, dst, tz, type, source) FROM 'airports.dat' DELIMITERS ',' CSV;
