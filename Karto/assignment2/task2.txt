@@ -29,6 +29,9 @@ A6 = 29.664 + B = 32.084
  
 === Pusiaukampines === 
  Pusiaukampines brezti is kampu Nr.8 ir Nr.10 virsuniu.
+
+X = 383450
+Y = 6160950
  
 === Keliu asiu kryptys ===
 1 kelio asis [13-8]
