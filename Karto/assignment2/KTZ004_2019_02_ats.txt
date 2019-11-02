@@ -118,27 +118,27 @@ Visas sklypo(savartyno be keliu) teritorijos prieziuros mokestis (Eur.)
 Apsaugos zonos (be keliu) 1ha prieziuros mokestis (Eur./men.) (duotas)
 1073.97
 Visas Apsaugos zonos (be keliu) prieziuros mokestis (Eur.)
-*******
+296713.37
 Keliu 1 m2 prieziuros mokestis (Eur./men) (duotas)
-*******
+0.35
 Visas keliu prieziuros mokestis (Eur.)
-*******
+200548.51
 Visas mokestis i valstybes biudzeta (Eur.)
-*******
+991065.81
 === Medziagu,reikalingu aps.zonos aptverimui,kiekiai ir kaina ===
 Spygliuotos vielos 1m kaina (duota) (0.01 Eu)
-*******
+6.06
 Spygliuotos vielos eiliu skaicius (duota)
-*******
+5
 Visas spygliuotos vielos ilgis (0.01 m tikslumu)
-*******
+188.153
 Visos reikalingos spygliuotos vielos kaina (0.01 Eu tikslumu)
-*******
+5701.04
 Vielos tinklo 1m2 kaina (duota) (0.01 Eu)
-*******
+10.53
 Vielos tinklo tvoros aukstis (duotas) (0.01 m)
-*******
+4.70
 Visas vielos tinklo tvoros plotas (0.01 m2)
-*******
+1397.33
 Visa reikalingos vielos tinklo tvoros kaina (0.01 Eu tikslumu)
-*******
+14713.87
