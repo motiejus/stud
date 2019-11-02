@@ -10,6 +10,7 @@ useful commands:
 - aeclayerorder
 - multiline (ml) -- dvi lygiagrečios linijos
 - polyline - vientisa kampuota linija.
+- boundary - specify boundary.
 
 - f8: perpendicular
 - f2: console
