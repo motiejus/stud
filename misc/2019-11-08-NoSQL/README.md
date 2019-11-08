@@ -18,7 +18,7 @@ Motiejus Jakštys
 Why me?
 -------
 
-- 2008: first paid software job.
+- 2008: first full-time software job.
 - 2009-2012: graduated Computing Science in Glasgow.
 - 2014-2016: job: Amazon Web Services.
 - 2016-now:  job: Uber.
@@ -198,3 +198,42 @@ Storage
 Storage in "the cloud" is quite cheap. People start moving.
 
 https://www.youtube.com/watch?v=8vQmTZTq7nw
+
+
+
+
+
+
+
+
+
+
+
+
+What next?
+----------
+
+- Create an account in S3.
+- Upload a file there.
+- Share it with everyone under your domain.
+- It's free!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Want to know more?
+------------------
+
+- Stanford Computer Science 101: https://online.stanford.edu/courses/soe-ycscs101-sp-computer-science-101
+- Python programming introduction for everyone: https://tutorial.djangogirls.org/en/
+- Cloud services: https://aws.amazon.com/
