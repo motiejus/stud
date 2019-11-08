@@ -1,25 +1,69 @@
 Welcome
 -------
 
-This is a presentation about NoSQL for cartographers.
+NoSQL for cartographers.
+
+
+Motiejus Jakštys
+
+2019-11-08
+
+
+
+
+
+
+
 
 Why me?
 -------
 
 - 2008: first paid software job.
-- 2012: graduated Computing Science.
-- 2014-2016: Amazon Web Services.
-- 2016+: Uber.
-- Using SQL and NoSQL at dayjob.
+- 2009-2012: graduated Computing Science in Glasgow.
+- 2014-2016: job: Amazon Web Services.
+- 2016-now:  job: Uber.
+
+SQL and NoSQL are part of the job.
+
+
+
+
+
+
+
 
 What is a server?
 -----------------
+
+Demonstration.
+
+- pi
+- pi-at-home.jpg
+
+
+
+
+
+
+
+
+
 
 SQL
 ---
 
 - Invented > 50 years ago.
-- Technologies differ, concepts are the same.
+- Technologies change, concepts remain.
+
+
+
+
+
+
+
+
+
+
 
 Power and limitation of SQL
 ---------------------------
@@ -31,26 +75,54 @@ Let's model a house on a piece of land.
 
 **They must be on the same server to enforce this constraint.**
 
-If constraint cannot be created, it's not SQL.
-If it's SQL, all houses and all areas must be on the same server.
+
+What do we do?
+
+
+
 
 Get a big database
 ------------------
 
-$30 to about a $1M. Show graphics.
+$30 to about a $1M.
+
+
+
+
+
+
+
+
+
+
+
 
 Alternatives
 ============
 
-Cat videos do not require topology. But we still need storage -- No SQL!
+Split data across many servers!
 
-Like-SQL
---------
+Topology is not always needed:
+- Pictures/videos.
+- Stock prices.
+- Sensor measurements.
 
-Forego some SQL constraints, but use the same (/similar) language:
-- No uniqueness constraints.
-- No foreign keys.
-- ... many more restrictions.
+
+Hey, No SQL!
+
+
+
+
+
+
+
+Sort-of-SQL
+-----------
+
+Leave the syntax, cut out constraints.
+- familiar syntax.
+- more storage.
+- less features.
 
 Hive:
 ```
@@ -58,10 +130,15 @@ SELECT a.foo FROM invites a WHERE a.ds='2008-08-15';
 ```
 
 
+
+
+
+
 Key-Value: fast & small
 -----------------------
 
-DynamoDB, Cassandra. Some have their language, some don't.
+- Different syntax
+- Different features
 
 DynamoDB:
 ```
@@ -74,15 +151,50 @@ table = dynamodb.create_table(
 )
 ```
 
-Cassandra:
-```
-INSERT INTO monkeys (type, family, common_name, conservation_status)
-VALUES ('New World Monkey', 'Cebidae', 'white-headed capuchin', 'Least concern');
-```
 
-Key-Value: slow & big
+
+
+
+Key-Value: slow & very big
 ---------------------
 
-S3.
+Videos or just large files? S3 is most popular.
+
+Imaginge an infinite disk.
+
+
+
+
+
+
+
+
+
+
+
+Cloud
+-----
+
+"The Cloud" is just someone's servers with software.
+
+- pi-datacenter.jpg
+- datacenter.jpg
+- snowball-edge.jpg
+
+
+
+
+
+
+
+
+
+
+
+
+Storage
+-------
+
+Storage in "the cloud" is quite cheap. People start moving.
 
 https://www.youtube.com/watch?v=8vQmTZTq7nw
