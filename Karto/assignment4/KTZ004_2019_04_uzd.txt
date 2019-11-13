@@ -1,0 +1,162 @@
+Uzduoti parenge  A.Bautrenas  (Topografiniai zemelapiai) 
+2019.11.13 13:19:39(47979.51s)  RND=2
+
+
+Uzduotis Nr. KTZ004_2019_04
+Jakstys_Motiejus (1915375)
+ === Uzliejamu plotu analize == (NAV_SK=0.21 NAV_BR=0.25) ===
+Atlikti iki: 2019.11.30   13:19:38
+
+
+
+1. Pagal duotus duomenis apskaiciuoti keliu ir grioviu tinklo atraminiu tasku koordinates (ziur. 04uzd_schema.pdf).
+Pastaba. Koordinates skaiciuojamos LKS94 koord. sistemoje, todel klojant taskus brezinyje BUTINA sukeiti koord.asis (skaiciuoti X,Y ivesti Y,X). 
+2. Susikurti braizymui reikalingus liniju (Multiline) stilius (Keliai = A-03,A-05,A-08, Griovys = G-11) (ziur. 04uzd_schema.pdf).
+Pastaba. Sie objektai yra skirtingu kategoriju (Kat.),t.y kuo aukstesne kategorija tuo objektas svarbesnis. (1 Kat.(auksciausia)= A-08, 2 Kat.= A-05, 3 Kat.= A-03, 4 Kat.(zemiausia)= G-11)
+3. Nubraizyti keliu ir grioviu tinkla pagal apskaiciuotas koordinates ir surasyti zemenaudas. 
+4. Nubraizyti prognozuojamos uzliejimo zonos riba (taisyklingas daugiakampis)  
+5. Apskaiciuoti faktinio uzliejimo teritorijos dydi (riba) ir ja nubraizyti (apskritimas)
+6. Apskaiciuoti koordinaciu tinklo pradzia nuo tasko Nr.5 , nubraizyti koordinaciu tinkla ir surasyti koordinates M1:1000, t.y. kas 100 metru.
+Pastaba. Koordinaciu sistema LKS94.
+7. Ismatuoti uzlietu zemenaudu, keliu ir grioviu plotus
+8. Surasyti gautus rezultatus i atsakymu sablona ir brezini 
+ 
+    =====  DUOMENYS BRAIZYMUI ==== 
+ 
+---- I. Pataisos: ------
+A= 6.094    B= -2.923    C= -13.462    N= 9.512
+ 
+ 
+---- II. Teodolitinio ejimo duomenys: ------
+ 
+Pradinio tasko koordinates
+X11 = 6091968.055
+Y11 = 485944.146
+
+Pradinis direkcinis kampas
+A11-2 = 70-16-17
+
+Vidiniai (desininiai) poligono kampai (L-M-S):
+11 = 103-03-03
+2 = 218-27-42
+19 = 211-44-30
+3 = 67-26-49
+24 = 67-33-06
+12 = 279-03-59
+13 = 278-54-55
+14 = 119-27-45
+15 = 160-50-28
+16 = 207-42-31
+17 = 206-18-01
+10 = 90-55-10
+18 = 100-18-10
+9 = 148-30-56
+8 = 285-20-57
+23 = 29-44-22
+22 = 276-33-49
+7 = 82-07-47
+6 = 104-15-46
+21 = 234-17-37
+5 = 283-30-57
+20 = 152-15-58
+1 = 101-20-01
+4 = 150-15-41
+
+Atkarpu ilgiai (m):
+11-2 = 164.126
+2-19 = 149.851
+19-3 = 82.384
+3-24 = 259.022
+24-12 = 319.331
+12-13 = 74.764
+13-14 = 81.640
+14-15 = 31.888
+15-16 = 84.073
+16-17 = 70.072
+17-10 = 73.378
+10-18 = 66.625
+18-9 = 97.003
+9-8 = 121.003
+8-23 = 131.915
+23-22 = 102.086
+22-7 = 158.324
+7-6 = 72.157
+6-21 = 107.938
+21-5 = 104.082
+5-20 = 154.332
+20-1 = 68.972
+1-4 = 151.531
+4-11 = 179.336
+
+ 
+---- III. Duomenys TIK liniju stiliu SUKURIMUI (metrais): ------
+ 
+  1 pastaba. ATKREIPTI DEMESI, kad duomenys liniju stiliaus kurimui ir braizymui yra skirtingi, t.y. linijos braizomos ivedant kitus apskaiciuotus keliu ir grioviu plocius (ziur. IV punktas). 
+  2 pastaba. Keliai ir Grioviai braizomi asiu numeracijos didejimo kryptimi, todel teigiami (+) juostu koeficientai bus i kaire nuo asies, o neigiami (-) - i desine. 
+=== Kelias A-03 ===
+L1 = 16.321
+=== Kelias A-05 ===
+L2 = 9.109
+L3 = 4.819
+=== Kelias A-08 ===
+L4 = 2.675
+L5 = 2.059
+L6 = 1.262
+L7 = 4.170
+L8 = 6.005
+L9 = 6.453
+=== Griovys G-11 ===
+L10 = 4.882
+L11 = 3.305
+L12 = 2.210
+L13 = 4.381
+
+---- IV. Duomenys keliu ir grioviu tinklo BRAIZYMUI -----
+
+PASTABA: Keliai ir grioviai braizomi pagal SIUOS PLOCIUS, o ne pagal tuos plocius, kurie buvo duoti MLine stiliu sukurimui!!!
+
+Kelio A-03 plotis = 17.401 + A = 
+Kelio A-05 plotis = 13.705 + B = 
+Kelio A-08 plotis = 29.006 + C = 
+Griovio G-11 plotis = 14.776 + N = 
+
+----- IV. Duomenys uzliejamu zonu braizymui -----
+Prognozuojamo uzliejimo zona, tai taisyklingas 9-kampis
+9-kampio krastine D1= 174.667 + C = 
+Daugiakampio pradzia: Kelio A-05 asies taskas Nr. 6
+Daugiakampio pasukimo kampas (K1) (0.0001 laipsnio tikslumu)
+K1= 13.147 + B = 
+
+Tikroji uzliejimo zona, tai taisyklingas apskritimas, kurio centras TURI SUTAPTI su daugiakampio centru. 
+Atstumas iki tikrosios uzliejimo zonos (A1) (0.001 tikslumu)
+A1 = 67.536 + B = 
+
+
+Pastabos: 
+1. Braizymui reikalingos schemos pateiktos rinkmenoje [04uzd_schema.pdf], o koordinaciu skaiciavimus surasyti rinkmenoje [Teodolitinio ejimo skaiciavimo blankas.doc] ir atsiusti kartu su breziniu ir atsakymu rinkmena.
+2. Kelio/griovio asis - tai linija kurios tasku koordinates apskaiciuojamos.
+3. Braizant butina kontroliuoti apskaiciuotu juostu plociu (L)  atidejimo krypti (skaityti pastabas III dalyje). 
+4. Visi matmenys duoti metrais.
+5. Kadangi zemenaudu uzrasu dydis keiciamas laisvai, todel visi zemenaudu pavadinimai turi buti surasyti (kad ir labai smulkiu sriftu). Tas pats zemenaudos pavadinimas  (jei uzliejimo riba kerta naudmena) rasomas uzlietoje ir neuzlietoje zonose (pavyzdyje [04uzd_schema.pdf] klaida, t.y. gali buti nesurasyta).
+6. Plotus, tsk.koordinates ir linijinius dydzius apskaiciuoti bei ismatuoti 0.001 tikslumu, o kampus apskaiciuoti ir atideti brezinyje 0.0001 laipsnio tikslumu.
+7. Reikalavimai uzduoties atlikimui (rinkmenu pavadinimams, atsakymu sablono pildymui, atlikimo terminui,skaitmenu desimtaines dalies atskyrimui, sluoksniu pavadinimams, kood.tinklo spalvai, tasku pazymejimui ir t.t.)tokie patys kaip ir ankstesneje uzduotyje. 
+8. Zenklas '+/-' rodo, kad apskaiciuotas koeficientas butinai turi buti irasytas  su skaiciaus zenklas, pvz. +0.258 arba -0.258. Zenklo '+' neirasymas (ten kur nurodyta) bus vertinamas kaip skaiciavimo klaida.
+9. Keliu/grioviu sankryzos turi atitikti keliu kategorijas, t.y. zemesnes kategorijos kelias negali kirsti aukstesnes kategorijos objekto  (04uzd_schema.pdf sankryzos gali buti pavaizduotos neteisingai) 
+10. Plotas, kuris susidaro kertantis dviem objektam (pvz. kelias su grioviu) priskiriamas AUKSTESNES kategorijos objektui. 
+11. Visos brezinio dalys (keliai, uzrasai ir t.t.) braizomos skirtingomis  (laisvai pasirinktomis) spalvomis ir skirtinguose sluoksniuose. 
+12. Kelius/griovius sudarancios krastines braizomos tuo linijos tipu,  kuris nurodytas schemoje Nr.3. Krastiniu spalvos parenkamos laisvai, o punktyro dydis (Linetype scale) parenkamas taip, kad punktyras butu gerai matomas brezinyje, t.y. nei per didelis, nei per mazas.
+13. Skirtingos uzlietos zemenaudos (apskritime) (ariama,miskas ir t.t.)  uzbruksniuojamos skirtingai (laisvai parinktu strichu ir atskiruose sluoksniuose), ziur. [04uzd_schema.pdf].
+ 14. Neuzlietoje teritorijoje (teritorija tarp daugiakampio ir apskritimo) visos naudmenos bruksniuojamos vienodai.
+15. Brezinyje butini sutartiniai naudmenu pazymejimai su apskaiciuotais plotais. 
+16. Brezini apibrezti remeliu, uzpildyti (realiais duomenimis) brezinio legenda (stampa) ir pasirasyti.
+17. Brezinio remelio dydi parinkti taip, kad tilptu visas brezinys, o remelio matmenys  butu standartiniai, t.y. A4, A3, A2, A1 arba A0 formato (pav.[04uzd_schema.pdf] remelio nera).
+18. Jei nubraizius, pagal apskaiciuotus duomenis, keliu galai nekerta uzliejimo ribu, tai kelius reikia pratesti iki susikirtimo su riba.
+19. Jei kokia nors naudmena arba kelias/griovys nepakliuva i uzliejimo zona - atsakymuose irasome 'nuli'.
+20. Griovio galai uzapvalinami
+
+Pabaiga: 2019.11.13 13:19:39
+
+
+Ispejimas:
+Jei si uzduotis skirta ne Jums, prasome ja perduoti adresatui arba grazinti siuntejui 
+ir istrinti is savo duomenu bazes.
