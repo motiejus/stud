@@ -7,6 +7,8 @@
 \usepackage[style=authoryear]{biblatex}
 \addbibresource{bib.bib}
 \usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \title{
     Research Methodology -- Fifth exercise\\ \vspace{4mm}
@@ -22,8 +24,23 @@
 
 \section{Introduction}
 
-This article reviews \cite{186171}, and answers the following questions:
+\cite{186171} analyzed 198 randomly selected failures in popular distributed
+systems, and classified the reasons for each failure. This is one of the most
+interesting findings:
 
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.7\textwidth}
+        \blockquote[\cite{186171}] {
+            Almost all (92\%) of the catastrophic system failures are the result of
+            incorrect handling of non-fatal errors explicitly signaled in software.
+        }
+        \caption{Simple and powerful observation about bugs in distributed systems.}
+        \label{fig:quote-errors}
+    \end{subfigure}
+\end{figure}
+
+We will review the paper and answer the following questions:
 \begin{enumerate}
     \item What kind of study is this? Theoretical, strategic, applied, or
         experimental?
@@ -39,16 +56,6 @@ This article reviews \cite{186171}, and answers the following questions:
     \item Did the study create new knowledge? Is there practical value?
 \end{enumerate}
 
-\section{The Paper}
-
-Besides other things, \cite{186171} analyzed 198 randomly selected failures in
-popular distributed systems, and classified the reasons for each failure. This
-is one of the most interesting findings:
-
-\blockquote[\cite{186171}] {
-    Almost all (92\%) of the catastrophi system failures are the result of
-    incorrect handling of non-fatal errors explicitly signaled in software.
-}
 
 \section{Structure overview}
 
@@ -57,12 +64,13 @@ The paper is strategic, applied:
 
 \begin{description}
 
-    \item[Strategic:] authors have developed an artifact \tt{Aspirator} which
-        helps software maintainers find certain classes of bugs. What is more,
-        they provided new knowledge, like in the quote above.
+    \item[Strategic:] authors have developed an artifact \texttt{Aspirator}
+        which helps software maintainers find certain classes of bugs. What is
+        more, they provided new knowledge, like in the quote above.
 
-    \item[Applied:] the artifact of the work, \tt{Aspirator}, can be applied by
-        other software developers looking for similar classes of bugs.
+    \item[Applied:] the artifact of the work, \texttt{Aspirator}, can be
+        applied by other software developers looking for similar classes of
+        bugs.
 
 \end{description}
 
@@ -86,13 +94,41 @@ The task is mixed:
 \end{description}
 
 \subsection{Do findings reflect the purpose and results?}
+\label{sec:findings-purpose-result}
 
 Research findings are derived directly from the purpose and research results.
 Namely, the researchers set out to find the most common reasons for
 catastrophic failures in distributed systems. They found them, classified them,
 and gave suggestions for future generations of distributed systems developers.
 
-\subsection{Scientific Method}
+\subsection{Scientific Method and reproducibility}
+
+Scientific methodc is empirical: given 198 randomly selected bugs,
+researchers went to classify them using predefined classification rules and
+techniques.
+
+Classification methods and research methodology were clearly described in the
+introduction, in a way anyone with sufficient engineering background could set
+out to re-classify the bugs.
+
+Given that, the actual referenced bugs and behaviours were not listed in the
+article, therefore \textbf{it is impossible to replicate this exact study}.
+
+\subsection{Practical value}
+
+For a software engineer building distributed systems, the conclusion alone
+(\ref{fig:quote-errors}) is already eye-opening for making our own robust
+distributed systems.
+
+\texttt{Aspirator} looks like a promising tool for code bases that were
+developed without non-fatal error handling in mind. For engineers that are
+working on new code and are disciplined, can take their time to write tests for
+failure conditions (i.e. not in pressure to ship code), knowledge-able and read
+the discussed paper, this tool will not be useful.
+
+Even though it is important to educate existing and future generations (what the
+article does very well), since life is not that great, \texttt{Aspirator} will
+likely find its use in existing and new software.
 
 \printbibliography
 
