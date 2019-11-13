@@ -1,8 +1,8 @@
 \documentclass{article}
 
-\usepackage{csquotes}
 \usepackage[L7x,T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{csquotes}
 \usepackage[english]{babel}
 \usepackage[style=authoryear]{biblatex}
 \addbibresource{bib.bib}
@@ -25,21 +25,74 @@
 This article reviews \cite{186171}, and answers the following questions:
 
 \begin{enumerate}
-    \item What kind of study is this? Theoretical, strategic, applied, or experimental?
-    \item What is the main purpose of the problem (descriptive, explanatory, correlative, prognostic, prescriptive, or exploratory?
-    \item What strategies have been applied? Qualitative, quantitative or mixed?
-
+    \item What kind of study is this? Theoretical, strategic, applied, or
+        experimental?
+    \item What is the main purpose of the research task (descriptive,
+        explanatory, correlative, prognostic, prescriptive, or exploratory?
+    \item What strategies have been applied? Qualitative, quantitative or
+        mixed?
     \item Do the findings adequately reflect the results?
     \item Has the scientific method been applied properly?
-    \item Are the findings based on the research findings described in the text?
+    \item Are the findings based on the research findings described in the
+        text?
     \item Can the study be repeated, is there sufficient information?
     \item Did the study create new knowledge? Is there practical value?
 \end{enumerate}
 
 \section{The Paper}
 
-According to \cite{186171}, testing error conditions is critical for robust
-distributed systems.
+Besides other things, \cite{186171} analyzed 198 randomly selected failures in
+popular distributed systems, and classified the reasons for each failure. This
+is one of the most interesting findings:
+
+\blockquote[\cite{186171}] {
+    Almost all (92\%) of the catastrophi system failures are the result of
+    incorrect handling of non-fatal errors explicitly signaled in software.
+}
+
+\section{Structure overview}
+
+\subsection{Kind of study}
+The paper is strategic, applied:
+
+\begin{description}
+
+    \item[Strategic:] authors have developed an artifact \tt{Aspirator} which
+        helps software maintainers find certain classes of bugs. What is more,
+        they provided new knowledge, like in the quote above.
+
+    \item[Applied:] the artifact of the work, \tt{Aspirator}, can be applied by
+        other software developers looking for similar classes of bugs.
+
+\end{description}
+
+\subsection{Purpose of the research task}
+
+The research task is descriptive and correlative: given a well-understood
+situation of distributed systems fail catastrophically, researchers are finding
+common reasons for failures, and developing tools to mitigate them.
+
+Conclusions and suggestions are prescriptive: the researchers are warning
+engineers against common failures, and suggesting tools to mitigate them.
+
+\subsection{Applied Strategies}
+
+The task is mixed:
+\begin{description}
+    \item[Quantitative:] researchers are analyzing and classifying a large
+        number of bugs.
+    \item[Qualitative:] each bug requires careful analysis in order to classify
+        it and make interesting conclusions.
+\end{description}
+
+\subsection{Do findings reflect the purpose and results?}
+
+Research findings are derived directly from the purpose and research results.
+Namely, the researchers set out to find the most common reasons for
+catastrophic failures in distributed systems. They found them, classified them,
+and gave suggestions for future generations of distributed systems developers.
+
+\subsection{Scientific Method}
 
 \printbibliography
 
