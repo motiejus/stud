@@ -16,5 +16,7 @@
 __pycache__
 *.bbl
 *.blg
+*.bcf
+*.run.xml
 
 env/
