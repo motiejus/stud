@@ -2,24 +2,22 @@
 from decimal import Decimal as Dec
 from deg import Deg
 
-def fmt(orig, direction, deg):
-    return "%12.7f (%s: %12.7f)" % (orig, direction, deg)
 
-def nrm(deg):
+def fmt(deg):
     if deg > 180:
-        return deg - 360
-    if deg < -180:
-        return 360 + deg
-    return deg
+        deg -= 360
+    elif deg < -180:
+        deg += 360
+    return "%12.7f" % deg
 
-def pr(deg): return fmt(deg, 'pr', nrm(deg - 90))
-def rp(deg): return fmt(deg, 'rp', nrm(360 - deg))
-def vp(deg): return fmt(deg, 'vp', nrm(180 + deg))
-def pv(deg): return fmt(deg, 'pv', nrm(270 - deg))
-def rs(deg): return fmt(deg, 'rs', nrm(deg))
-def sv(deg): return fmt(deg, 'sv', nrm(90 + deg))
-def vs(deg): return fmt(deg, 'vs', nrm(180 - deg))
-def sr(deg): return fmt(deg, 'sr', nrm(90 - deg))
+def pr(deg): return fmt(deg - 90)
+def rp(deg): return fmt(360 - deg)
+def vp(deg): return fmt(180 + deg)
+def pv(deg): return fmt(270 - deg)
+def rs(deg): return fmt(deg)
+def sv(deg): return fmt(90 + deg)
+def vs(deg): return fmt(180 - deg)
+def sr(deg): return fmt(90 - deg)
 
 # Sklypu pradiniu tasku (1 ir 15) koordinates:
 X1 = Dec('16639.290')
@@ -101,13 +99,13 @@ Kampai:
 1K-12 = %s""" % vs(Deg.guess('52-28-42.4').frac + R) + """
 1K-13 = %s""" % sr(Deg.guess('109-01-49.8').frac + T) + """
 
-2K-1  = %11.7f""" % (Deg.guess('84-00-34.4').frac + L) + """
-2K-2  = %11.7f""" % (Deg.guess('76.1245808').frac + N) + """
-2K-3  = %11.7f""" % (Deg.guess('54-13-28.3').frac + P) + """
-2K-4  = %11.7f""" % (Deg.guess('182.7394778').frac + S) + """
-2K-5  = %11.7f""" % (Deg.guess('162-45-25.7').frac + L) + """
-2K-6  = %11.7f""" % (Deg.guess('60-41-55.2').frac + S) + """
-2K-7  = %11.7f""" % (Deg.guess('69.4792556').frac + R) + """
-2K-8  = %11.7f""" % (Deg.guess('130-50-06.1').frac + L) + """
-2K-9  = %11.7f""" % (Deg.guess('84-08-54.3').frac + K)
+2K-1  = %s""" % vs(Deg.guess('84-00-34.4').frac + L) + """
+2K-2  = %s""" % rs(Deg.guess('76.1245808').frac + N) + """
+2K-3  = %s""" % pr(Deg.guess('54-13-28.3').frac + P) + """
+2K-4  = %s""" % rp(Deg.guess('182.7394778').frac + S) + """
+2K-5  = %s""" % sr(Deg.guess('162-45-25.7').frac + L) + """
+2K-6  = %s""" % pr(Deg.guess('60-41-55.2').frac + S) + """
+2K-7  = %s""" % rp(Deg.guess('69.4792556').frac + R) + """
+2K-8  = %s""" % rp(Deg.guess('130-50-06.1').frac + L) + """
+2K-9  = %s""" % vs(Deg.guess('84-08-54.3').frac + K)
 )
