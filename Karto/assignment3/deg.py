@@ -2,7 +2,7 @@ from decimal import Decimal as D
 
 class Deg:
     def __str__(self):
-        return "%03d-%02d-%04.2f" % (self.deg, self.mm, self.ss)
+        return "%03d-%02d-%4.2f" % (self.deg, self.mm, self.ss)
 
     def __init__(self, deg, mm, ss):
         self.deg = D(deg)
