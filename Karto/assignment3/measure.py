@@ -22,18 +22,18 @@ P = Decimal('-3.1145084')
 R = Decimal('-7.2564859')
 S = Decimal('3.8874407')
 T = Decimal('-8.7554531')
- 
-# Sklypu pradiniu tasku (1 ir 15) koordinates:
-X1 = Decimal('16639.290')
-Y1 = Decimal('25500.960')
-X15 = Decimal('17191.590')
-Y15 = Decimal('25121.430')
 
-# Sklypu sujungimo tasko T3 koordinates:
-XT3 = Decimal('16971.790')
-YT3 = Decimal('26685.160')
+print("""Sklypu pradiniu tasku (1 ir 15) koordinates:
+X1 = 16639.290
+Y1 = 25500.960
+X15 = 17191.590
+Y15 = 25121.430
 
-print("""Atkarpos:
+Sklypu sujungimo tasko T3 koordinates:
+XT3 = 16971.790
+YT3 = 26685.160
+
+Atkarpos:
 1L-1 = %.3f""" % (Decimal('125.829') + G) + """
 1L-2 = %.3f""" % (Decimal('81.682') + E) + """
 1L-3 = %.3f""" % (Decimal('61.206') + H) + """
