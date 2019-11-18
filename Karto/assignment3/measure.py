@@ -2,7 +2,6 @@
 from decimal import Decimal as Dec
 from deg import Deg
 
-
 def fmt(deg):
     if deg > 180:
         deg -= 360
@@ -10,14 +9,14 @@ def fmt(deg):
         deg += 360
     return "%12.7f" % deg
 
-def pr(deg): return fmt(deg - 90)
-def rp(deg): return fmt(360 - deg)
-def vp(deg): return fmt(180 + deg)
+def pr(deg): return fmt(270 + deg)
 def pv(deg): return fmt(270 - deg)
-def rs(deg): return fmt(deg)
-def sv(deg): return fmt(90 + deg)
+def vp(deg): return fmt(180 + deg)
 def vs(deg): return fmt(180 - deg)
+def sv(deg): return fmt(90 + deg)
 def sr(deg): return fmt(90 - deg)
+def rs(deg): return fmt(deg)
+def rp(deg): return fmt(360 - deg)
 
 # Sklypu pradiniu tasku (1 ir 15) koordinates:
 X1 = Dec('16639.290')
