@@ -33,8 +33,7 @@ Y15 = Decimal('25121.430')
 XT3 = Decimal('16971.790')
 YT3 = Decimal('26685.160')
 
-print("""
-Atkarpos:
+print("""Atkarpos:
 1L-1 = %.3f""" % (Decimal('125.829') + G) + """
 1L-2 = %.3f""" % (Decimal('81.682') + E) + """
 1L-3 = %.3f""" % (Decimal('61.206') + H) + """
@@ -82,5 +81,5 @@ Kampai:
 2K-6(L-M-S)  = %3.7f""" % (Deg.guess('60-41-55.2').frac + S) + """
 2K-7(L)      = %3.7f""" % (Deg.guess('69.4792556').frac + R) + """
 2K-8(L-M-S)  = %3.7f""" % (Deg.guess('130-50-06.1').frac + L) + """
-2K-9(L-M-S)  = %3.7f""" % (Deg.guess('84-08-54.3').frac + K) + """
-""")
+2K-9(L-M-S)  = %3.7f""" % (Deg.guess('84-08-54.3').frac + K)
+)
