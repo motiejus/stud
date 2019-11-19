@@ -28,6 +28,17 @@ Y15 = Dec('25121.430')
 XT3 = Dec('16971.790')
 YT3 = Dec('26685.160')
 
+# T1, T2
+XT1 = Dec('16517.4669')
+YT1 = Dec('25502.6586')
+XT2 = Dec('17395.768')
+YT2 = Dec('25201.168')
+
+print("""Poslinkis to T3:
+T1(X,Y): %7.3f,%7.3f""" % (XT3-XT1, YT3-YT1) + """
+T2(X,Y): %7.3f,%7.3f""" % (XT3-XT2, YT3-YT2) + """
+""")
+
 # Pataisos ATKARPOMS:
 A = Dec('-2.207')
 B = Dec('1.999')
