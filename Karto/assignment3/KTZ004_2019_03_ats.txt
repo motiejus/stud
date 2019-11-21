@@ -1,0 +1,253 @@
+Uzduotis Nr.
+KTZ004_2019_03
+Braize (Pavarde_Vardas):
+Motiejus_Jakstys
+=== Pradiniu tasku koordinates (0.000 tikslumu)(duotos)===
+X1 = 16639.290
+Y1 = 25500.960
+X15 = 17191.590
+Y15 = 25121.430
+XT3 = 16971.790
+YT3 = 26685.160
+=== Apskaiciuoti atkarpu ilgiai (0.000 tikslumu) ===
+1L-1 = 124.363
+1L-2 = 75.775
+1L-3 = 68.047
+1L-4 = 123.917
+1L-5 = 81.891
+1L-6 = 166.140
+1L-7 = 70.593
+1L-8 = 49.625
+1L-9 = 90.021
+1L-10 = 61.788
+1L-11 = 74.237
+1L-12 = 124.071
+1L-13 = 98.909
+2L-1 = 210.059
+2L-2 = 121.354
+2L-3 = 185.498
+2L-4 = 118.986
+2L-5 = 91.634
+2L-6 = 134.547
+2L-7 = 92.448
+2L-8 = 113.123
+2L-9 = 82.072
+=== Apskaiciuoti kampai (0-00-00.1 ir 0.0000001 tikslumu) ===
+Kampas Nr.1K-1
+1K-1(L) = 350.9377972
+1K-1(L-M-S) = 350-56-16.1
+Kampas Nr.1K-2
+1K-2(L) = 243.1388371
+1K-2(L-M-S) = 243-08-19.8
+Kampas Nr.1K-3
+1K-3(L) = 227.6678960
+1K-3(L-M-S) = 227-40-4.4
+Kampas Nr.1K-4
+1K-4(L) = 358.4497185
+1K-4(L-M-S) = 358-26-59.0
+Kampas Nr.1K-5
+1K-5(L) = 265.2761907
+1K-5(L-M-S) = 265-16-34.3
+Kampas Nr.1K-6
+1K-6(L) = 200.1445749
+1K-6(L-M-S) = 200-08-40.5
+Kampas Nr.1K-7
+1K-7(L) = 151.4881984
+1K-7(L-M-S) = 151-29-17.5
+Kampas Nr.1K-8
+1K-8(L) = 72.2428897
+1K-8(L-M-S) = 072-14-34.4
+Kampas Nr.1K-9
+1K-9(L) = 105.6240432
+1K-9(L-M-S) = 105-37-26.6
+Kampas Nr.1K-10
+1K-10(L) = 241.6404358
+1K-10(L-M-S) = 241-38-25.6
+Kampas Nr.1K-11
+1K-11(L) = 197.8742769
+1K-11(L-M-S) = 197-52-27.4
+Kampas Nr.1K-12
+1K-12(L) = 134.7780415
+1K-12(L-M-S) = 134-46-40.9
+Kampas Nr.1K-13
+1K-13(L) = -10.2750469
+1K-13(L-M-S) = -10--16--30.2
+Kampas Nr.2K-1
+2K-1(L) = 102.6332719
+2K-1(L-M-S) = 102-37-59.8
+Kampas Nr.2K-2
+2K-2(L) = 71.8373765
+2K-2(L-M-S) = 071-50-14.6
+Kampas Nr.2K-3
+2K-3(L) = 321.1100194
+2K-3(L-M-S) = 321-06-36.1
+Kampas Nr.2K-4
+2K-4(L) = 173.3730815
+2K-4(L-M-S) = 173-22-23.1
+Kampas Nr.2K-5
+2K-5(L) = -66.1143114
+2K-5(L-M-S) = -66--6--51.5
+Kampas Nr.2K-6
+2K-6(L) = 334.5861074
+2K-6(L-M-S) = 334-35-10.0
+Kampas Nr.2K-7
+2K-7(L) = 297.7772303
+2K-7(L-M-S) = 297-46-38.0
+Kampas Nr.2K-8
+2K-8(L) = 235.8077997
+2K-8(L-M-S) = 235-48-28.1
+Kampas Nr.2K-9
+2K-9(L) = 103.5938619
+2K-9(L-M-S) = 103-35-37.9
+=== Iskasos Nr.1 gylis H1 (0.00 tikslumu) (duotas)===
+4.82
+=== Iskasos Nr.1 slaito polinkio kampas SK1 (0.01 tikslumu) (duotas)===
+41.08
+=== Apskaiciuotas atstumas iki slaito papedes A1 (0.00 tikslumu)===
+3.63
+=== Iskasos Nr.2 gylis H2 (0.00 tikslumu) (duotas)===
+20.38
+=== Iskasos Nr.2 slaito polinkio kampas SK2 (0.01 tikslumu) (duotas)===
+17.69
+=== Apskaiciuotas atstumas iki slaito papedes A2 (0.00 tikslumu)===
+19.42
+=============== Ismatuota brezinyje ================
+=== Tasku koordinates (0.001 tikslumu) ===
+Tasko Nr.2 koordinates
+X= 16619.702
+Y= 25623.770
+Tasko Nr.3 koordinates
+X= 16552.103
+Y= 25589.533
+Tasko Nr.4 koordinates
+X= 16501.799
+Y= 25543.708
+Tasko Nr.5 koordinates
+X= 16501.799
+Y= 25543.708
+Tasko Nr.6 koordinates
+X= 16416.833
+Y= 25660.836
+Tasko Nr.7 koordinates
+X= 16359.616
+Y= 25504.859
+Tasko Nr.8 koordinates
+X= 16393.313
+Y= 25442.828
+Tasko Nr.9 koordinates
+X= 16440.574
+Y= 25457.963
+Tasko Nr.10 koordinates
+X= 16527.269
+Y= 25433.718
+Tasko Nr.11 koordinates
+X= 16472.896
+Y= 25404.368
+Tasko Nr.12 koordinates
+X= 26061.893
+Y= 15721.932
+Tasko Nr.13 koordinates
+X= 16538.181
+Y= 25246.324
+Tasko Nr.14 koordinates
+X= 16520.539
+Y= 25343.646
+Tasko Nr.16 koordinates
+X= 17396.566
+Y= 25075.488
+Tasko Nr.17 koordinates
+X= 17511.871
+Y= 25113.316
+Tasko Nr.18 koordinates
+X= 17395.410
+Y= 25257.699
+Tasko Nr.19 koordinates
+X= 17409.142
+Y= 25139.508
+Tasko Nr.20 koordinates
+X= 17325.356
+Y= 25176.612
+Tasko Nr.21 koordinates
+X= 17267.614 
+Y= 25298.138
+Tasko Nr.22 koordinates
+X= 17185.820
+Y= 25341.223
+Tasko Nr.23 koordinates
+X= 17092.249
+Y= 25277.651
+Tasko Nr.24 koordinates
+X= 17172.022
+Y= 25258.361
+Tasko Nr. T1 koordinates
+X= 16517.467
+Y= 25502.659
+Tasko Nr. T2 koordinates
+X= 17395.768
+Y= 25201.168
+=== Atstumas tarp tasku 1-7 (0.001 tikslumu) ===
+279.701
+=== Atstumas tarp tasku 4-10 (0.001 tikslumu) ===
+112.901
+=== Atstumas tarp tasku 13-1 (0.001 tikslumu) ===
+273.975
+=== Atstumas tarp tasku 15-19 (0.001 tikslumu) ===
+218.302
+=== Atstumas tarp tasku 16-24 (0.001 tikslumu) ===
+289.588
+=== Atstumas tarp tasku 24-15 (0.001 tikslumu) ===
+138.322
+=== Atstumas tarp tasku T1-T2 (0.001 tikslumu) ===
+928.606
+=== Atstumas tarp tasku T1-T3 (0.001 tikslumu) ===
+1266.775
+=== Atstumas tarp tasku T2-T3 (0.001 tikslumu) ===
+1543.369
+=== Teritoriju plotai (m2) (0.001 tikslumu) ===
+Iskasos Nr.1 plotas m2 (2011m)
+63425.860
+Iskasos Nr.2 plotas m2 (2019m)
+1408.927
+1 aro rekultivacijos(R) kaina eurais (nurodyta uzduotyje)
+871.29
+Visas rekultivuojamas plotas
+97895.626
+22 m2 nauju plotu(N) isisavinimo kaina eurais (nurodyta uzduotyje)
+545.84
+Visas naujai isisavintas plotas
+34469.766
+8 m2 toliau ekspluatuojamo(E) ploto kaina eurais (nurodyta uzduotyje)
+16.48 
+Visas toliau ekspluatuojamas plotas
+22960.319
+=== Iskasto grunto kiekio skaiciavimas ===
+Iskasos Nr.1 plotas (P1) pagal virsutine riba (0.1 m2 tikslumu)
+*******
+Iskasos Nr.1 plotas (P2) pagal slaito apacia (0.1 m2 tikslumu)
+*******
+Iskasos Nr.1 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu)
+*******
+Iskasos Nr.1 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu)
+*******
+Galutinis iskasos Nr.1 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
+*******
+Iskasos Nr.2 plotas (P3) pagal virsutine riba (0.1 m2 tikslumu)
+*******
+Iskasos Nr.2 plotas (P4) pagal slaito apacia (0.1 m2 tikslumu)
+*******
+Iskasos Nr.2 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu)
+*******
+Iskasos Nr.2 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu)
+*******
+Galutinis iskasos Nr.2 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
+*******
+=== Apskaiciuotos kainos (0.01Eu tikslumu) ===
+Visa rekultivacijos (R) kaina
+85295479.98
+Nauju plotu (N) isisavinimo kaina
+855226.23
+Eksluatacijos (E) kaina
+47298.26
+Visa kaina (R+N+E)
+86198004.47
+
