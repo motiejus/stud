@@ -186,40 +186,40 @@ Tasko Nr. T2 koordinates
 X= %.3f""" % XT2 + """
 Y= %.3f""" % YT2 + """
 === Atstumas tarp tasku 1-7 (0.001 tikslumu) ===
-*******
+279.701
 === Atstumas tarp tasku 4-10 (0.001 tikslumu) ===
-*******
+112.901
 === Atstumas tarp tasku 13-1 (0.001 tikslumu) ===
-*******
+273.975
 === Atstumas tarp tasku 15-19 (0.001 tikslumu) ===
-*******
+218.302
 === Atstumas tarp tasku 16-24 (0.001 tikslumu) ===
-*******
+289.588
 === Atstumas tarp tasku 24-15 (0.001 tikslumu) ===
-*******
+138.322
 === Atstumas tarp tasku T1-T2 (0.001 tikslumu) ===
-*******
+928.606
 === Atstumas tarp tasku T1-T3 (0.001 tikslumu) ===
-*******
+1266.775
 === Atstumas tarp tasku T2-T3 (0.001 tikslumu) ===
-*******
+1543.369
 === Teritoriju plotai (m2) (0.001 tikslumu) ===
 Iskasos Nr.1 plotas m2 (2011m)
-*******
+63425.860
 Iskasos Nr.2 plotas m2 (2019m)
-*******
+1408.927
 1 aro rekultivacijos(R) kaina eurais (nurodyta uzduotyje)
-*******
+871.29
 Visas rekultivuojamas plotas
-*******
+97895.626
 22 m2 nauju plotu(N) isisavinimo kaina eurais (nurodyta uzduotyje)
-*******
+545.84
 Visas naujai isisavintas plotas
-*******
+34469.766
 8 m2 toliau ekspluatuojamo(E) ploto kaina eurais (nurodyta uzduotyje)
-*******
+16.48 
 Visas toliau ekspluatuojamas plotas
-*******
+22960.319
 === Iskasto grunto kiekio skaiciavimas ===
 Iskasos Nr.1 plotas (P1) pagal virsutine riba (0.1 m2 tikslumu)
 *******
@@ -243,11 +243,11 @@ Galutinis iskasos Nr.2 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
 *******
 === Apskaiciuotos kainos (0.01Eu tikslumu) ===
 Visa rekultivacijos (R) kaina
-*******
+%.2f""" % (rek_kaina * rek_plotas) + """
 Nauju plotu (N) isisavinimo kaina
-*******
+%.2f""" % (nauj_kaina * nauj_plotas) + """
 Eksluatacijos (E) kaina
-*******
+%.2f""" % (ekspl_kaina * ekspl_plotas) + """
 Visa kaina (R+N+E)
-*******
+%.2f""" % visa_kaina + """
 """)

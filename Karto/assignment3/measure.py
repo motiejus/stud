@@ -105,6 +105,20 @@ K2K7  = rp(Deg.guess('69.4792556').frac + R)
 K2K8  = rp(Deg.guess('130-50-06.1').frac + L)
 K2K9  = vs(Deg.guess('84-08-54.3').frac + K)
 
+rek_kaina = Dec('871.29')
+rek_plotas = Dec('97895.626')
+
+nauj_kaina = Dec('545.84') / 22
+nauj_plotas = Dec('34469.766')
+
+ekspl_kaina = Dec('16.48') / 8
+ekspl_plotas = Dec('22960.319')
+
+visa_kaina = (
+        rek_kaina * rek_plotas +
+        nauj_kaina * nauj_plotas +
+        ekspl_kaina * ekspl_plotas
+)
 
 H1 = 4.82
 SK1 = 41.08
