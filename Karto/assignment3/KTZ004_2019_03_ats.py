@@ -104,17 +104,17 @@ Kampas Nr.2K-9
 2K-9(L) = %.7f""" % K2K9 + """
 2K-9(L-M-S) = %s""" % Deg.from_1(K2K9) + """
 === Iskasos Nr.1 gylis H1 (0.00 tikslumu) (duotas)===
-*******
+%.2f""" % H1 + """
 === Iskasos Nr.1 slaito polinkio kampas SK1 (0.01 tikslumu) (duotas)===
-*******
+%.2f""" % SK1 + """
 === Apskaiciuotas atstumas iki slaito papedes A1 (0.00 tikslumu)===
-*******
+%.2f""" % A1 + """
 === Iskasos Nr.2 gylis H2 (0.00 tikslumu) (duotas)===
-*******
+%.2f""" % H2 + """
 === Iskasos Nr.2 slaito polinkio kampas SK2 (0.01 tikslumu) (duotas)===
-*******
+%.2f""" % SK2 + """
 === Apskaiciuotas atstumas iki slaito papedes A2 (0.00 tikslumu)===
-*******
+%.2f""" % A2 + """
 =============== Ismatuota brezinyje ================
 === Tasku koordinates (0.001 tikslumu) ===
 Tasko Nr.2 koordinates

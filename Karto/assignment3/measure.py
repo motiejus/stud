@@ -2,6 +2,8 @@
 from decimal import Decimal as Dec
 from deg import Deg
 
+from math import cos, pi
+
 def fmt(deg):
     if deg > 180:
         deg -= 360
@@ -102,6 +104,14 @@ K2K6  = pr(Deg.guess('60-41-55.2').frac + S)
 K2K7  = rp(Deg.guess('69.4792556').frac + R)
 K2K8  = rp(Deg.guess('130-50-06.1').frac + L)
 K2K9  = vs(Deg.guess('84-08-54.3').frac + K)
+
+H1 = 4.82
+SK1 = 41.08
+A1 = H1 * cos(SK1 * pi / 180)
+
+H2 = 20.38
+SK2 = 17.69
+A2 = H2 * cos(SK2 * pi / 180)
 
 if __name__ == '__main__':
     print("""Poslinkis to T3:
