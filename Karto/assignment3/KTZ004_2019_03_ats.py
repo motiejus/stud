@@ -2,7 +2,16 @@
 
 from measure import *
 
-print("""Uzduotis Nr. 
+def xy(xy):
+    return "X= %.3f\nY= %.3f" % xy
+
+def off1(x, y):
+    return x - (XT3 - XT1), y - (YT3 - YT1)
+
+def off2(x, y):
+    return x - (XT3 - XT2), y - (YT3 - YT2)
+
+print("""Uzduotis Nr.
 KTZ004_2019_03
 Braize (Pavarde_Vardas):
 Motiejus_Jakstys
@@ -118,77 +127,64 @@ Kampas Nr.2K-9
 =============== Ismatuota brezinyje ================
 === Tasku koordinates (0.001 tikslumu) ===
 Tasko Nr.2 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('17074.0250'), Dec('26806.2717'))) + """
 Tasko Nr.3 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('17006.4258'), Dec('26772.0343'))) + """
 Tasko Nr.4 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('16956.1218 '), Dec('26726.2096'))) + """
 Tasko Nr.5 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('16956.1218'), Dec('26726.2096'))) + """
 Tasko Nr.6 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('16871.1565'), Dec('26843.3373'))) + """
 Tasko Nr.7 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('16813.9395'), Dec('26687.3606'))) + """
 Tasko Nr.8 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('16847.6364'), Dec('26625.3292'))) + """
 Tasko Nr.9 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('16894.8971'), Dec('26640.4640'))) + """
 Tasko Nr.10 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('16981.5918'), Dec('26616.2192'))) + """
 Tasko Nr.11 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('16927.2194'), Dec('26586.8697'))) + """
 Tasko Nr.12 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('26516.2159'), Dec('16904.4338'))) + """
 Tasko Nr.13 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('16992.5045'), Dec('26428.8250'))) + """
 Tasko Nr.14 koordinates
-X= *******
-Y= *******
+""" + xy(off1(Dec('16974.8617'), Dec('26526.1478'))) + """
 Tasko Nr.16 koordinates
-X= *******
-Y= *******
+X= 17396.566
+Y= 25075.488
 Tasko Nr.17 koordinates
-X= *******
-Y= *******
+X= 17511.871
+Y= 25113.316
 Tasko Nr.18 koordinates
-X= *******
-Y= *******
+X= 17395.410
+Y= 25257.699
 Tasko Nr.19 koordinates
-X= *******
-Y= *******
+X= 17409.142
+Y= 25139.508
 Tasko Nr.20 koordinates
-X= *******
-Y= *******
+X= 17325.356
+Y= 25176.612
 Tasko Nr.21 koordinates
-X= *******
-Y= *******
+X= 17267.614 
+Y= 25298.138
 Tasko Nr.22 koordinates
-X= *******
-Y= *******
+X= 17185.820
+Y= 25341.223
 Tasko Nr.23 koordinates
-X= *******
-Y= *******
+X= 17092.249
+Y= 25277.651
 Tasko Nr.24 koordinates
-X= *******
-Y= *******
+X= 17172.022
+Y= 25258.361
 Tasko Nr. T1 koordinates
-X= *******
-Y= *******
+X= %.3f""" % XT1 + """
+Y= %.3f""" % YT1 + """
 Tasko Nr. T2 koordinates
-X= *******
-Y= *******
+X= %.3f""" % XT2 + """
+Y= %.3f""" % YT2 + """
 === Atstumas tarp tasku 1-7 (0.001 tikslumu) ===
 *******
 === Atstumas tarp tasku 4-10 (0.001 tikslumu) ===
@@ -225,28 +221,28 @@ Visas naujai isisavintas plotas
 Visas toliau ekspluatuojamas plotas
 *******
 === Iskasto grunto kiekio skaiciavimas ===
-Iskasos Nr.1 plotas (P1) pagal virsutine riba (0.1 m2 tikslumu) 
+Iskasos Nr.1 plotas (P1) pagal virsutine riba (0.1 m2 tikslumu)
 *******
-Iskasos Nr.1 plotas (P2) pagal slaito apacia (0.1 m2 tikslumu) 
+Iskasos Nr.1 plotas (P2) pagal slaito apacia (0.1 m2 tikslumu)
 *******
-Iskasos Nr.1 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu) 
+Iskasos Nr.1 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu)
 *******
-Iskasos Nr.1 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu) 
+Iskasos Nr.1 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu)
 *******
-Galutinis iskasos Nr.1 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu) 
+Galutinis iskasos Nr.1 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
 *******
-Iskasos Nr.2 plotas (P3) pagal virsutine riba (0.1 m2 tikslumu) 
+Iskasos Nr.2 plotas (P3) pagal virsutine riba (0.1 m2 tikslumu)
 *******
-Iskasos Nr.2 plotas (P4) pagal slaito apacia (0.1 m2 tikslumu) 
+Iskasos Nr.2 plotas (P4) pagal slaito apacia (0.1 m2 tikslumu)
 *******
-Iskasos Nr.2 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu) 
+Iskasos Nr.2 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu)
 *******
-Iskasos Nr.2 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu) 
+Iskasos Nr.2 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu)
 *******
-Galutinis iskasos Nr.2 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu) 
+Galutinis iskasos Nr.2 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
 *******
 === Apskaiciuotos kainos (0.01Eu tikslumu) ===
-Visa rekultivacijos (R) kaina 
+Visa rekultivacijos (R) kaina
 *******
 Nauju plotu (N) isisavinimo kaina
 *******

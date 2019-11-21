@@ -105,6 +105,7 @@ K2K7  = rp(Deg.guess('69.4792556').frac + R)
 K2K8  = rp(Deg.guess('130-50-06.1').frac + L)
 K2K9  = vs(Deg.guess('84-08-54.3').frac + K)
 
+
 H1 = 4.82
 SK1 = 41.08
 A1 = H1 * cos(SK1 * pi / 180)
@@ -115,8 +116,8 @@ A2 = H2 * cos(SK2 * pi / 180)
 
 if __name__ == '__main__':
     print("""Poslinkis to T3:
-    T1(X,Y): %7.3f,%7.3f""" % (XT3-XT1, YT3-YT1) + """
-    T2(X,Y): %7.3f,%7.3f""" % (XT3-XT2, YT3-YT2) + """
+    T1(X,Y): %7.3f,%7.3f""" % offsetT1 + """
+    T2(X,Y): %7.3f,%7.3f""" % offsetT2 + """
     """)
 
     print("""Sklypu pradiniu tasku (1 ir 15) koordinates:
