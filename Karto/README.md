@@ -18,7 +18,7 @@ useful commands:
 - rotate
 - scale: by reference -- turint palyginimo objektą.
 
-- hutch: štrichavimas.
+- hatch: štrichavimas.
 - draworder: bring to front/back.
 - re: Regenerate screen
 - circle: 2p/3p/ttr. Liestinės.
