@@ -2,7 +2,7 @@ from decimal import Decimal as D
 
 class Deg:
     def __str__(self):
-        return "%03d-%02d-%4.2f" % (self.deg, self.mm, self.ss)
+        return "%03d-%02d-%3.1f" % (self.deg, self.mm, self.ss)
 
     def __init__(self, deg, mm, ss):
         self.deg = D(deg)
@@ -52,8 +52,8 @@ class TestDeg(unittest.TestCase):
 
     def test_str_lower(self):
         w = Deg(120, 1, 42.541)
-        self.assertEqual("120-01-42.54", str(w))
+        self.assertEqual("120-01-42.5", str(w))
 
     def test_str_upper(self):
         w = Deg(120, 1, 42.545)
-        self.assertEqual("120-01-42.55", str(w))
+        self.assertEqual("120-01-42.5", str(w))
