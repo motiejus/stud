@@ -1,6 +1,10 @@
+from collections import namedtuple
+
 from decimal import Decimal as Dec
 
-Deg = namedtuple('Deg', ['hh', 'mm', 'ss'])
+class Deg(namedtuple('Deg', ['deg', 'mm', 'ss'])):
+    def __str__(self):
+        return "%03d-%02d-%.1f" % (self.deg, self.mm, self.ss)
 
 def guess(inp):
     if isinstance(inp, Dec):
