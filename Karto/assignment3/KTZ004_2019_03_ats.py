@@ -1,0 +1,257 @@
+#!/usr/bin/env python3
+
+from measure import *
+
+print("""Uzduotis Nr. 
+KTZ004_2019_03
+Braize (Pavarde_Vardas):
+Motiejus_Jakstys
+=== Pradiniu tasku koordinates (0.000 tikslumu)(duotos)===
+X1 = %s""" % X1 + """
+Y1 = %s""" % Y1 + """
+X15 = %s""" % X15 + """
+Y15 = %s""" % Y15 + """
+XT3 = %s""" % XT3 + """
+YT3 = %s""" % YT3 + """
+=== Apskaiciuoti atkarpu ilgiai (0.000 tikslumu) ===
+1L-1 = %s""" % L1L1 + """
+1L-2 = %s""" % L1L2 + """
+1L-3 = %s""" % L1L3 + """
+1L-4 = %s""" % L1L4 + """
+1L-5 = %s""" % L1L5 + """
+1L-6 = %s""" % L1L6 + """
+1L-7 = %s""" % L1L7 + """
+1L-8 = %s""" % L1L8 + """
+1L-9 = %s""" % L1L9 + """
+1L-10 = %s""" % L1L10 + """
+1L-11 = %s""" % L1L11 + """
+1L-12 = %s""" % L1L12 + """
+1L-13 = %s""" % L1L13 + """
+2L-1 = %s""" % L2L1 + """
+2L-2 = %s""" % L2L2 + """
+2L-3 = %s""" % L2L3 + """
+2L-4 = %s""" % L2L4 + """
+2L-5 = %s""" % L2L5 + """
+2L-6 = %s""" % L2L6 + """
+2L-7 = %s""" % L2L7 + """
+2L-8 = %s""" % L2L8 + """
+2L-9 = %s""" % L2L9 + """
+=== Apskaiciuoti kampai (0-00-00.1 ir 0.0000001 tikslumu) ===
+Kampas Nr.1K-1
+1K-1(L) = %.7f""" % K1K1 + """
+1K-1(L-M-S) = %s""" % Deg.from_1(K1K1) + """
+Kampas Nr.1K-2
+1K-2(L) = %.7f""" % K1K2 + """
+1K-2(L-M-S) = %s""" % Deg.from_1(K1K2) + """
+Kampas Nr.1K-3
+1K-3(L) = %.7f""" % K1K3 + """
+1K-3(L-M-S) = %s""" % Deg.from_1(K1K3) + """
+Kampas Nr.1K-4
+1K-4(L) = %.7f""" % K1K4 + """
+1K-4(L-M-S) = %s""" % Deg.from_1(K1K4) + """
+Kampas Nr.1K-5
+1K-5(L) = %.7f""" % K1K5 + """
+1K-5(L-M-S) = %s""" % Deg.from_1(K1K5) + """
+Kampas Nr.1K-6
+1K-6(L) = %.7f""" % K1K6 + """
+1K-6(L-M-S) = %s""" % Deg.from_1(K1K6) + """
+Kampas Nr.1K-7
+1K-7(L) = %.7f""" % K1K7 + """
+1K-7(L-M-S) = %s""" % Deg.from_1(K1K7) + """
+Kampas Nr.1K-8
+1K-8(L) = %.7f""" % K1K8 + """
+1K-8(L-M-S) = %s""" % Deg.from_1(K1K8) + """
+Kampas Nr.1K-9
+1K-9(L) = %.7f""" % K1K9 + """
+1K-9(L-M-S) = %s""" % Deg.from_1(K1K9) + """
+Kampas Nr.1K-10
+1K-10(L) = %.7f""" % K1K10 + """
+1K-10(L-M-S) = %s""" % Deg.from_1(K1K10) + """
+Kampas Nr.1K-11
+1K-11(L) = %.7f""" % K1K11 + """
+1K-11(L-M-S) = %s""" % Deg.from_1(K1K11) + """
+Kampas Nr.1K-12
+1K-12(L) = %.7f""" % K1K12 + """
+1K-12(L-M-S) = %s""" % Deg.from_1(K1K12) + """
+Kampas Nr.1K-13
+1K-13(L) = %.7f""" % K1K13 + """
+1K-13(L-M-S) = %s""" % Deg.from_1(K1K13) + """
+Kampas Nr.2K-1
+2K-1(L) = %.7f""" % K2K1 + """
+2K-1(L-M-S) = %s""" % Deg.from_1(K2K1) + """
+Kampas Nr.2K-2
+2K-2(L) = %.7f""" % K2K2 + """
+2K-2(L-M-S) = %s""" % Deg.from_1(K2K2) + """
+Kampas Nr.2K-3
+2K-3(L) = %.7f""" % K2K3 + """
+2K-3(L-M-S) = %s""" % Deg.from_1(K2K3) + """
+Kampas Nr.2K-4
+2K-4(L) = %.7f""" % K2K4 + """
+2K-4(L-M-S) = %s""" % Deg.from_1(K2K4) + """
+Kampas Nr.2K-5
+2K-5(L) = %.7f""" % K2K5 + """
+2K-5(L-M-S) = %s""" % Deg.from_1(K2K5) + """
+Kampas Nr.2K-6
+2K-6(L) = %.7f""" % K2K6 + """
+2K-6(L-M-S) = %s""" % Deg.from_1(K2K6) + """
+Kampas Nr.2K-7
+2K-7(L) = %.7f""" % K2K7+ """
+2K-7(L-M-S) = %s""" % Deg.from_1(K2K7) + """
+Kampas Nr.2K-8
+2K-8(L) = %.7f""" % K2K8 + """
+2K-8(L-M-S) = %s""" % Deg.from_1(K2K8) + """
+Kampas Nr.2K-9
+2K-9(L) = %.7f""" % K2K9 + """
+2K-9(L-M-S) = %s""" % Deg.from_1(K2K9) + """
+=== Iskasos Nr.1 gylis H1 (0.00 tikslumu) (duotas)===
+*******
+=== Iskasos Nr.1 slaito polinkio kampas SK1 (0.01 tikslumu) (duotas)===
+*******
+=== Apskaiciuotas atstumas iki slaito papedes A1 (0.00 tikslumu)===
+*******
+=== Iskasos Nr.2 gylis H2 (0.00 tikslumu) (duotas)===
+*******
+=== Iskasos Nr.2 slaito polinkio kampas SK2 (0.01 tikslumu) (duotas)===
+*******
+=== Apskaiciuotas atstumas iki slaito papedes A2 (0.00 tikslumu)===
+*******
+=============== Ismatuota brezinyje ================
+=== Tasku koordinates (0.001 tikslumu) ===
+Tasko Nr.2 koordinates
+X= *******
+Y= *******
+Tasko Nr.3 koordinates
+X= *******
+Y= *******
+Tasko Nr.4 koordinates
+X= *******
+Y= *******
+Tasko Nr.5 koordinates
+X= *******
+Y= *******
+Tasko Nr.6 koordinates
+X= *******
+Y= *******
+Tasko Nr.7 koordinates
+X= *******
+Y= *******
+Tasko Nr.8 koordinates
+X= *******
+Y= *******
+Tasko Nr.9 koordinates
+X= *******
+Y= *******
+Tasko Nr.10 koordinates
+X= *******
+Y= *******
+Tasko Nr.11 koordinates
+X= *******
+Y= *******
+Tasko Nr.12 koordinates
+X= *******
+Y= *******
+Tasko Nr.13 koordinates
+X= *******
+Y= *******
+Tasko Nr.14 koordinates
+X= *******
+Y= *******
+Tasko Nr.16 koordinates
+X= *******
+Y= *******
+Tasko Nr.17 koordinates
+X= *******
+Y= *******
+Tasko Nr.18 koordinates
+X= *******
+Y= *******
+Tasko Nr.19 koordinates
+X= *******
+Y= *******
+Tasko Nr.20 koordinates
+X= *******
+Y= *******
+Tasko Nr.21 koordinates
+X= *******
+Y= *******
+Tasko Nr.22 koordinates
+X= *******
+Y= *******
+Tasko Nr.23 koordinates
+X= *******
+Y= *******
+Tasko Nr.24 koordinates
+X= *******
+Y= *******
+Tasko Nr. T1 koordinates
+X= *******
+Y= *******
+Tasko Nr. T2 koordinates
+X= *******
+Y= *******
+=== Atstumas tarp tasku 1-7 (0.001 tikslumu) ===
+*******
+=== Atstumas tarp tasku 4-10 (0.001 tikslumu) ===
+*******
+=== Atstumas tarp tasku 13-1 (0.001 tikslumu) ===
+*******
+=== Atstumas tarp tasku 15-19 (0.001 tikslumu) ===
+*******
+=== Atstumas tarp tasku 16-24 (0.001 tikslumu) ===
+*******
+=== Atstumas tarp tasku 24-15 (0.001 tikslumu) ===
+*******
+=== Atstumas tarp tasku T1-T2 (0.001 tikslumu) ===
+*******
+=== Atstumas tarp tasku T1-T3 (0.001 tikslumu) ===
+*******
+=== Atstumas tarp tasku T2-T3 (0.001 tikslumu) ===
+*******
+=== Teritoriju plotai (m2) (0.001 tikslumu) ===
+Iskasos Nr.1 plotas m2 (2011m)
+*******
+Iskasos Nr.2 plotas m2 (2019m)
+*******
+1 aro rekultivacijos(R) kaina eurais (nurodyta uzduotyje)
+*******
+Visas rekultivuojamas plotas
+*******
+22 m2 nauju plotu(N) isisavinimo kaina eurais (nurodyta uzduotyje)
+*******
+Visas naujai isisavintas plotas
+*******
+8 m2 toliau ekspluatuojamo(E) ploto kaina eurais (nurodyta uzduotyje)
+*******
+Visas toliau ekspluatuojamas plotas
+*******
+=== Iskasto grunto kiekio skaiciavimas ===
+Iskasos Nr.1 plotas (P1) pagal virsutine riba (0.1 m2 tikslumu) 
+*******
+Iskasos Nr.1 plotas (P2) pagal slaito apacia (0.1 m2 tikslumu) 
+*******
+Iskasos Nr.1 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu) 
+*******
+Iskasos Nr.1 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu) 
+*******
+Galutinis iskasos Nr.1 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu) 
+*******
+Iskasos Nr.2 plotas (P3) pagal virsutine riba (0.1 m2 tikslumu) 
+*******
+Iskasos Nr.2 plotas (P4) pagal slaito apacia (0.1 m2 tikslumu) 
+*******
+Iskasos Nr.2 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu) 
+*******
+Iskasos Nr.2 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu) 
+*******
+Galutinis iskasos Nr.2 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu) 
+*******
+=== Apskaiciuotos kainos (0.01Eu tikslumu) ===
+Visa rekultivacijos (R) kaina 
+*******
+Nauju plotu (N) isisavinimo kaina
+*******
+Eksluatacijos (E) kaina
+*******
+Visa kaina (R+N+E)
+*******
+""")
