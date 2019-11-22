@@ -1,5 +1,5 @@
 useful commands:
-- distance/measuregeom
+- distance/measuregeom/dim
 - zoom ext
 - line
 - trim: pirma žymėti ribą, tada -- po truputį, ką kiripti
@@ -22,3 +22,9 @@ useful commands:
 - draworder: bring to front/back.
 - re: Regenerate screen
 - circle: 2p/3p/ttr. Liestinės.
+- ucs: user coordinate system.
+
+
+regions:
+- uni(on) / in(tersection) / su(btract)
+
