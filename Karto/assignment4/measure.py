@@ -12,7 +12,7 @@ def guess(inp):
 
 class PAL(namedtuple('PAL', ['point', 'ang', 'len'])):
     def __str__(self):
-        return "%2d: %8.4f - %7.3f" % (self.point, self.ang, self.len)
+        return "%2d: ang:%8.4f len:%7.3f" % (self.point, self.ang, self.len)
 
 A= Dec('6.094')
 B= Dec('-2.923')
