@@ -34,157 +34,157 @@ YT3 = 26685.160
 2L-9 = 82.072
 === Apskaiciuoti kampai (0-00-00.1 ir 0.0000001 tikslumu) ===
 Kampas Nr.1K-1
-1K-1(L) = 350.9377972
-1K-1(L-M-S) = 350-56-16.1
+1K-1(L) = 80.9377972
+1K-1(L-M-S) = 080-56-16.1
 Kampas Nr.1K-2
-1K-2(L) = 243.1388371
-1K-2(L-M-S) = 243-08-19.8
+1K-2(L) = 116.8611629
+1K-2(L-M-S) = 116-51-40.2
 Kampas Nr.1K-3
-1K-3(L) = 227.6678960
-1K-3(L-M-S) = 227-40-4.4
+1K-3(L) = 47.6678960
+1K-3(L-M-S) = 047-40-4.4
 Kampas Nr.1K-4
-1K-4(L) = 358.4497185
-1K-4(L-M-S) = 358-26-59.0
+1K-4(L) = 88.4497185
+1K-4(L-M-S) = 088-26-59.0
 Kampas Nr.1K-5
-1K-5(L) = 265.2761907
-1K-5(L-M-S) = 265-16-34.3
+1K-5(L) = 4.7238093
+1K-5(L-M-S) = 004-43-25.7
 Kampas Nr.1K-6
-1K-6(L) = 200.1445749
-1K-6(L-M-S) = 200-08-40.5
+1K-6(L) = 20.1445749
+1K-6(L-M-S) = 020-08-40.5
 Kampas Nr.1K-7
-1K-7(L) = 151.4881984
-1K-7(L-M-S) = 151-29-17.5
+1K-7(L) = 118.5118016
+1K-7(L-M-S) = 118-30-42.5
 Kampas Nr.1K-8
-1K-8(L) = 72.2428897
-1K-8(L-M-S) = 072-14-34.4
+1K-8(L) = 197.7571103
+1K-8(L-M-S) = 197-45-25.6
 Kampas Nr.1K-9
 1K-9(L) = 105.6240432
 1K-9(L-M-S) = 105-37-26.6
 Kampas Nr.1K-10
-1K-10(L) = 241.6404358
-1K-10(L-M-S) = 241-38-25.6
+1K-10(L) = 151.6404358
+1K-10(L-M-S) = 151-38-25.6
 Kampas Nr.1K-11
-1K-11(L) = 197.8742769
-1K-11(L-M-S) = 197-52-27.4
+1K-11(L) = 72.1257231
+1K-11(L-M-S) = 072-07-32.6
 Kampas Nr.1K-12
-1K-12(L) = 134.7780415
-1K-12(L-M-S) = 134-46-40.9
+1K-12(L) = 45.2219585
+1K-12(L-M-S) = 045-13-19.1
 Kampas Nr.1K-13
-1K-13(L) = -10.2750469
-1K-13(L-M-S) = -10--16--30.2
+1K-13(L) = 100.2750469
+1K-13(L-M-S) = 100-16-30.2
 Kampas Nr.2K-1
-2K-1(L) = 102.6332719
-2K-1(L-M-S) = 102-37-59.8
+2K-1(L) = 77.3667281
+2K-1(L-M-S) = 077-22-0.2
 Kampas Nr.2K-2
 2K-2(L) = 71.8373765
 2K-2(L-M-S) = 071-50-14.6
 Kampas Nr.2K-3
-2K-3(L) = 321.1100194
-2K-3(L-M-S) = 321-06-36.1
+2K-3(L) = 51.1100194
+2K-3(L-M-S) = 051-06-36.1
 Kampas Nr.2K-4
-2K-4(L) = 173.3730815
-2K-4(L-M-S) = 173-22-23.1
+2K-4(L) = 186.6269185
+2K-4(L-M-S) = 186-37-36.9
 Kampas Nr.2K-5
-2K-5(L) = -66.1143114
-2K-5(L-M-S) = -66--6--51.5
+2K-5(L) = 156.1143114
+2K-5(L-M-S) = 156-06-51.5
 Kampas Nr.2K-6
-2K-6(L) = 334.5861074
-2K-6(L-M-S) = 334-35-10.0
+2K-6(L) = 64.5861074
+2K-6(L-M-S) = 064-35-10.0
 Kampas Nr.2K-7
-2K-7(L) = 297.7772303
-2K-7(L-M-S) = 297-46-38.0
+2K-7(L) = 62.2227697
+2K-7(L-M-S) = 062-13-22.0
 Kampas Nr.2K-8
-2K-8(L) = 235.8077997
-2K-8(L-M-S) = 235-48-28.1
+2K-8(L) = 124.1922003
+2K-8(L-M-S) = 124-11-31.9
 Kampas Nr.2K-9
-2K-9(L) = 103.5938619
-2K-9(L-M-S) = 103-35-37.9
+2K-9(L) = 76.4061381
+2K-9(L-M-S) = 076-24-22.1
 === Iskasos Nr.1 gylis H1 (0.00 tikslumu) (duotas)===
 4.82
 === Iskasos Nr.1 slaito polinkio kampas SK1 (0.01 tikslumu) (duotas)===
 41.08
 === Apskaiciuotas atstumas iki slaito papedes A1 (0.00 tikslumu)===
-3.63
+4.20
 === Iskasos Nr.2 gylis H2 (0.00 tikslumu) (duotas)===
 20.38
 === Iskasos Nr.2 slaito polinkio kampas SK2 (0.01 tikslumu) (duotas)===
 17.69
 === Apskaiciuotas atstumas iki slaito papedes A2 (0.00 tikslumu)===
-19.42
+6.50
 =============== Ismatuota brezinyje ================
 === Tasku koordinates (0.001 tikslumu) ===
 Tasko Nr.2 koordinates
-X= 16619.702
-Y= 25623.770
+X= 16762.101
+Y= 25481.372
 Tasko Nr.3 koordinates
-X= 16552.103
-Y= 25589.533
+X= 16727.863
+Y= 25413.773
 Tasko Nr.4 koordinates
-X= 16501.799
-Y= 25543.708
+X= 16682.039
+Y= 25363.469
 Tasko Nr.5 koordinates
-X= 16501.799
-Y= 25543.708
+X= 16805.910
+Y= 25360.116
 Tasko Nr.6 koordinates
-X= 16416.833
-Y= 25660.836
+X= 16799.166
+Y= 25278.503
 Tasko Nr.7 koordinates
-X= 16359.616
-Y= 25504.859
+X= 16643.190
+Y= 25221.287
 Tasko Nr.8 koordinates
-X= 16393.313
-Y= 25442.828
+X= 16581.158
+Y= 25254.983
 Tasko Nr.9 koordinates
-X= 16440.574
-Y= 25457.963
+X= 16596.293
+Y= 25302.244
 Tasko Nr.10 koordinates
-X= 16527.269
-Y= 25433.718
+X= 16572.048
+Y= 25388.939
 Tasko Nr.11 koordinates
-X= 16472.896
-Y= 25404.368
+X= 16542.699
+Y= 25334.566
 Tasko Nr.12 koordinates
-X= 26061.893
-Y= 15721.932
+X= 16472.045
+Y= 25311.781
 Tasko Nr.13 koordinates
-X= 16538.181
-Y= 25246.324
+X= 16472.045
+Y= 25311.781
 Tasko Nr.14 koordinates
-X= 16520.539
-Y= 25343.646
+X= 16481.977
+Y= 25382.209
 Tasko Nr.16 koordinates
-X= 17396.566
-Y= 25075.488
+X= 17145.648
+Y= 25326.403
 Tasko Nr.17 koordinates
-X= 17511.871
-Y= 25113.316
+X= 17183.476
+Y= 25441.711
 Tasko Nr.18 koordinates
-X= 17395.410
-Y= 25257.699
+X= 17327.859
+Y= 25325.250
 Tasko Nr.19 koordinates
-X= 17409.142
-Y= 25139.508
+X= 17209.668
+Y= 25338.982
 Tasko Nr.20 koordinates
-X= 17325.356
-Y= 25176.612
+X= 17246.772
+Y= 25255.196
 Tasko Nr.21 koordinates
-X= 17267.614 
-Y= 25298.138
+X= 17368.299
+Y= 25197.454
 Tasko Nr.22 koordinates
-X= 17185.820
-Y= 25341.223
+X= 17411.383
+Y= 25115.660
 Tasko Nr.23 koordinates
-X= 17092.249
-Y= 25277.651
+X= 17347.811
+Y= 25022.089
 Tasko Nr.24 koordinates
-X= 17172.022
-Y= 25258.361
+X= 17328.521
+Y= 25101.862
 Tasko Nr. T1 koordinates
-X= 16517.467
-Y= 25502.659
+X= 16640.989
+Y= 25379.137
 Tasko Nr. T2 koordinates
-X= 17395.768
-Y= 25201.168
+X= 17271.328
+Y= 25325.608
 === Atstumas tarp tasku 1-7 (0.001 tikslumu) ===
 279.701
 === Atstumas tarp tasku 4-10 (0.001 tikslumu) ===
@@ -217,30 +217,30 @@ Visas rekultivuojamas plotas
 Visas naujai isisavintas plotas
 34469.766
 8 m2 toliau ekspluatuojamo(E) ploto kaina eurais (nurodyta uzduotyje)
-16.48 
+16.48
 Visas toliau ekspluatuojamas plotas
 22960.319
 === Iskasto grunto kiekio skaiciavimas ===
 Iskasos Nr.1 plotas (P1) pagal virsutine riba (0.1 m2 tikslumu)
-*******
+63425.9
 Iskasos Nr.1 plotas (P2) pagal slaito apacia (0.1 m2 tikslumu)
-*******
+56139.9
 Iskasos Nr.1 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu)
-*******
+287975.0
 Iskasos Nr.1 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu)
-*******
+288153.5
 Galutinis iskasos Nr.1 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
-*******
+288064
 Iskasos Nr.2 plotas (P3) pagal virsutine riba (0.1 m2 tikslumu)
-*******
+59232.4
 Iskasos Nr.2 plotas (P4) pagal slaito apacia (0.1 m2 tikslumu)
-*******
+50411.9
 Iskasos Nr.2 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu)
-*******
+1116068.1
 Iskasos Nr.2 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu)
-*******
+1117275.2
 Galutinis iskasos Nr.2 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
-*******
+1116672
 === Apskaiciuotos kainos (0.01Eu tikslumu) ===
 Visa rekultivacijos (R) kaina
 85295479.98

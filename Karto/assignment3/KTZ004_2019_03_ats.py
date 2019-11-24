@@ -128,7 +128,7 @@ X= 16727.863
 Y= 25413.773
 Tasko Nr.4 koordinates
 X= 16682.039
-Y= 25363.469 
+Y= 25363.469
 Tasko Nr.5 koordinates
 X= 16805.910
 Y= 25360.116
@@ -164,7 +164,7 @@ X= 17145.648
 Y= 25326.403
 Tasko Nr.17 koordinates
 X= 17183.476
-Y= 25441.711 
+Y= 25441.711
 Tasko Nr.18 koordinates
 X= 17327.859
 Y= 25325.250
@@ -176,10 +176,10 @@ X= 17246.772
 Y= 25255.196
 Tasko Nr.21 koordinates
 X= 17368.299
-Y= 25197.454 
+Y= 25197.454
 Tasko Nr.22 koordinates
 X= 17411.383
-Y= 25115.660 
+Y= 25115.660
 Tasko Nr.23 koordinates
 X= 17347.811
 Y= 25022.089
@@ -224,7 +224,7 @@ Visas rekultivuojamas plotas
 Visas naujai isisavintas plotas
 34469.766
 8 m2 toliau ekspluatuojamo(E) ploto kaina eurais (nurodyta uzduotyje)
-16.48 
+16.48
 Visas toliau ekspluatuojamas plotas
 22960.319
 === Iskasto grunto kiekio skaiciavimas ===
@@ -237,7 +237,7 @@ Iskasos Nr.1 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu)
 Iskasos Nr.1 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu)
 %.1f""" % fig1_v2 + """
 Galutinis iskasos Nr.1 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
-%.f""" % fig1_v + """ 
+%.f""" % fig1_v + """
 Iskasos Nr.2 plotas (P3) pagal virsutine riba (0.1 m2 tikslumu)
 %.1f""" % P3_virsutine + """
 Iskasos Nr.2 plotas (P4) pagal slaito apacia (0.1 m2 tikslumu)
@@ -247,7 +247,7 @@ Iskasos Nr.2 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu)
 Iskasos Nr.2 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu)
 %.1f""" % fig2_v2 + """
 Galutinis iskasos Nr.2 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
-%.0f""" % fig2_v + """ 
+%.0f""" % fig2_v + """
 === Apskaiciuotos kainos (0.01Eu tikslumu) ===
 Visa rekultivacijos (R) kaina
 %.2f""" % (rek_kaina * rek_plotas) + """
