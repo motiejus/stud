@@ -12,13 +12,17 @@ def guess(inp):
 
 Point = namedtuple('Point', ['acadx', 'acady'])
 
-class Vertex(namedtuple('Vertex',
-    ['point', 'len', 'ang', 'dirang', 'coords'],
-    defaults=(0,Point(0, 0)))):
-    """Point Angle Length DirectionAngle"""
+class Vertex:
+    def __init__(self, point, length, angle):
+        self.point = point
+        self.len = length
+        self.ang = angle
+        self.dirang = Dec()
+        self.coords = Point(Dec(), Dec())
     def __str__(self):
         return "%2d: ang:%8.4f len:%7.3f dirang:%8.4f acoords:(%.3f,%.3f)" % \
-                (self.point, self.ang, self.len, self.dirang, self.coords.acadx, self.coords.acady)
+                (self.point, self.ang, self.len,
+                        self.dirang, self.coords.acadx, self.coords.acady)
 
 A= Dec('6.094')
 B= Dec('-2.923')
@@ -62,9 +66,10 @@ for v in vertices:
     angle_sum += v.ang
 theoretical_angle_sum = Dec(int((len(vertices)-2)*180))
 
+dirang = A11_2
 for v in vertices:
-    print(v)
-
+    v.dirang = dirang + 180 - v.ang
+    dirang = v.dirang
 
 if __name__ == '__main__':
     print("""
