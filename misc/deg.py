@@ -10,8 +10,8 @@ def guess(inp):
     if isinstance(inp, Dec):
         return inp
 
-    if '-' in instr:
-        deg, mm, ss = instr.split('-')
+    if isinstance(inp, str) and '-' in inp:
+        deg, mm, ss = inp.split('-')
         ddeg, dmm, dss = Dec(deg), Dec(mm), Dec(ss)
         return deg + dmm/60 + dss/3600
     else:
