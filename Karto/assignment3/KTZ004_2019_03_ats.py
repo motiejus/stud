@@ -5,12 +5,6 @@ from measure import *
 def xy(xy):
     return "X= %.3f\nY= %.3f" % xy
 
-def off1(x, y):
-    return x - (XT3 - XT1), y - (YT3 - YT1)
-
-def off2(x, y):
-    return x - (XT3 - XT2), y - (YT3 - YT2)
-
 print("""Uzduotis Nr.
 KTZ004_2019_03
 Braize (Pavarde_Vardas):
@@ -127,58 +121,71 @@ Kampas Nr.2K-9
 =============== Ismatuota brezinyje ================
 === Tasku koordinates (0.001 tikslumu) ===
 Tasko Nr.2 koordinates
-""" + xy(off1(Dec('17074.0250'), Dec('26806.2717'))) + """
+X= 16762.101
+Y= 25481.372
 Tasko Nr.3 koordinates
-""" + xy(off1(Dec('17006.4258'), Dec('26772.0343'))) + """
+X= 16727.863
+Y= 25413.773
 Tasko Nr.4 koordinates
-""" + xy(off1(Dec('16956.1218 '), Dec('26726.2096'))) + """
+X= 16682.039
+Y= 25363.469 
 Tasko Nr.5 koordinates
-""" + xy(off1(Dec('16956.1218'), Dec('26726.2096'))) + """
+X= 16805.910
+Y= 25360.116
 Tasko Nr.6 koordinates
-""" + xy(off1(Dec('16871.1565'), Dec('26843.3373'))) + """
+X= 16799.166
+Y= 25278.503
 Tasko Nr.7 koordinates
-""" + xy(off1(Dec('16813.9395'), Dec('26687.3606'))) + """
+X= 16643.190
+Y= 25221.287
 Tasko Nr.8 koordinates
-""" + xy(off1(Dec('16847.6364'), Dec('26625.3292'))) + """
+X= 16581.158
+Y= 25254.983
 Tasko Nr.9 koordinates
-""" + xy(off1(Dec('16894.8971'), Dec('26640.4640'))) + """
+X= 16596.293
+Y= 25302.244
 Tasko Nr.10 koordinates
-""" + xy(off1(Dec('16981.5918'), Dec('26616.2192'))) + """
+X= 16572.048
+Y= 25388.939
 Tasko Nr.11 koordinates
-""" + xy(off1(Dec('16927.2194'), Dec('26586.8697'))) + """
+X= 16542.699
+Y= 25334.566
 Tasko Nr.12 koordinates
-""" + xy(off1(Dec('26516.2159'), Dec('16904.4338'))) + """
+X= 16472.045
+Y= 25311.781
 Tasko Nr.13 koordinates
-""" + xy(off1(Dec('16992.5045'), Dec('26428.8250'))) + """
+X= 16472.045
+Y= 25311.781
 Tasko Nr.14 koordinates
-""" + xy(off1(Dec('16974.8617'), Dec('26526.1478'))) + """
+X= 16481.977
+Y= 25382.209
 Tasko Nr.16 koordinates
-X= 17396.566
-Y= 25075.488
+X= 17145.648
+Y= 25326.403
 Tasko Nr.17 koordinates
-X= 17511.871
-Y= 25113.316
+X= 17183.476
+Y= 25441.711 
 Tasko Nr.18 koordinates
-X= 17395.410
-Y= 25257.699
+X= 17327.859
+Y= 25325.250
 Tasko Nr.19 koordinates
-X= 17409.142
-Y= 25139.508
+X= 17209.668
+Y= 25338.982
 Tasko Nr.20 koordinates
-X= 17325.356
-Y= 25176.612
+X= 17246.772
+Y= 25255.196
 Tasko Nr.21 koordinates
-X= 17267.614 
-Y= 25298.138
+X= 17368.299
+Y= 25197.454 
 Tasko Nr.22 koordinates
-X= 17185.820
-Y= 25341.223
+X= 17411.383
+Y= 25115.660 
 Tasko Nr.23 koordinates
-X= 17092.249
-Y= 25277.651
+X= 17347.811
+Y= 25022.089
 Tasko Nr.24 koordinates
-X= 17172.022
-Y= 25258.361
+X= 17328.521
+Y= 25101.862
 Tasko Nr. T1 koordinates
 X= %.3f""" % XT1 + """
 Y= %.3f""" % YT1 + """

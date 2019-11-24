@@ -34,10 +34,10 @@ Xcoords = Dec('17000')
 Ycoords = Dec('26700')
 
 # T1, T2
-XT1 = Dec('16517.4669')
-YT1 = Dec('25502.6586')
-XT2 = Dec('17395.768')
-YT2 = Dec('25201.168')
+XT1 = Dec('16640.989')
+YT1 = Dec('25379.137')
+XT2 = Dec('17271.328')
+YT2 = Dec('25325.608')
 
 # Pataisos ATKARPOMS:
 A = Dec('-2.207')
