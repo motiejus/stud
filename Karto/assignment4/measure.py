@@ -20,8 +20,8 @@ class Vertex:
         self.dirang = dirang
         self.coords = Point(Dec(), Dec())
     def __str__(self):
-        return "%2d: ang:%8.4f len:%7.3f dirang:%8.4f acoords:(%.3f,%.3f)" % \
-                (self.point, self.ang, self.len,
+        return "%2d: len:%7.3f ang:%8.4f  dirang:%8.4f acoords:(%.3f,%.3f)" % \
+                (self.point, self.len, self.ang,
                         self.dirang, self.coords.acadx, self.coords.acady)
 
 A= Dec('6.094')
@@ -35,6 +35,7 @@ Y11 = Dec('485944.146')
 A11_2 = guess('70-16-17')
 
 vertices = [
+  #  point   len             angle               dirangle
   Vertex(11, Dec('164.126'), guess('103-03-03'), A11_2),
   Vertex(2,  Dec('149.851'), guess('218-27-42')),
   Vertex(19, Dec('82.384' ), guess('211-44-30')),
