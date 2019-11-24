@@ -2,7 +2,7 @@
 from decimal import Decimal as Dec
 from deg import Deg
 
-from math import tan, pi
+from math import tan, pi, sqrt
 
 def fmt(deg):
     if deg > 180:
@@ -130,6 +130,41 @@ K2K7  = Deg.guess('69.4792556').frac + R
 K2K8  = Deg.guess('130-50-06.1').frac + L
 K2K9  = Deg.guess('84-08-54.3').frac + K
 
+H1 = 4.82
+SK1 = 41.08
+A1 = H1 * tan(SK1 * pi / 180)
+
+H2 = 20.38
+SK2 = 17.69
+A2 = H2 * tan(SK2 * pi / 180)
+
+
+# Area
+P1_virsutine = Dec('63425.860')
+P2_apatine = Dec('56139.919')
+
+P3_virsutine = Dec('59232.387')
+P4_apatine = Dec('50411.889')
+
+def f2_v1(h, pv, pa):
+    return h/3*(float(pv+pa)+sqrt(pv*pa))
+
+def f3_v2(h, pv, pa):
+    return h/2*float(pv+pa)
+
+def f4_v(v1, v2):
+    return (v1 + v2) / 2
+
+fig1_v1 = f2_v1(H1, P1_virsutine, P2_apatine)
+fig1_v2 = f3_v2(H1, P1_virsutine, P2_apatine)
+fig1_v = f4_v(fig1_v1, fig1_v2)
+
+fig2_v1 = f2_v1(H2, P3_virsutine, P4_apatine)
+fig2_v2 = f3_v2(H2, P3_virsutine, P4_apatine)
+fig2_v = f4_v(fig2_v1, fig2_v2)
+
+# Kainos
+
 rek_kaina = Dec('871.29')
 rek_plotas = Dec('97895.626')
 
@@ -144,14 +179,6 @@ visa_kaina = (
         nauj_kaina * nauj_plotas +
         ekspl_kaina * ekspl_plotas
 )
-
-H1 = 4.82
-SK1 = 41.08
-A1 = H1 * tan(SK1 * pi / 180)
-
-H2 = 20.38
-SK2 = 17.69
-A2 = H2 * tan(SK2 * pi / 180)
 
 if __name__ == '__main__':
     print("""Sklypu pradiniu tasku (1 ir 15) koordinates:

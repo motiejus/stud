@@ -229,25 +229,25 @@ Visas toliau ekspluatuojamas plotas
 22960.319
 === Iskasto grunto kiekio skaiciavimas ===
 Iskasos Nr.1 plotas (P1) pagal virsutine riba (0.1 m2 tikslumu)
-*******
+%.1f""" % P1_virsutine + """
 Iskasos Nr.1 plotas (P2) pagal slaito apacia (0.1 m2 tikslumu)
-*******
+%.1f""" % P2_apatine + """
 Iskasos Nr.1 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu)
-*******
+%.1f""" % fig1_v1 + """
 Iskasos Nr.1 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu)
-*******
+%.1f""" % fig1_v2 + """
 Galutinis iskasos Nr.1 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
-*******
+%.f""" % fig1_v + """ 
 Iskasos Nr.2 plotas (P3) pagal virsutine riba (0.1 m2 tikslumu)
-*******
+%.1f""" % P3_virsutine + """
 Iskasos Nr.2 plotas (P4) pagal slaito apacia (0.1 m2 tikslumu)
-*******
+%.1f""" % P4_apatine + """
 Iskasos Nr.2 turis (V1) paskaiciuotas pagal 2 formule (0.1 m3 tikslumu)
-*******
+%.1f""" % fig2_v1 + """
 Iskasos Nr.2 turis (V2) paskaiciuotas pagal 3 formule (0.1 m3 tikslumu)
-*******
+%.1f""" % fig2_v2 + """
 Galutinis iskasos Nr.2 turis (V) paskaiciuotas pagal 4 formule (1 m3 tikslumu)
-*******
+%.0f""" % fig2_v + """ 
 === Apskaiciuotos kainos (0.01Eu tikslumu) ===
 Visa rekultivacijos (R) kaina
 %.2f""" % (rek_kaina * rek_plotas) + """

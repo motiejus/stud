@@ -28,3 +28,6 @@ useful commands:
 regions:
 - uni(on) / in(tersection) / su(btract)
 
+
+Questions:
+- OFFSET in assignment3 gives quite different offsets for Fig. 2
