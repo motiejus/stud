@@ -2,7 +2,7 @@
 from decimal import Decimal as Dec
 from deg import Deg
 
-from math import cos, pi
+from math import tan, pi
 
 def fmt(deg):
     if deg > 180:
@@ -147,28 +147,14 @@ visa_kaina = (
 
 H1 = 4.82
 SK1 = 41.08
-A1 = H1 * cos(SK1 * pi / 180)
+A1 = H1 * tan(SK1 * pi / 180)
 
 H2 = 20.38
 SK2 = 17.69
-A2 = H2 * cos(SK2 * pi / 180)
+A2 = H2 * tan(SK2 * pi / 180)
 
 if __name__ == '__main__':
-    print("""Poslinkis to T3:
-    T1(X,Y): %7.3f,%7.3f""" % offsetT1 + """
-    T2(X,Y): %7.3f,%7.3f""" % offsetT2 + """
-    """)
-
     print("""Sklypu pradiniu tasku (1 ir 15) koordinates:
-    X1 = 16639.290
-    Y1 = 25500.960
-    X15 = 17191.590
-    Y15 = 25121.430
-
-    Sklypu sujungimo tasko T3 koordinates:
-    XT3 = 16971.790
-    YT3 = 26685.160
-
     Atkarpos:
     1L-1  = %7.3f""" % (Dec('125.829') + G) + """
     1L-2  = %7.3f""" % (Dec('81.682') + E) + """
