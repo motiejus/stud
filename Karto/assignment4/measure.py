@@ -10,52 +10,61 @@ def guess(inp):
     else:
         return Dec(instr)
 
-class PAL(namedtuple('PAL', ['point', 'ang', 'len'])):
+Point = namedtuple('Point', ['acadx', 'acady'])
+
+class Vertex(namedtuple('Vertex',
+    ['point', 'len', 'ang', 'dirang', 'coords'],
+    defaults=(0,Point(0, 0)))):
+    """Point Angle Length DirectionAngle"""
     def __str__(self):
-        return "%2d: ang:%8.4f len:%7.3f" % (self.point, self.ang, self.len)
+        return "%2d: ang:%8.4f len:%7.3f dirang:%8.4f acoords:(%.3f,%.3f)" % \
+                (self.point, self.ang, self.len, self.dirang, self.coords.acadx, self.coords.acady)
 
 A= Dec('6.094')
 B= Dec('-2.923')
 C= Dec('-13.462')
 N= Dec('9.512')
 
+# Directional coords + angle
 X11 = Dec('6091968.055')
 Y11 = Dec('485944.146')
-
 A11_2 = guess('70-16-17')
 
-# point angle length
-pals = [
-  PAL(11, guess('103-03-03'), Dec('164.126')),
-  PAL(2,  guess('218-27-42'), Dec('149.851')),
-  PAL(19, guess('211-44-30'), Dec('82.384') ),
-  PAL(3,  guess('67-26-49') , Dec('259.022')),
-  PAL(24, guess('67-33-06') , Dec('319.331')),
-  PAL(12, guess('279-03-59'), Dec('74.764') ),
-  PAL(13, guess('278-54-55'), Dec('81.640') ),
-  PAL(14, guess('119-27-45'), Dec('31.888') ),
-  PAL(15, guess('160-50-28'), Dec('84.073') ),
-  PAL(16, guess('207-42-31'), Dec('70.072') ),
-  PAL(17, guess('206-18-01'), Dec('73.378') ),
-  PAL(10, guess('90-55-10') , Dec('66.625') ),
-  PAL(18, guess('100-18-10'), Dec('97.003') ),
-  PAL(9,  guess('148-30-56'), Dec('121.003')),
-  PAL(8,  guess('285-20-57'), Dec('131.915')),
-  PAL(23, guess('29-44-22') , Dec('102.086')),
-  PAL(22, guess('276-33-49'), Dec('158.324')),
-  PAL(7,  guess('82-07-47') , Dec('72.157') ),
-  PAL(6,  guess('104-15-46'), Dec('107.938')),
-  PAL(21, guess('234-17-37'), Dec('104.082')),
-  PAL(5,  guess('283-30-57'), Dec('154.332')),
-  PAL(20, guess('152-15-58'), Dec('68.972') ),
-  PAL(1,  guess('101-20-01'), Dec('151.531')),
-  PAL(4,  guess('150-15-41'), Dec('179.336')),
+vertices = [
+  Vertex(11, Dec('164.126'), guess('103-03-03')),
+  Vertex(2,  Dec('149.851'), guess('218-27-42')),
+  Vertex(19, Dec('82.384' ), guess('211-44-30')),
+  Vertex(3,  Dec('259.022'), guess('67-26-49' )),
+  Vertex(24, Dec('319.331'), guess('67-33-06' )),
+  Vertex(12, Dec('74.764' ), guess('279-03-59')),
+  Vertex(13, Dec('81.640' ), guess('278-54-55')),
+  Vertex(14, Dec('31.888' ), guess('119-27-45')),
+  Vertex(15, Dec('84.073' ), guess('160-50-28')),
+  Vertex(16, Dec('70.072' ), guess('207-42-31')),
+  Vertex(17, Dec('73.378' ), guess('206-18-01')),
+  Vertex(10, Dec('66.625' ), guess('90-55-10' )),
+  Vertex(18, Dec('97.003' ), guess('100-18-10')),
+  Vertex(9,  Dec('121.003'), guess('148-30-56')),
+  Vertex(8,  Dec('131.915'), guess('285-20-57')),
+  Vertex(23, Dec('102.086'), guess('29-44-22' )),
+  Vertex(22, Dec('158.324'), guess('276-33-49')),
+  Vertex(7,  Dec('72.157' ), guess('82-07-47' )),
+  Vertex(6,  Dec('107.938'), guess('104-15-46')),
+  Vertex(21, Dec('104.082'), guess('234-17-37')),
+  Vertex(5,  Dec('154.332'), guess('283-30-57')),
+  Vertex(20, Dec('68.972' ), guess('152-15-58')),
+  Vertex(1,  Dec('151.531'), guess('101-20-01')),
+  Vertex(4,  Dec('179.336'), guess('150-15-41')),
 ]
 
 angle_sum = Dec(0)
-for pal in pals:
-    angle_sum += pal.ang
-theoretical_angle_sum = Dec(int((len(pals)-2)*180))
+for v in vertices:
+    angle_sum += v.ang
+theoretical_angle_sum = Dec(int((len(vertices)-2)*180))
+
+for v in vertices:
+    print(v)
+
 
 if __name__ == '__main__':
     print("""
