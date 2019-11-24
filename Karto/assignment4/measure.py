@@ -13,11 +13,11 @@ def guess(inp):
 Point = namedtuple('Point', ['acadx', 'acady'])
 
 class Vertex:
-    def __init__(self, point, length, angle):
+    def __init__(self, point, length, angle, dirang=Dec()):
         self.point = point
         self.len = length
         self.ang = angle
-        self.dirang = Dec()
+        self.dirang = dirang
         self.coords = Point(Dec(), Dec())
     def __str__(self):
         return "%2d: ang:%8.4f len:%7.3f dirang:%8.4f acoords:(%.3f,%.3f)" % \
@@ -35,7 +35,7 @@ Y11 = Dec('485944.146')
 A11_2 = guess('70-16-17')
 
 vertices = [
-  Vertex(11, Dec('164.126'), guess('103-03-03')),
+  Vertex(11, Dec('164.126'), guess('103-03-03'), A11_2),
   Vertex(2,  Dec('149.851'), guess('218-27-42')),
   Vertex(19, Dec('82.384' ), guess('211-44-30')),
   Vertex(3,  Dec('259.022'), guess('67-26-49' )),
@@ -66,9 +66,9 @@ for v in vertices:
     angle_sum += v.ang
 theoretical_angle_sum = Dec(int((len(vertices)-2)*180))
 
-dirang = A11_2
-for v in vertices:
-    v.dirang = dirang + 180 - v.ang
+prev_dirang = A11_2
+for v in vertices[1:]:
+    v.dirang = prev_dirang + 180 - v.ang
     dirang = v.dirang
 
 if __name__ == '__main__':
@@ -78,3 +78,6 @@ if __name__ == '__main__':
 
     print("angle sum %.4f, theoretical angle sum %d" % \
             (angle_sum, theoretical_angle_sum))
+
+    for v in vertices:
+        print(v)
