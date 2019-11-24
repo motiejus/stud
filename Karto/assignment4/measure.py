@@ -52,11 +52,15 @@ pals = [
   PAL(4,  guess('150-15-41'), Dec('179.336')),
 ]
 
+angle_sum = Dec(0)
+for pal in pals:
+    angle_sum += pal.ang
+theoretical_angle_sum = Dec(int((len(pals)-2)*180))
+
 if __name__ == '__main__':
     print("""
     Pradinis direkcinis kampas: %.4f""" % (90 - A11_2) + """
     """)
 
-
-    for i in pals:
-        print(i)
+    print("angle sum %.4f, theoretical angle sum %d" % \
+            (angle_sum, theoretical_angle_sum))
