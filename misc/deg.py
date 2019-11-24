@@ -7,13 +7,10 @@ class Deg(namedtuple('Deg', ['deg', 'mm', 'ss'])):
         return "%03d-%02d-%.1f" % (self.deg, self.mm, self.ss)
 
 def guess(inp):
-    if isinstance(inp, Dec):
-        return inp
-
     if isinstance(inp, str) and '-' in inp:
         deg, mm, ss = inp.split('-')
         ddeg, dmm, dss = Dec(deg), Dec(mm), Dec(ss)
-        return deg + dmm/60 + dss/3600
+        return ddeg + dmm/60 + dss/3600
     else:
         return Dec(instr)
 
