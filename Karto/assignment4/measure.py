@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from collections import namedtuple
 from decimal import Decimal as Dec
+from math import sin, cos, pi
 
 def guess(inp):
     if isinstance(inp, str) and '-' in inp:
@@ -19,16 +20,16 @@ class Point(namedtuple('Point', ['acadx', 'acady'])):
         return self.acadx
 
 class Vertex:
-    def __init__(self, point, length, angle, dirang=Dec()):
+    def __init__(self, point, length, angle, dirang=Dec(), coords = Point(Dec(), Dec())):
         self.point = point
         self.len = length
         self.ang = angle
         self.dirang = dirang
-        self.coords = Point(Dec(), Dec())
+        self.coords = coords
     def __str__(self):
-        return "%2d:  len:%7.3f  ang:%8.4f  dirang:%8.4f  acadcoords:(%.3f,%.3f)" % \
-                (self.point, self.len, self.ang,
-                        self.dirang, self.coords.acadx, self.coords.acady)
+        return "%2d:  len:%7.3f  acadang:%9.4f  acadcoords:(%.3f,%.3f)" % \
+                (self.point, self.len,
+                        (90 - self.dirang), self.coords.acadx, self.coords.acady)
 
 A= Dec('6.094')
 B= Dec('-2.923')
@@ -41,8 +42,8 @@ Y11 = Dec('485944.146')
 A11_2 = guess('70-16-17')
 
 vertices = [
-  #  point   len             angle               dirangle
-  Vertex(11, Dec('164.126'), guess('103-03-03'), A11_2),
+  #  point   len             angle               dirangle  coords
+  Vertex(11, Dec('164.126'), guess('103-03-03'), A11_2,    Point(X11, Y11)),
   Vertex(2,  Dec('149.851'), guess('218-27-42')),
   Vertex(19, Dec('82.384' ), guess('211-44-30')),
   Vertex(3,  Dec('259.022'), guess('67-26-49' )),
@@ -74,7 +75,12 @@ for v in vertices:
 theoretical_angle_sum = Dec(int((len(vertices)-2)*180))
 
 for i, v in enumerate(vertices[1:]):
-    v.dirang = vertices[i].dirang + 180 - v.ang
+    prev = vertices[i]
+    v.dirang = prev.dirang + 180 - v.ang
+    dx = Dec(float(prev.len) * cos(float(prev.dirang) * pi/180))
+    dy = Dec(float(prev.len) * sin(float(prev.dirang) * pi/180))
+    v.coords = Point(prev.coords.acadx + dx, prev.coords.acady + dy)
+
 
 if __name__ == '__main__':
     print("""
