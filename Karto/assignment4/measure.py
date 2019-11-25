@@ -10,7 +10,13 @@ def guess(inp):
     else:
         return Dec(instr)
 
-Point = namedtuple('Point', ['acadx', 'acady'])
+class Point(namedtuple('Point', ['acadx', 'acady'])):
+    @property
+    def lksx(self):
+        return self.acady
+    @property
+    def lksy(self):
+        return self.acadx
 
 class Vertex:
     def __init__(self, point, length, angle, dirang=Dec()):
@@ -20,7 +26,7 @@ class Vertex:
         self.dirang = dirang
         self.coords = Point(Dec(), Dec())
     def __str__(self):
-        return "%2d: len:%7.3f ang:%8.4f  dirang:%8.4f acoords:(%.3f,%.3f)" % \
+        return "%2d:  len:%7.3f  ang:%8.4f  dirang:%8.4f  acadcoords:(%.3f,%.3f)" % \
                 (self.point, self.len, self.ang,
                         self.dirang, self.coords.acadx, self.coords.acady)
 
@@ -67,10 +73,8 @@ for v in vertices:
     angle_sum += v.ang
 theoretical_angle_sum = Dec(int((len(vertices)-2)*180))
 
-prev_dirang = A11_2
-for v in vertices[1:]:
-    v.dirang = prev_dirang + 180 - v.ang
-    dirang = v.dirang
+for i, v in enumerate(vertices[1:]):
+    v.dirang = vertices[i].dirang + 180 - v.ang
 
 if __name__ == '__main__':
     print("""
