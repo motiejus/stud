@@ -5,19 +5,22 @@ Vagrant.configure("2") do |config|
     vb.memory = "2048"
   end
 
+  config.vm.provision "shell", inline: <<-SHELL
+    mkdir -p .ssh .vnc
+    curl https://github.com/motiejus.keys >> .ssh/authorized_keys
+  SHELL
+
+  config.vm.provision "file", source: "xesssion", destination: ".vnc/xsession"
+
   # my geom: 2560x1600
   # vncserver -geometry 1280x800 small window
   # vncserver -geometry 1920x1200 small letters
   # vncserver -geometry 1536x960 great
   config.vm.provision "shell", inline: <<-SHELL
-    mkdir -p .ssh
     curl https://github.com/motiejus.keys >> .ssh/authorized_keys
     apt-get update
     apt-get install -y \
       qgis freecad \
       openbox-lxde-session lxterminal tightvncserver
-    mkdir -p .vnc
   SHELL
-
-  config.vm.provision "file", source: "xesssion", destination: ".vnc/xsession"
 end
