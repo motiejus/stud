@@ -26,15 +26,11 @@ class Vertex:
         self.ang = angle
         self.dirang = dirang
         self.coords = coords
-    def __str__(self):
-        return "%2d:  len:%7.3f  acadang:%9.4f  acadcoords:(%.3f,%.3f)" % \
-                (self.point, self.len,
-                        (90 - self.dirang), self.coords.acadx, self.coords.acady)
 
-A= Dec('6.094')
-B= Dec('-2.923')
-C= Dec('-13.462')
-N= Dec('9.512')
+A = Dec('6.094')
+B = Dec('-2.923')
+C = Dec('-13.462')
+N = Dec('9.512')
 
 # Directional coords + angle
 X11 = Dec('6091968.055')
@@ -105,8 +101,13 @@ if __name__ == '__main__':
     print("angle sum %.4f, theoretical angle sum %d" % \
             (angle_sum, theoretical_angle_sum))
 
-    for v in vertices:
-        print(v)
+    for i, v in enumerate(vertices):
+        nxt = vertices[0 if i == len(vertices) - 1 else i+1]
+
+        pts = "%d-%d" % (v.point, nxt.point)
+        draw = "@%.3f<%.4f" % (v.len, 90 - v.dirang)
+        print("%5s: %19s  acadcoords:(%.3f,%.3f)" % \
+                (pts, draw, v.coords.acadx, v.coords.acady))
 
     print("""
     Kelio A-03 plotis = 17.401 + A = %.3f""" % KA03_plotis + """
