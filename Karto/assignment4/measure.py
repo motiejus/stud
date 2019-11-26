@@ -3,6 +3,13 @@ from collections import namedtuple
 from decimal import Decimal as Dec
 from math import sin, cos, pi
 
+def normalize(ang):
+    while ang > 180:
+        ang -= 360
+    while ang <= -180:
+        ang += 360
+    return ang
+
 def guess(inp):
     if isinstance(inp, str) and '-' in inp:
         deg, mm, ss = inp.split('-')
@@ -107,7 +114,7 @@ if __name__ == '__main__':
         nxt = vertices[1 if i == len(vertices) - 1 else i+1]
 
         pts = "%d-%d" % (v.point, nxt.point)
-        draw = "@%.3f<%.4f" % (v.len, 90 - v.dirang)
+        draw = "@%.3f<%.4f" % (v.len, normalize(90 - v.dirang))
         print("%5s: %19s  acadcoords:(%.3f,%.3f)" % \
                 (pts, draw, v.coords.acadx, v.coords.acady))
 
