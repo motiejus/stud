@@ -71,8 +71,6 @@ vertices = [
   Vertex(1,  Dec('151.531'), guess('101-20-01')),
   Vertex(4,  Dec('179.336'), guess('150-15-41')),
 ]
-# adding the 11'th vertex to the end to see if the coordinates match
-vertices.append(Vertex(11, Dec('164.126'), guess('103-03-03')))
 
 angle_sum = Dec(0)
 for v in vertices:
@@ -111,7 +109,7 @@ if __name__ == '__main__':
             (angle_sum, theoretical_angle_sum))
 
     for i, v in enumerate(vertices):
-        nxt = vertices[1 if i == len(vertices) - 1 else i+1]
+        nxt = vertices[0 if i == len(vertices) - 1 else i+1]
 
         pts = "%d-%d" % (v.point, nxt.point)
         draw = "@%.3f<%.4f" % (v.len, normalize(90 - v.dirang))
