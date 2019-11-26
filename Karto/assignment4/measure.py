@@ -82,13 +82,44 @@ for i, v in enumerate(vertices[1:]):
     v.coords = Point(prev.coords.acadx + dx, prev.coords.acady + dy)
 
 
-if __name__ == '__main__':
-    print("""
-    Pradinis direkcinis kampas: %.4f""" % (90 - A11_2) + """
-    """)
+"""
+Kelio A-03 plotis = 17.401 + A =
+Kelio A-05 plotis = 13.705 + B =
+Kelio A-08 plotis = 29.006 + C =
+Griovio G-11 plotis = 14.776 + N =
+"""
 
+KA03_plotis = Dec('17.401') + A
+KA05_plotis = Dec('13.705') + B
+KA08_plotis = Dec('29.006') + C
+G11_plotis = Dec('14.776') + N
+
+# 9-kampio krastine D1
+D1 = Dec('174.667') + C
+# Daugiakampio pasukimo kampas (K1)
+K1 = Dec('13.147') + B
+# Atstumas iki tikrosios uzliejimo zonos (A1) (0.001 tikslumu)
+A1 = Dec('67.536') + B
+
+if __name__ == '__main__':
     print("angle sum %.4f, theoretical angle sum %d" % \
             (angle_sum, theoretical_angle_sum))
 
     for v in vertices:
         print(v)
+
+    print("""
+    Kelio A-03 plotis = 17.401 + A = %.3f""" % KA03_plotis + """
+    Kelio A-05 plotis = 13.705 + B = %.3f""" % KA05_plotis + """
+    Kelio A-08 plotis = 29.006 + C = %.3f""" % KA08_plotis + """
+    Griovio G-11 plotis = 14.776 + N = %.3f""" % G11_plotis + """
+
+    Prognozuojamo uzliejimo zona, tai taisyklingas 9-kampis
+    9-kampio krastine D1 = %.3f""" % D1 + """
+    Daugiakampio pasukimo kampas (K1) (0.0001 laipsnio tikslumu)
+    K1 = %.4f""" % K1 + """
+
+    Tikroji uzliejimo zona, tai taisyklingas apskritimas, kurio centras TURI SUTAPTI su daugiakampio centru.
+    Atstumas iki tikrosios uzliejimo zonos (A1) (0.001 tikslumu)
+    A1 = %.3f""" % A1 + """
+    """)
