@@ -15,16 +15,16 @@ for v in vertices:
 print("""=== Apskaiciuoti liniju stiliu kurimo parametrai (0.001 tikslumu) ===
 === Kelias A-03 ===
 Plotis L1 (duotas)
-*******
+%.3f""" % L1 + """
 Visas kelio A-03 plotis
 *******
 Koeficientas L1 plocio atidejimui (+/-0.001)
 *******
 === Kelias A-05 ===
 Plotis L2 (duotas)
-*******
+%.3f""" % L2 + """
 Plotis L3 (duotas)
-*******
+%.3f""" % L3 + """
 Visas kelio A-05 plotis
 *******
 Koeficientas L2 plocio atidejimui (+/-0.001)
@@ -33,17 +33,17 @@ Koeficientas L3 plocio atidejimui (+/-0.001)
 *******
 === Kelias A-08 ===
 Plotis L4 (duotas)
-*******
+%.3f""" % L3 + """
 Plotis L5 (duotas)
-*******
+%.3f""" % L5 + """
 Plotis L6 (duotas)
-*******
+%.3f""" % L6 + """
 Plotis L7 (duotas)
-*******
+%.3f""" % L7 + """
 Plotis L8 (duotas)
-*******
+%.3f""" % L8 + """
 Plotis L9 (duotas)
-*******
+%.3f""" % L9 + """
 Visas kelio A-08 plotis
 *******
 Koeficientas L4 plocio atidejimui (+/-0.001)
@@ -60,13 +60,13 @@ Koeficientas L9 plocio atidejimui (+/-0.001)
 *******
 === Griovys G-11 ===
 Plotis L10 (duotas)
-*******
+%.3f""" % L10 + """
 Plotis L11 (duotas)
-*******
+%.3f""" % L11 + """
 Plotis L12 (duotas)
-*******
+%.3f""" % L12 + """
 Plotis L13 (duotas)
-*******
+%.3f""" % L13 + """
 Visas griovio G-11 plotis
 *******
 Koeficientas L10 plocio atidejimui (+/-0.001)
@@ -79,13 +79,13 @@ Koeficientas L13 plocio atidejimui (+/-0.001)
 *******
 === Apskaiciuoti keliu ir grioviu plociai BRAIZYMUI (0.001 tikslumu) ===
 Kelio A-03 plotis
-*******
+%.3f""" % KA03_plotis + """
 Kelio A-05 plotis
-*******
+%.3f""" % KA05_plotis + """
 Kelio A-08 plotis
-*******
+%.3f""" % KA08_plotis + """
 Griovio G-11 plotis
-*******
+%.3f""" % G11_plotis + """
 === Apskaiciuota daugiakampio krastine D1 (0.001 tikslumu) ===
 *******
 === Apskaiciuotas daugiakampio pasuk.kampas K1 (0.0001 laipsnio tikslumu) ===
