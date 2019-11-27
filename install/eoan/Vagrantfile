@@ -21,6 +21,9 @@ Vagrant.configure("2") do |config|
     apt-get update
     apt-get install -y \
       qgis freecad \
-      openbox-lxde-session lxterminal tightvncserver
+      stow openbox-lxde-session lxterminal tightvncserver ipython3 \
+      tree
+    git clone https://github.com/motiejus/dotfiles.git .dotfiles
+    (cd .dotfiles && stow bash tmux vim)
   SHELL
 end
