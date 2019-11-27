@@ -87,11 +87,11 @@ Kelio A-08 plotis
 Griovio G-11 plotis
 %.3f""" % G11_plotis + """
 === Apskaiciuota daugiakampio krastine D1 (0.001 tikslumu) ===
-*******
+%.3f""" % D1 + """
 === Apskaiciuotas daugiakampio pasuk.kampas K1 (0.0001 laipsnio tikslumu) ===
-*******
+%.4f""" % K1 + """
 === Apskaiciuotas atstumas iki uzliejimo zonos A1 (0.001 tikslumu) ===
-*******
+%.3f""" % A1 + """
 =============== Ismatuota brezinyje ================
 === Keliu ir grioviu asiu ilgiai (0.001 m tikslumu) ===
 == Kelias A-03 ==
