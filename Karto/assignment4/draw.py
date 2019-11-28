@@ -2,32 +2,31 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from shapely.geometry import LineString, asPolygon
-from shapely.coords import CoordinateSequence
 from descartes import PolygonPatch
 
 from measure import *
 
 fig, ax = plt.subplots()
 
-A08_l = LineString([Points[i].xy for i in [1,2,3] ])
-A08_multiplier = A08_plotis/(L4+L5+L6+L7+L8+L9)
 
+# Kelias A08
+A08_l = LineString([Points[i].xy for i in [1,2,3] ])
+A08_multi = A08_plotis/(L4+L5+L6+L7+L8+L9)
 def offset(width, direction):
-    return A08_l.parallel_offset(width * A08_multiplier, direction, join_style=2)
+    return A08_l.parallel_offset(width * A08_multi, direction, join_style=2)
 offsets = (
-    (offset(L6+L5+L4, 'right'), (5,3), 'lightgreen'),
-    (offset(L6+L5,    'right'), (5,3), 'lightgreen'),
-    (offset(L6,       'right'), (1,0),      'black'),
-    (offset(L7,        'left'), (1,0),      'black'),
-    (offset(L7+L8,     'left'), [5,3], 'lightgreen'),
-    (offset(L7+L8+L9,  'left'), [5,3], 'lightgreen'),
+    (offset(L6+L5+L4, 'right'), [100,20], 'lightgreen'),
+    (offset(L6+L5,    'right'), [100,20], 'lightgreen'),
+    (offset(L6,       'right'),    [1,0],      'black'),
+    (offset(L7,        'left'),    [1,0],      'black'),
+    (offset(L7+L8,     'left'), [100,20], 'lightgreen'),
+    (offset(L7+L8+L9,  'left'), [100,20], 'lightgreen'),
 )
+ax.plot(*A08_l.xy, linewidth=2, dashes=[10,3,2,3], color='red', zorder=KAT1)
 for line, dashes, color in offsets:
     ax.plot(*line.xy, linewidth=.5, dashes=dashes, color=color, zorder=KAT1)
-
 A08_poly = np.vstack((offsets[0][0].coords, offsets[-1][0].coords))
 ax.add_patch(PolygonPatch(asPolygon(A08_poly), fc='white', zorder=KAT1, linewidth=0))
-ax.plot(*A08_l.xy, linewidth=2, dashes=[5,2,2,5], color='red', zorder=KAT1)
 
 
 A03_l = LineString([Points[i].xy for i in [11,12,13,14,15,16,17,18] ])
