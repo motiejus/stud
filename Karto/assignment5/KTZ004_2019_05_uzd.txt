@@ -1,0 +1,342 @@
+Uzduoti parenge  A.Bautrenas  (Topografiniai zemelapiai) 
+2019.11.28 12:23:10(44590.9s)  RND=4
+
+
+Uzduotis Nr. KTZ004_2019_05
+Jakstys_Motiejus (1915375)
+ === Skenuotu vaizdu transformacijos, pjuvis == (NAV_SK=0.21 NAV_BR=0.25) ===
+Atlikti iki: 2019.12.20   12:23:09
+
+
+
+ Uzduotis: 
+ 
+1. Pagal duotus ir pataisytus duomenis (M1:1000) nubraizyti sklypo ribas (M1:1000) ir jame esancius objektus (ziur. [05uzd_schema.pdf]) ir is nubraizyto brezinio originalo (M1:1000) suformuoti tris brezinius spaudinimui (ziur. [05uzd_schema.pdf]) ir juos pateikti ('atspausdinti') PDF formatu: 
+   I brez. 'Sklypo ribos, zemes padalinimas ir apzeldinimas' (M1:1000). 
+   II brez. 'Sklypo reljefas' (M1:500). 
+   III brez. 'Sklypo reljefo pjuvis' (Mh1:500 Mv1:100). 
+   IV brez. 'Sklypo 3D topografinis planas' . 
+
+Pastaba. Brezinio mato vienetai turi buti nustatyti 'milimetrais' !!! (Format/Units... Insertion scale = Milimeters) 
+
+
+Braizant I brez. 'Sklypo ribos, zemes padalinimas ir apzeldinimas' reikia: 
+  1. Pazymeti sklypo ribos taskus (Point), kurie pamatuoti uzkirciais nuo atraminiu liniju (T23-T24-T25) ir (T26-T27-T28), ir nubraizyti bendra sklypo riba. 
+Pastaba. Kiekvienas ribos taskas pamatuotas trimis uzkirciais 
+(pvz. T23-1,T24-1 ir T25-1), kurie turi kirstis viename taske. Galimas sankirtu nesutapimas ~5 mm , jei gaunasi didesni nesutapimai - butina tikrinti atkarpu ilgiu atidejima. 
+
+  2. Apskaiciuoti (ismatuoti) bendra sklypo plota ir jame esanciu objektu plotus 
+
+  3. Bendro sklypo zeme (BE ESANCIU OBJEKTU PLOTO) padalinti i dvi lygias dalis 0.1 m2 tikslumu (sklypas A ir sklypas B).
+  Pastaba. Sklypo pavadinimas (A arba B) nustatomas pagal jame esancius abjektus nurodytus uzduotyje.
+
+  4. Susikurti nurodytus ribu sutartinius zenklus (block) ir juos isdelioti ant atitinkamu ribu.
+  Pastaba. Sutartiniu zenklu (block) pavadinimai turi buti kaip nurodyta uzduotyje, o ju iterpimo taskai (Pic point) sutapti su ribomis.
+
+  5. Susikurti (pagal schemoje pateiktus matmenis) reikiamus medziu  sutartinius zenklus (block) ir juos isdelioti (atitinkamame sklype) nurodyto plocio eilutemis ir stulpeliais bei nurodyta kryptimi.
+  Pastaba. Sutartiniu zenklu (block) pavadinimai turi atitikti  medzio rusies pavadinima ir buti nurodytos spalvos (skaityti bendras pastabas).
+
+  6. Suskaiciuoti ir surasyti kiek kokiu sutartiniu zenklu (medziu ir ribu) panaudota brezinyje.
+  7. Sukurti galutini 1 brez. varianta M1:1000 (be reljefo)
+Pastaba. Visi koordinuoti arba uzkirciais nustatyti taskai turi buti pazymeti taskais (Point), rutuliukais (donuts) ir sunumeruoti.
+
+
+Braizant II brez. 'Sklypo reljefas' reikia: 
+  1. Isikelti skenuota sklypo reljefo horizontaliu brezini [Jusu failo pavadinimas nurodytas uzduotyje]. 
+
+  2. Skenuota vaizda transformuoti i braizymo masteli 1:1000 (apskaiciavus reikiamus transformavimo koeficientus)
+
+  3. Sutapatinti su brezinio koordinaciu sistema ir uzbrezti pjuvio linija nurodyta kryptimi.
+
+  4. Sukurti galutini II brez. varianta (originalo kopija) nurodytu   horizontaliu masteliu (Mh) paliekant tik koord. tinkla, reljefa,  isorinias sklypo ribas, pjuvio linija ir reikiamus uzrasus
+ Pastaba. Skenuota reljefo vaizda apkirpti (komanda Clip) pagal sklypo riba, paliekant ~10 m uzlaidas (ziur. pvz.).
+
+  5. Surasyti altitudes visu horizontaliu, kurias kerta pjuvio linija. Horizontaliu reiksmes apskaiciuojamos nuo A tasko altitudes.
+
+
+ Braizant III brez. 'Sklypo reljefo pjuvis' reikia: 
+  1. Pasidaryti sklypo reljefo kopija ir ja pasukti taip, kad pjuvio linija sutaptu su X asies kryptimi. (ziur. pvz.)
+
+  2. Padidinti brezinio originala (jei dar nebuvo padidintas) iki nurodyto horizontalaus  mastelio (Mh) ir iskelti reikiamo ilgio (pagal nurodyta vertikalu masteli Mv) statmenis is horizontaliu ir pjuvio linijos sankirtu.  Suformuoti pjuvio profili jungiant iskeltu statmenu galus.  
+
+  3. Pasidaryti suformuoto pjuvio kopija ir ja ikelti i brezinio remeli. Nubraizyti reikiamu masteliu skales (pagal nurodyta 'nuline linija' H0), surasyti altitudes ir tikruosius atstumus tarp horizontaliu (ziur. pvz.) 
+
+
+4. Braizant IV brez. 'Sklypo 3D topografinis planas' reikia: 
+Pastaba. 3D brezinio pavyzdys bus pateiktas atskirai.  
+  1. Sukurti visu sklype esnciu objektu (statiniu, medziu) ir  ribas (tvoras) zyminsiu sutartiniu zenklu 3D modelius. 
+ 2. Vadovaujantis jau nubraizytu I breziniu sukurti  3D topografini plana atskirame brezinyje (faile). 
+
+
+Pastaba: Atsiskaitymui reikia pateikti uzpildytas atsakymu rinkmenas (dvi) ([trasform_blank.doc] ir [05sablonas_ats.txt]), brezini (DWG) ir tris brezinius 'atspausdintus' PDF formatu. 
+3D brezinys pateikiamas papildomai atskirame faile.
+2D Brezinyje (DWG) turi buti: brezinio originalas (skirtinguose sluoksniuose atramines linijos, ribos, koord.tinklas, uzrasai, sutartiniai zenklai, reljefas, pjuvio linija ir t.t.)  ir trys nurodytu breziniu lapai (originalo kopijos) parengti spausdinimui, t.y. tik su tam lapui reikiama informacija, remeliu ir uzpildytu 'stampu'. 
+
+
+----- PRADINIAI DUOMENYS ----- 
+
+ 
+Pataisos:
+A = -7.756
+B = 4.686
+C = -7.663
+Z = -7.103
+E = 6.405
+F = -6.552
+G = 6.931
+N = -3.986
+M = -5.285
+ 
+ 
+Atraminiu liniju koordinates ir uzkirciu ilgiai(m) [Koord. LKS94 sistemoje jau sukeistos]:
+-- Atrama T23-T24-T25 --
+XT23 = 564383.829 + N
+YT23 = 6173144.853 + A
+---------------
+XT24 = 564444.357 + F
+YT24 = 6173086.343 + C
+---------------
+XT25 = 564673.556 + B
+YT25 = 6173055.598 + M
+---------------
+Kontrolinis atstumas T23-T24 = 82.293
+Kontrolinis atstumas T24-T25 = 242.105
+----- 1 tasko uzkirciai (metrais)----------
+T23-1 = 161.722
+T24-1 = 125.560
+T25-1 = 169.686
+----- 2 tasko uzkirciai (metrais)----------
+T23-2 = 91.681
+T24-2 = 58.350
+T25-2 = 220.938
+----- 3 tasko uzkirciai (metrais)----------
+T23-3 = 82.431
+T24-3 = 126.263
+T25-3 = 294.537
+----- 9 tasko uzkirciai (metrais)----------
+T23-9 = 265.534
+T24-9 = 227.287
+T25-9 = 132.783
+----- 10 tasko uzkirciai (metrais)----------
+T23-10 = 288.522
+T24-10 = 238.487
+T25-10 = 89.932
+----- 11 tasko uzkirciai (metrais)----------
+T23-11 = 211.001
+T24-11 = 165.636
+T25-11 = 126.845
+
+-- Atrama T26-T27-T28 --
+XT26 = 564414.733 + G
+YT26 = 6173298.332 + N
+---------------
+XT27 = 564564.172 + G
+YT27 = 6173312.063 + B
+---------------
+XT28 = 564770.145 + N
+YT28 = 6173230.520 + N
+---------------
+Kontrolinis atstumas T26-T27 = 151.109
+Kontrolinis atstumas T27-T28 = 214.908
+----- 4 tasko uzkirciai (metrais)----------
+T26-4 = 101.226
+T27-4 = 137.261
+T28-4 = 284.950
+----- 5 tasko uzkirciai (metrais)----------
+T26-5 = 32.511
+T27-5 = 125.052
+T28-5 = 319.540
+----- 6 tasko uzkirciai (metrais)----------
+T26-6 = 155.114
+T27-6 = 46.286
+T28-6 = 196.223
+----- 7 tasko uzkirciai (metrais)----------
+T26-7 = 247.440
+T27-7 = 128.403
+T28-7 = 107.731
+----- 8 tasko uzkirciai (metrais)----------
+T26-8 = 258.183
+T27-8 = 149.388
+T28-8 = 109.161
+
+
+Objektu koordinates:
+X12 = 564474.034 + M
+Y12 = 6173175.426 + F
+---------------
+X13 = 564505.240 + C
+Y13 = 6173237.929 + E
+---------------
+X14 = 564519.570 + C
+Y14 = 6173255.007 + F
+---------------
+X15 = 564615.010 + A
+Y15 = 6173215.649 + Z
+---------------
+X16 = 564627.375 + E
+Y16 = 6173220.989 + Z
+---------------
+X17 = 564627.105 + N
+Y17 = 6173210.067 + Z
+---------------
+X18 = 564607.740 + C
+Y18 = 6173171.025 + Z
+---------------
+X19 = 564558.331 + B
+Y19 = 6173177.716 + Z
+---------------
+X20 = 564546.236 + M
+Y20 = 6173183.298 + Z
+---------------
+X21 = 564558.601 + N
+Y21 = 6173188.638 + C
+---------------
+X22 = 564539.728 + F
+Y22 = 6173230.148 + E
+---------------
+
+ --------- Kiti duomenys ----------------
+
+N1 objekto kampu skaicius = 10
+
+Objektu N1,M1,M2,M3 matmenys (metrais)
+B1 = 7.844
+B2 = 21.868
+B3 = 11.344
+B4 = 12.464
+B5 = 23.702
+B6 = 15.508
+
+Objekto M3 pasukimo kampas (laipsniais)
+K1 = 58.5910
+
+
+---- A sklypui prikauso: ----
+1 objektas = M3
+2 objektas = N3
+3 objektas = N2
+Pastaba. Like objektai priklauso B sklypui.
+
+Sklypus pradeti dalinti nuo ribos tasko Nr. 4
+Pastaba. Dalinimas baigiamas bet kuriame kitame (ne pradiniame)sklypo ribos taske.
+
+Sklypo ribu (tvoru) Sutartiniai Zenklai (SZ)
+1. Isorine sklypo riba:
+SZ virsuniu skaicius
+SZ1 = 4
+Daugiakampio krastines ilgis (m)
+R1 = 2.550
+Atstumas tarp sutartiniu zenklu centru (m)
+D1 = 10.863
+Tvoros aukstis (m)
+H1 = 1.95
+
+2. Sklypo zemes dalijimo riba:
+SZ virsuniu skaicius
+SZ2 = 6
+Daugiakampio krastines ilgis (m)
+R2 = 1.454
+Atstumas tarp sutartiniu zenklu centru (m)
+D2 = 4.173
+Ribos tvoros aukstis (m)
+H2 = 2.20
+
+
+
+Medziu aukstis (m)
+Hm = 2.94
+
+
+
+ A sklypo sutartiniai zenklai (ASZ):
+ASZ = [Egle]
+ASZ orientacija = [Statmenai ilgiausiai sklypo krastinei]
+ASZ atstumas tarp eiluciu = 7.88
+ASZ atstumas tarp stulpeliu = 5.77
+
+ B sklypo sutartiniai zenklai (BSZ):
+BSZ = [Obelis]
+BSZ orientacija = [i Vakarus]
+BSZ atstumas tarp eiluciu = 7.40
+BSZ atstumas tarp stulpeliu = 5.27
+ 
+Sklype esanciu objektu paskirtis ir auksciai: 
+Pastatas (ukinis) M1 (m)
+Sienu aukstis (nuo zemes) = 3.90
+Stogas 'dvislaitis', kraigo aukstis (nuo zemes) = 8.07
+Stogas dengia sienas = 1.14
+
+Pastatas (Gyvenamasis) M3 (m)
+Sienu aukstis (nuo zemes) = 4.52
+Stogas 'dvislaitis', kraigo aukstis (nuo zemes) = 9.11
+Stogas dengia sienas = 0.91
+
+Vandentiekio bokstas N3 (m)
+Kolonos aukstis (nuo zemes) = 14.66
+Vandens saugyklos aukstis(nuo kolonos virsaus) = 2.19
+Vandens saugyklos R  = R kolonos + 2.47
+
+Kuro cisterna N2 (m)
+Cisternos aukstis (nuo zemes) = 4.71
+
+Siloso bokstas N1 (m)
+Boksto aukstis (nuo zemes) = 9.64 (siaureja 2.3 laipsniu kampu)
+
+Komposto duobe M2 (m)
+Gylis (nuo zemes pavirsiaus) = 2.11 (siaureja 1.5 laipsniu kampu)
+
+Pastaba. Visi 3D ojektai braizomi priimant, kad sklypo  zemes pavirsius horizontalus ir = 0.00 
+
+---- Duomenys reljefo pjuvio sudarymui ---------------
+
+Skenuoto brezinio, kuri reikia ikelti ir transformuoti, pavadinimas:
+05_3_reljefas.jpg
+
+A tasko altitude (m)
+A = 119.73
+Pjuvio 'nulines linijos' altitude (m)
+H0 = 105.0
+Horizontaliu laiptas h (m)
+h = 2.0
+
+Reljefo pjuvio horizontalus (Mh) ir vertikalus (Mv) masteliai
+Mh = 1:500
+Vh = 1:100
+
+Pjuvio linijos kryptis:
+2-A-iki ribos
+  Pastaba: pjuvio linija breziama nuo nurodyto sklypo ribos tasko iki A tasko centro ir pratesiama iki susikirtimo su riba.
+
+Skenuoto brezinio transformavimui naudoti koordinaciu tinklo sankirtas pazymetas Nr. 1, 2, 3, 4
+  Pastaba: Nurodytos koordinaciu sankirtos turi sutapti (maksimaliu tikslumu) su atitinkamomis brezinio (originalo) koordinaciu sankirtomis mastelyje 1:1000.
+ Koordinaciu sankirta Nr.1 yra 'bazine', t.y. jos koordinatesskenuotame brezinyje turi idealiai sutapti su brezinio (originalo) koordinaciu sankirta. 
+
+
+Bendros pastabos: 
+1. Brezinio schema ir dalijimo ribos pavyzdys pateiktas rinkmenoje [05uzd_schema.pdf]
+2. Visi matmenys duoti metrais, t.y. originalas braizomas M1:1000.
+3. Koordinaciu tinklas braizomas kas 100 m (M1:1000), o koordinaciu tinklo pradzia apskaiciuojama nuo laisvai pasirinkto sklypo ribos tasko. 
+Koordinaciu sistema LKS94 (X prasideda 6..., Y - 5...) todel braizant (ACAD sistemoje) asys turi buti sukeistos. Atraminiu tsk. koordinates jau (sukeistos), t.y. jau nurodytos ACAD sistemoje
+4. Originalus brezinys (ribos, kordinuoti taskai ir t.t.) turi likti savo vietoje, t.y. visi reikiami breziniai formuojami tik is originalo kopiju.
+5. Sklypo zemes dalijimo ribos pirmoji (is nurodyto tasko) ir paskutine atkarpos breziamos laisvai pasirinktu kampu, o likusias ribos atkarpas (patartina) braizyti vertikaliai arba horizontaliai (naudojant F8) (bus lengviau suvienodinti zemes plotus). 
+6. Dalinimo riba breziama taip, kad APIMTU sklypui priklausancius objektus, kurie nurodyti uzduotyje, o ne schemoje.
+7. Dalijimo ribos atkarpu ilgis ir virsuniu skaicius neribojamas, t.y. riba 'lauzoma' tiek kiek reikia, kad sklypo zeme (BE OBJEKTU PLOTU) butu padalinta po lygiai (0.1 m2 tikslumu) 
+8. Ribu sutartiniai zenklai, tai taisyklingi daugiakampiai su nurodytu virsuniu skaiciumi ir nurodyto dydzio.
+9. Visu 'Medziu' spalva A sklypui Nr.64, o B sklypui Nr. 114. 
+10. Visu sukurtu sutartiniu zenklu (bloku) pavadinimai turi atitikti paskirti, t.y. jei kuriamas obels sutartinis zenklas, tai ir jo pavadinimas t.b. 'Obelis', jei pusies, tai 'Pusis' ir t.t. 
+10a. Visi sutartiniai zenklai brezinyje TURI LIKTI NESUSKAIDYTI, t.y.   nenaudoti komandos <Explode> pavieniams sutartiniams zenklams.  Iskaidyti galima tik zenklu grupes sukurtas su komanda 'Array'.
+11. Jei medzio sutartinis zenklas (SZ) (block) orientuojamas statmenai nurodytai ribos krastinei, tai 'medzio virsune' visada orientuota i 'Siaure' (ziur.[05uzd_schema.pdf]), o eilutes lygiagrecios nurodytai krastinei. Jei orientuojama kita nurodyta kryptimi, pvz. i Rytus, tai 'medzio virsune' orientuota i 'Rytus' .
+12. Sklypuose paliekami tik tie 'medziai', kurie pilnai pakliuva i nurodyto sklypo zeme, t.y. 'nelipa' ant sklype esanciu objektu ir ribu, o ant uzrasu  ar ribu SZ gali 'lipti' (ziur.[05uzd_schema.pdf]). 
+13. Reikalavimai uzduoties atlikimui (rinkmenu pavadinimams, atsakymu sablono pildymui, atlikimo terminui,brezinio remeliui, sluoksniu pavadinimams, kood.tinklo spalvai, tasku pazymejimui ir t.t.)tokie patys kaip ir ankstesnese uzduotyse. 
+14. Visi koordinuoti taskai turi buti pazymeti taskais (Point), rutuliukais (Donut) ir sunumeruoti.
+15. Atspausdintame (PDF) brezinyje (popieriuje spausdinti nereikia) turi buti imanoma grafiskai apskaiciuoti bet kurio tasko koordinates, todel neteisingai nubraizius koordinaciu tinkla(brezinio originale)bendras vertinimas bus mazinamas 2.00 balais.
+16. Skenuoto brezinio transformavimo duomenys (sankirtu koorsinates, kampai, atkarpos ir t.t.) surasomos i rinkmena [trasform_blank.doc], kuri turi buti atsiusta kartu su brezinio ir atsakymo rinkmenomis.
+Pradinis rinkmenos pavadinimas [trasform_blank.doc] turi buti pakeistas i jusu uzduoties numeri + '_blank.doc', pvz., [xxxxxxx_blank.doc],t.y. galioja tos pacios taisykles kaip ir kitu rinkmenu pavadinimams. 
+17. Skenuoto brezinio koordinaciu sankirtu (1,2,3,4) koordinates (1 lentele) matuojamos ir rasomos i rinkmena [trasform_blank.doc] tik tada, kai skenuotas brezinys apytiksliai orientuojamas i Siaure, o galutines koordinates (5 lentele) - tik tada kai 'bazine' sankirta (Nr.1) tiksliai sutapatinama su brezinio M1:1000 atitinkama sankirta.
+18. Pries ikeliant skenuota brezini butina pasitikrinti ar naudojami mato vienetai yra 'milimetrai'.
+
+Pabaiga: 2019.11.28 12:23:10
+
+
+Ispejimas:
+Jei si uzduotis skirta ne Jums, prasome ja perduoti adresatui arba grazinti siuntejui ir istrinti is savo duomenu bazes.
