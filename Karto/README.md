@@ -34,3 +34,4 @@ blocks:
 - wb - save block
 - i - insert block
 - b - create block
+- arrayrect/arraypolar - add blocks to an area
