@@ -26,7 +26,7 @@ Plotis L2 (duotas)
 Plotis L3 (duotas)
 %.3f""" % L3 + """
 Visas kelio A-05 plotis
-*******
+%.3f""" % A05_plotis + """
 Koeficientas L2 plocio atidejimui (+/-0.001)
 *******
 Koeficientas L3 plocio atidejimui (+/-0.001)
@@ -45,7 +45,7 @@ Plotis L8 (duotas)
 Plotis L9 (duotas)
 %.3f""" % L9 + """
 Visas kelio A-08 plotis
-*******
+%.3f""" % A08_plotis + """
 Koeficientas L4 plocio atidejimui (+/-0.001)
 *******
 Koeficientas L5 plocio atidejimui (+/-0.001)
@@ -68,7 +68,7 @@ Plotis L12 (duotas)
 Plotis L13 (duotas)
 %.3f""" % L13 + """
 Visas griovio G-11 plotis
-*******
+%.3f""" % G11_plotis + """
 Koeficientas L10 plocio atidejimui (+/-0.001)
 *******
 Koeficientas L11 plocio atidejimui (+/-0.001)

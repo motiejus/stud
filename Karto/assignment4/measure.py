@@ -56,6 +56,10 @@ L11 = Dec('3.305')
 L12 = Dec('2.210')
 L13 = Dec('4.381')
 
+A05_plotis = L2 + L3
+A08_plotis = sum([L4,L5,L6,L7,L8,L9])
+G11_plotis = sum([L10,L11,L12,L13])
+
 # Directional coords + angle
 X11 = Dec('6091968.055')
 Y11 = Dec('485944.146')
