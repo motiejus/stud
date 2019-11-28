@@ -17,7 +17,7 @@ print("""=== Apskaiciuoti liniju stiliu kurimo parametrai (0.001 tikslumu) ===
 Plotis L1 (duotas)
 %.3f""" % L1 + """
 Visas kelio A-03 plotis
-*******
+%.3f""" % L1 + """
 Koeficientas L1 plocio atidejimui (+/-0.001)
 *******
 === Kelias A-05 ===

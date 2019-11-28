@@ -34,6 +34,11 @@ class Vertex:
         self.dirang = dirang
         self.coords = coords
 
+    @property
+    def xy(self):
+        """xy returns a tuple of lksx and lksy coordinates"""
+        return (self.coords.lksx, self.coords.lksy)
+
 A = Dec('6.094')
 B = Dec('-2.923')
 C = Dec('-13.462')
@@ -124,6 +129,11 @@ D1 = Dec('174.667') + C
 K1 = Dec('13.147') + B
 # Atstumas iki tikrosios uzliejimo zonos (A1) (0.001 tikslumu)
 A1 = Dec('67.536') + B
+
+# Points is vertice map by id
+Points = {}
+for v in vertices:
+    Points[v.point] = v
 
 if __name__ == '__main__':
     print("angle sum %.4f, theoretical angle sum %d" % \
