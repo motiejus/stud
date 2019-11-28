@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from math import cos, tan, asin, sqrt
 from deg import deg
 
@@ -19,10 +18,8 @@ H41 = 77.226
 B41 = deg('38-45-7.8')
 D41 = H41 / tan(B41)
 
-print("""
-D12 = %4.3f""" % D12 + """
-D23 = %4.3f""" % D23 + """
-D34 = %4.3f""" % D34 + """
-D41 = %4.3f""" % D41 + """
-Sum = %4.3f""" % (D12 + D23 + D34 + D41) + """
-""")
+print("D12 = %4.3f""" % D12)
+print("D23 = %4.3f""" % D23)
+print("D34 = %4.3f""" % D34)
+print("D41 = %4.3f""" % D41)
+print("Sum = %4.3f""" % (D12 + D23 + D34 + D41))
