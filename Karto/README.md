@@ -23,11 +23,14 @@ useful commands:
 - re: Regenerate screen
 - circle: 2p/3p/ttr. Liestinės.
 - ucs: user coordinate system.
-
+- ptype: point type
+- div -- divide line in equal parts
+- me (measure) - add points or blocks by the line
 
 regions:
 - uni(on) / in(tersection) / su(btract)
 
-
-Questions:
-- OFFSET in assignment3 gives quite different offsets for Fig. 2
+blocks:
+- wb - save block
+- i - insert block
+- b - create block
