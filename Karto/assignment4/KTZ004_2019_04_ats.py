@@ -19,7 +19,7 @@ Plotis L1 (duotas)
 Visas kelio A-03 plotis
 %.3f""" % L1 + """
 Koeficientas L1 plocio atidejimui (+/-0.001)
-*******
++1.0
 === Kelias A-05 ===
 Plotis L2 (duotas)
 %.3f""" % L2 + """
@@ -28,9 +28,9 @@ Plotis L3 (duotas)
 Visas kelio A-05 plotis
 %.3f""" % A05_plotis + """
 Koeficientas L2 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (-L2/(L2+L3)) + """
 Koeficientas L3 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (L3/(L2+L3)) + """
 === Kelias A-08 ===
 Plotis L4 (duotas)
 %.3f""" % L3 + """
@@ -47,17 +47,17 @@ Plotis L9 (duotas)
 Visas kelio A-08 plotis
 %.3f""" % A08_plotis + """
 Koeficientas L4 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (-L4/(L4+L5+L6+L7+L8+L9)) + """
 Koeficientas L5 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (-L5/(L4+L5+L6+L7+L8+L9)) + """
 Koeficientas L6 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (-L6/(L4+L5+L6+L7+L8+L9)) + """
 Koeficientas L7 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (L7/(L4+L5+L6+L7+L8+L9)) + """
 Koeficientas L8 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (L8/(L4+L5+L6+L7+L8+L9)) + """
 Koeficientas L9 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (L9/(L4+L5+L6+L7+L8+L9)) + """
 === Griovys G-11 ===
 Plotis L10 (duotas)
 %.3f""" % L10 + """
@@ -70,13 +70,13 @@ Plotis L13 (duotas)
 Visas griovio G-11 plotis
 %.3f""" % G11_plotis + """
 Koeficientas L10 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (-L10/(L10+L11+L12+L13)) + """
 Koeficientas L11 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (-L11/(L10+L11+L12+L13)) + """
 Koeficientas L12 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (L12/(L10+L11+L12+L13)) + """
 Koeficientas L13 plocio atidejimui (+/-0.001)
-*******
+%+.3f""" % (L13/(L10+L11+L12+L13)) + """
 === Apskaiciuoti keliu ir grioviu plociai BRAIZYMUI (0.001 tikslumu) ===
 Kelio A-03 plotis
 %.3f""" % KA03_plotis + """

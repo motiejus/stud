@@ -39,6 +39,9 @@ class Vertex:
         """xy returns a tuple of lksx and lksy coordinates"""
         return (self.coords.lksx, self.coords.lksy)
 
+# Kategorijos
+KAT1, KAT2, KAT3, KAT4 = range(4,0,-1)
+
 A = Dec('6.094')
 B = Dec('-2.923')
 C = Dec('-13.462')
@@ -61,9 +64,15 @@ L11 = Dec('3.305')
 L12 = Dec('2.210')
 L13 = Dec('4.381')
 
-A05_plotis = L2 + L3
-A08_plotis = sum([L4,L5,L6,L7,L8,L9])
-G11_plotis = sum([L10,L11,L12,L13])
+# this is incorrect
+#A05_plotis = L2 + L3
+#A08_plotis = sum([L4,L5,L6,L7,L8,L9])
+#G11_plotis = sum([L10,L11,L12,L13])
+
+A03_plotis = Dec('17.401') + A
+A05_plotis = Dec('13.705') + B
+A08_plotis = Dec('29.006') + C
+G11_plotis = Dec('14.776') + N
 
 # Directional coords + angle
 X11 = Dec('6091968.055')
