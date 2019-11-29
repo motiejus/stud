@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from collections import namedtuple
-from shapely.geometry import LineString, asPolygon
+from shapely.geometry import LineString, asPolygon, Point as sPoint
 from descartes import PolygonPatch
 
 from measure import *
@@ -133,5 +133,11 @@ for i in range(1, 7):
     heptagon.append(heptagon[i-1] + dxy)
     prev_dirang += pi - step
 ax.add_patch(PolygonPatch(asPolygon(heptagon), linewidth=2, fc='xkcd:white', ec='xkcd:magenta'))
+
+# septynkampio centras
+x0, y0 = Points[6].xy
+x = x0 + float(D1)/(2*sin(pi/7))*sin(pi/7-float(K1)*pi/180)
+y = y0 + float(D1)/(2*sin(pi/7))*cos(pi/7-float(K1)*pi/180)
+ax.add_patch(PolygonPatch(sPoint(x, y).buffer(5)))
 
 plt.show()

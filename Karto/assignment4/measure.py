@@ -65,11 +65,6 @@ L11 = Dec('3.305')
 L12 = Dec('2.210')
 L13 = Dec('4.381')
 
-# this is incorrect
-#A05_plotis = L2 + L3
-#A08_plotis = sum([L4,L5,L6,L7,L8,L9])
-#G11_plotis = sum([L10,L11,L12,L13])
-
 A03_plotis = Dec('17.401') + A
 A05_plotis = Dec('13.705') + B
 A08_plotis = Dec('29.006') + C
