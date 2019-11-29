@@ -69,16 +69,29 @@ g11 = kelias(
         ),
 )
 
+N, E, S, W = (0,15), (15,0), (0,-15), (-15,0)
+point_annotations = {
+         1: S,  2: E,  3: N,  4: E,
+         5: N,  6: S,  7: S,  8: N,
+         9: E, 10: N, 11: N, 12: N,
+        13: S, 14: W, 15: N, 16: N,
+        17: N, 18: E, 19: N, 20: S,
+        21: N, 22: N, 23: E, 24: N,
+}
 
 # implementacija
 fig, ax = plt.subplots()
-ax.set_title('Užliejamų plotų brėžinys')
+plt.grid(True)
 
+# taškų anotacijos
+for v in vertices:
+    ax.annotate(v.point, xy=v.xy, zorder=99, textcoords='offset points', xytext=point_annotations[v.point])
+
+# kelių piešimas
 for kelias in [a08, a05, a03, g11]:
     # ašis
     kelias_line = LineString([Points[i].xy for i in kelias.virsunes ])
     ax.plot(*kelias_line.xy, linewidth=2, dashes=kelias.dashes, color=kelias.spalva, zorder=kelias.kat)
-
     # offset'ai
     offset_multiplier = kelias.plotis/(kelias.juostos[0].plotis + kelias.juostos[-1].plotis)
     offset_lines = []
