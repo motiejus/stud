@@ -40,7 +40,7 @@ class Vertex:
         return (self.coords.lksx, self.coords.lksy)
 
 # Kategorijos
-KAT1, KAT2, KAT3, KAT4 = range(4,0,-1)
+KAT0, KAT1, KAT2, KAT3, KAT4 = range(5,0,-1)
 
 A = Dec('6.094')
 B = Dec('-2.923')
