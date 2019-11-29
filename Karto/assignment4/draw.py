@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from collections import namedtuple
-from shapely.geometry import LineString, asPolygon, Point as sPoint
+from shapely.geometry import LineString, asPolygon, Point as sPoint, asLineString
 from descartes import PolygonPatch
 
 from measure import *
@@ -62,7 +62,7 @@ keliai = [
     ),
     kelias(
         id='G-11',
-        virsunes=[19,20,21,22,23],
+        virsunes=[19,20,21,22,23,24],
         plotis=G11_plotis,
         kat=KAT4,
         dashes=CONTINUOUS,
@@ -138,6 +138,15 @@ ax.add_patch(PolygonPatch(asPolygon(heptagon), linewidth=2, fc='xkcd:white', ec=
 x0, y0 = Points[6].xy
 x = x0 + float(D1)/(2*sin(pi/7))*sin(pi/7-float(K1)*pi/180)
 y = y0 + float(D1)/(2*sin(pi/7))*cos(pi/7-float(K1)*pi/180)
-ax.add_patch(PolygonPatch(sPoint(x, y).buffer(5)))
+center = sPoint(x, y)
+ax.add_patch(PolygonPatch(center.buffer(5)))
 
-plt.show()
+radius = float(D1)/2/sin(pi/7)-float(A1)
+circle = center.buffer(radius)
+angles = np.linspace(0, 2*pi, num=360)
+circle_y = y + np.sin(angles) * radius
+circle_x = x + np.cos(angles) * radius
+ax.plot(circle_x, circle_y)
+
+if __name__ == '__main__':
+    plt.show()
