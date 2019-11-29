@@ -9,72 +9,8 @@ from descartes import PolygonPatch
 
 from measure import *
 
-juosta = namedtuple('juosta', ['plotis', 'kryptis', 'dashes', 'spalva'])
-kelias = namedtuple('kelias', ['id', 'virsunes', 'plotis', 'kat', 'dashes', 'spalva', 'juostos'])
-
 # nubraižytos kelio linijos ir jų nubrėžti offset'ai iš dešinės į kairę.
-kelias_l = namedtuple('kelias_l', ['id', 'line', 'offsets'])
-
-CONTINUOUS = (1,0)
-DASHDOTX2 = (10,3,2,3)
-DASHED = (100,20)
-
-keliai = [
-    kelias(
-        id='A-08',
-        virsunes=[1,2,3],
-        plotis=A08_plotis,
-        kat=KAT1,
-        dashes=DASHDOTX2,
-        spalva='xkcd:red',
-        juostos=(
-            juosta(L6+L5+L4, 'right', DASHED,     'xkcd:lightgreen'),
-            juosta(L6+L5,    'right', DASHED,     'xkcd:lightgreen'),
-            juosta(L6,       'right', CONTINUOUS, 'xkcd:black'),
-            juosta(L7,       'left',  CONTINUOUS, 'xkcd:black'),
-            juosta(L7+L8,    'left',  DASHED,     'xkcd:lightgreen'),
-            juosta(L7+L8+L9, 'left',  DASHED,     'xkcd:lightgreen'),
-        ),
-    ),
-    kelias(
-        id='A-05',
-        virsunes=[4,5,6,7,8,9,10],
-        plotis=A05_plotis,
-        kat=KAT2,
-        dashes=DASHDOTX2,
-        spalva='xkcd:red',
-        juostos=(
-            juosta(L3, 'right', CONTINUOUS, 'xkcd:brown'),
-            juosta(L2, 'left',  CONTINUOUS, 'xkcd:brown'),
-        ),
-    ),
-    kelias(
-        id='A-03',
-        virsunes=[11,12,13,14,15,16,17,18],
-        plotis=A03_plotis,
-        kat=KAT3,
-        dashes=CONTINUOUS,
-        spalva='xkcd:magenta',
-        juostos=(
-            juosta(L1, 'right', DASHED, 'xkcd:magenta'),
-            juosta(0,   'left', DASHED, 'xkcd:white'),
-        ),
-    ),
-    kelias(
-        id='G-11',
-        virsunes=[19,20,21,22,23,24],
-        plotis=G11_plotis,
-        kat=KAT4,
-        dashes=CONTINUOUS,
-        spalva='xkcd:red',
-        juostos=(
-            juosta(L10+L11, 'right', CONTINUOUS, 'xkcd:blue'),
-            juosta(L11,     'right', CONTINUOUS, 'xkcd:lightblue'),
-            juosta(L12,     'left',  CONTINUOUS, 'xkcd:lightblue'),
-            juosta(L12+L13, 'left',  CONTINUOUS, 'xkcd:blue'),
-        ),
-    ),
-]
+kelias_l = namedtuple('kelias_l', ['line', 'offsets'])
 
 N, E, S, W = (0,10), (10,0), (0,-10), (-10,0)
 point_annotations = {
@@ -99,7 +35,7 @@ for v in vertices:
 
 keliai_l = {}
 # kelių piešimas
-for kelias in keliai:
+for id, kelias in keliai.items():
     # ašis
     kelias_line = LineString([Points[i].xy for i in kelias.virsunes])
     ax.plot(*kelias_line.xy, linewidth=2, dashes=kelias.dashes, color=kelias.spalva, zorder=kelias.kat)
@@ -113,7 +49,7 @@ for kelias in keliai:
     # kelio poligonas su plotu
     kelias_poly = np.vstack((offset_lines[0].coords, offset_lines[-1].coords))
     ax.add_patch(PolygonPatch(asPolygon(kelias_poly), fc='white', zorder=kelias.kat, linewidth=0))
-    keliai_l[kelias.id] = kelias_l(id=kelias.id, line=kelias_line, offsets=offset_lines)
+    keliai_l[id] = kelias_l(line=kelias_line, offsets=offset_lines)
 
 # kelių anotacijos
 for id, kelias in keliai_l.items():
@@ -139,10 +75,9 @@ x0, y0 = Points[6].xy
 x = x0 + float(D1)/(2*sin(pi/7))*sin(pi/7-float(K1)*pi/180)
 y = y0 + float(D1)/(2*sin(pi/7))*cos(pi/7-float(K1)*pi/180)
 center = sPoint(x, y)
-ax.add_patch(PolygonPatch(center.buffer(5)))
 
+# užlieta erdvė apskritimas
 radius = float(D1)/2/sin(pi/7)-float(A1)
-circle = center.buffer(radius)
 angles = np.linspace(0, 2*pi, num=360)
 circle_y = y + np.sin(angles) * radius
 circle_x = x + np.cos(angles) * radius

@@ -40,6 +40,10 @@ class Vertex:
         """xy returns a tuple of lksx and lksy coordinates"""
         return np.array([float(self.coords.lksx), float(self.coords.lksy)])
 
+juosta = namedtuple('juosta', ['plotis', 'kryptis', 'dashes', 'spalva'])
+kelias = namedtuple('kelias', ['virsunes', 'plotis', 'kat', 'dashes', 'spalva', 'juostos'])
+
+
 # Kategorijos
 KAT0, KAT1, KAT2, KAT3, KAT4 = range(5,0,-1)
 
@@ -127,6 +131,64 @@ A1 = Dec('67.536') + B
 Points = {}
 for v in vertices:
     Points[v.point] = v
+
+CONTINUOUS = (1,0)
+DASHDOTX2 = (10,3,2,3)
+DASHED = (100,20)
+
+keliai = {
+    'A-08': kelias(
+        virsunes=[1,2,3],
+        plotis=A08_plotis,
+        kat=KAT1,
+        dashes=DASHDOTX2,
+        spalva='xkcd:red',
+        juostos=(
+            juosta(L6+L5+L4, 'right', DASHED,     'xkcd:lightgreen'),
+            juosta(L6+L5,    'right', DASHED,     'xkcd:lightgreen'),
+            juosta(L6,       'right', CONTINUOUS, 'xkcd:black'),
+            juosta(L7,       'left',  CONTINUOUS, 'xkcd:black'),
+            juosta(L7+L8,    'left',  DASHED,     'xkcd:lightgreen'),
+            juosta(L7+L8+L9, 'left',  DASHED,     'xkcd:lightgreen'),
+        ),
+    ),
+    'A-05': kelias(
+        virsunes=[4,5,6,7,8,9,10],
+        plotis=A05_plotis,
+        kat=KAT2,
+        dashes=DASHDOTX2,
+        spalva='xkcd:red',
+        juostos=(
+            juosta(L3, 'right', CONTINUOUS, 'xkcd:brown'),
+            juosta(L2, 'left',  CONTINUOUS, 'xkcd:brown'),
+        ),
+    ),
+    'A-03': kelias(
+        virsunes=[11,12,13,14,15,16,17,18],
+        plotis=A03_plotis,
+        kat=KAT3,
+        dashes=CONTINUOUS,
+        spalva='xkcd:magenta',
+        juostos=(
+            juosta(L1, 'right', DASHED, 'xkcd:magenta'),
+            juosta(0,   'left', DASHED, 'xkcd:white'),
+        ),
+    ),
+    'G-11': kelias(
+        virsunes=[19,20,21,22,23,24],
+        plotis=G11_plotis,
+        kat=KAT4,
+        dashes=CONTINUOUS,
+        spalva='xkcd:red',
+        juostos=(
+            juosta(L10+L11, 'right', CONTINUOUS, 'xkcd:blue'),
+            juosta(L11,     'right', CONTINUOUS, 'xkcd:lightblue'),
+            juosta(L12,     'left',  CONTINUOUS, 'xkcd:lightblue'),
+            juosta(L12+L13, 'left',  CONTINUOUS, 'xkcd:blue'),
+        ),
+    ),
+}
+
 
 if __name__ == '__main__':
     print("angle sum %.4f, theoretical angle sum %d" % \
