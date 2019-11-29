@@ -2,6 +2,7 @@
 from collections import namedtuple
 from decimal import Decimal as Dec
 from math import sin, cos, pi
+import numpy as np
 
 def normalize(ang):
     while ang > 180:
@@ -37,7 +38,7 @@ class Vertex:
     @property
     def xy(self):
         """xy returns a tuple of lksx and lksy coordinates"""
-        return (self.coords.lksx, self.coords.lksy)
+        return np.array([float(self.coords.lksx), float(self.coords.lksy)])
 
 # Kategorijos
 KAT0, KAT1, KAT2, KAT3, KAT4 = range(5,0,-1)

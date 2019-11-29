@@ -19,7 +19,6 @@ CONTINUOUS = (1,0)
 DASHDOTX2 = (10,3,2,3)
 DASHED = (100,20)
 
-
 keliai = [
     kelias(
         id='A-08',
@@ -86,8 +85,7 @@ point_annotations = {
         17: N, 18: E, 19: N, 20: S,
         21: N, 22: S, 23: E, 24: N,
 }
-
-road_annotations = { 'A-08': W, 'A-05': N, 'A-03': N, 'G-11': E }
+road_annotations = {'A-08':W, 'A-05':N, 'A-03':N, 'G-11':E}
 
 # implementacija
 fig, ax = plt.subplots()
@@ -122,5 +120,15 @@ for id, kelias in keliai_l.items():
     angle = atan(delta[1]/delta[0])*180/pi
     offset = road_annotations[id]
     ax.annotate(id, kelias.offsets[-1].coords[0], zorder=KAT0, textcoords='offset points', xytext=offset, rotation=angle)
+
+# septynkampis
+prev_dirang = float(K1)*pi/180
+step = 5*7*pi
+heptagon = [np.array(Points[6].xy)]
+for i in range(1, 7):
+    dxy = np.array([float(D1)*cos(prev_dirang), float(D1)*sin(prev_dirang)])
+    heptagon.append(heptagon[i-1] + dxy)
+    prev_dirang += step
+ax.add_patch(PolygonPatch(asPolygon(heptagon), linewidth=2, fc='grey'))
 
 plt.show()
