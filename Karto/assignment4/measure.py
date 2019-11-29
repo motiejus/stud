@@ -116,18 +116,6 @@ for i, v in enumerate(vertices[1:]):
     v.coords = Point(prev.coords.acadx + dx, prev.coords.acady + dy)
 
 
-"""
-Kelio A-03 plotis = 17.401 + A =
-Kelio A-05 plotis = 13.705 + B =
-Kelio A-08 plotis = 29.006 + C =
-Griovio G-11 plotis = 14.776 + N =
-"""
-
-KA03_plotis = Dec('17.401') + A
-KA05_plotis = Dec('13.705') + B
-KA08_plotis = Dec('29.006') + C
-G11_plotis = Dec('14.776') + N
-
 # 9-kampio krastine D1
 D1 = Dec('174.667') + C
 # Daugiakampio pasukimo kampas (K1)
@@ -144,6 +132,7 @@ if __name__ == '__main__':
     print("angle sum %.4f, theoretical angle sum %d" % \
             (angle_sum, theoretical_angle_sum))
 
+    """
     for i, v in enumerate(vertices):
         nxt = vertices[0 if i == len(vertices) - 1 else i+1]
 
@@ -151,11 +140,12 @@ if __name__ == '__main__':
         draw = "@%.3f<%.4f" % (v.len, normalize(90 - v.dirang))
         print("%5s: %19s  acadcoords:(%.3f,%.3f)" % \
                 (pts, draw, v.coords.acadx, v.coords.acady))
+    """
 
     print("""
-    Kelio A-03 plotis = 17.401 + A = %.3f""" % KA03_plotis + """
-    Kelio A-05 plotis = 13.705 + B = %.3f""" % KA05_plotis + """
-    Kelio A-08 plotis = 29.006 + C = %.3f""" % KA08_plotis + """
+    Kelio A-03 plotis = 17.401 + A = %.3f""" % A03_plotis + """
+    Kelio A-05 plotis = 13.705 + B = %.3f""" % A05_plotis + """
+    Kelio A-08 plotis = 29.006 + C = %.3f""" % A08_plotis + """
     Griovio G-11 plotis = 14.776 + N = %.3f""" % G11_plotis + """
 
     Prognozuojamo uzliejimo zona, tai taisyklingas 9-kampis
@@ -166,4 +156,16 @@ if __name__ == '__main__':
     Tikroji uzliejimo zona, tai taisyklingas apskritimas, kurio centras TURI SUTAPTI su daugiakampio centru.
     Atstumas iki tikrosios uzliejimo zonos (A1) (0.001 tikslumu)
     A1 = %.3f""" % A1 + """
+
+    A-05:
+    x(l) = %.3f""" % (A05_plotis*L3/(L2+L3)) + """
+    x(r) = %.3f""" % (A05_plotis*L2/(L2+L3)) + """
+
+    A-08:
+    x(l) = %.3f""" % (A08_plotis*(L7+L8+L9)/(L7+L8+L9+L6+L5+L4)) + """
+    x(r) = %.3f""" % (A08_plotis*(L6+L5+L4)/(L7+L8+L9+L6+L5+L4)) + """
+
+    G-11:
+    x(l) = %.3f""" % (G11_plotis*(L12+L13)/(L10+L11+L12+L13)) + """
+    x(r) = %.3f""" % (G11_plotis*(L10+L11)/(L10+L11+L12+L13)) + """
     """)
