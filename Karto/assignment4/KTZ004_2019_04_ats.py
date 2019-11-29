@@ -79,11 +79,11 @@ Koeficientas L13 plocio atidejimui (+/-0.001)
 %+.3f""" % (L13/(L10+L11+L12+L13)) + """
 === Apskaiciuoti keliu ir grioviu plociai BRAIZYMUI (0.001 tikslumu) ===
 Kelio A-03 plotis
-%.3f""" % KA03_plotis + """
+%.3f""" % A03_plotis + """
 Kelio A-05 plotis
-%.3f""" % KA05_plotis + """
+%.3f""" % A05_plotis + """
 Kelio A-08 plotis
-%.3f""" % KA08_plotis + """
+%.3f""" % A08_plotis + """
 Griovio G-11 plotis
 %.3f""" % G11_plotis + """
 === Apskaiciuota daugiakampio krastine D1 (0.001 tikslumu) ===
@@ -96,18 +96,18 @@ Griovio G-11 plotis
 === Keliu ir grioviu asiu ilgiai (0.001 m tikslumu) ===
 == Kelias A-03 ==
 Asies 11-12-13-14-15-16-17-18 ilgis
-*******
+%.3f""" % keliu_ilgiai['A-03'] + """
 ==Kelias A-05 ==
 Asies 4-5-6-7-8-9-10 ilgis
-*******
+%.3f""" % keliu_ilgiai['A-05'] + """
 == Kelias A-08 ==
 Asies 1-2-3 ilgis
-*******
+%.3f""" % keliu_ilgiai['A-08'] + """
 == Griovys G-11 ==
 Asies 19-20-21-22-23-24 ilgis 
-*******
+%.3f""" % keliu_ilgiai['G-11'] + """
 Visas keliu/Grioviu tinklo ilgis (pagal asis) 
-*******
+%.3f""" % sum(keliu_ilgiai.values()) + """
 === Uzlietu zemenaudmenu plotai (0.001 m2 tikslumu) ===
 Miskas
 *******

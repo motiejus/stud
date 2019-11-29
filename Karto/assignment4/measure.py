@@ -2,6 +2,7 @@
 from collections import namedtuple
 from decimal import Decimal as Dec
 from math import sin, cos, pi
+from shapely.geometry import LineString
 import numpy as np
 
 def normalize(ang):
@@ -189,6 +190,11 @@ keliai = {
     ),
 }
 
+keliu_ilgiai = {}
+for id, kelias in keliai.items():
+    keliu_ilgiai[id] = LineString([Points[i].xy for i in kelias.virsunes]).length
+
+print(keliu_ilgiai)
 
 if __name__ == '__main__':
     print("angle sum %.4f, theoretical angle sum %d" % \
