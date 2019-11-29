@@ -26,14 +26,14 @@ keliai = [
         plotis=A08_plotis,
         kat=KAT1,
         dashes=DASHDOTX2,
-        spalva='red',
+        spalva='xkcd:red',
         juostos=(
-            juosta(L6+L5+L4, 'right', DASHED,     'lightgreen'),
-            juosta(L6+L5,    'right', DASHED,     'lightgreen'),
-            juosta(L6,       'right', CONTINUOUS, 'black'),
-            juosta(L7,       'left',  CONTINUOUS, 'black'),
-            juosta(L7+L8,    'left',  DASHED,     'lightgreen'),
-            juosta(L7+L8+L9, 'left',  DASHED,     'lightgreen'),
+            juosta(L6+L5+L4, 'right', DASHED,     'xkcd:lightgreen'),
+            juosta(L6+L5,    'right', DASHED,     'xkcd:lightgreen'),
+            juosta(L6,       'right', CONTINUOUS, 'xkcd:black'),
+            juosta(L7,       'left',  CONTINUOUS, 'xkcd:black'),
+            juosta(L7+L8,    'left',  DASHED,     'xkcd:lightgreen'),
+            juosta(L7+L8+L9, 'left',  DASHED,     'xkcd:lightgreen'),
         ),
     ),
     kelias(
@@ -42,10 +42,10 @@ keliai = [
         plotis=A05_plotis,
         kat=KAT2,
         dashes=DASHDOTX2,
-        spalva='red',
+        spalva='xkcd:red',
         juostos=(
-            juosta(L3, 'right', CONTINUOUS, 'brown'),
-            juosta(L2, 'left',  CONTINUOUS, 'brown'),
+            juosta(L3, 'right', CONTINUOUS, 'xkcd:brown'),
+            juosta(L2, 'left',  CONTINUOUS, 'xkcd:brown'),
         ),
     ),
     kelias(
@@ -54,10 +54,10 @@ keliai = [
         plotis=A03_plotis,
         kat=KAT3,
         dashes=CONTINUOUS,
-        spalva='pink',
+        spalva='xkcd:magenta',
         juostos=(
-            juosta(L1, 'right', DASHED, 'pink'),
-            juosta(0,   'left', DASHED, 'white'),
+            juosta(L1, 'right', DASHED, 'xkcd:magenta'),
+            juosta(0,   'left', DASHED, 'xkcd:white'),
         ),
     ),
     kelias(
@@ -66,12 +66,12 @@ keliai = [
         plotis=G11_plotis,
         kat=KAT4,
         dashes=CONTINUOUS,
-        spalva='red',
+        spalva='xkcd:red',
         juostos=(
-            juosta(L10+L11, 'right', CONTINUOUS, 'blue'),
-            juosta(L11,     'right', CONTINUOUS, 'lightblue'),
-            juosta(L12,     'left',  CONTINUOUS, 'lightblue'),
-            juosta(L12+L13, 'left',  CONTINUOUS, 'blue'),
+            juosta(L10+L11, 'right', CONTINUOUS, 'xkcd:blue'),
+            juosta(L11,     'right', CONTINUOUS, 'xkcd:lightblue'),
+            juosta(L12,     'left',  CONTINUOUS, 'xkcd:lightblue'),
+            juosta(L12+L13, 'left',  CONTINUOUS, 'xkcd:blue'),
         ),
     ),
 ]
@@ -89,11 +89,13 @@ road_annotations = {'A-08':W, 'A-05':N, 'A-03':N, 'G-11':E}
 
 # implementacija
 fig, ax = plt.subplots()
+ax.set_aspect('equal')
 plt.grid(True)
 
 # taškų anotacijos
 for v in vertices:
-    ax.annotate(v.point, xy=v.xy, zorder=KAT0, textcoords='offset points', xytext=point_annotations[v.point])
+    ax.annotate(v.point, xy=v.xy, zorder=KAT0, textcoords='offset points',
+            fontsize='small', xytext=point_annotations[v.point])
 
 keliai_l = {}
 # kelių piešimas
@@ -119,16 +121,17 @@ for id, kelias in keliai_l.items():
     delta = lineend - linestart
     angle = atan(delta[1]/delta[0])*180/pi
     offset = road_annotations[id]
-    ax.annotate(id, kelias.offsets[-1].coords[0], zorder=KAT0, textcoords='offset points', xytext=offset, rotation=angle)
+    ax.annotate(id, kelias.offsets[-1].coords[0], zorder=KAT0, textcoords='offset points',
+            fontsize='small', xytext=offset, rotation=angle)
 
 # septynkampis
 prev_dirang = float(K1)*pi/180
-step = 5*7*pi
+step = 5/7*pi
 heptagon = [np.array(Points[6].xy)]
 for i in range(1, 7):
     dxy = np.array([float(D1)*cos(prev_dirang), float(D1)*sin(prev_dirang)])
     heptagon.append(heptagon[i-1] + dxy)
-    prev_dirang += step
-ax.add_patch(PolygonPatch(asPolygon(heptagon), linewidth=2, fc='grey'))
+    prev_dirang += pi - step
+ax.add_patch(PolygonPatch(asPolygon(heptagon), linewidth=2, fc='xkcd:white', ec='xkcd:magenta'))
 
 plt.show()
