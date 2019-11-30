@@ -9,8 +9,8 @@ Motiejus_Jakstys
 === Apskaiciuotos posukio tasku koordinates (LKS94 koord.sist. 0.00 tikslumu)===""")
 for v in vertices:
     print("Tasko Nr.%d koordinates" % v.point)
-    print("X = %.3f" % v.coords.lksx)
-    print("Y = %.3f" % v.coords.lksy)
+    print("X = %.2f" % v.coords.lksx)
+    print("Y = %.2f" % v.coords.lksy)
 
 print("""=== Apskaiciuoti liniju stiliu kurimo parametrai (0.001 tikslumu) ===
 === Kelias A-03 ===
