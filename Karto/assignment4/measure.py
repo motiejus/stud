@@ -2,7 +2,7 @@
 from collections import namedtuple
 from decimal import Decimal as Dec
 from math import sin, cos, pi
-from shapely.geometry import LineString
+from shapely.geometry import LineString, asPolygon, Point as sPoint
 import numpy as np
 
 def normalize(ang):
@@ -40,6 +40,13 @@ class Vertex:
     def xy(self):
         """xy returns a tuple of lksx and lksy coordinates"""
         return np.array([float(self.coords.lksx), float(self.coords.lksy)])
+
+def heptagon(d1):
+    angles = np.linspace(0, 2*pi, num=8)
+    R = float(D1)/2/sin(pi/7)
+    heptagon_xy = (np.array([np.cos(angles), np.sin(angles)])*R).T
+    return asPolygon(heptagon_xy)
+
 
 juosta = namedtuple('juosta', ['plotis', 'kryptis', 'dashes', 'spalva'])
 kelias = namedtuple('kelias', ['virsunes', 'plotis', 'kat', 'dashes', 'spalva', 'juostos'])
@@ -127,6 +134,10 @@ D1 = Dec('174.667') + C
 K1 = Dec('13.147') + B
 # Atstumas iki tikrosios uzliejimo zonos (A1) (0.001 tikslumu)
 A1 = Dec('67.536') + B
+
+circle_radius = float(D1)/2/sin(pi/7)-float(A1)
+heptagon_area = heptagon(float(D1)).area
+circle_area = sPoint(0,0).buffer(circle_radius).area
 
 # Points is vertice map by id
 Points = {}

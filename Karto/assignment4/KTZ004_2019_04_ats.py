@@ -130,8 +130,8 @@ Kelias A-08
 Griovys G-11
 *******
 Visas prognozuojamo uzliejimo plotas (0.001 m2 tikslumu)
-*******
+%.3f""" % heptagon_area + """
 Visas uzlietas plotas (0.001 m2 tikslumu)
-*******
+%.3f""" % circle_area + """
 Plotas kuris liko neuzlietas (0.001 m2 tikslumu)
-*******""")
+%.3f""" % (heptagon_area - circle_area))
