@@ -132,17 +132,17 @@ vertices = [
   Vertex(4,  Dec('179.336'), guess('150-15-41')),
 ]
 
-angle_sum = Dec(0)
-for v in vertices:
-    angle_sum += v.ang
-theoretical_angle_sum = Dec(int((len(vertices)-2)*180))
-
 for i, v in enumerate(vertices[1:]):
     prev = vertices[i]
     v.dirang = prev.dirang + 180 - v.ang
     v.dx = Dec(float(prev.len) * cos(float(prev.dirang) * pi/180))
     v.dy = Dec(float(prev.len) * sin(float(prev.dirang) * pi/180))
     v.coords = Point(prev.coords.acadx + v.dx, prev.coords.acady + v.dy)
+
+angle_sum = Dec(0)
+for v in vertices:
+    angle_sum += v.ang
+theoretical_angle_sum = Dec(int((len(vertices)-2)*180))
 
 # 9-kampio krastine D1
 D1 = Dec('174.667') + C
