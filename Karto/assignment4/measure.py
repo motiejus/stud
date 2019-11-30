@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
+"""
+Execute like this:
+    ./measure.py  | column -t -s $'\t'
+"""
+
 from collections import namedtuple
 from decimal import Decimal as Dec
 from math import sin, cos, pi
 from shapely.geometry import LineString, asPolygon, Point as sPoint
 import numpy as np
 
-"""
-Run as follows:
-    ./measure.py  | column -t -s $'\t'
-"""
 
 class Deg(namedtuple('Deg', ['deg', 'mm', 'ss'])):
     def __str__(self):
@@ -65,10 +66,8 @@ def heptagon(d1):
     heptagon_xy = (np.array([np.cos(angles), np.sin(angles)])*R).T
     return asPolygon(heptagon_xy)
 
-
 juosta = namedtuple('juosta', ['plotis', 'kryptis', 'dashes', 'spalva'])
 kelias = namedtuple('kelias', ['virsunes', 'plotis', 'kat', 'dashes', 'spalva', 'juostos'])
-
 
 # Kategorijos
 KAT0, KAT1, KAT2, KAT3, KAT4 = range(5,0,-1)
@@ -144,7 +143,6 @@ for i, v in enumerate(vertices[1:]):
     v.dx = Dec(float(prev.len) * cos(float(prev.dirang) * pi/180))
     v.dy = Dec(float(prev.len) * sin(float(prev.dirang) * pi/180))
     v.coords = Point(prev.coords.acadx + v.dx, prev.coords.acady + v.dy)
-
 
 # 9-kampio krastine D1
 D1 = Dec('174.667') + C
@@ -237,7 +235,8 @@ if __name__ == '__main__':
             "%.3f" % v.coords.acady,
         ]))
 
-        """acad coords for drawing
+        #acad coords for drawing
+        """
         nxt = vertices[0 if i == len(vertices) - 1 else i+1]
         pts = "%d-%d" % (v.point, nxt.point)
         draw = "@%.3f<%.4f" % (v.len, normalize(90 - v.dirang))
@@ -245,6 +244,7 @@ if __name__ == '__main__':
                 (pts, draw, v.coords.acadx, v.coords.acady))
         """
 
+    # debugging & while drawing
     ("""
     Kelio A-03 plotis = 17.401 + A = %.3f""" % A03_plotis + """
     Kelio A-05 plotis = 13.705 + B = %.3f""" % A05_plotis + """
