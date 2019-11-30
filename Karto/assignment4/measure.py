@@ -5,6 +5,23 @@ from math import sin, cos, pi
 from shapely.geometry import LineString, asPolygon, Point as sPoint
 import numpy as np
 
+"""
+Run as follows:
+    ./measure.py  | column -t -s $'\t'
+"""
+
+class Deg(namedtuple('Deg', ['deg', 'mm', 'ss'])):
+    def __str__(self):
+        return "%03d-%02d-%04.1f" % (self.deg, self.mm, self.ss)
+
+def hms(deg):
+    assert isinstance(deg, Dec)
+    pdeg, pmm = divmod(deg, 1)
+    pmm = pmm * Dec(60)
+    pmm, pss = divmod(pmm, 1)
+    pss = pss * Dec(60)
+    return Deg(pdeg, pmm, pss)
+
 def normalize(ang):
     while ang > 180:
         ang -= 360
@@ -35,6 +52,7 @@ class Vertex:
         self.ang = angle
         self.dirang = dirang
         self.coords = coords
+        self.dx, self.dy = Dec(), Dec()
 
     @property
     def xy(self):
@@ -123,9 +141,9 @@ theoretical_angle_sum = Dec(int((len(vertices)-2)*180))
 for i, v in enumerate(vertices[1:]):
     prev = vertices[i]
     v.dirang = prev.dirang + 180 - v.ang
-    dx = Dec(float(prev.len) * cos(float(prev.dirang) * pi/180))
-    dy = Dec(float(prev.len) * sin(float(prev.dirang) * pi/180))
-    v.coords = Point(prev.coords.acadx + dx, prev.coords.acady + dy)
+    v.dx = Dec(float(prev.len) * cos(float(prev.dirang) * pi/180))
+    v.dy = Dec(float(prev.len) * sin(float(prev.dirang) * pi/180))
+    v.coords = Point(prev.coords.acadx + v.dx, prev.coords.acady + v.dy)
 
 
 # 9-kampio krastine D1
@@ -206,20 +224,28 @@ for id, kelias in keliai.items():
     keliu_ilgiai[id] = LineString([Points[i].xy for i in kelias.virsunes]).length
 
 if __name__ == '__main__':
-    print("angle sum %.4f, theoretical angle sum %d" % \
-            (angle_sum, theoretical_angle_sum))
-
-    """
+    print("tšk. nr.\tišmatuotas kampas\tdirekcinis kampas\tilgis\tdx\tdy\tx\ty")
     for i, v in enumerate(vertices):
-        nxt = vertices[0 if i == len(vertices) - 1 else i+1]
+        print("\t".join([
+            "%d" % v.point,
+            "%s" % str(hms(v.ang)),
+            "%s" % str(hms(v.dirang)),
+            "%.3f" % v.len,
+            "%.3f" % v.dx,
+            "%.3f" % v.dy,
+            "%.3f" % v.coords.acadx,
+            "%.3f" % v.coords.acady,
+        ]))
 
+        """acad coords for drawing
+        nxt = vertices[0 if i == len(vertices) - 1 else i+1]
         pts = "%d-%d" % (v.point, nxt.point)
         draw = "@%.3f<%.4f" % (v.len, normalize(90 - v.dirang))
         print("%5s: %19s  acadcoords:(%.3f,%.3f)" % \
                 (pts, draw, v.coords.acadx, v.coords.acady))
-    """
+        """
 
-    print("""
+    ("""
     Kelio A-03 plotis = 17.401 + A = %.3f""" % A03_plotis + """
     Kelio A-05 plotis = 13.705 + B = %.3f""" % A05_plotis + """
     Kelio A-08 plotis = 29.006 + C = %.3f""" % A08_plotis + """
