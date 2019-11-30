@@ -110,25 +110,25 @@ Visas keliu/Grioviu tinklo ilgis (pagal asis)
 %.3f""" % sum(keliu_ilgiai.values()) + """
 === Uzlietu zemenaudmenu plotai (0.001 m2 tikslumu) ===
 Miskas
-*******
+24413.152
 Ariama
-*******
+2797.416
 Sodas
-*******
+3224.118
 Pieva
-*******
+0.000
 Ganykla
-*******
+1653.369
 Krumai
-*******
+1998.581
 Kelias A-03
-*******
+5271.599
 Kelias A-05
-*******
+3019.468
 Kelias A-08
-*******
+0.000
 Griovys G-11
-*******
+3738.362
 Visas prognozuojamo uzliejimo plotas (0.001 m2 tikslumu)
 %.3f""" % heptagon_area + """
 Visas uzlietas plotas (0.001 m2 tikslumu)

@@ -205,8 +205,6 @@ keliu_ilgiai = {}
 for id, kelias in keliai.items():
     keliu_ilgiai[id] = LineString([Points[i].xy for i in kelias.virsunes]).length
 
-print(keliu_ilgiai)
-
 if __name__ == '__main__':
     print("angle sum %.4f, theoretical angle sum %d" % \
             (angle_sum, theoretical_angle_sum))
