@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 print("""
-Uzduotis Nr. 
+Uzduotis Nr.
 KTZ004_2019_05
 Braize (Pavarde_Vardas):
 Motiejus_Jakstys
@@ -103,75 +103,75 @@ Objekto N3 plotas
 === Bendro sklypo (TIK ZEMES) dalijimo rezultatai (0.001 tikslumu) ====
 Sklypus dalijancios ribos bendras ilgis
 *******
-A sklypui priklausanciu objektu plotu suma (be zemes) 
+A sklypui priklausanciu objektu plotu suma (be zemes)
 *******
-A sklypo (tik zemes) plotas be jam priklausanciu objektu ploto 
+A sklypo (tik zemes) plotas be jam priklausanciu objektu ploto
 *******
-A sklypo visos ribos perimetras 
-*******
+A sklypo visos ribos perimetras
+739.812
 B sklypui priklausanciu objektu plotu suma (be zemes)
 *******
-B sklypo (tik zemes) plotas be jam priklausanciu objektu ploto 
+B sklypo (tik zemes) plotas be jam priklausanciu objektu ploto
 *******
-B sklypo visos ribos perimetras 
+B sklypo visos ribos perimetras
 *******
-=== Sutartiniu zenklu (SZ) kiekiai === 
-SZ skaicius viso sklypo isorineje riboje 
+=== Sutartiniu zenklu (SZ) kiekiai ===
+SZ skaicius viso sklypo isorineje riboje
 *******
-SZ skaicius dalijimo riboje 
+SZ skaicius dalijimo riboje
 *******
-SZ (medziu) skaicius A sklype 
+SZ (medziu) skaicius A sklype
 *******
-SZ (medziu) skaicius B sklype 
+SZ (medziu) skaicius B sklype
 *******
 === SKENUOTO VAIZDO TRANSFORMAVIMO DUOMENYS ===
-Pastaba: Duomenis nurasyti is sken.vaizdo transform. ziniarascio [trasform_blank.doc]. 
-Tikslumas turi atitikti ziniarastyje nurodyta duomenu tiksluma.   
-=== Skenuoto brez.(pries transformavima) koord. sankirtu koordinates(SX, SY) === 
-Sankirtos Nr.1 koordinates (0.0001) 
+Pastaba: Duomenis nurasyti is sken.vaizdo transform. ziniarascio [trasform_blank.doc].
+Tikslumas turi atitikti ziniarastyje nurodyta duomenu tiksluma.
+=== Skenuoto brez.(pries transformavima) koord. sankirtu koordinates(SX, SY) ===
+Sankirtos Nr.1 koordinates (0.0001)
 SX1 = *******
 SY1 = *******
-Sankirtos Nr.2 koordinates (0.0001)  
+Sankirtos Nr.2 koordinates (0.0001)
 SX2 = *******
 SY2 = *******
-Sankirtos Nr.3 koordinates (0.0001)  
+Sankirtos Nr.3 koordinates (0.0001)
 SX3 = *******
 SY3 = *******
-Sankirtos Nr.4 koordinates (0.0001)  
+Sankirtos Nr.4 koordinates (0.0001)
 SX4 = *******
 SY4 = *******
-=== Atkarpu pasukimo kampai (+/-laipsniais 0.0001) === 
-Atkarpa 1-2 
+=== Atkarpu pasukimo kampai (+/-laipsniais 0.0001) ===
+Atkarpa 1-2
 1-2 = *******
-Atkarpa 4-3 
+Atkarpa 4-3
 4-3 = *******
-Atkarpa 1-4 
+Atkarpa 1-4
 1-4 = *******
-Atkarpa 2-3 
+Atkarpa 2-3
 2-3 = *******
-=== Pasukimo kampo vidurkis (+/-laipsnais 0.0001) === 
+=== Pasukimo kampo vidurkis (+/-laipsnais 0.0001) ===
 *******
-=== Atkarpu ilgiai (0.0001) === 
-Atkarpa 1-4 
+=== Atkarpu ilgiai (0.0001) ===
+Atkarpa 1-4
 1-4 = *******
-Atkarpa 2-3 
+Atkarpa 2-3
 2-3 = *******
-Atkarpa 1-2 
+Atkarpa 1-2
 1-2 = *******
-Atkarpa 4-3 
+Atkarpa 4-3
 4-3 = *******
-=== Atkarpu X asies kryptimi vidurkis E (0.0001) === 
+=== Atkarpu X asies kryptimi vidurkis E (0.0001) ===
 *******
-=== Atkarpu Y asies kryptimi vidurkis E (0.0001) === 
+=== Atkarpu Y asies kryptimi vidurkis E (0.0001) ===
 *******
-=== Transformavimo koeficientai  === 
+=== Transformavimo koeficientai  ===
 == X asies kryptimi ==
-Teorinis atkarpos ilgis T 
+Teorinis atkarpos ilgis T
 *******
 Transformavimo koeficientas Kx (0.0000001)
 *******
 == Y asies kryptimi ==
-Teorinis atkarpos ilgis T 
+Teorinis atkarpos ilgis T
 *******
 Transformavimo koeficientas Ky (0.0000001)
 *******
@@ -180,7 +180,7 @@ Transformavimo koeficientas Ky (0.0000001)
 Koord. po transformavimo G (0.0001)
 GX1 = *******
 GY1 = *******
-Teorines sankirtos koord. TK 
+Teorines sankirtos koord. TK
 TKX1 = *******
 TKY1 = *******
 Skirtumai G-TK  (+/-0.0001)
@@ -190,7 +190,7 @@ dY1 = *******
 Koord. po transformavimo G (0.0001)
 GX2 = *******
 GY2 = *******
-Teorines sankirtos koord. TK 
+Teorines sankirtos koord. TK
 TKX2 = *******
 TKY2 = *******
 Skirtumai G-TK  (+/-0.0001)
@@ -200,7 +200,7 @@ dY2 = *******
 Koord. po transformavimo G (0.0001)
 GX3 = *******
 GY3 = *******
-Teorines sankirtos koord. TK 
+Teorines sankirtos koord. TK
 TKX3 = *******
 TKY3 = *******
 Skirtumai G-TK  (+/-0.0001)
@@ -210,7 +210,7 @@ dY3 = *******
 Koord. po transformavimo G (0.0001)
 GX4 = *******
 GY4 = *******
-Teorines sankirtos koord. TK 
+Teorines sankirtos koord. TK
 TKX4 = *******
 TKY4 = *******
 Skirtumai G-TK  (+/-0.0001)
