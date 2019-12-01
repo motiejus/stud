@@ -29,14 +29,15 @@ print("""Atraminiu liniju koordinates ir uzkirciu ilgiai(m):""")
 for id, bearing in bearings.items():
     print("T%d: (%.3f,%.3f)" % (id, bearing[0], bearing[1]))
 
-print("""
+("""
 ---------------
 Kontr. atst. T23-T24 =  82.293 ?= %.3f""" % euclidean(bearings[23],bearings[24]) + """
 Kontr. atst. T24-T25 = 242.105 ?= %.3f""" % euclidean(bearings[24],bearings[25]) + """
 Kontr. atst. T26-T27 = 151.109 ?= %.3f""" % euclidean(bearings[26], bearings[27]) + """
 Kontr. atst. T27-T28 = 214.908 ?= %.3f""" % euclidean(bearings[27], bearings[28]) + """
+""")
 
-Objektu koordinates:""")
+print("""Objektu koordinates:""")
 objs = {
     12: np.array([564474.034+M, 6173175.426+F]),
     13: np.array([564505.240+C, 6173237.929+E]),
