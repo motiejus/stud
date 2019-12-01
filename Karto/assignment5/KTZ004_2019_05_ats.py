@@ -87,7 +87,7 @@ Krastine 11-1
 *******
 === Objektu plotai (0.001 m2 tikslumu) ===
 Viso (bendro) sklypo plotas
-*******
+24575.084
 Objekto M1 plotas
 *******
 Objekto M2 plotas
