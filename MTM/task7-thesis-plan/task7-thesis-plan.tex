@@ -41,37 +41,57 @@ nenurodo prognozių tikslumo vietiniu mąstu; taip pat duomenys nėra viešai pr
 Šis darbas bus aktualus norint įvertinti prognozės tikslumą konkrečiame regione.
 
 \section{Tyrimo uždaviniai}
-{\small Pagrindinės veiklos, kurias reikia atlikti siekiant tikslo}
-
 Darbas susideda iš kelių dalių:
 \begin{description}
     \item[Duomenų surinkimas] iš duomenų portalų. Kadangi norime įvertinti
         kalendorinių metų ciklą, duomenis reikės rinkti iš kelių tiekėjų visus
         metus, bent po vieną kartą per dieną.
-    \item[Duomenų, apdorojimas]: portaluose prognozės pateikiamos skirtingu
+    \item[Duomenų apdorojimas:] portaluose prognozės pateikiamos skirtingu
         formatu. Kad galėtume prognozes lyginti, duomenis reikia suvienodinti.
-    \item[Analizės etapas] prasidės, kai kalendorinių metų duomenys bus surinkti
+    \item[Analizė] prasidės, kai kalendorinių metų duomenys bus surinkti
         ir susisteminti. Kaip paminėta \cite{motiejus-task6}, naudosime "naivų"
         metodą palyginimui su \cite{rose2017analysis}, ir erdvinius metodus iš
         \cite{verification2015}.
-    \item[Atvaizdavimas]: kokiu būdu pateikti žemėlapį, geriausiai perteikiantį
-        analizės rezultatus?
-    \item[Išvados]: kuri prognozės sistema patikimiausia? Kiek patikimumas
+    \item[Išvados:] kuri prognozės sistema patikimiausia? Kiek patikimumas
         priklauso nuo regiono?
+    \item[Vizualizacija:] kokį pateikti žemėlapį, geriausiai perteikiantį
+        analizės rezultatus ir rekomendacijas?
 \end{description}
 
 \section{Laukiami rezultatai}
-{\small Naujos žinios, prognozė, rekomendacijos ar kt.}
-3. Apibrėžkite laukiamus rezultatus (naujos žinios, prognozė, rekomendacijos ar kt.).
+
+Gauti rezultatai padės atsakyti į hipotezes:
+\begin{itemize}
+    \item ar orų viešai prieinamų oro prognozių patikimumas svyruoja tarp
+        regionų?
+    \item kuris orų prognozės tiekėjas geriausias? Bendrai? Žiemą? Vasarą?
+        Lietui? Vėjui?
+\end{itemize}
 
 \section{Kokio tipo tai bus tyrimas, kokie reikalingi ištekliai}
-4. Įvertinkite kokio tipo tai bus tyrimas, kokie reikalingi ištekliai, kokios yra Jūsų stiprybės ir silpnybės, į kurias reikia atsižvelgti jį vykdant.
+
+Tyrimas yra {\textbf prognostinis kiekybinis}: pagal praeities orų prognozių
+rezultatus ekstrapoliuojame, kurie tiekėjai kuriuose regionuose orus numato
+geriausiai. Kiekybinis, nes aiškinamasi ne priežastys, o rezultatas.
+
+Kadangi tyrimas remsis duomenimis iš reguliariai atsisiunčiamų viešai priimamų
+šaltinių, tokie ir bus ištekliai. Svarbu, kad duomenų surinkimo metu
+interneto svetainės, iš kurių bus siunčiami duomenys, išliktų prieinamos, ir
+surenkamų duomenų formatas iš esmės nepasikeistų.
 
 \section{Stiprybės ir silpnybės, į kurias reikia atsižvelgti jį vykdant}
-4. Įvertinkite kokio tipo tai bus tyrimas, kokie reikalingi ištekliai, kokios yra Jūsų stiprybės ir silpnybės, į kurias reikia atsižvelgti jį vykdant.
+
+Duomenų kiekis bus toks, kad surinkimą ir analizę reikės automatizuoti.
+{\textbf Stiprybė}: esu programuotojas ir mokėsiu tai daryti.
+
+Silpnybė: tiriu meteorologinius reiškinius, tačiau nesu meteorologas ir neturiu
+net meteorologijos pagrindų. Tačiau darbo vadovas yra ekspertas meteorologas.
 
 \section{Naudojami pradiniai duomenys ir pagrindinės numatomų taikyti metodų grupės}
-5. Aprašykite naudojamus pradinius duomenis ir pagrindines numatomų taikyti metodų grupes.
+
+Pradiniai duomenys -- iš oro prognozių tiekėjų. Tyrimo pradžioje atsisiųsiu
+kelias prognozes, kad galėčiau įvertinti formatą ir pradėti vykdyti
+nesudėtingas analizes.
 
 \printbibliography
 
