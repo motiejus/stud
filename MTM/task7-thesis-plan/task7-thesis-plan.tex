@@ -4,6 +4,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage[lithuanian]{babel}
+\usepackage[maxbibnames=99,style=authoryear]{biblatex}
+\addbibresource{bib.bib}
 \usepackage{hyperref}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -25,11 +27,38 @@
 \newpage
 
 \section{Planuojamo tyrimo aktualumas, originalumas, teorinė ir praktinė reikšmė}
-1. Įvertinkite planuojamo tyrimo aktualumą, originalumą, teorinę ir praktinę reikšmę.
+
+\subsection{Aktualumas}
+
+Kaip aprašyta \cite{motiejus-task6}, darbas aktualus žmonėms ir industrijoms,
+kurie/kurios vykdo veiklą lauke šio darbo tiriamoje teritorijoje.
+
+\subsection{Originalumas}
+
+\cite{rose2017analysis} ištyrė orų prognozių tiekėjus globaliu mastu. Tačiau tas darbas
+nenurodo prognozių tikslumo vietiniu mąstu; taip pat duomenys nėra viešai prieinami.
+
+Šis darbas bus aktualus norint įvertinti prognozės tikslumą konkrečiame regione.
 
 \section{Tyrimo uždaviniai}
 {\small Pagrindinės veiklos, kurias reikia atlikti siekiant tikslo}
-2. Apibrėžkite tyrimo uždavinius (pagrindines veiklas, kurias reikia atlikti siekiant tikslo)
+
+Darbas susideda iš kelių dalių:
+\begin{description}
+    \item[Duomenų surinkimas] iš duomenų portalų. Kadangi norime įvertinti
+        kalendorinių metų ciklą, duomenis reikės rinkti iš kelių tiekėjų visus
+        metus, bent po vieną kartą per dieną.
+    \item[Duomenų, apdorojimas]: portaluose prognozės pateikiamos skirtingu
+        formatu. Kad galėtume prognozes lyginti, duomenis reikia suvienodinti.
+    \item[Analizės etapas] prasidės, kai kalendorinių metų duomenys bus surinkti
+        ir susisteminti. Kaip paminėta \cite{motiejus-task6}, naudosime "naivų"
+        metodą palyginimui su \cite{rose2017analysis}, ir erdvinius metodus iš
+        \cite{verification2015}.
+    \item[Atvaizdavimas]: kokiu būdu pateikti žemėlapį, geriausiai perteikiantį
+        analizės rezultatus?
+    \item[Išvados]: kuri prognozės sistema patikimiausia? Kiek patikimumas
+        priklauso nuo regiono?
+\end{description}
 
 \section{Laukiami rezultatai}
 {\small Naujos žinios, prognozė, rekomendacijos ar kt.}
@@ -43,5 +72,7 @@
 
 \section{Naudojami pradiniai duomenys ir pagrindinės numatomų taikyti metodų grupės}
 5. Aprašykite naudojamus pradinius duomenis ir pagrindines numatomų taikyti metodų grupes.
+
+\printbibliography
 
 \end{document}
