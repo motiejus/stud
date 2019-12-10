@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage[lithuanian]{babel}
-\usepackage[style=authoryear]{biblatex}
+\usepackage[maxbibnames=99,style=authoryear]{biblatex}
 \addbibresource{bib.bib}
 \usepackage{hyperref}
 \usepackage{caption}
@@ -23,6 +23,8 @@
 
 \begin{document}
 \maketitle
+
+\newpage
 
 \section{Santrauka}
 
@@ -75,9 +77,46 @@ Orų prognozių tikslumas 11 metų laikotarpyje buvo analizuotas
 visi tirti kontinentai. Šiame darbe norime skirstyti prognozių tikslumą pagal
 regionus, taip pat pridėti "nacionalinius" tiekėjus.
 
-\cite{rose2017analysis} taip pat aprašytas duomenų rinkimo ir interpretavimo
-būdas. Kad galėtume palyginti savo tyrimo skaičius su tuo darbu, duomenų
-rinkimo ir interpretavimo metodiką naudosime tą pačią.
+\section{Tikslumo skaičiavimo metodika}
+
+Prognozių patikimumas bus matuojamas dviem būdais.
+
+\subsection{Palyginamoji (bazinė) metodika}
+
+Kad galėtume palyginti šį darbą su \cite{rose2017analysis}, "preliminariai"
+analizei naudosime tuos pačius metodus:
+
+\begin{itemize}
+    \item Minimalios temperatūros paroje prognozės tikslumą.
+    \item Makslimalios temperatūros paroje prognozės tikslumą.
+    \item Kritulių kiekio prognozės tikslumą.
+\end{itemize}
+
+Kaip ir šaltinyje, metodika bus pritaikyta 1, 5 ir 10 dienų išankstinei
+prognozei.
+
+Šis palyginimas neatsako į pagrindinį darbo klausimą, nes neskirsto tarp
+regionų. Tačiau šie duomenys yra vertingi palyginti, ar duomenys yra preliminariai
+panašūs į ankstesnį darbą.
+
+\subsection{Kartografinė metodika}
+
+Bazinė metodika neatsako į šiuos įdomius klausimus:
+
+\begin{itemize}
+    \item Neskirsto tarp regionų: ar tarp Lietuvos regionų orų prognozės
+        tikslumas skiriasi?
+    \item Kuris šaltinis patikimiausiai nustato svarbius meteorologinius
+        reiškinius (tarkime, $>100mm$ kritulių per 24 val.)?
+    \item Kadangi patikimumą skirstome per regionus ir laiką, kaip galime tai
+        informatyviai parodyti žemėlapyje?
+\end{itemize}
+
+Analizuoti ir atvaizduoti tikslumą erdvėje naudosime metodus, aprašytus
+\cite{verification2015}.
+
+Matematiniai modeliai, padėsiantys paskaičiuoti svarbių meteorologinių
+reiškinių tikslumą, taip pat aprašyti \cite{verification2015}.
 
 \printbibliography
 
