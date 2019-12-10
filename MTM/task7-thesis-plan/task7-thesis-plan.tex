@@ -35,8 +35,10 @@ kurie/kurios vykdo veiklą lauke šio darbo tiriamoje teritorijoje.
 
 \subsection{Originalumas}
 
-\cite{rose2017analysis} ištyrė orų prognozių tiekėjus globaliu mastu. Tačiau tas darbas
-nenurodo prognozių tikslumo vietiniu mąstu; taip pat duomenys nėra viešai prieinami.
+\cite{rose2017analysis} ištyrė orų prognozių tiekėjus ir pateikė išvadas per
+tiekėją, imdami globalius duomenis. Tačiau šis tyrimas nenurodo, kaip keičiasi
+prognozių tikslumas tarp skirtingų regionų.  Deja, duomenys nėra viešai
+prieinami.
 
 Šis darbas bus aktualus norint įvertinti prognozės tikslumą konkrečiame regione.
 
@@ -44,8 +46,8 @@ nenurodo prognozių tikslumo vietiniu mąstu; taip pat duomenys nėra viešai pr
 Darbas susideda iš kelių dalių:
 \begin{description}
     \item[Duomenų surinkimas] iš duomenų portalų. Kadangi norime įvertinti
-        kalendorinių metų ciklą, duomenis reikės rinkti iš kelių tiekėjų visus
-        metus, bent po vieną kartą per dieną.
+        kalendorinių metų ciklą, duomenis reikės rinkti iš kelių bent vieną
+        kartą per dieną iš kelių tiekėjų visus metus.
     \item[Duomenų apdorojimas:] portaluose prognozės pateikiamos skirtingu
         formatu. Kad galėtume prognozes lyginti, duomenis reikia suvienodinti.
     \item[Analizė] prasidės, kai kalendorinių metų duomenys bus surinkti
@@ -53,7 +55,8 @@ Darbas susideda iš kelių dalių:
         metodą palyginimui su \cite{rose2017analysis}, ir erdvinius metodus iš
         \cite{verification2015}.
     \item[Išvados:] kuri prognozės sistema patikimiausia? Kiek patikimumas
-        priklauso nuo regiono?
+        priklauso nuo regiono? Kurie tiekėjai duoda patikimiausius prognozės
+        aspektus?
     \item[Vizualizacija:] kokį pateikti žemėlapį, geriausiai perteikiantį
         analizės rezultatus ir rekomendacijas?
 \end{description}
@@ -68,7 +71,7 @@ Gauti rezultatai padės atsakyti į hipotezes:
         Lietui? Vėjui?
 \end{itemize}
 
-\section{Kokio tipo tai bus tyrimas, kokie reikalingi ištekliai}
+\section{Tyrimo tipas, reikalingi ištekliai}
 
 Tyrimas yra {\textbf prognostinis kiekybinis}: pagal praeities orų prognozių
 rezultatus ekstrapoliuojame, kurie tiekėjai kuriuose regionuose orus numato
@@ -79,7 +82,7 @@ Kadangi tyrimas remsis duomenimis iš reguliariai atsisiunčiamų viešai priima
 interneto svetainės, iš kurių bus siunčiami duomenys, išliktų prieinamos, ir
 surenkamų duomenų formatas iš esmės nepasikeistų.
 
-\section{Stiprybės ir silpnybės, į kurias reikia atsižvelgti jį vykdant}
+\section{Stiprybės ir silpnybės}
 
 Duomenų kiekis bus toks, kad surinkimą ir analizę reikės automatizuoti.
 {\textbf Stiprybė}: esu programuotojas ir mokėsiu tai daryti.
