@@ -10,6 +10,9 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{gensymb}
+\usepackage{varwidth}
+\usepackage{tikz}
+\usetikzlibrary{er,positioning}
 
 \title{
     Prieinamų orų prognozių palyginimas Lietuvoje ir Baltijos šalyse \\ \vspace{4mm}
@@ -73,6 +76,41 @@ Jei pavyks surinkti duomenis iš kitų valstybių nacionalinių tiekėjų:
 
 \subsection{Medis TODO}
 
+Pasėkmė: žemės ūkis ruošiasi sėjai, nors artimiausias kelias dienas nelis.
+Pasėkmė: kelininkai ruošiasi tiesti kelio atkarpą, kurioje tuo metu lis.
+Pasėkmė: išėjome į žygį, ir po pietų pradėjo lyti. O išmainėme muziejų dieną į žygį.
+Problema: planuojant rytojaus dieną buvo remtasi netikslia orų prognoze.
+Priežastis: neaišku, kuri prognozė tiksliausia
+
+
+\begin{tikzpicture}[shorten >=1pt,node distance=5cm,on grid,auto] 
+
+\node[entity] (priezastis) {\begin{varwidth}{5cm}
+    \textbf{Priežastis:} neaišku, kuri prognozė tiksliausia
+\end{varwidth}};
+
+
+\node[entity] (problema) [above = of priezastis] [align=left] {\begin{varwidth}{5cm}
+    \textbf{Problema:} planuojant rytojaus dieną buvo remtasi netikslia orų prognoze
+\end{varwidth}};
+
+
+\node[entity] (pasekme1) [above left = of problema] {\begin{varwidth}{5cm}
+    \textbf{Pasėkmė 1:} žemės ūkis ruošiasi sėjai, nors artimiausias kelias dienas nelis.
+\end{varwidth}};
+
+\node[entity] (pasekme2) [above = of problema] {\begin{varwidth}{5cm}
+    \textbf{Pasėkmė 2:} kelininkai ruošiasi tiesti kelio atkarpą, kurioje tuo metu lis.
+\end{varwidth}};
+
+\node[entity] (pasekme3) [above right = of problema] {\begin{varwidth}{5cm}
+    \textbf{Pasėkmė 3:} išėjome į žygį, ir po pietų pradėjo lyti. O išmainėme muziejų dieną į žygį.
+\end{varwidth}};
+
+
+\end{tikzpicture}
+
+
 \section{Terminai}
 
 Tiriant ypatingus gamtos reiškinius, svarbu juos apibrėžti. Kaip pagrindą
@@ -100,14 +138,14 @@ naudosime įstatymą 111301MISAK00D1-870 \cite{lrs-stichiniai}; mums rūpimi yra
 
 TODO.
 
-\section{Mokslinės literatūros paieška duomenų bazėse (ankstesni tyrimai)}
+\section{Mokslinė literatūra, ankstesni tyrimai}
 
 Orų prognozių tikslumas 11 metų laikotarpyje buvo analizuotas
 \cite{rose2017analysis}, tačiau buvo neskirstoma tarp regionų: išvadose buvo
 visi tirti kontinentai. Šiame darbe norime skirstyti prognozių tikslumą pagal
 regionus, taip pat pridėti "nacionalinius" tiekėjus.
 
-\subsection{TODO daugiau literatūros}
+Detali literatūros apžvalga bus pridėta tolimesnėje darbo stadijoje.
 
 \section{Metodologinė schema (tikslumo skaičiavimo metodika)}
 
