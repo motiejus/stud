@@ -84,29 +84,45 @@ Priežastis: neaišku, kuri prognozė tiksliausia
 
 
 \newcommand{\ent}[2]{\begin{varwidth}{5cm} \textbf{#1} #2\end{varwidth}}
-
-\begin{tikzpicture}[shorten >=1pt,node distance=5cm,on grid,auto]
-
-\node[entity] (priezastis) {
+\newcommand{\priezastis}{
     \ent{Priežastis:}{neaišku, kuri prognozė tiksliausia}
-};
-
-\node[entity] (problema) [above = of priezastis] [align=left] {
+}
+\newcommand{\problema}{
     \ent{Problema:}{planuojant rytojaus dieną buvo remtasi netikslia orų prognoze}
-};
-
-
-\node[entity] (pasekme1) [above left = of problema] {
+}
+\newcommand{\pasekmeI}{
     \ent{Pasėkmė 1:}{žemės ūkis ruošiasi sėjai, nors artimiausias kelias dienas nelis.}
-};
-
-\node[entity] (pasekme2) [above = of problema] {
+}
+\newcommand{\pasekmeII}{
     \ent{Pasėkmė 2:}{kelininkai ruošiasi tiesti kelio atkarpą, kurioje tuo metu lis.}
-};
-
-\node[entity] (pasekme3) [above right = of problema] {
+}
+\newcommand{\pasekmeIII}{
     \ent{Pasėkmė 3:}{išėjome į žygį, ir po pietų pradėjo lyti. O išmainėme muziejų dieną į žygį.}
-};
+}
+
+\begin{tikzpicture}[sibling distance=10em,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+
+\node(priezastis){\ent{Priežastis:}{neaišku, kuri prognozė tiksliausia}}
+    child { node { \problema }
+      child { node { \pasekmeI } }
+      child { node { \pasekmeII } }
+      child { node { \pasekmeIII } }
+    };
+
+%\node[entity] (pasekme1) [above left = of problema] {
+%    \ent{Pasėkmė 1:}{žemės ūkis ruošiasi sėjai, nors artimiausias kelias dienas nelis.}
+%};
+%
+%\node[entity] (pasekme2) [above = of problema] {
+%    \ent{Pasėkmė 2:}{kelininkai ruošiasi tiesti kelio atkarpą, kurioje tuo metu lis.}
+%};
+%
+%\node[entity] (pasekme3) [above right = of problema] {
+%    \ent{Pasėkmė 3:}{išėjome į žygį, ir po pietų pradėjo lyti. O išmainėme muziejų dieną į žygį.}
+%};
 
 
 \end{tikzpicture}
