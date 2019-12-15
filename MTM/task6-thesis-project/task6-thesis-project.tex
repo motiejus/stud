@@ -83,29 +83,30 @@ Problema: planuojant rytojaus dieną buvo remtasi netikslia orų prognoze.
 Priežastis: neaišku, kuri prognozė tiksliausia
 
 
-\begin{tikzpicture}[shorten >=1pt,node distance=5cm,on grid,auto] 
+\newcommand{\ent}[2]{\begin{varwidth}{5cm} \textbf{#1} #2\end{varwidth}}
 
-\node[entity] (priezastis) {\begin{varwidth}{5cm}
-    \textbf{Priežastis:} neaišku, kuri prognozė tiksliausia
-\end{varwidth}};
+\begin{tikzpicture}[shorten >=1pt,node distance=5cm,on grid,auto]
+
+\node[entity] (priezastis) {
+    \ent{Priežastis:}{neaišku, kuri prognozė tiksliausia}
+};
+
+\node[entity] (problema) [above = of priezastis] [align=left] {
+    \ent{Problema:}{planuojant rytojaus dieną buvo remtasi netikslia orų prognoze}
+};
 
 
-\node[entity] (problema) [above = of priezastis] [align=left] {\begin{varwidth}{5cm}
-    \textbf{Problema:} planuojant rytojaus dieną buvo remtasi netikslia orų prognoze
-\end{varwidth}};
+\node[entity] (pasekme1) [above left = of problema] {
+    \ent{Pasėkmė 1:}{žemės ūkis ruošiasi sėjai, nors artimiausias kelias dienas nelis.}
+};
 
+\node[entity] (pasekme2) [above = of problema] {
+    \ent{Pasėkmė 2:}{kelininkai ruošiasi tiesti kelio atkarpą, kurioje tuo metu lis.}
+};
 
-\node[entity] (pasekme1) [above left = of problema] {\begin{varwidth}{5cm}
-    \textbf{Pasėkmė 1:} žemės ūkis ruošiasi sėjai, nors artimiausias kelias dienas nelis.
-\end{varwidth}};
-
-\node[entity] (pasekme2) [above = of problema] {\begin{varwidth}{5cm}
-    \textbf{Pasėkmė 2:} kelininkai ruošiasi tiesti kelio atkarpą, kurioje tuo metu lis.
-\end{varwidth}};
-
-\node[entity] (pasekme3) [above right = of problema] {\begin{varwidth}{5cm}
-    \textbf{Pasėkmė 3:} išėjome į žygį, ir po pietų pradėjo lyti. O išmainėme muziejų dieną į žygį.
-\end{varwidth}};
+\node[entity] (pasekme3) [above right = of problema] {
+    \ent{Pasėkmė 3:}{išėjome į žygį, ir po pietų pradėjo lyti. O išmainėme muziejų dieną į žygį.}
+};
 
 
 \end{tikzpicture}
