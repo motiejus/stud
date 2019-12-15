@@ -105,25 +105,12 @@ Priežastis: neaišku, kuri prognozė tiksliausia
     draw, align=center,
     top color=white, bottom color=blue!20}]]
 
-\node(priezastis){\ent{Priežastis:}{neaišku, kuri prognozė tiksliausia}}
-    child { node { \problema }
-      child { node { \pasekmeI } }
-      child { node { \pasekmeII } }
-      child { node { \pasekmeIII } }
-    };
-
-%\node[entity] (pasekme1) [above left = of problema] {
-%    \ent{Pasėkmė 1:}{žemės ūkis ruošiasi sėjai, nors artimiausias kelias dienas nelis.}
-%};
-%
-%\node[entity] (pasekme2) [above = of problema] {
-%    \ent{Pasėkmė 2:}{kelininkai ruošiasi tiesti kelio atkarpą, kurioje tuo metu lis.}
-%};
-%
-%\node[entity] (pasekme3) [above right = of problema] {
-%    \ent{Pasėkmė 3:}{išėjome į žygį, ir po pietų pradėjo lyti. O išmainėme muziejų dieną į žygį.}
-%};
-
+\node {\priezastis}
+  child { node { \problema }
+    child { node { \pasekmeI } }
+    child { node { \pasekmeII } }
+    child { node { \pasekmeIII } }
+  };
 
 \end{tikzpicture}
 
