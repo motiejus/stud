@@ -21,9 +21,7 @@ Vagrant.configure("2") do |config|
   SHELL
 
   # my geom: 2560x1600
-  # vncserver -geometry 1280x800 small window
-  # vncserver -geometry 1920x1200 small letters
-  # vncserver -geometry 1536x960 great
+  # vncserver -geometry 1536x960 great on laptop
+  # vncserver -geometry 2560x1440 ok on monitor
   config.vm.provision "file", source: "xstartup", destination: ".vnc/xstartup"
-
 end
