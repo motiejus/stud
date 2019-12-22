@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     mkdir -p .ssh .vnc
-    curl -s https://github.com/motiejus.keys >> .ssh/authorized_keys
+    curl -s https://github.com/motiejus.keys > .ssh/authorized_keys2
     git clone -q https://github.com/motiejus/dotfiles.git .dotfiles
     (cd .dotfiles && stow bash tmux vim)
   SHELL
