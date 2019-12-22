@@ -24,6 +24,6 @@ Vagrant.configure("2") do |config|
   # vncserver -geometry 1280x800 small window
   # vncserver -geometry 1920x1200 small letters
   # vncserver -geometry 1536x960 great
-  config.vm.provision "file", source: "xsession", destination: ".vnc/xsession"
+  config.vm.provision "file", source: "xstartup", destination: ".vnc/xstartup"
 
 end
