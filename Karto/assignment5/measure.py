@@ -3,6 +3,8 @@ from math import sqrt
 import numpy as np
 from scipy.spatial.distance import euclidean
 
+# ilgiausios B sklypo krastines kampas: -4.7727°
+
 A = -7.756
 B = 4.686
 C = -7.663
@@ -53,3 +55,4 @@ objs = {
 }
 for id, obj in objs.items():
     print("%d: (%.3f,%.3f)" % (id, obj[0], obj[1]))
+
