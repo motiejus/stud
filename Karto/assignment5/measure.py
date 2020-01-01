@@ -4,6 +4,15 @@ import numpy as np
 from scipy.spatial.distance import euclidean
 
 # ilgiausios B sklypo krastines kampas: -4.7727°
+# A plotas: 11123.890
+# B plotas: 11123.904
+# egliu: 223
+# obelu: 234
+# Visas plotas: 24575.084
+# Vidinis (A) plotas: 12650.019
+# Vidinis (ne A) plotas: 11925.065
+# 134 trikampiai
+# 67 daugiakampiai
 
 A = -7.756
 B = 4.686
