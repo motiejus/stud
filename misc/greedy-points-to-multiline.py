@@ -6,32 +6,30 @@ import os
 from osgeo import ogr
 
 def main():
-    infile = sys.argv[1]
     driver = ogr.GetDriverByName('gpkg')
-    inDataSource = driver.Open(infile, 0)
+
+    inDataSource = driver.Open(sys.argv[1], 0)
     inLayer = inDataSource.GetLayer()
     srs = inLayer.GetSpatialRef()
-
-    points = get_points(inLayer)
-    path = greedy_path(points)
-
     outDataSource = driver.CreateDataSource(sys.argv[2])
     outLayerName, _ = os.path.splitext(os.path.basename(sys.argv[2]))
     outLayer = outDataSource.CreateLayer(outLayerName, srs, geom_type=ogr.wkbLineString)
 
-    line = ogr.Geometry(ogr.wkbLineString)
-    for point in path:
-        line.AddPoint(point[0], point[1])
-
-    outFeature = ogr.Feature(outLayer.GetLayerDefn())
-    outFeature.SetGeometry(line)
-    outLayer.CreateFeature(outFeature)
+    points = extract_layer_points(inLayer)
+    path = greedy_path(points)
+    write_path(srs, outLayer, path)
 
     inDataSource.Destroy()
-    outFeature.Destroy()
     outDataSource.Destroy()
 
-def get_points(layer):
+
+def extract_layer_points(layer):
+    """Extracts points from layer in a format:
+        dict(
+          i : int
+          points: (x, y : int)
+        )
+    """
     points = {}
     for (i, pt) in enumerate(layer):
         p = pt.GetGeometryRef().GetPoint()
@@ -39,7 +37,11 @@ def get_points(layer):
     return points
 
 def greedy_path(points):
-    "Given a dict of points, return a localized short path between them."
+    """Given a dict of points, return a "greedy" path between them.
+
+    It will start with a random point, and keep navigating to the closest one,
+    until all the points have been visited.
+    """
     idx = rtree.index.Index(interleaved = False)
     for (i, pt) in points.items():
         idx.insert(i, pt)
@@ -56,7 +58,18 @@ def greedy_path(points):
         idx.delete(nearest, _bounds(points[nearest]))
     ret.append(0)
     return [points[point] for point in ret]
-        
+
+
+def write_path(srs, outLayer, path):
+    "writes the linestring (path) to the outLayer."
+    line = ogr.Geometry(ogr.wkbLineString)
+    for point in path:
+        line.AddPoint(point[0], point[1])
+
+    outFeature = ogr.Feature(outLayer.GetLayerDefn())
+    outFeature.SetGeometry(line)
+    outLayer.CreateFeature(outFeature)
+
 
 if __name__ == '__main__':
     main()
