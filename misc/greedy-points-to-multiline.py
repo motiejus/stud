@@ -5,6 +5,7 @@ import rtree
 import os
 from osgeo import ogr
 
+
 def main():
     driver = ogr.GetDriverByName('gpkg')
 
@@ -13,7 +14,11 @@ def main():
     srs = inLayer.GetSpatialRef()
     outDataSource = driver.CreateDataSource(sys.argv[2])
     outLayerName, _ = os.path.splitext(os.path.basename(sys.argv[2]))
-    outLayer = outDataSource.CreateLayer(outLayerName, srs, geom_type=ogr.wkbLineString)
+    outLayer = outDataSource.CreateLayer(
+            outLayerName,
+            srs,
+            geom_type=ogr.wkbLineString
+    )
 
     points = extract_layer_points(inLayer)
     path = greedy_path(points)
@@ -36,13 +41,14 @@ def extract_layer_points(layer):
         points[i] = (p[0], p[1])
     return points
 
+
 def greedy_path(points):
     """Given a dict of points, return a "greedy" path between them.
 
     It will start with a random point, and keep navigating to the closest one,
     until all the points have been visited.
     """
-    idx = rtree.index.Index(interleaved = False)
+    idx = rtree.index.Index(interleaved=False)
     for (i, pt) in points.items():
         idx.insert(i, pt)
 
