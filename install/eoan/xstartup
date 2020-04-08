@@ -1,5 +1,0 @@
-!/bin/sh
-xrdb $HOME/.Xresources
-xsetroot -solid grey
-lxterminal &
-lxsession
