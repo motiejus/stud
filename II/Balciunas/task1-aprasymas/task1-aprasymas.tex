@@ -1,0 +1,140 @@
+\documentclass{article}
+
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[lithuanian]{babel}
+\usepackage[maxbibnames=99,style=authoryear]{biblatex}
+\addbibresource{bib.bib}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{gensymb}
+\usepackage{varwidth}
+\usepackage{tikz}
+\usetikzlibrary{er,positioning}
+
+\title{
+    Žemėlapio temos bei kartografinio vaizdavimo būdų aprašymas \\ \vspace{4mm}
+
+    \large Kartografinės komunikacijos pagrindai\\
+    Pirmoji užduotis
+}
+
+\author{Motiejus Jakštys}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\section{Pavadinimas ir tema}
+\label{sec:tema}
+
+\textbf{Žemėlapio pavadinimas: A. Vienuolio gimnazija -- Sportinis Žemėlapis.}
+
+Žemėlapio idėja kilo orientavimosi sporto entuziastui Rolandui Jakščiui
+norint supažindinti 4 klasių moksleivius su orientavimosi sportu.
+
+Patogiausias būdas supažindinti klasę moksleivių su orientavimosi sportu --
+suorganizuoti nedideles varžybas per kūno kultūros pamoką. Logistiškai tam
+reikia arba vežti vaikus prie tikros orientavimosi trasos (kas yra sudėtinga su
+20+ 10-11 metų moksleivių), arba padaryti varžybas jų mokyklos kieme.
+
+Kad padarytume varžybas mokyklos kieme, reikalingas mokyklos orientavimosi
+žemėlapis.
+
+Taip ir atsirado realus edukacinis poreikis šiam žemėlapiui.
+
+\subsection{3D vizualizacija}
+
+Kai orientavimosi sporto žemėlapis atitiks poreikius, planuojamas ir antrasis
+etapas: 3D žemėlapis iš aukščio taškų.
+
+\section{Pagrindiniai žemėlapio parametrai}
+
+\begin{description}
+    \item[Teritorija:] Vilniaus A. Vienuolio mokyklos kiemas. Kvartalas,
+        apribotas šiomis gatvėmis:
+        \begin{itemize}
+            \item Pylimo.
+            \item Bazilijonų.
+            \item Aušros Vartų.
+            \item Geležinkelio.
+        \end{itemize}
+    \item[Mastelis:] 1:2000.
+    \item[Maketo dydis:] A5.
+\end{description}
+
+\section{Duomenų šaltiniai}
+
+\begin{description}
+    \item[Topografinis pagrindas:] Didelio tikslumo Vilniaus topografinė
+        duomenų bazė \texttt{TDB500V}.
+
+    \item[Isohipsės iš:]  LR teritorijos skaitmeniniai erdviniai žemės
+        paviršiaus lazerinio skenavimo taškų duomenys \texttt{SEŽP\_0.5LT}.
+
+\end{description}
+
+Kai kurie parametrai, svarbūs orientavimosi sportui, topografiniame žemėlapyje
+nenurodyti. Pvz., ar iš vienos teritorijos galima pereiti į kitą, ar krūmų
+tinklas mokyklos parkelyje yra praeinamas, ar ne (tai orientavimosi žemėlapyje
+reikia žymėti skirtingais ženklais). Todėl, sudarant žemėlapį, autoriai kelis
+kartus važiavo gyvai apžiūrėti vietos.
+
+\section{Kartografinio pagrindo elementai}
+
+\begin{itemize}
+    \item Žmogaus sukurti objektai:
+        \begin{itemize}
+            \item Pastatai.
+            \item Keliai.
+            \item Šaligatviai.
+            \item Stovėjimo aikštelės.
+            \item Tvoros.
+            \item Gyvatvorės.
+        \end{itemize}
+    \item Gamtos objektai:
+        \begin{itemize}
+            \item Reljefas.
+            \item Pavieniai medžiai.
+        \end{itemize}
+\end{itemize}
+
+\section{Vaizdavimo būdai}
+
+Šio žemėlapio vaizdavimo būdas gana aiškiai apibrėžtas: naudojamas ISOM2007
+standartas \cite{isom2007}.
+
+Isohipsių sugeneravimui reikėjo apdoroti \texttt{SEŽP\_0.5LT} taškų masyvus šiais žingsniais:
+\begin{itemize}
+    \item Interpoliuoti: paversti pavienius taškus į rastrinį paveikslėlį.
+    \item Sudaryti kontūrus.
+    \item Sušvelninti kontūrus.
+    \item Suapvalinti kontūrus.
+\end{itemize}
+
+Tuomet reikėjo atrinkti ir išmesti mažyčius kontūrus, kurie rodo labai mažą
+lokalų pakilimą. Tokie "kalneliai" itin apkrauna žemėlapį labai mažai
+suteikdami informacijos, todėl buvo pašalinti.
+
+\section{GIS įranga}
+
+Darbas padalintas į du etapus: orientavimosi žemėlapis ir 3D modelis.
+
+Pirmajam etapui naudota GIS įranga:
+
+\begin{description}
+    \item[Kartografiniam pagrindui sudaryti:] QGIS.
+    \item[Isohipsėms sugeneruoti] QGIS.
+    \item[Orientavimosi žemėlapiui piešti:] \cite{mapper}.
+\end{description}
+
+Antrajam etapui planuojama naudoti D3.js.
+
+\printbibliography
+
+\end{document}
