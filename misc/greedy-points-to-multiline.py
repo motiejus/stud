@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+"""
+This script takes a point layer and connects them all in a "greedy" way: it
+will take a random point, connect its closest one, and repeat the loop until
+all of the points are connected.
+
+This is useful if you have point area boudnaries and want to make a real
+connected polygon.
+"""
 
 import sys
 import rtree
