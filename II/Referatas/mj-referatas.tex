@@ -2,6 +2,7 @@
 
 \usepackage[L7x,T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{a4wide}
 \usepackage{csquotes}
 \usepackage[english]{babel}
 \usepackage[maxbibnames=99,style=authoryear]{biblatex}
@@ -18,6 +19,13 @@
     Cartografic Generalization of Lines \\
     (example of rivers) \\ \vspace{4mm}
 }
+
+\iffalse
+a4: 210x297mm
+a6: 105x148xmm
+a7: 74x105mm
+a8: 52x74mm
+\fi
 
 \author{Motiejus Jakštys}
 
@@ -65,7 +73,7 @@ of straight and curved river shape, and author's familiarity with the location.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{zeimena}
+    \includegraphics[width=148mm]{zeimena}
     \caption{Žeimena near Jaunadaris}
     \label{fig:zeimena}
 \end{figure}
@@ -77,8 +85,10 @@ downscaling, let's pick some visual examples.
 
 \subsection{Douglas \& Peucker}
 
-\cite{douglas1973algorithms} is one of the most well-known line simplification algorithm.
+\cite{douglas1973algorithms} is one of the most well-known line simplification
+algorithms, which is often used for generalization. It will simplify the line shape.
 
+Trying the same dataset with different tolerances for Douglas \& Peucker.
 
 \section{Algorithms based on cartographical knowledge}
 
