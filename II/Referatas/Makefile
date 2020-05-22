@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 
-GEN = zeimena.pdf st-simplify-100.pdf st-simplify-150.pdf st-simplify-300.pdf st-simplify-500.pdf
+GEN = zeimena.pdf st-simplify-300.pdf st-simplify-500.pdf st-simplify-1000.pdf
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf $(GEN)
 	latexmk -g -pdf $<
