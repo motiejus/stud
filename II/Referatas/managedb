@@ -21,6 +21,10 @@ main() {
         stop)
             pg_ctl -D db -l db/logfile stop
             ;;
+        "")
+            exports
+            psql
+            ;;
         *)
             >&2 echo "Unknown command: '$*'"
             exit 1
@@ -28,13 +32,17 @@ main() {
     esac
 }
 
+exports() {
+    export PGHOST=127.0.0.1
+    export PGUSER=osm
+    export PGDATABASE=osm
+}
+
 if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
     if [[ $# != 0 ]]; then
         >&2 echo "Sourcing does not accept arguments: $*"
     else
-        export PGHOST=127.0.0.1
-        export PGUSER=osm
-        export PGDATABASE=osm
+        exports
         >&2 echo "OK: exported PGUSER, PGHOST and PGDATABASE"
     fi
 else
