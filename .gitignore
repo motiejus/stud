@@ -18,6 +18,10 @@ __pycache__
 *.blg
 *.bcf
 *.run.xml
+*.gpkg-wal
+*.gpkg-shm
 
 env/
 *.pyc
+version.tex
+db/

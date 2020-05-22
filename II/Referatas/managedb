@@ -1,0 +1,46 @@
+#!/bin/bash
+
+main() {
+    PATH=$PATH:/usr/lib/postgresql/12/bin
+    case ${1:-} in
+        init)
+            mkdir -p db && initdb db
+            mkdir -p db/wal
+            sed -i "s/.*unix_socket_dir.*/unix_socket_directories = '.\/wal'/" \
+                db/postgresql.conf
+            pg_ctl -D db -l db/logfile start
+
+            export PGHOST=127.0.0.1
+            psql postgres -c 'CREATE ROLE osm WITH SUPERUSER LOGIN'
+            psql postgres -c 'CREATE DATABASE osm'
+            psql osm osm -c 'CREATE EXTENSION postgis'
+            ;;
+        start)
+            pg_ctl -D db -l db/logfile start
+            ;;
+        stop)
+            pg_ctl -D db -l db/logfile stop
+            ;;
+        *)
+            >&2 echo "Unknown command: '$*'"
+            exit 1
+            ;;
+    esac
+}
+
+if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
+    if [[ $# != 0 ]]; then
+        >&2 echo "Sourcing does not accept arguments: $*"
+    else
+        export PGHOST=127.0.0.1
+        export PGUSER=osm
+        export PGDATABASE=osm
+        >&2 echo "OK: exported PGUSER, PGHOST and PGDATABASE"
+    fi
+else
+    set -euo pipefail
+    export PGHOST=
+    export PGUSER=
+    export PGDATABASE=
+    main "$@"
+fi

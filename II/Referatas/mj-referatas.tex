@@ -14,6 +14,7 @@
 \usepackage{varwidth}
 \usepackage{tikz}
 \usetikzlibrary{er,positioning}
+\input{version}
 
 \title{
     Cartografic Generalization of Lines \\
@@ -21,15 +22,40 @@
 }
 
 \iffalse
+small scale: 1:XXXXXX
+large scale: 1:XXX
+
+take douglas-pecker and check for different scales.
+
 a4: 210x297mm
 a6: 105x148xmm
 a7: 74x105mm
 a8: 52x74mm
+
+connect rivers first to a single polylines:
+- some algs can preserve connectivity, some not.
+
+ideal hypothesis: mueller algorithm + topology may fully realize cartographic generalization tasks.
+
+what scales and what distances?
+
+https://postgis.net/docs/ST_SimplifyVW.html
+https://postgis.net/docs/ST_Simplify.html
+https://postgis.net/docs/ST_SimplifyPreserveTopology.html
+
+how is tolerance bound to scale?
+- just use same parameter.
+
+
 \fi
 
 \author{Motiejus Jakštys}
 
-\date{\today}
+\date{
+    \vspace{10mm}
+    Version: \VCDescribe \\ \vspace{4mm}
+    Generated At: \GeneratedAt
+}
 
 \begin{document}
 \maketitle
@@ -73,7 +99,7 @@ of straight and curved river shape, and author's familiarity with the location.
 
 \begin{figure}
     \centering
-    \includegraphics[width=148mm]{zeimena}
+    \includegraphics[width=148mm]{zeimena-pretty}
     \caption{Žeimena near Jaunadaris}
     \label{fig:zeimena}
 \end{figure}
@@ -81,19 +107,60 @@ of straight and curved river shape, and author's familiarity with the location.
 \section{Mathematical and geometrical algorithms}
 
 To understand why geometrical algorithms are not entirely suitable for 
-downscaling, let's pick some visual examples.
+downscaling, let's pick some visual examples. Start with
+\cite{douglas1973algorithms}, one of the most well-known line simplification
+algorithms, which is often used for generalization. Žeimena example is
+generalized with different tolerances in figure~\ref{fig:douglas-peucker} on
+page~\pageref{fig:douglas-peucker}.
 
-\subsection{Douglas \& Peucker}
+As one can observe in figure~\ref{fig:douglas-100}, the Douglas \& Peucker with
+100m tolerance preserves most of the shape, and 500m
+(figure~\ref{fig:douglas-500}) becomes a straight line.
 
-\cite{douglas1973algorithms} is one of the most well-known line simplification
-algorithms, which is often used for generalization. It will simplify the line shape.
-
-Trying the same dataset with different tolerances for Douglas \& Peucker.
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{zeimena}
+        \caption{original}
+        \label{fig:zeimena-original}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{st-simplify-100}
+        \caption{100m}
+        \label{fig:douglas-100}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{st-simplify-150}
+        \caption{150m}
+        \label{fig:douglas-150}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{st-simplify-300}
+        \caption{300m}
+        \label{fig:douglas-300}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.18\textwidth}
+        \includegraphics[width=\textwidth]{st-simplify-500}
+        \caption{500m}
+        \label{fig:douglas-500}
+    \end{subfigure}
+    \caption{Douglas \& Peucker line simplifications with different tolerances}
+    \label{fig:douglas-peucker}
+\end{figure}
 
 \section{Algorithms based on cartographical knowledge}
 
-\cite{jiang2003line}, \cite{dyken2009simultaneous},
-\cite{mustafa2006dynamic}, \cite{nollenburg2008morphing}
+For further investigation:
+\begin{itemize}
+    \item \cite{jiang2003line}
+    \item \cite{dyken2009simultaneous}
+    \item \cite{mustafa2006dynamic}
+    \item \cite{nollenburg2008morphing}
+\end{itemize}
 
 \section{My Idea}
 \label{sec:my_idea}
