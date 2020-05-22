@@ -1,5 +1,3 @@
-SHELL = /bin/bash
-
 GEN = zeimena.pdf st-simplify-300.pdf st-simplify-500.pdf st-simplify-1000.pdf
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf $(GEN)
@@ -12,8 +10,7 @@ st-simplify-%.pdf: db/.faux_st-simplify-%
 	./layer2img.py --table=douglas_$* --size=74x52 --outfile $@
 
 db/.faux_st-simplify-%: db/.faux_ready st-simplify.sql
-	. ./managedb ; \
-		psql --echo-all -v ON_ERROR_STOP=1 -v tolerance=$* -f st-simplify.sql
+	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$* -f st-simplify.sql
 	touch $@
 
 db/.faux_ready: zeimena.gpkg managedb
