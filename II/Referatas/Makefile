@@ -21,7 +21,7 @@ db/.faux_ready: zeimena.gpkg managedb
 
 GIT_DIR = $(shell git rev-parse --show-toplevel)/.git
 version.tex: $(shell git ls-files .) $(GIT_DIR)
-	date "+\\gdef\\GeneratedAt{%F %T %Z}%" > $@
+	date '+\gdef\GeneratedAt{%F %T %Z}%' > $@
 	printf '\gdef\VCDescribe{%s%s}%%\n' \
 		$(shell git describe --tags) \
 		$(shell git status --porcelain | awk 'NR==1{print "-dirty";exit}') >> $@
