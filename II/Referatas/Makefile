@@ -19,10 +19,11 @@ db/.faux_ready: zeimena.gpkg managedb
 	ogr2ogr -f PostgreSQL "PG:host=127.0.0.1 user=osm dbname=osm" zeimena.gpkg
 	touch $@
 
+REF = $(shell git describe --tags)
 DIRTY = $(shell git status --porcelain | awk 'NR==1{print "-dirty";exit}')
 GIT_DIR = $(shell git rev-parse --show-toplevel)/.git
 version.tex: $(shell git ls-files .) $(GIT_DIR)
-	date '+\gdef\GeneratedAt{%F %T %Z}%' > $@
-	printf '\gdef\VCDescribe{%s%s}%%\n' \
-		$(shell git describe --tags) \
-		$(DIRTY) >> $@
+	( \
+		date '+\gdef\GeneratedAt{%F %T %Z}%'; \
+		printf '\gdef\VCDescribe{%s%s}%%\n' $(REF) $(DIRTY); \
+	) > $@
