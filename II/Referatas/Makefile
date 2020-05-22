@@ -20,8 +20,9 @@ db/.faux_ready: zeimena.gpkg managedb
 	touch $@
 
 GIT_DIR = $(shell git rev-parse --show-toplevel)/.git
-
 version.tex: $(shell git ls-files .) $(GIT_DIR)
-	date "+%F %T %Z" | awk '{print "\\gdef\\GeneratedAt{"$$0"}%"}' > $@
-	[ -n "$$(git status --porcelain)" ] && suffix="-dirty"; \
-		git describe --tags | awk '{print "\\gdef\\VCDescribe{"$$0"'$$suffix'}%"}' >> $@
+	( \
+		date "+\\gdef\\GeneratedAt{%F %T %Z}%"; \
+		[ -n "$$(git status --porcelain)" ] && suffix="-dirty"; \
+		git describe --tags | awk '{print "\\gdef\\VCDescribe{"$$0"'$$suffix'}%"}'; \
+	) > $@
