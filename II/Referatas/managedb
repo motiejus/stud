@@ -21,9 +21,10 @@ main() {
         stop)
             pg_ctl -D db -l db/logfile stop
             ;;
-        "")
+        "" | --)
+            [[ $# == 2 ]] && shift
             exports
-            psql
+            exec psql "$@"
             ;;
         *)
             >&2 echo "Unknown command: '$*'"
