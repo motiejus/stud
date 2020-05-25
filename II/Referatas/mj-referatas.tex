@@ -18,7 +18,7 @@
 \input{version}
 
 \newcommand{\DP}{Douglas \& Peucker}
-\newcommand{\VW}{Visvalingam-Whyatt}
+\newcommand{\VW}{Visvalingam--Whyatt}
 
 \title{
     Cartografic Generalization of Lines \\
@@ -111,22 +111,22 @@ general public:
         \href{https://postgis.net/docs/ST_SimplifyVW.html}{PostGIS SimplifyVW}.
 \end{itemize}
 
-For comparison reasons, this article will be using Lakaja and large part of Žeimena
-(see figure~\ref{fig:zeimena} on page~\pageref{fig:zeimena}). This location was
+This article will be using Lakaja and large part of Žeimena (see
+figure~\ref{fig:zeimena} on page~\pageref{fig:zeimena}). This location was
 chosen because the river exhibits both both straight and curved shape, is a
 combination of two curly rivers, and author's familiarity with the location.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=148mm]{zeimena-pretty}
     \caption{Lakaja and Žeimena}
     \label{fig:zeimena}
 \end{figure}
 
-\section{Mathematical and geometrical algorithms}
+\section{Visually comparing {\DP} and {\VW}}
 
-To visually evaluate the sample above, we created a few examples for {\DP}
-and {\VW} using the following parameters:
+To visually evaluate the Žeimena sample, a few examples for {\DP} and {\VW}
+were created using the following parameters:
 
 \begin{enumerate}[label=(\Roman*)]
     \item {\DP} tolerance: $tolerance := 125 * 2^n, n = 0,1,...,5$.
@@ -135,41 +135,52 @@ and {\VW} using the following parameters:
 
 Item~\ref{itm:2} requires explanation. Tolerance for {\DP} is specified in
 linear units, in this case, meters. Tolerance for {\VW} is specified in areal
-units, in this case, square meters $m^2$. As author was not able to locate
-formal comparisons between the two (i.e. how to calculate one tolerance value
-from another, so the results are comparable?), {\DP} tolerance was arbitrarily
-squared. To the author's understanding, this provides reasonalbe results.
+units, in this case, $m^2$. As author was not able to locate formal comparisons
+between the two (i.e. how to calculate one tolerance value from the other, so
+the results are comparable?), {\DP} tolerance was arbitrarily squared and fed
+to {\VW}. To author's eye, this provides comparable and reasonable results,
+though could be researched.
 
-\renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
-\begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
-    Tolerance                                                 &
-    Douglas \& Peucker                                        &
-    Visvalingam-Whyatt                                        \tabularnewline \hline
+As can be observed in table~\ref{tab:dp-vs-vw} on page~\pageref{tab:dp-vs-vw},
+both simplication algorithms convert bends to chopped lines. This is especially
+visible in tolerances 250 and 500. In a more robust simplification algorithm,
+the larger tolerance, the larger the bends on the original map should be
+retained.
 
-    125                                                       &
-    \includegraphics[width=\linewidth]{douglas-125}           &
-    \includegraphics[width=\linewidth]{visvalingam-125}       \tabularnewline \hline
+\begin{figure}[h]
+    \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
+    \begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
+        Tolerance                                                 &
+        Douglas \& Peucker                                        &
+        Visvalingam-Whyatt                                        \tabularnewline \hline
 
-    250                                                       &
-    \includegraphics[width=.5\linewidth]{douglas-250}         &
-    \includegraphics[width=.5\linewidth]{visvalingam-250}     \tabularnewline \hline
+        125                                                       &
+        \includegraphics[width=\linewidth]{douglas-125}           &
+        \includegraphics[width=\linewidth]{visvalingam-125}       \tabularnewline \hline
 
-    500                                                       &
-    \includegraphics[width=.25\linewidth]{douglas-500}        &
-    \includegraphics[width=.25\linewidth]{visvalingam-500}    \tabularnewline \hline
+        250                                                       &
+        \includegraphics[width=.5\linewidth]{douglas-250}         &
+        \includegraphics[width=.5\linewidth]{visvalingam-250}     \tabularnewline \hline
 
-    1000                                                      &
-    \includegraphics[width=.125\linewidth]{douglas-1000}      &
-    \includegraphics[width=.125\linewidth]{visvalingam-1000}  \tabularnewline \hline
+        500                                                       &
+        \includegraphics[width=.25\linewidth]{douglas-500}        &
+        \includegraphics[width=.25\linewidth]{visvalingam-500}    \tabularnewline \hline
 
-    2000                                                      &
-    \includegraphics[width=.0625\linewidth]{douglas-2000}     &
-    \includegraphics[width=.0625\linewidth]{visvalingam-2000} \tabularnewline \hline
+        1000                                                      &
+        \includegraphics[width=.125\linewidth]{douglas-1000}      &
+        \includegraphics[width=.125\linewidth]{visvalingam-1000}  \tabularnewline \hline
 
-    4000                                                      &
-    \includegraphics[width=.0625\linewidth]{douglas-4000}     &
-    \includegraphics[width=.0625\linewidth]{visvalingam-4000} \tabularnewline \hline
-\end{tabularx}
+        2000                                                      &
+        \includegraphics[width=.0625\linewidth]{douglas-2000}     &
+        \includegraphics[width=.0625\linewidth]{visvalingam-2000} \tabularnewline \hline
+
+        4000                                                      &
+        \includegraphics[width=.0625\linewidth]{douglas-4000}     &
+        \includegraphics[width=.0625\linewidth]{visvalingam-4000} \tabularnewline \hline
+    \end{tabularx}
+    \label{tab:dp-vs-vw}
+    \caption{{\DP} and {\VW} side-by-side visual comparison.}
+\end{figure}
 
 \section{Algorithms based on cartographical knowledge}
 
