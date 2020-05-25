@@ -22,6 +22,8 @@
 }
 
 \iffalse
+https://bost.ocks.org/mike/simplify/
+
 small scale: 1:XXXXXX
 large scale: 1:XXX
 
@@ -67,16 +69,16 @@ how is tolerance bound to scale?
 
 Current open-source line generalization solutions have their roots in
 mathematics and geometry, thus emit poor cartographic output. Therefore, if one
-is using open-source technology to create a large-scale map, downscaled lines
+is using open-source technology to create a small-scale map, downscaled lines
 (e.g. rivers) will not be professionally scale-adjusted. This paper explores
 line generalization algorithms and suggests one for an avid GIS developer to
 implement. Once it is usable from within open-source GIS software (e.g. QGIS or
-PostGIS), rivers on these large-scale maps will look professionally downscaled.
+PostGIS), rivers on these small-scale maps will look professionally downscaled.
 
 \section{Introduction}
 \label{sec:introduction}
 
-Cartographic generalization is one of the key processes of creating large-scale
+Cartographic generalization is one of the key processes of creating small-scale
 maps: how can one approximate object features, without losing its main
 cartographic properties? The problem is universally challenging across many
 geographical entities (\cite{muller1991generalization},
@@ -88,9 +90,32 @@ they expose deficiencies in large-scale reduction (\cite{monmonier1986toward},
 \cite{mcmaster1993spatial}). Most of these techniques are based on mathematical
 shape representation, rather than cartographic characteristics of the line.
 
-In this paper we explore algorithms which are derived from cartographic
-knowledge and processes, so their output is as similar as an experienced
-cartographer would create, thus most correct and visually appealing.
+A number of cartographic line generalization algorithms have been researched,
+which claim to better process cartographic objects like lines. These fall into
+two rough categories:
+\begin{itemize}
+    \item Cartographic knowledge was encoded to an algorithm (bottom-up
+        approach). One among these are \cite{wang1998line}.
+    \item Mathematical shape transformation which yields a more
+        cartographically suitable down-scaling. E.g. \cite{jiang2003line},
+        \cite{dyken2009simultaneous}, \cite{mustafa2006dynamic},
+        \cite{nollenburg2008morphing}.
+\end{itemize}
+
+During research, code has been written for all of the algorithms above,
+however, it is nowhere to be found completely, or in a usable form. There is
+one exception: \cite{wang1998line} is available for general use in a commercial
+product, but the author of this paper does not have means to try it.
+
+Therefore, this paper will be comparing algorithms that readily available for
+general public:
+\begin{itemize}
+    \item \cite{douglas1973algorithms} via
+        \href{https://postgis.net/docs/ST_Simplify.html}{PostGIS Simplify}.
+
+    \item \cite{visvalingam1993line} via
+        \href{https://postgis.net/docs/ST_SimplifyVW.html}{PostGIS SimplifyVW}.
+\end{itemize}
 
 For comparison reasons, this article will be using Lakaja and large part of Žeimena
 (see figure~\ref{fig:zeimena} on page~\pageref{fig:zeimena}). This location was
@@ -105,13 +130,6 @@ combination of two curly rivers, and author's familiarity with the location.
 \end{figure}
 
 \section{Mathematical and geometrical algorithms}
-
-To understand why geometrical algorithms are not entirely suitable for 
-downscaling, let's pick some visual examples. Start with
-\cite{douglas1973algorithms}, one of the most well-known line simplification
-algorithms, which is often used for generalization. Žeimena example is
-generalized with different tolerances in figure~\ref{fig:douglas-peucker} on
-page~\pageref{fig:douglas-peucker}.
 
 As one can observe in figure~\ref{fig:douglas-300}, the Douglas \& Peucker with
 300m tolerance preserves most of the shape, and 1000m
@@ -164,10 +182,9 @@ For further investigation:
 
 \cite{stanislawski2012automated} studied different types of metric assessments,
 such as Hausdorff distance, segment length, vector shift, surface displacement,
-and tortuosity for the generalization of linear geographic elements. Their
+and tortuosity for the generalization of linear geographic elements. This
 research can provide references to the appropriate settings of the line
 generalization parameters for the maps at various scales.
-
 
 \section{Conclusions and Further Work}
 \label{sec:conclusions_and_further_work}
