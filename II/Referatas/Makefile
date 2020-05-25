@@ -1,13 +1,10 @@
-TOLERANCES = 0 500 1000 2000 4000
-GEN = $(addsuffix .pdf,zeimena \
+TOLERANCES = 100 125 250 500 1000 2000 4000
+GEN = $(addsuffix .pdf, \
 		  $(addprefix douglas-,$(TOLERANCES)) \
 		  $(addprefix visvalingam-,$(TOLERANCES)))
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf $(GEN)
 	latexmk -g -pdf $<
-
-zeimena.pdf: zeimena.gpkg layer2img.py
-	./layer2img.py --infile=$< --size=74x52 --outfile $@
 
 define algo2img
 db/.faux_$(1)-$(2): $(1).sql db/.faux_ready
