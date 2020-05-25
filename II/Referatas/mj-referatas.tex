@@ -6,6 +6,7 @@
 \usepackage[english]{babel}
 \usepackage[maxbibnames=99,style=authoryear]{biblatex}
 \usepackage[pdfusetitle]{hyperref}
+\usepackage{enumitem}
 \addbibresource{bib.bib}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -15,6 +16,9 @@
 \usepackage{tikz}
 \usetikzlibrary{er,positioning}
 \input{version}
+
+\newcommand{\DP}{Douglas \& Peucker}
+\newcommand{\VW}{Visvalingam-Whyatt}
 
 \title{
     Cartografic Generalization of Lines \\
@@ -28,8 +32,6 @@ http://bl.ocks.org/msbarry/9152218
 small scale: 1:XXXXXX
 large scale: 1:XXX
 
-take douglas-pecker and check for different scales.
-
 a4: 210x297mm
 a6: 105x148xmm
 a7: 74x105mm
@@ -41,15 +43,6 @@ connect rivers first to a single polylines:
 ideal hypothesis: mueller algorithm + topology may fully realize cartographic generalization tasks.
 
 what scales and what distances?
-
-https://postgis.net/docs/ST_SimplifyVW.html
-https://postgis.net/docs/ST_Simplify.html
-https://postgis.net/docs/ST_SimplifyPreserveTopology.html
-
-how is tolerance bound to scale?
-- just use same parameter.
-
-
 \fi
 
 \author{Motiejus Jakštys}
@@ -120,7 +113,7 @@ general public:
 
 For comparison reasons, this article will be using Lakaja and large part of Žeimena
 (see figure~\ref{fig:zeimena} on page~\pageref{fig:zeimena}). This location was
-chosen because it is a combination of straight and curved river shape,
+chosen because the river exhibits both both straight and curved shape, is a
 combination of two curly rivers, and author's familiarity with the location.
 
 \begin{figure}
@@ -132,6 +125,20 @@ combination of two curly rivers, and author's familiarity with the location.
 
 \section{Mathematical and geometrical algorithms}
 
+To visually evaluate the sample above, we created a few examples for {\DP}
+and {\VW} using the following parameters:
+
+\begin{enumerate}[label=(\Roman*)]
+    \item {\DP} tolerance: $tolerance := 125 * 2^n, n = 0,1,...,5$.
+    \item {\VW} tolerance: $vwtolerance = tolerance ^ 2$\label{itm:2}.
+\end{enumerate}
+
+Item~\ref{itm:2} requires explanation. Tolerance for {\DP} is specified in
+linear units, in this case, meters. Tolerance for {\VW} is specified in areal
+units, in this case, square meters $m^2$. As author was not able to locate
+formal comparisons between the two (i.e. how to calculate one tolerance value
+from another, so the results are comparable?), {\DP} tolerance was arbitrarily
+squared. To the author's understanding, this provides reasonalbe results.
 
 \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
 \begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
