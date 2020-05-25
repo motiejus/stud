@@ -1,12 +1,12 @@
-GEN = zeimena.pdf douglas-300.pdf douglas-500.pdf douglas-1000.pdf
+GEN = zeimena.pdf douglas-0.pdf douglas-500.pdf douglas-1000.pdf
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf $(GEN)
 	latexmk -g -pdf $<
 
-zeimena.pdf: zeimena.gpkg
+zeimena.pdf: zeimena.gpkg layer2img.py
 	./layer2img.py --infile=$< --size=74x52 --outfile $@
 
-douglas-%.pdf: db/.faux_douglas-%
+douglas-%.pdf: layer2img.py db/.faux_douglas-%
 	./layer2img.py --table=douglas_$* --size=74x52 --outfile $@
 
 db/.faux_douglas-%: db/.faux_ready douglas.sql
