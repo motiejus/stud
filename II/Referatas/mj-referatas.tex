@@ -1,13 +1,12 @@
-\documentclass{article}
-
+\documentclass[a4paper]{article}
 \usepackage[L7x,T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{a4wide}
 \usepackage{csquotes}
 \usepackage[english]{babel}
 \usepackage[maxbibnames=99,style=authoryear]{biblatex}
+\usepackage[pdfusetitle]{hyperref}
 \addbibresource{bib.bib}
-\usepackage{hyperref}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{gensymb}
@@ -133,9 +132,6 @@ combination of two curly rivers, and author's familiarity with the location.
 
 \section{Mathematical and geometrical algorithms}
 
-As one can observe in figure~\ref{fig:douglas-300}, the Douglas \& Peucker with
-300m tolerance preserves most of the shape, and 1000m
-(figure~\ref{fig:douglas-1000}) is still recognizeable.
 
 \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
 \begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
