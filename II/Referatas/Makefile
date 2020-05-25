@@ -11,8 +11,8 @@ zeimena.pdf: zeimena.gpkg layer2img.py
 	./layer2img.py --infile=$< --size=74x52 --outfile $@
 
 define algo2layer
-db/.faux_$(1)-%: $(1).sql db/.faux_ready
-	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$$* -f $(1).sql
+db/.faux_$(1)-$(2): $(1).sql db/.faux_ready
+	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$(2) -f $(1).sql
 	touch $$@
 endef
 
@@ -24,8 +24,8 @@ endef
 $(eval $(call layer2img,douglas))
 $(eval $(call layer2img,visvalingam))
 
-$(eval $(call algo2layer,douglas))
-$(eval $(call algo2layer,visvalingam))
+$(foreach a,$(TOLERANCES),$(eval $(call algo2layer,douglas,$(a))))
+$(foreach a,$(TOLERANCES),$(eval $(call algo2layer,visvalingam,$(a))))
 
 db/.faux_ready: zeimena.gpkg managedb
 	-./managedb stop; rm -fr db
