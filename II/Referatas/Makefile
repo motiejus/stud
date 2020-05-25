@@ -29,7 +29,7 @@ db/.faux_ready: zeimena.gpkg managedb
 	touch $@
 
 REF = $(shell git describe --tags)
-DIRTY = $(shell git status --porcelain | awk 'NR==1{print "-dirty";exit}')
+DIRTY = $(shell git status --porcelain | awk '{print"-dirty";exit}')
 GIT_DIR = $(shell git rev-parse --show-toplevel)/.git
 version.tex: $(shell git ls-files .) $(GIT_DIR)
 	( \
