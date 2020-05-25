@@ -10,19 +10,22 @@ mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf $(GEN)
 zeimena.pdf: zeimena.gpkg layer2img.py
 	./layer2img.py --infile=$< --size=74x52 --outfile $@
 
-douglas-%.pdf: layer2img.py db/.faux_douglas-%
-	./layer2img.py --table=douglas_$* --size=74x52 --outfile $@
+define algo2layer
+db/.faux_$(1)-%: $(1).sql db/.faux_ready
+	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$$* -f $(1).sql
+	touch $$@
+endef
 
-visvalingam-%.pdf: layer2img.py db/.faux_visvalingam-%
-	./layer2img.py --table=visvalingam_$* --size=74x52 --outfile $@
+define layer2img
+$(1)-%.pdf: layer2img.py db/.faux_$(1)-%
+	./layer2img.py --table=$(1)_$$* --size=74x52 --outfile $$@
+endef
 
-db/.faux_visvalingam-%: visvalingam.sql db/.faux_ready
-	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$* -f $<
-	touch $@
+$(eval $(call layer2img,douglas))
+$(eval $(call layer2img,visvalingam))
 
-db/.faux_douglas-%: douglas.sql db/.faux_ready
-	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$* -f $<
-	touch $@
+$(eval $(call algo2layer,douglas))
+$(eval $(call algo2layer,visvalingam))
 
 db/.faux_ready: zeimena.gpkg managedb
 	-./managedb stop; rm -fr db
