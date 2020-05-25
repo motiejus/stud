@@ -1,4 +1,8 @@
-GEN = zeimena.pdf douglas-0.pdf douglas-500.pdf douglas-1000.pdf
+TOLERANCES = 0 500 1000
+
+GEN = $(addsuffix .pdf,zeimena \
+		  $(addprefix douglas-,$(TOLERANCES)) \
+		  $(addprefix visvalingam-,$(TOLERANCES)))
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf $(GEN)
 	latexmk -g -pdf $<
@@ -9,8 +13,15 @@ zeimena.pdf: zeimena.gpkg layer2img.py
 douglas-%.pdf: layer2img.py db/.faux_douglas-%
 	./layer2img.py --table=douglas_$* --size=74x52 --outfile $@
 
-db/.faux_douglas-%: db/.faux_ready douglas.sql
-	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$* -f douglas.sql
+visvalingam-%.pdf: layer2img.py db/.faux_visvalingam-%
+	./layer2img.py --table=visvalingam_$* --size=74x52 --outfile $@
+
+db/.faux_visvalingam-%: visvalingam.sql db/.faux_ready
+	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$* -f $<
+	touch $@
+
+db/.faux_douglas-%: douglas.sql db/.faux_ready
+	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$* -f $<
 	touch $@
 
 db/.faux_ready: zeimena.gpkg managedb
