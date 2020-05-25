@@ -15,7 +15,7 @@ db/.faux_$(1)-$(2): $(1).sql db/.faux_ready
 	touch db/.faux_$(1)-$(2)
 
 $(1)-$(2).pdf: layer2img.py db/.faux_$(1)-$(2)
-	./layer2img.py --table=$(1)_$(2) --size=74x52 --outfile $(1)-$(2).pdf
+	./layer2img.py --table=$(1)_$(2) --size=52x74 --outfile $(1)-$(2).pdf
 endef
 
 $(foreach t,$(TOLERANCES),$(eval $(call algo2img,douglas,$(t))))
