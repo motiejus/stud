@@ -1,4 +1,4 @@
-GEN = zeimena.pdf st-simplify-300.pdf st-simplify-500.pdf st-simplify-1000.pdf
+GEN = zeimena.pdf douglas-300.pdf douglas-500.pdf douglas-1000.pdf
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf $(GEN)
 	latexmk -g -pdf $<
@@ -6,11 +6,11 @@ mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf $(GEN)
 zeimena.pdf: zeimena.gpkg
 	./layer2img.py --infile=$< --size=74x52 --outfile $@
 
-st-simplify-%.pdf: db/.faux_st-simplify-%
+douglas-%.pdf: db/.faux_douglas-%
 	./layer2img.py --table=douglas_$* --size=74x52 --outfile $@
 
-db/.faux_st-simplify-%: db/.faux_ready st-simplify.sql
-	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$* -f st-simplify.sql
+db/.faux_douglas-%: db/.faux_ready douglas.sql
+	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v tolerance=$* -f douglas.sql
 	touch $@
 
 db/.faux_ready: zeimena.gpkg managedb

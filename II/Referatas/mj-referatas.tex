@@ -12,6 +12,7 @@
 \usepackage{subcaption}
 \usepackage{gensymb}
 \usepackage{varwidth}
+\usepackage{tabularx}
 \usepackage{tikz}
 \usetikzlibrary{er,positioning}
 \input{version}
@@ -135,6 +136,17 @@ As one can observe in figure~\ref{fig:douglas-300}, the Douglas \& Peucker with
 300m tolerance preserves most of the shape, and 1000m
 (figure~\ref{fig:douglas-1000}) is still recognizeable.
 
+\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
+\begin{tabularx}{\textwidth}{ p{1.5cm} | X | X }
+    Tolerance          &
+    Douglas \& Peucker &
+    Visvalingam-Whyatt \\ \hline
+
+    foo &
+    \includegraphics[width=\linewidth]{zeimena} &
+    foo                                         \\ \hline
+\end{tabularx}
+
 \begin{figure}
     \centering
     \begin{subfigure}[b]{0.23\textwidth}
@@ -144,19 +156,19 @@ As one can observe in figure~\ref{fig:douglas-300}, the Douglas \& Peucker with
     \end{subfigure}
     ~
     \begin{subfigure}[b]{0.23\textwidth}
-        \includegraphics[width=\textwidth]{st-simplify-300}
+        \includegraphics[width=\textwidth]{douglas-300}
         \caption{300m}
         \label{fig:douglas-300}
     \end{subfigure}
     ~
     \begin{subfigure}[b]{0.23\textwidth}
-        \includegraphics[width=\textwidth]{st-simplify-500}
+        \includegraphics[width=\textwidth]{douglas-500}
         \caption{500m}
         \label{fig:douglas-500}
     \end{subfigure}
     ~
     \begin{subfigure}[b]{0.23\textwidth}
-        \includegraphics[width=\textwidth]{st-simplify-1000}
+        \includegraphics[width=\textwidth]{douglas-1000}
         \caption{1000m}
         \label{fig:douglas-1000}
     \end{subfigure}
