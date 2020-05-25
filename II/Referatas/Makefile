@@ -1,5 +1,4 @@
-TOLERANCES = 0 500 1000
-
+TOLERANCES = 0 500 1000 2000 4000
 GEN = $(addsuffix .pdf,zeimena \
 		  $(addprefix douglas-,$(TOLERANCES)) \
 		  $(addprefix visvalingam-,$(TOLERANCES)))
@@ -25,7 +24,7 @@ $(foreach t,$(TOLERANCES),$(eval $(call algo2img,visvalingam,$(t))))
 db/.faux_ready: zeimena.gpkg managedb
 	-./managedb stop; rm -fr db
 	./managedb init
-	ogr2ogr -f PostgreSQL "PG:host=127.0.0.1 user=osm dbname=osm" zeimena.gpkg
+	ogr2ogr -f PostgreSQL "PG:host=127.0.0.1 user=osm dbname=osm" $<
 	touch $@
 
 REF = $(shell git describe --tags)

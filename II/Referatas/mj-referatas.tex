@@ -24,6 +24,7 @@
 
 \iffalse
 https://bost.ocks.org/mike/simplify/
+http://bl.ocks.org/msbarry/9152218
 
 small scale: 1:XXXXXX
 large scale: 1:XXX
@@ -136,15 +137,32 @@ As one can observe in figure~\ref{fig:douglas-300}, the Douglas \& Peucker with
 300m tolerance preserves most of the shape, and 1000m
 (figure~\ref{fig:douglas-1000}) is still recognizeable.
 
-\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
-\begin{tabularx}{\textwidth}{ p{1.5cm} | X | X }
-    Tolerance          &
-    Douglas \& Peucker &
-    Visvalingam-Whyatt \\ \hline
+\renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
+\begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
+    Tolerance                                            &
+    Douglas \& Peucker                                   &
+    Visvalingam-Whyatt                                   \tabularnewline \hline
 
-    0 &
-    \includegraphics[width=\linewidth]{douglas-0} &
-    foo                                         \\ \hline
+    \center 0                                                    &
+    \multicolumn{2}{ | l | }{
+        \includegraphics[width=.84\columnwidth]{douglas-0}
+    }                                                    \tabularnewline \hline
+
+    500                                                  &
+    \includegraphics[width=\linewidth]{douglas-500}      &
+    \includegraphics[width=\linewidth]{visvalingam-500}  \tabularnewline \hline
+
+    1000                                                 &
+    \includegraphics[width=.5\linewidth]{douglas-1000}     &
+    \includegraphics[width=.5\linewidth]{visvalingam-1000} \tabularnewline \hline
+
+    2000                                                 &
+    \includegraphics[width=.25\linewidth]{douglas-2000}     &
+    \includegraphics[width=.25\linewidth]{visvalingam-4000} \tabularnewline \hline
+
+    4000                                                 &
+    \includegraphics[width=.125\linewidth]{douglas-4000}     &
+    \includegraphics[width=.125\linewidth]{visvalingam-4000} \tabularnewline \hline
 \end{tabularx}
 
 \begin{figure}
