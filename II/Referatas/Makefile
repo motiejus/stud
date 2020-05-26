@@ -1,12 +1,13 @@
 ZEIMENA_TOLERANCES = 100 125 250 500 1000 2000 4000
-SINEWAVE_TOLERANCES = 4 5
+SINEWAVE_TOLERANCES = 1 2 3 4
 GEN = $(addsuffix .pdf, \
 		  $(addprefix sinewave-douglas-,$(SINEWAVE_TOLERANCES)) \
+		  $(addprefix sinewave-visvalingam-,$(SINEWAVE_TOLERANCES)) \
 		  $(addprefix zeimena-douglas-,$(ZEIMENA_TOLERANCES)) \
 		  $(addprefix zeimena-visvalingam-,$(ZEIMENA_TOLERANCES)))
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf \
-	sinewave.pdf sinewave-douglas-5.pdf $(GEN)
+	sinewave.pdf $(GEN)
 	latexmk -g -pdf $<
 
 define algo2img
@@ -15,12 +16,13 @@ db/.faux_$(1)-$(2)-%: $(2).sql db/.faux_ready
 	touch $$@
 
 $(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
-	./layer2img.py --table=$(1)_$(2)_$$* --size=52x74 --outfile $(1)-$(2)-$$*.pdf
+	./layer2img.py --table=$(1)_$(2)_$$* --size=$(3) --outfile $(1)-$(2)-$$*.pdf
 endef
 
-$(eval $(call algo2img,sinewave,douglas))
-$(eval $(call algo2img,zeimena,douglas))
-$(eval $(call algo2img,zeimena,visvalingam))
+$(eval $(call algo2img,sinewave,douglas,52x12))
+$(eval $(call algo2img,sinewave,visvalingam,52x12))
+$(eval $(call algo2img,zeimena,douglas,52x74))
+$(eval $(call algo2img,zeimena,visvalingam,52x74))
 
 sinewave.gpkg: sinewave.py
 	./sinewave.py

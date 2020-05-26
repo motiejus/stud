@@ -169,11 +169,11 @@ are comparable?), {\DP} tolerance was arbitrarily squared and fed to {\VW}. To
 author's eye, this provides comparable and reasonable results, though could be
 researched.
 
-As can be observed in table~\ref{tab:dp-vs-vw} on page~\pageref{tab:dp-vs-vw},
-both simplication algorithms convert bends to chopped lines. This is especially
-visible in tolerances 250 and 500. In a more robust simplification algorithm,
-the larger tolerance, the larger the bends on the original map should be
-retained.
+As can be observed in table~\ref{tab:comparison-zeimena} on
+page~\pageref{tab:comparison-zeimena}, both simplication algorithms convert
+bends to chopped lines. This is especially visible in tolerances 250 and 500.
+In a more robust simplification algorithm, the larger tolerance, the larger the
+bends on the original map should be retained.
 
 \begin{figure}[H]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
@@ -206,10 +206,9 @@ retained.
         \includegraphics[width=.0625\linewidth]{zeimena-douglas-4000}     &
         \includegraphics[width=.0625\linewidth]{zeimena-visvalingam-4000} \tabularnewline \hline
     \end{tabularx}
-    \caption{{\DP} and {\VW} side-by-side visual comparison}
-    \label{tab:dp-vs-vw}
+    \caption{{\DP} and {\VW} side-by-side on Žeimena}
+    \label{tab:comparison-zeimena}
 \end{figure}
-
 
 
 To sum up, both {\VW} and {\DP} simplify the lines, but their cartographic
@@ -234,13 +233,35 @@ straight line, but too small to retain both and retain their complexity.
 \end{figure}
 
 When one applies {\DP} to figure~\ref{pic:sinewave}, either both bends remain,
-or become a straight line.
+or become a straight line, see table~\ref{tab:comparison-sinewave} on
+page~\pageref{tab:comparison-sinewave}.
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=52mm]{sinewave-douglas-5}
-    \caption{Example bend, generalized}
-    \label{pic:sinewave-douglas-5}
+    \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
+    \begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
+        Tolerance DP/VW                                            &
+        Douglas \& Peucker                                         &
+        Visvalingam-Whyatt                                         \tabularnewline \hline
+
+        1/1                                                        &
+        \includegraphics[width=\linewidth]{sinewave-douglas-1}     &
+        \includegraphics[width=\linewidth]{sinewave-visvalingam-1} \tabularnewline \hline
+
+        2/4                                                        &
+        \includegraphics[width=\linewidth]{sinewave-douglas-2}     &
+        \includegraphics[width=\linewidth]{sinewave-visvalingam-2} \tabularnewline \hline
+
+        3/9                                                        &
+        \includegraphics[width=\linewidth]{sinewave-douglas-3}     &
+        \includegraphics[width=\linewidth]{sinewave-visvalingam-3} \tabularnewline \hline
+
+        4/16                                                       &
+        \includegraphics[width=\linewidth]{sinewave-douglas-4}     &
+        \includegraphics[width=\linewidth]{sinewave-visvalingam-4} \tabularnewline \hline
+
+    \end{tabularx}
+    \caption{{\DP} and {\VW} on example wave}
+    \label{tab:comparison-sinewave}
 \end{figure}
 
 \section{Related Work and future suggestions}
