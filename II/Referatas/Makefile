@@ -1,6 +1,6 @@
 CROSSING=622916.858 6109272.561 626066.858 6111492.561 # xmin ymin xmax ymax
 ZEIMENA_TOLERANCES = 100 125 250 500 1000 2000 4000
-SINEWAVE_TOLERANCES = 1 2 3 4
+SINEWAVE_TOLERANCES = 1 20 30 40
 GEN = $(addsuffix .pdf, \
 		  $(addprefix sinewave-douglas-,$(SINEWAVE_TOLERANCES)) \
 		  $(addprefix sinewave-visvalingam-,$(SINEWAVE_TOLERANCES)) \
@@ -22,17 +22,17 @@ crossing-$(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
 endef
 
 define gpkg2pdf
-$(2): $(1)
-	./layer2img.py $(3) --infile=$(1) --outfile $(2)
+$(2).pdf: $(1).gpkg
+	./layer2img.py $(3) --infile=$(1).gpkg --outfile $(2).pdf
 endef
 
 $(eval $(call algo2img,sinewave,douglas,52x12))
 $(eval $(call algo2img,sinewave,visvalingam,52x12))
 $(eval $(call algo2img,zeimena,douglas,52x74))
 $(eval $(call algo2img,zeimena,visvalingam,52x74))
-$(eval $(call gpkg2pdf,sinewave.gpkg,sinewave.pdf,--size=52x15))
-$(eval $(call gpkg2pdf,zeimena.gpkg,zeimena.pdf,--size=148x210 --rect $(CROSSING)))
-$(eval $(call gpkg2pdf,zeimena.gpkg,crossing.pdf,--size=105x74 --clip $(CROSSING)))
+$(eval $(call gpkg2pdf,sinewave,sinewave,--size=52x15))
+$(eval $(call gpkg2pdf,zeimena,zeimena,--size=148x210 --rect $(CROSSING)))
+$(eval $(call gpkg2pdf,zeimena,crossing,--size=105x74 --clip $(CROSSING)))
 
 sinewave.gpkg: sinewave.py
 	./sinewave.py

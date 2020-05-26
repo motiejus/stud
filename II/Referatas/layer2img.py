@@ -12,7 +12,6 @@ INCH = 25.4  # mm
 
 def plt_size(string):
     if not string:
-        # using default matplotlib dimensions
         return None
     try:
         w, h = string.split("x")
@@ -48,7 +47,8 @@ def main():
     else:
         f = geopandas.read_file(args.infile)
     fig, ax = plt.subplots()
-    fig.set_size_inches(args.size)
+    if args.size:
+        fig.set_size_inches(args.size)
     f.plot(ax=ax)
     if c := args.clip:
         ax.set_xlim(left=c[0], right=c[2])
