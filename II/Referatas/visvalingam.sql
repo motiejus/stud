@@ -1,14 +1,14 @@
-DROP TABLE IF EXISTS visvalingam_:tolerance;
+DROP TABLE IF EXISTS :tbl;
 
-CREATE TABLE visvalingam_:tolerance (
+CREATE TABLE :tbl (
     fid serial NOT NULL,
     geom geometry(MULTILINESTRING, 3346)
 );
 
-INSERT INTO visvalingam_:tolerance (geom) (
+INSERT INTO :tbl (geom) (
     SELECT
         ST_SimplifyVW (ST_LineMerge (ST_Union (geom)),
             :tolerance * :tolerance) AS geoms
     FROM
-        zeimena);
+        :src);
 

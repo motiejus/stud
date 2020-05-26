@@ -14,7 +14,7 @@ TAILS = np.zeros(int(TAIL_LEN / INTERVAL))
 
 def main():
     sin_range = np.arange(-pi/4, SINE_LEN, INTERVAL)
-    amplitude = np.sin(sin_range * pi / 2) + 1
+    amplitude = (np.sin(sin_range * pi / 2) + 1)*2
     y = np.concatenate([TAILS, amplitude, TAILS])
     x = np.arange(-TAIL_LEN - pi/4, SINE_LEN + TAIL_LEN, INTERVAL)
     geom = LineString(zip(x, y))

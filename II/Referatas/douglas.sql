@@ -1,14 +1,14 @@
-DROP TABLE IF EXISTS douglas_:tolerance;
+DROP TABLE IF EXISTS :tbl;
 
-CREATE TABLE douglas_:tolerance (
+CREATE TABLE :tbl (
     fid serial NOT NULL,
     geom geometry(MULTILINESTRING, 3346)
 );
 
-INSERT INTO douglas_:tolerance (geom) (
+INSERT INTO :tbl (geom) (
     SELECT
         ST_Simplify (ST_LineMerge (ST_Union (geom)),
             :tolerance) AS geoms
     FROM
-        zeimena);
+        :src);
 
