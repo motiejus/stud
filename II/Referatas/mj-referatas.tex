@@ -30,7 +30,7 @@
 \newcommand{\WM}{Wang--M{\"u}ller}
 
 \title{
-    Cartografic Generalization of Lines \\
+    Cartografic Generalization of Lines using free software \\
     (example of rivers) \\ \vspace{4mm}
 }
 
@@ -78,12 +78,14 @@ Todėl, kad nėra kilpų.
 \begin{abstract}
 \label{sec:abstract}
 Current open-source line generalization solutions have their roots in
-mathematics and geometry, thus emit poor cartographic output. Therefore, if one
-is using open-source technology to create a small-scale map, downscaled lines
-(e.g. rivers) will not be professionally scale-adjusted. This paper explores
-line generalization algorithms and suggests one for an avid GIS developer to
-implement. Once it is usable from within open-source GIS software (e.g. QGIS or
-PostGIS), rivers on these small-scale maps will look professionally downscaled.
+    mathematics and geometry, thus emit poor cartographic output. Therefore, if
+    one is using open-source technology to generalize cartographic objects,
+    their downscaled counterparts will be incorrectly scale-adjusted. This
+    paper explores the available down-scaling implementations, highlights some
+    of their deficiencies, and suggests a viable algorithm for an avid GIS
+    developer. Once the new algorithm becomes usable from within open-source
+    GIS software (e.g. QGIS or PostGIS), small-scale maps created by free
+    software will have a chance to be of higher quality.
 \end{abstract}
 
 \newpage
@@ -93,25 +95,6 @@ PostGIS), rivers on these small-scale maps will look professionally downscaled.
 
 \section{Introduction}
 \label{sec:introduction}
-
-Cartographic generalization is one of the key processes of creating small-scale
-maps: how can one approximate object features, without losing its main
-cartographic properties? The problem is universally challenging across many
-geographical entities (\cite{muller1991generalization},
-\cite{mcmaster1992generalization}). This paper focuses on line generalization
-for natural rivers: which algorithm should be picked when down-scaling a river
-map?
-
-We examine readily available open-source algorithms using a concrete
-cartographical example, and make a suggestion on which algorithm could be
-implemented next.
-
-\section{What's available}
-
-Line generalization algorithms are well studied, but expose deficiencies in
-large-scale reduction (\cite{monmonier1986toward}, \cite{mcmaster1993spatial}).
-Most of these techniques are based on mathematical shape representation, rather
-than cartographic characteristics of the line.
 
 A number of cartographic line generalization algorithms have been researched,
 which claim to better process cartographic objects like lines. These fall into
@@ -125,12 +108,24 @@ two rough categories:
         \cite{nollenburg2008morphing}.
 \end{itemize}
 
-During research for the mentioned papers, code has been written for all of the
-algorithms above, however, is not to be found in a usable form.
-\cite{wang1998line} is available in a commercial product, but the author of
-this paper does not have means to try it.
+During research for the mentioned articles, prototype code has been written for
+most of the algorithms. However, none of them seem to be available for use
+except for the two "classical" ones -- {\DP} and {\VW}.
 
-To sum up, this paper will be comparing the following algorithms:
+\cite{wang1998line} is available in a commercial product, which seems the only
+algorithm specifically created for cartographic generalization and available
+for general use. This poses a significant problem for map creation: without a
+good simplification algorithm, every down-scaled map, of which creator did not
+acquire a license for the said product will be of sub-par quality. The more
+barriers there are for creating maps in open-source software, the less
+open-source will fit the needs of the public, leading to even smaller
+open-source applicability and community. We believe that availability of
+high-quality open-source tools benefits the society as a whole, as opposed to a
+single company producing the said tools, therefore we think it's worth
+investing the effort into creating open algorithm implementations.
+
+This paper will be reviewing and comparing two widely available algorithms that
+are often used for line generalization:
 \begin{itemize}
     \item \cite{douglas1973algorithms} via
         \href{https://postgis.net/docs/ST_Simplify.html}{PostGIS Simplify}.
@@ -138,6 +133,10 @@ To sum up, this paper will be comparing the following algorithms:
     \item \cite{visvalingam1993line} via
         \href{https://postgis.net/docs/ST_SimplifyVW.html}{PostGIS SimplifyVW}.
 \end{itemize}
+
+Review of the available algorithms will be followed by desiderata for a
+possible open-source addition. In the end, we will issue a recommendation,
+which algorithm can be picked up and implemented by a willing GIS developer.
 
 \section{Visual comparison}
 
@@ -206,7 +205,7 @@ bends on the original map should be retained.
         \includegraphics[width=.0625\linewidth]{zeimena-douglas-4000}     &
         \includegraphics[width=.0625\linewidth]{zeimena-visvalingam-4000} \tabularnewline \hline
     \end{tabularx}
-    \caption{{\DP} and {\VW} side-by-side on Žeimena}
+    \caption{{\DP} and {\VW} on Žeimena}
     \label{tab:comparison-zeimena}
 \end{figure}
 
