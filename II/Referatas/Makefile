@@ -31,7 +31,7 @@ $(eval $(call algo2img,sinewave,visvalingam,52x12))
 $(eval $(call algo2img,zeimena,douglas,52x74))
 $(eval $(call algo2img,zeimena,visvalingam,52x74))
 $(eval $(call gpkg2pdf,sinewave,sinewave,--size=52x15))
-$(eval $(call gpkg2pdf,zeimena,zeimena,--size=148x210 --rect $(CROSSING)))
+$(eval $(call gpkg2pdf,zeimena,zeimena,--size=135x191 --rect $(CROSSING)))
 $(eval $(call gpkg2pdf,zeimena,crossing,--size=105x74 --clip $(CROSSING)))
 
 sinewave.gpkg: sinewave.py
