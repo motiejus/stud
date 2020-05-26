@@ -43,16 +43,16 @@ def main():
         f = geopandas.read_postgis(sql, con=conn, geom_col='geom')
     else:
         f = geopandas.read_file(args.infile)
-    f.plot(figsize=args.size)
-    ax = plt.gca()
+    fig, ax = plt.subplots()
+    f.plot(ax=ax, figsize=args.size)
     if args.clip:
         ax.set_xlim(left=args.clip[0], right=args.clip[2])
         ax.set_ylim(bottom=args.clip[1], top=args.clip[3])
     ax.axis('off')
     ax.margins(0, 0)
-    plt.tight_layout(0)
+    fig.tight_layout(0)
     if args.outfile:
-        plt.savefig(args.outfile, bbox_inches=0, dpi=600)
+        fig.savefig(args.outfile, bbox_inches=0, dpi=600)
     else:
         plt.show()
 
