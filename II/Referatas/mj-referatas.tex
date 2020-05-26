@@ -1,9 +1,16 @@
 \documentclass[a4paper]{article}
+
+\iffalse
 \usepackage[L7x,T1]{fontenc}
+\usepackage[lithuanian]{babel}
+\else
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\fi
+
 \usepackage[utf8]{inputenc}
 \usepackage{a4wide}
 \usepackage{csquotes}
-\usepackage[english]{babel}
 \usepackage[maxbibnames=99,style=authoryear]{biblatex}
 \usepackage[pdfusetitle]{hyperref}
 \usepackage{enumitem}
@@ -58,11 +65,8 @@ what scales and what distances?
 \begin{document}
 \maketitle
 
-\newpage
-
-\section{Abstract}
+\begin{abstract}
 \label{sec:abstract}
-
 Current open-source line generalization solutions have their roots in
 mathematics and geometry, thus emit poor cartographic output. Therefore, if one
 is using open-source technology to create a small-scale map, downscaled lines
@@ -70,6 +74,12 @@ is using open-source technology to create a small-scale map, downscaled lines
 line generalization algorithms and suggests one for an avid GIS developer to
 implement. Once it is usable from within open-source GIS software (e.g. QGIS or
 PostGIS), rivers on these small-scale maps will look professionally downscaled.
+\end{abstract}
+
+\newpage
+
+\tableofcontents
+\listoffigures
 
 \section{Introduction}
 \label{sec:introduction}
@@ -78,13 +88,20 @@ Cartographic generalization is one of the key processes of creating small-scale
 maps: how can one approximate object features, without losing its main
 cartographic properties? The problem is universally challenging across many
 geographical entities (\cite{muller1991generalization},
-\cite{mcmaster1992generalization}). This paper focuses on line generalization,
-using natural rivers as examples.
+\cite{mcmaster1992generalization}). This paper focuses on line generalization
+for natural rivers: which algorithm should be picked when down-scaling a river
+map?
 
-Line generalization algorithms are well studied, tested and implemented, but
-they expose deficiencies in large-scale reduction (\cite{monmonier1986toward},
-\cite{mcmaster1993spatial}). Most of these techniques are based on mathematical
-shape representation, rather than cartographic characteristics of the line.
+We examine readily available open-source algorithms using a concrete
+cartographical example, and make a suggestion on which algorithm could be
+implemented next.
+
+\section{What's available}
+
+Line generalization algorithms are well studied, but expose deficiencies in
+large-scale reduction (\cite{monmonier1986toward}, \cite{mcmaster1993spatial}).
+Most of these techniques are based on mathematical shape representation, rather
+than cartographic characteristics of the line.
 
 A number of cartographic line generalization algorithms have been researched,
 which claim to better process cartographic objects like lines. These fall into
@@ -98,13 +115,12 @@ two rough categories:
         \cite{nollenburg2008morphing}.
 \end{itemize}
 
-During research, code has been written for all of the algorithms above,
-however, it is nowhere to be found completely, or in a usable form. There is
-one exception: \cite{wang1998line} is available for general use in a commercial
-product, but the author of this paper does not have means to try it.
+During research for the mentioned papers, code has been written for all of the
+algorithms above, however, is not to be found in a usable form.
+\cite{wang1998line} is available in a commercial product, but the author of
+this paper does not have means to try it.
 
-Therefore, this paper will be comparing algorithms that readily available for
-general public:
+To sum up, this paper will be comparing the following algorithms:
 \begin{itemize}
     \item \cite{douglas1973algorithms} via
         \href{https://postgis.net/docs/ST_Simplify.html}{PostGIS Simplify}.
@@ -113,10 +129,12 @@ general public:
         \href{https://postgis.net/docs/ST_SimplifyVW.html}{PostGIS SimplifyVW}.
 \end{itemize}
 
-This article will be using Lakaja and large part of Žeimena (see
-figure~\ref{fig:zeimena} on page~\pageref{fig:zeimena}). This location was
-chosen because the river exhibits both both straight and curved shape, is a
-combination of two curly rivers, and author's familiarity with the location.
+\section{Visual comparison}
+
+Lakaja and large part of Žeimena (see figure~\ref{fig:zeimena} on
+page~\pageref{fig:zeimena}) will be used, because the river exhibits both both
+straight and curved shape, is a combination of two curly rivers, and author's
+familiarity with the location.
 
 \begin{figure}[H]
     \centering
@@ -125,9 +143,7 @@ combination of two curly rivers, and author's familiarity with the location.
     \label{fig:zeimena}
 \end{figure}
 
-\section{Visually comparing {\DP} and {\VW}}
-
-To visually evaluate the Žeimena sample, a few examples for {\DP} and {\VW}
+To visually evaluate the Žeimena sample, examples for {\DP} and {\VW}
 were created using the following parameters:
 
 \begin{enumerate}[label=(\Roman*)]
@@ -135,13 +151,13 @@ were created using the following parameters:
     \item {\VW} tolerance: $vwtolerance = tolerance ^ 2$\label{itm:2}.
 \end{enumerate}
 
-Item~\ref{itm:2} requires explanation. Tolerance for {\DP} is specified in
-linear units, in this case, meters. Tolerance for {\VW} is specified in areal
-units, in this case, $m^2$. As author was not able to locate formal comparisons
-between the two (i.e. how to calculate one tolerance value from the other, so
-the results are comparable?), {\DP} tolerance was arbitrarily squared and fed
-to {\VW}. To author's eye, this provides comparable and reasonable results,
-though could be researched.
+Parameter~\ref{itm:2} requires explanation. Tolerance for {\DP} is specified in
+linear units, in this case, meters. Tolerance for {\VW} is specified in area
+units $m^2$. As author was not able to locate formal comparisons between the
+two (i.e. how to calculate one tolerance value from the other, so the results
+are comparable?), {\DP} tolerance was arbitrarily squared and fed to {\VW}. To
+author's eye, this provides comparable and reasonable results, though could be
+researched.
 
 As can be observed in table~\ref{tab:dp-vs-vw} on page~\pageref{tab:dp-vs-vw},
 both simplication algorithms convert bends to chopped lines. This is especially
@@ -180,14 +196,37 @@ retained.
         \includegraphics[width=.0625\linewidth]{douglas-4000}     &
         \includegraphics[width=.0625\linewidth]{visvalingam-4000} \tabularnewline \hline
     \end{tabularx}
-    \caption{{\DP} and {\VW} side-by-side visual comparison.}
+    \caption{{\DP} and {\VW} side-by-side visual comparison}
     \label{tab:dp-vs-vw}
 \end{figure}
+
+To sum up, both {\VW} and {\DP} simplify the lines, but their cartographic
+output poorly represents lines and bends. Where to look for better output?
 
 \section{Suggested alternative}
 \label{sec:suggested_alternative}
 
-TODO:
+{\WM} observed how professional cartographers are simplifying rivers and encoded it
+to an algorithm which can be implemented by a computer.
+
+Imagine there are two small bends close to each other, similar to
+figure~\ref{pic:example-bend} on page~\pageref{pic:example-bend}, and one needs
+to generalize it. The bends are too large to ignore replace them with a
+straight line, but too small to retain both and retain their complexity.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[xscale=.5]
+        \draw (-4,-1) -- (-1, -1);
+        \draw (-1,-1) cos (0,0) sin (1,1) cos (2,0) sin (3,-1) cos (4,0) sin (5,1) cos(6,0) sin (7,-1);
+        \draw (7,-1) -- (10, -1);
+    \end{tikzpicture}
+    \caption{Example river bend that should be generalized}
+    \label{pic:example-bend}
+\end{figure}
+
+We would imagine 
+
 \begin{itemize}
     \item Describe algorithm by {\WM}.
     \item Explain how outputs will differ.
@@ -203,12 +242,12 @@ and tortuosity for the generalization of linear geographic elements. This
 research can provide references to the appropriate settings of the line
 generalization parameters for the maps at various scales.
 
-As noted in item~\ref{itm:2} on page~\pageref{itm:2}, it would be useful to
-have a formula mapping {\DP} tolerance to {\VW}. That way, visual comparisons
-between line simplification algorithms could be more objective.
+As noted in parameter~\ref{itm:2} on page~\pageref{itm:2}, it would be useful
+to have a formula mapping {\DP} tolerance to {\VW}. That way, visual
+comparisons between line simplification algorithms could be more objective.
 
-\section{Conclusions and Further Work}
-\label{sec:conclusions_and_further_work}
+\section{Conclusions}
+\label{sec:conclusions}
 
 We have practically evaluated two readily available line simplification
 algorithms with a river sample: {\VW} and {\DP}, and outlined their
