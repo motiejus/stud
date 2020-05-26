@@ -1,7 +1,9 @@
-TOLERANCES = 100 125 250 500 1000 2000 4000
+ZEIMENA_TOLERANCES = 100 125 250 500 1000 2000 4000
+SINEWAVE_TOLERANCES = 4 5
 GEN = $(addsuffix .pdf, \
-		  $(addprefix zeimena-douglas-,$(TOLERANCES)) \
-		  $(addprefix zeimena-visvalingam-,$(TOLERANCES)))
+		  $(addprefix sinewave-douglas-,$(SINEWAVE_TOLERANCES)) \
+		  $(addprefix zeimena-douglas-,$(ZEIMENA_TOLERANCES)) \
+		  $(addprefix zeimena-visvalingam-,$(ZEIMENA_TOLERANCES)))
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf \
 	sinewave.pdf sinewave-douglas-5.pdf $(GEN)

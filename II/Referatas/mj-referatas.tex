@@ -177,38 +177,40 @@ retained.
 
 \begin{figure}[H]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
-    \begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
-        Tolerance                                                 &
-        Douglas \& Peucker                                        &
-        Visvalingam-Whyatt                                        \tabularnewline \hline
+    \begin{tabularx}{\textwidth}{ p{2.1cm} | X | X | }
+        Tolerance DP/VW                                                   &
+        Douglas \& Peucker                                                &
+        Visvalingam-Whyatt                                                \tabularnewline \hline
 
-        125                                                       &
+        125/15625                                                         &
         \includegraphics[width=\linewidth]{zeimena-douglas-125}           &
         \includegraphics[width=\linewidth]{zeimena-visvalingam-125}       \tabularnewline \hline
 
-        250                                                       &
+        250/62500                                                         &
         \includegraphics[width=.5\linewidth]{zeimena-douglas-250}         &
         \includegraphics[width=.5\linewidth]{zeimena-visvalingam-250}     \tabularnewline \hline
 
-        500                                                       &
+        500/250000                                                        &
         \includegraphics[width=.25\linewidth]{zeimena-douglas-500}        &
         \includegraphics[width=.25\linewidth]{zeimena-visvalingam-500}    \tabularnewline \hline
 
-        1000                                                      &
+        1000/1000000                                                      &
         \includegraphics[width=.125\linewidth]{zeimena-douglas-1000}      &
         \includegraphics[width=.125\linewidth]{zeimena-visvalingam-1000}  \tabularnewline \hline
 
-        2000                                                      &
+        2000/4000000                                                      &
         \includegraphics[width=.0625\linewidth]{zeimena-douglas-2000}     &
         \includegraphics[width=.0625\linewidth]{zeimena-visvalingam-2000} \tabularnewline \hline
 
-        4000                                                      &
+        4000/16000000                                                     &
         \includegraphics[width=.0625\linewidth]{zeimena-douglas-4000}     &
         \includegraphics[width=.0625\linewidth]{zeimena-visvalingam-4000} \tabularnewline \hline
     \end{tabularx}
     \caption{{\DP} and {\VW} side-by-side visual comparison}
     \label{tab:dp-vs-vw}
 \end{figure}
+
+
 
 To sum up, both {\VW} and {\DP} simplify the lines, but their cartographic
 output poorly represents lines and bends. Where to look for better output?
