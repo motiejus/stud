@@ -4,7 +4,7 @@ GEN = $(addsuffix .pdf, \
 		  $(addprefix zeimena-visvalingam-,$(TOLERANCES)))
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf \
-	sinewave-douglas-100.pdf $(GEN)
+	sinewave.pdf sinewave-douglas-5.pdf $(GEN)
 	latexmk -g -pdf $<
 
 define algo2img
@@ -16,12 +16,15 @@ $(1)-$(2)-$(3).pdf: layer2img.py db/.faux_$(1)-$(2)-$(3)
 	./layer2img.py --table=$(1)_$(2)_$(3) --size=52x74 --outfile $(1)-$(2)-$(3).pdf
 endef
 
-$(eval $(call algo2img,sinewave,douglas,100))
+$(eval $(call algo2img,sinewave,douglas,5))
 $(foreach t,$(TOLERANCES),$(eval $(call algo2img,zeimena,douglas,$(t))))
 $(foreach t,$(TOLERANCES),$(eval $(call algo2img,zeimena,visvalingam,$(t))))
 
 sinewave.gpkg: sinewave.py
 	./sinewave.py
+
+sinewave.pdf: sinewave.gpkg
+	./layer2img.py --size=52x15 --infile=$< --outfile=$@
 
 db/.faux_ready: zeimena.gpkg sinewave.gpkg managedb
 	-./managedb stop; rm -fr db

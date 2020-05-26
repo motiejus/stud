@@ -52,6 +52,16 @@ connect rivers first to a single polylines:
 ideal hypothesis: mueller algorithm + topology may fully realize cartographic generalization tasks.
 
 what scales and what distances?
+
+= Intro: Aktualumas
+FOSS nėra realizuotas tinkamas kartografinio realizavimo algoritmas (2–3 sakiniai). Kad kartografai turėtų
+įrankį upių generalizavimui.
+
+Bazė: imame tai, ką dabar turi kartografai įrankių paletėj.
+
+Imti mažus upės vingius. Paimti mažas atkarpėles ir palyginti su originalia.
+Todėl, kad nėra kilpų.
+
 \fi
 
 \author{Motiejus Jakštys}
@@ -203,11 +213,11 @@ retained.
 To sum up, both {\VW} and {\DP} simplify the lines, but their cartographic
 output poorly represents lines and bends. Where to look for better output?
 
-\section{Suggested alternative}
-\label{sec:suggested_alternative}
+\subsection{Combining bends}
 
-{\WM} observed how professional cartographers are simplifying rivers and encoded it
-to an algorithm which can be implemented by a computer.
+Consecutive small bends should be combined into larger bends, and that is one
+of the least developed aspects of automatic line generalization, according to
+\cite{miuller1995generalization}. {\WM} encoded this process to an algorithm.
 
 Imagine there are two small bends close to each other, similar to
 figure~\ref{pic:example-bend} on page~\pageref{pic:example-bend}, and one needs
@@ -216,22 +226,20 @@ straight line, but too small to retain both and retain their complexity.
 
 \begin{figure}[h]
     \centering
-    \begin{tikzpicture}[xscale=.5]
-        \draw (-4,-1) -- (-1, -1);
-        \draw (-1,-1) cos (0,0) sin (1,1) cos (2,0) sin (3,-1) cos (4,0) sin (5,1) cos(6,0) sin (7,-1);
-        \draw (7,-1) -- (10, -1);
-    \end{tikzpicture}
+    \includegraphics[width=52mm]{sinewave}
     \caption{Example river bend that should be generalized}
-    \label{pic:example-bend}
+    \label{pic:sinewave}
 \end{figure}
 
-We would imagine 
+When one applies {\DP} to figure~\ref{pic:sinewave}, either both bends remain,
+or become a straight line.
 
-\begin{itemize}
-    \item Describe algorithm by {\WM}.
-    \item Explain how outputs will differ.
-    \item Explain implementation plan?
-\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=52mm]{sinewave-douglas-5}
+    \caption{Example bend, generalized}
+    \label{pic:sinewave-douglas-5}
+\end{figure}
 
 \section{Related Work and future suggestions}
 \label{sec:related_work}

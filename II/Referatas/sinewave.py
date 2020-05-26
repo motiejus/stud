@@ -6,7 +6,7 @@ import geopandas as gpd
 from shapely.geometry import LineString, MultiLineString
 
 INTERVAL = 0.1
-TAIL_LEN = 4
+TAIL_LEN = 10
 SINE_LEN = 7
 
 TAILS = np.zeros(int(TAIL_LEN / INTERVAL))
