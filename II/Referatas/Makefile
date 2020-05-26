@@ -8,17 +8,17 @@ mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf \
 	latexmk -g -pdf $<
 
 define algo2img
-db/.faux_$(1)-$(2)-$(3): $(2).sql db/.faux_ready
-	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v src=$(1) -v tolerance=$(3) -v tbl=$(1)_$(2)_$(3) -f $(2).sql
+db/.faux_$(1)-$(2)-%: $(2).sql db/.faux_ready
+	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v src=$(1) -v tolerance=$$* -v tbl=$(1)_$(2)_$$* -f $(2).sql
 	touch $$@
 
-$(1)-$(2)-$(3).pdf: layer2img.py db/.faux_$(1)-$(2)-$(3)
-	./layer2img.py --table=$(1)_$(2)_$(3) --size=52x74 --outfile $(1)-$(2)-$(3).pdf
+$(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
+	./layer2img.py --table=$(1)_$(2)_$$* --size=52x74 --outfile $(1)-$(2)-$$*.pdf
 endef
 
-$(eval $(call algo2img,sinewave,douglas,5))
-$(foreach t,$(TOLERANCES),$(eval $(call algo2img,zeimena,douglas,$(t))))
-$(foreach t,$(TOLERANCES),$(eval $(call algo2img,zeimena,visvalingam,$(t))))
+$(eval $(call algo2img,sinewave,douglas))
+$(eval $(call algo2img,zeimena,douglas))
+$(eval $(call algo2img,zeimena,visvalingam))
 
 sinewave.gpkg: sinewave.py
 	./sinewave.py
