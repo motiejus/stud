@@ -19,6 +19,7 @@
 
 \newcommand{\DP}{Douglas \& Peucker}
 \newcommand{\VW}{Visvalingam--Whyatt}
+\newcommand{\WM}{Wang--M{\"u}ller}
 
 \title{
     Cartografic Generalization of Lines \\
@@ -183,7 +184,14 @@ retained.
 \end{figure}
 
 \section{Suggested alternative}
-\label{sec:my_idea}
+\label{sec:suggested_alternative}
+
+TODO:
+\begin{itemize}
+    \item Describe algorithm by {\WM}.
+    \item Explain how outputs will differ.
+    \item Explain implementation plan?
+\end{itemize}
 
 \section{Related Work and future suggestions}
 \label{sec:related_work}
@@ -200,6 +208,11 @@ between line simplification algorithms could be more objective.
 
 \section{Conclusions and Further Work}
 \label{sec:conclusions_and_further_work}
+
+We have practically evaluated two readily available line simplification
+algorithms with a river sample: {\VW} and {\DP}, and outlined their
+deficiencies. We are suggesting to implement {\WM} and compare it to the other
+two.
 
 \printbibliography
 
