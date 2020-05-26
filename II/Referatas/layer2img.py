@@ -48,16 +48,15 @@ def main():
     else:
         f = geopandas.read_file(args.infile)
     fig, ax = plt.subplots()
-    f.plot(ax=ax, figsize=args.size)
+    fig.set_size_inches(args.size)
+    f.plot(ax=ax)
     if c := args.clip:
         ax.set_xlim(left=c[0], right=c[2])
         ax.set_ylim(bottom=c[1], top=c[3])
     if r := args.rect:
         w, h = r[2] - r[0], r[3] - r[1]
         rect = patches.Rectangle(
-                (r[0], r[1]),
-                w, h,
-                linewidth=1,edgecolor='r',facecolor='none')
+                (r[0], r[1]), w, h, linewidth=1,edgecolor='r',facecolor='none')
         ax.add_patch(rect)
 
     ax.axis('off')
