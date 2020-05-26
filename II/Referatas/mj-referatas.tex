@@ -13,6 +13,7 @@
 \usepackage{gensymb}
 \usepackage{varwidth}
 \usepackage{tabularx}
+\usepackage{float}
 \usepackage{tikz}
 \usetikzlibrary{er,positioning}
 \input{version}
@@ -117,7 +118,7 @@ figure~\ref{fig:zeimena} on page~\pageref{fig:zeimena}). This location was
 chosen because the river exhibits both both straight and curved shape, is a
 combination of two curly rivers, and author's familiarity with the location.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=148mm]{zeimena-pretty}
     \caption{Lakaja and Žeimena}
@@ -148,7 +149,7 @@ visible in tolerances 250 and 500. In a more robust simplification algorithm,
 the larger tolerance, the larger the bends on the original map should be
 retained.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
     \begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
         Tolerance                                                 &
@@ -179,8 +180,8 @@ retained.
         \includegraphics[width=.0625\linewidth]{douglas-4000}     &
         \includegraphics[width=.0625\linewidth]{visvalingam-4000} \tabularnewline \hline
     \end{tabularx}
-    \label{tab:dp-vs-vw}
     \caption{{\DP} and {\VW} side-by-side visual comparison.}
+    \label{tab:dp-vs-vw}
 \end{figure}
 
 \section{Suggested alternative}
