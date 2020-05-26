@@ -22,15 +22,15 @@ endef
 
 define gpkg2pdf
 $(1).pdf: $(1).gpkg
-	./layer2img.py --size=$(2) --infile=$(1).gpkg --outfile $(1).pdf
+	./layer2img.py $(2) --infile=$(1).gpkg --outfile $(1).pdf
 endef
 
 $(eval $(call algo2img,sinewave,douglas,52x12))
 $(eval $(call algo2img,sinewave,visvalingam,52x12))
 $(eval $(call algo2img,zeimena,douglas,52x74))
 $(eval $(call algo2img,zeimena,visvalingam,52x74))
-$(eval $(call gpkg2pdf,sinewave,52x15))
-$(eval $(call gpkg2pdf,zeimena,148x210))
+$(eval $(call gpkg2pdf,sinewave,--size=52x15))
+$(eval $(call gpkg2pdf,zeimena,--size=148x210 --rect $(CROSSING)))
 
 sinewave.gpkg: sinewave.py
 	./sinewave.py
