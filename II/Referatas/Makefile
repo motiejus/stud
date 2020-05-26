@@ -6,29 +6,31 @@ GEN = $(addsuffix .pdf, \
 		  $(addprefix zeimena-douglas-,$(ZEIMENA_TOLERANCES)) \
 		  $(addprefix zeimena-visvalingam-,$(ZEIMENA_TOLERANCES)))
 
-mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf \
-	sinewave.pdf $(GEN)
+mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf sinewave.pdf $(GEN)
 	latexmk -g -pdf $<
 
 define algo2img
 db/.faux_$(1)-$(2)-%: $(2).sql db/.faux_ready
 	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v src=$(1) -v tolerance=$$* -v tbl=$(1)_$(2)_$$* -f $(2).sql
 	touch $$@
-
 $(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
 	./layer2img.py --table=$(1)_$(2)_$$* --size=$(3) --outfile $(1)-$(2)-$$*.pdf
+endef
+
+define gpkg2pdf
+$(1).pdf: $(1).gpkg
+	./layer2img.py --size=$(2) --infile=$(1).gpkg --outfile $(1).pdf
 endef
 
 $(eval $(call algo2img,sinewave,douglas,52x12))
 $(eval $(call algo2img,sinewave,visvalingam,52x12))
 $(eval $(call algo2img,zeimena,douglas,52x74))
 $(eval $(call algo2img,zeimena,visvalingam,52x74))
+$(eval $(call gpkg2pdf,sinewave,52x15))
+$(eval $(call gpkg2pdf,zeimena,148x210))
 
 sinewave.gpkg: sinewave.py
 	./sinewave.py
-
-sinewave.pdf: sinewave.gpkg
-	./layer2img.py --size=52x15 --infile=$< --outfile=$@
 
 db/.faux_ready: zeimena.gpkg sinewave.gpkg managedb
 	-./managedb stop; rm -fr db

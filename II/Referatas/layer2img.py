@@ -35,17 +35,6 @@ def parse_args():
     return parser.parse_args()
 
 
-#def makebox(t):
-#    xmin, ymin, xmax, ymax = t
-#    if xmin > xmax:
-#        raise Exception("xmin should be > xmax")
-#    if ymin > ymax:
-#        raise Exception("ymin should be > ymax")
-#    left, bottom = xmin, ymin
-#    width, height = xmax - xmin, ymax - ymin
-#    return {'left': left, 'bottom': bottom, 'width': width, 'height': height}
-
-
 def main():
     args = parse_args()
     if args.table:
@@ -57,13 +46,13 @@ def main():
     f.plot(figsize=args.size)
     ax = plt.gca()
     if args.clip:
-        ax.set_ylim(bottom=args.clip[1], top=args.clip[3])
         ax.set_xlim(left=args.clip[0], right=args.clip[2])
+        ax.set_ylim(bottom=args.clip[1], top=args.clip[3])
     ax.axis('off')
     ax.margins(0, 0)
     plt.tight_layout(0)
     if args.outfile:
-        plt.savefig(args.outfile, bbox_inches=0, dpi=300)
+        plt.savefig(args.outfile, bbox_inches=0, dpi=600)
     else:
         plt.show()
 
