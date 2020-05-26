@@ -29,7 +29,21 @@ def parse_args():
     parser.add_argument('-o', '--outfile', metavar='<file>', type=str)
     parser.add_argument(
             '--size', type=plt_size, help='Figure size in mm (WWxHH)')
+    parser.add_argument(
+            '--clip', type=float, nargs=4,
+            metavar=('xmin', 'ymin', 'xmax', 'ymax'))
     return parser.parse_args()
+
+
+#def makebox(t):
+#    xmin, ymin, xmax, ymax = t
+#    if xmin > xmax:
+#        raise Exception("xmin should be > xmax")
+#    if ymin > ymax:
+#        raise Exception("ymin should be > ymax")
+#    left, bottom = xmin, ymin
+#    width, height = xmax - xmin, ymax - ymin
+#    return {'left': left, 'bottom': bottom, 'width': width, 'height': height}
 
 
 def main():
@@ -41,8 +55,12 @@ def main():
     else:
         f = geopandas.read_file(args.infile)
     f.plot(figsize=args.size)
-    plt.axis('off')
-    plt.margins(0, 0)
+    ax = plt.gca()
+    if args.clip:
+        ax.set_ylim(bottom=args.clip[1], top=args.clip[3])
+        ax.set_xlim(left=args.clip[0], right=args.clip[2])
+    ax.axis('off')
+    ax.margins(0, 0)
     plt.tight_layout(0)
     if args.outfile:
         plt.savefig(args.outfile, bbox_inches=0, dpi=300)

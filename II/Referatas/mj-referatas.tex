@@ -46,6 +46,12 @@ a6: 105x148xmm
 a7: 74x105mm
 a8: 52x74mm
 
+Xmin: 623306.313
+Ymin: 6109635.515
+Xmax: 625526.313
+Ymax: 6111210.515
+623306.313 6109635.515 625526.313 6111210.515
+
 connect rivers first to a single polylines:
 - some algs can preserve connectivity, some not.
 
@@ -136,14 +142,18 @@ are often used for line generalization:
 
 Review of the available algorithms will be followed by desiderata for a
 possible open-source addition. In the end, we will issue a recommendation,
-which algorithm can be picked up and implemented by a willing GIS developer.
+which algorithm can be picked up and implemented by an avid GIS developer.
 
 \section{Visual comparison}
 
 Lakaja and large part of Žeimena (see figure~\ref{fig:zeimena} on
-page~\pageref{fig:zeimena}) will be used, because the river exhibits both both
-straight and curved shape, is a combination of two curly rivers, and author's
-familiarity with the location.
+page~\pageref{fig:zeimena}) will be used as inputs to the generalization
+algorithms, because the river exhibits both both straight and curved shape, is
+a combination of two curly rivers, and author's familiarity with the location.
+
+Since the map area is large (scale $1:150 000$), we will also review a
+zoomed-in subset of the map of scale $1:10 000$. The zoomed-in version will
+help explain some of the deficiencies in the reviewed algorithms.
 
 \begin{figure}[H]
     \centering
