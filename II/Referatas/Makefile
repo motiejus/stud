@@ -1,3 +1,4 @@
+CROSSING=622916.858 6109272.561 626066.858 6111492.561 # xmin ymin xmax ymax
 ZEIMENA_TOLERANCES = 100 125 250 500 1000 2000 4000
 SINEWAVE_TOLERANCES = 1 2 3 4
 GEN = $(addsuffix .pdf, \
@@ -14,7 +15,9 @@ db/.faux_$(1)-$(2)-%: $(2).sql db/.faux_ready
 	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v src=$(1) -v tolerance=$$* -v tbl=$(1)_$(2)_$$* -f $(2).sql
 	touch $$@
 $(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
-	./layer2img.py --table=$(1)_$(2)_$$* --size=$(3) --outfile $(1)-$(2)-$$*.pdf
+	./layer2img.py --table=$(1)_$(2)_$$* --size=$(3) --outfile $$@
+crossing-$(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
+	./layer2img.py --clip $(CROSSING) --table=$(1)_$(2)_$$* --size=$(3) --outfile $$@
 endef
 
 define gpkg2pdf
