@@ -7,8 +7,8 @@ CREATE TABLE :tbl (
 
 INSERT INTO :tbl (geom) (
     SELECT
-        ST_Simplify (ST_LineMerge (ST_Union (geom)),
-            :tolerance) AS geoms
+        ST_Multi (ST_Simplify (ST_LineMerge (ST_Union (geom)),
+                :tolerance)) AS geoms
     FROM
         :src);
 

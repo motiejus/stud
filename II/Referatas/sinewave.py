@@ -3,7 +3,7 @@ from math import pi
 from pyproj import CRS
 import numpy as np
 import geopandas as gpd
-from shapely.geometry import LineString
+from shapely.geometry import LineString, MultiLineString
 
 INTERVAL = 0.1
 TAIL_LEN = 4
@@ -17,11 +17,12 @@ def main():
     amplitude = (np.sin(sin_range * pi / 2) + 1)*2
     y = np.concatenate([TAILS, amplitude, TAILS])
     x = np.arange(-TAIL_LEN - pi/4, SINE_LEN + TAIL_LEN, INTERVAL)
-    geom = LineString(zip(x, y))
+    lines = LineString(zip(x, y))
+    geom = MultiLineString([lines])
     df = gpd.GeoDataFrame(crs=CRS(3346))
     df['geometry'] = None
     df.loc[0, 'geometry'] = geom
-    df.to_file("sinewave.json", driver='GeoJSON')
+    df.to_file("sinewave.gpkg", driver='GPKG')
 
 
 if __name__ == '__main__':

@@ -3,7 +3,8 @@ GEN = $(addsuffix .pdf, \
 		  $(addprefix zeimena-douglas-,$(TOLERANCES)) \
 		  $(addprefix zeimena-visvalingam-,$(TOLERANCES)))
 
-mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf $(GEN)
+mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena-pretty.pdf \
+	sinewave-douglas-100.pdf $(GEN)
 	latexmk -g -pdf $<
 
 define algo2img
@@ -15,17 +16,18 @@ $(1)-$(2)-$(3).pdf: layer2img.py db/.faux_$(1)-$(2)-$(3)
 	./layer2img.py --table=$(1)_$(2)_$(3) --size=52x74 --outfile $(1)-$(2)-$(3).pdf
 endef
 
+$(eval $(call algo2img,sinewave,douglas,100))
 $(foreach t,$(TOLERANCES),$(eval $(call algo2img,zeimena,douglas,$(t))))
 $(foreach t,$(TOLERANCES),$(eval $(call algo2img,zeimena,visvalingam,$(t))))
 
-sinewave.json: sinewave.py
+sinewave.gpkg: sinewave.py
 	./sinewave.py
 
-db/.faux_ready: zeimena.gpkg sinewave.json managedb
+db/.faux_ready: zeimena.gpkg sinewave.gpkg managedb
 	-./managedb stop; rm -fr db
 	./managedb init
 	ogr2ogr -f PostgreSQL "PG:host=127.0.0.1 user=osm dbname=osm" zeimena.gpkg
-	ogr2ogr -f PostgreSQL "PG:host=127.0.0.1 user=osm dbname=osm" sinewave.json
+	ogr2ogr -f PostgreSQL "PG:host=127.0.0.1 user=osm dbname=osm" sinewave.gpkg
 	touch $@
 
 REF = $(shell git describe --tags)
