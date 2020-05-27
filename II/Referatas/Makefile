@@ -34,8 +34,8 @@ $(eval $(call gpkg2pdf,sinewave,sinewave,--size=52x15))
 $(eval $(call gpkg2pdf,zeimena,zeimena,--size=135x191 --rect $(CROSSING)))
 $(eval $(call gpkg2pdf,zeimena,crossing,--size=105x74 --clip $(CROSSING)))
 
-sinewave.gpkg: sinewave.py
-	./sinewave.py
+sinewave.gpkg: fig2layer.py
+	./fig2layer.py -o $@ sine
 
 db/.faux_ready: zeimena.gpkg sinewave.gpkg managedb
 	-./managedb stop; rm -fr db

@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
 INCH = 25.4  # mm
+BOUNDS = ('xmin', 'ymin', 'xmax', 'ymax')
 
 
 def plt_size(string):
@@ -29,12 +30,10 @@ def parse_args():
     parser.add_argument('-o', '--outfile', metavar='<file>', type=str)
     parser.add_argument(
             '--size', type=plt_size, help='Figure size in mm (WWxHH)')
-    parser.add_argument(
-            '--clip', type=float, nargs=4,
-            metavar=('xmin', 'ymin', 'xmax', 'ymax'))
+    parser.add_argument( '--clip', type=float, nargs=4, metavar=BOUNDS)
     parser.add_argument(
             '--rect', type=float, nargs=4, help="Overlay a rectangle",
-            metavar=('xmin', 'ymin', 'xmax', 'ymax'))
+            metavar=BOUNDS)
     return parser.parse_args()
 
 
