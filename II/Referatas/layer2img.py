@@ -24,17 +24,17 @@ def plt_size(string):
 def parse_args():
     parser = argparse.ArgumentParser(
             description='Convert geopackage to an image')
-    ingroup = parser.add_mutually_exclusive_group(required=True)
-    ingroup.add_argument('--infile')
-    ingroup.add_argument('--table')
+    group1 = parser.add_mutually_exclusive_group()
+    group1.add_argument('--group1-infile')
+    group1.add_argument('--group1-table')
     parser.add_argument('-o', '--outfile', metavar='<file>')
     parser.add_argument(
             '--size', type=plt_size, help='Figure size in mm (WWxHH)')
     parser.add_argument( '--clip', type=float, nargs=4, metavar=BOUNDS)
 
-    overlay = parser.add_mutually_exclusive_group()
-    overlay.add_argument('--overlay-infile', type=str)
-    overlay.add_argument('--overlay-table', type=str)
+    group2 = parser.add_mutually_exclusive_group()
+    group2.add_argument('--group2-infile', type=str)
+    group2.add_argument('--group2-table', type=str)
     return parser.parse_args()
 
 
@@ -49,20 +49,21 @@ def read_layer(maybe_table, maybe_file):
 
 def main():
     args = parse_args()
-    primary = read_layer(args.table, args.infile)
-    overlay = read_layer(args.overlay_table, args.overlay_infile)
+    group1 = read_layer(args.group1_table, args.group1_infile)
+    group2 = read_layer(args.group2_table, args.group2_infile)
 
     rc('text', usetex=True)
     fig, ax = plt.subplots()
     if args.size:
         fig.set_size_inches(args.size)
-    primary.plot(ax=ax, color=PURPLE)
     if c := args.clip:
         ax.set_xlim(left=c[0], right=c[2])
         ax.set_ylim(bottom=c[1], top=c[3])
 
-    if overlay is not None:
-        overlay.plot(ax=ax, color=ORANGE)
+    if group1 is not None:
+        group1.plot(ax=ax, color=PURPLE)
+    if group2 is not None:
+        group2.plot(ax=ax, color=ORANGE)
 
     ax.axis('off')
     ax.margins(0, 0)

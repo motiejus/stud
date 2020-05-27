@@ -207,29 +207,29 @@ bends on the original map should be retained.
         Douglas \& Peucker                                                &
         Visvalingam-Whyatt                                                \tabularnewline \hline
 
-        125/15625                                                         &
-        \includegraphics[width=\linewidth]{zeimena-douglas-125}           &
-        \includegraphics[width=\linewidth]{zeimena-visvalingam-125}       \tabularnewline \hline
+        128/15625                                                         &
+        \includegraphics[width=\linewidth]{zeimena-douglas-128}           &
+        \includegraphics[width=\linewidth]{zeimena-visvalingam-128}       \tabularnewline \hline
 
-        250/62500                                                         &
-        \includegraphics[width=.5\linewidth]{zeimena-douglas-250}         &
-        \includegraphics[width=.5\linewidth]{zeimena-visvalingam-250}     \tabularnewline \hline
+        256/62560                                                         &
+        \includegraphics[width=.5\linewidth]{zeimena-douglas-256}         &
+        \includegraphics[width=.5\linewidth]{zeimena-visvalingam-256}     \tabularnewline \hline
 
-        500/250000                                                        &
-        \includegraphics[width=.25\linewidth]{zeimena-douglas-500}        &
-        \includegraphics[width=.25\linewidth]{zeimena-visvalingam-500}    \tabularnewline \hline
+        512/251200                                                        &
+        \includegraphics[width=.25\linewidth]{zeimena-douglas-512}        &
+        \includegraphics[width=.25\linewidth]{zeimena-visvalingam-512}    \tabularnewline \hline
 
-        1000/1000000                                                      &
-        \includegraphics[width=.125\linewidth]{zeimena-douglas-1000}      &
-        \includegraphics[width=.125\linewidth]{zeimena-visvalingam-1000}  \tabularnewline \hline
+        1024/1024000                                                      &
+        \includegraphics[width=.125\linewidth]{zeimena-douglas-1024}      &
+        \includegraphics[width=.125\linewidth]{zeimena-visvalingam-1024}  \tabularnewline \hline
 
-        2000/4000000                                                      &
-        \includegraphics[width=.0625\linewidth]{zeimena-douglas-2000}     &
-        \includegraphics[width=.0625\linewidth]{zeimena-visvalingam-2000} \tabularnewline \hline
+        2048/4000000                                                      &
+        \includegraphics[width=.0625\linewidth]{zeimena-douglas-2048}     &
+        \includegraphics[width=.0625\linewidth]{zeimena-visvalingam-2048} \tabularnewline \hline
 
-        4000/16000000                                                     &
-        \includegraphics[width=.0625\linewidth]{zeimena-douglas-4000}     &
-        \includegraphics[width=.0625\linewidth]{zeimena-visvalingam-4000} \tabularnewline \hline
+        4096/16000000                                                     &
+        \includegraphics[width=.0625\linewidth]{zeimena-douglas-4096}     &
+        \includegraphics[width=.0625\linewidth]{zeimena-visvalingam-4096} \tabularnewline \hline
     \end{tabularx}
     \caption{{\DP} and {\VW} on Žeimena}
     \label{tab:comparison-zeimena}
@@ -240,22 +240,23 @@ Let's zoom in to the river crossing area for some of the algorithms.
 
 \begin{figure}[h]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
-    \begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
+    \begin{tabularx}{\textwidth}{ p{2.1cm} | X | X | }
         Tolerance DP/VW                                                   &
         Douglas \& Peucker                                                &
         Visvalingam-Whyatt                                                \tabularnewline \hline
 
+        64/4096                                                              &
+        \includegraphics[width=\linewidth]{crossing-zeimena-douglas-64}      &
+        \includegraphics[width=\linewidth]{crossing-zeimena-visvalingam-64}  \tabularnewline \hline
+
         125/15625                                                         &
-        \includegraphics[width=\linewidth]{crossing-zeimena-douglas-125}           &
-        \includegraphics[width=\linewidth]{crossing-zeimena-visvalingam-125}       \tabularnewline \hline
+        \includegraphics[width=\linewidth]{crossing-zeimena-douglas-128}           &
+        \includegraphics[width=\linewidth]{crossing-zeimena-visvalingam-128}       \tabularnewline \hline
 
         250/62500                                                         &
-        \includegraphics[width=.5\linewidth]{crossing-zeimena-douglas-250}         &
-        \includegraphics[width=.5\linewidth]{crossing-zeimena-visvalingam-250}     \tabularnewline \hline
+        \includegraphics[width=\linewidth]{crossing-zeimena-douglas-256}         &
+        \includegraphics[width=\linewidth]{crossing-zeimena-visvalingam-256}     \tabularnewline \hline
 
-        500/250000                                                        &
-        \includegraphics[width=.25\linewidth]{crossing-zeimena-douglas-500}        &
-        \includegraphics[width=.25\linewidth]{crossing-zeimena-visvalingam-500}    \tabularnewline \hline
     \end{tabularx}
     \caption{{\DP} and {\VW} on river crossing area}
     \label{tab:comparison-zoomed}
