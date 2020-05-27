@@ -239,7 +239,8 @@ Let's zoom in to the river crossing area for some of the algorithms; see
 table~\ref{tab:comparison-crossing} on page~\pageref{tab:comparison-crossing}.
 
 Both {\VW} and {\DP} simplify "blunt" bends (a "blunt" bent looks like a cutout
-from a large circle, see figure~\ref{blunt-bent} on page~\pageref{blunt-bent}.
+from a large circle, see figure~\ref{fig:blunt-bent} on
+page~\pageref{fig:blunt-bent}.
 
 \begin{figure}[h]
     \centering
@@ -287,18 +288,18 @@ of the least developed aspects of automatic line generalization, according to
 \cite{miuller1995generalization}. {\WM} encoded this process to an algorithm.
 
 Imagine there are two small bends close to each other, similar to
-figure~\ref{pic:sinewave} on page~\pageref{pic:sinewave}, and one needs
-to generalize it. The bends are too large to ignore replace them with a
-straight line, but too small to retain both and retain their complexity.
+figure~\ref{fig:sinewave} on page~\pageref{fig:sinewave}, and one needs to
+generalize it. The bends are too large to ignore replace them with a straight
+line, but too small to retain both and retain their complexity.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=52mm]{sinewave}
     \caption{Example river bend that should be generalized}
-    \label{pic:sinewave}
+    \label{fig:sinewave}
 \end{figure}
 
-When one applies {\DP} to figure~\ref{pic:sinewave}, either both bends remain,
+When one applies {\DP} to figure~\ref{fig:sinewave}, either both bends remain,
 or become a straight line, see table~\ref{tab:comparison-sinewave} on
 page~\pageref{tab:comparison-sinewave}.
 
@@ -329,6 +330,9 @@ page~\pageref{tab:comparison-sinewave}.
     \caption{{\DP} and {\VW} on example wave}
     \label{tab:comparison-sinewave}
 \end{figure}
+
+Ideally, the double-bend in figure~\ref{fig:sinewave} should be normalized to a
+larger single-bend, similar to figure~ on page~.
 
 \section{Related Work and future suggestions}
 \label{sec:related_work}
