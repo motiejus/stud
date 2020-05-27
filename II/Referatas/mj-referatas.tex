@@ -160,21 +160,21 @@ page~\pageref{fig:zeimena}) will be used as inputs to the generalization
 algorithms, because the river exhibits both both straight and curved shape, is
 a combination of two curly rivers, and author's familiarity with the location.
 
-Since the map area is large (approx. 20km by 28km, scale $1:150 000$), we will
+Since the map area is large (approx. 20km by 28km, scale $1:300 000$), we will
 also review a subset of the area of approx 2200m by 1575m. The zoomed-in
 version will help explain some of the deficiencies in the reviewed algorithms.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=67.5mm]{zeimena}
-    \caption{Lakaja and Žeimena, with marked river crossing area, $1:300000$}
+    \caption{Lakaja and Žeimena, with marked river crossing area, $1:300 000$}
     \label{fig:zeimena}
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=74mm]{crossing}
-    \caption{River crossing area zoomed in, $1:30000$}
+    \caption{River crossing area zoomed in, $1:30 000$}
     \label{fig:crossing}
 \end{figure}
 
@@ -196,7 +196,7 @@ researched.
 
 As can be observed in table~\ref{tab:comparison-zeimena} on
 page~\pageref{tab:comparison-zeimena}, both simplication algorithms convert
-bends to chopped lines. This is especially visible in tolerances 250 and 500.
+bends to chopped lines. This is especially visible in tolerances 256 and 512.
 In a more robust simplification algorithm, the larger tolerance, the larger the
 bends on the original map should be retained.
 
@@ -215,7 +215,7 @@ bends on the original map should be retained.
         \includegraphics[width=.5\linewidth]{zeimena-douglas-256}         &
         \includegraphics[width=.5\linewidth]{zeimena-visvalingam-256}     \tabularnewline \hline
 
-        512/ 262144                                                       &
+        512/262144                                                        &
         \includegraphics[width=.25\linewidth]{zeimena-douglas-512}        &
         \includegraphics[width=.25\linewidth]{zeimena-visvalingam-512}    \tabularnewline \hline
 
@@ -235,8 +235,22 @@ bends on the original map should be retained.
     \label{tab:comparison-zeimena}
 \end{figure}
 
-Let's zoom in to the river crossing area for some of the algorithms.
+Let's zoom in to the river crossing area for some of the algorithms; see
+table~\ref{tab:comparison-crossing} on page~\pageref{tab:comparison-crossing}.
 
+Both {\VW} and {\DP} simplify "blunt" bends (a "blunt" bent looks like a cutout
+from a large circle, see figure~\ref{blunt-bent} on page~\pageref{blunt-bent}.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \draw (-5,0) -- (-3, 0) ;
+        \draw (0,0) arc (60:120:3) ;
+        \draw (0,0) -- (2, 0) ;
+    \end{tikzpicture}
+    \caption{Blunt bent}
+    \label{fig:blunt-bent}
+\end{figure}
 
 \begin{figure}[h]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
@@ -249,20 +263,18 @@ Let's zoom in to the river crossing area for some of the algorithms.
         \includegraphics[width=\linewidth]{overlaid-zeimena-douglas-64}      &
         \includegraphics[width=\linewidth]{overlaid-zeimena-visvalingam-64}  \tabularnewline \hline
 
-        125/15625                                                            &
+        128/16384                                                            &
         \includegraphics[width=\linewidth]{overlaid-zeimena-douglas-128}     &
         \includegraphics[width=\linewidth]{overlaid-zeimena-visvalingam-128} \tabularnewline \hline
 
-        250/62500                                                            &
+        256/65536                                                            &
         \includegraphics[width=\linewidth]{overlaid-zeimena-douglas-256}     &
         \includegraphics[width=\linewidth]{overlaid-zeimena-visvalingam-256} \tabularnewline \hline
 
     \end{tabularx}
     \caption{{\DP} and {\VW} on river crossing area}
-    \label{tab:comparison-zoomed}
+    \label{tab:comparison-crossing}
 \end{figure}
-
-
 
 
 To sum up, both {\VW} and {\DP} simplify the lines, but their cartographic
