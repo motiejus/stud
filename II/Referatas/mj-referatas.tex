@@ -14,6 +14,7 @@
 \usepackage[maxbibnames=99,style=authoryear]{biblatex}
 \usepackage[pdfusetitle]{hyperref}
 \usepackage{enumitem}
+\usepackage[toc,page,title]{appendix}
 \addbibresource{bib.bib}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -106,6 +107,8 @@ Current open-source line generalization solutions have their roots in
 
 \tableofcontents
 \listoffigures
+
+\newpage
 
 \section{Introduction}
 \label{sec:introduction}
@@ -309,5 +312,15 @@ deficiencies. We are suggesting to implement {\WM} and compare it to the other
 two.
 
 \printbibliography
+
+\begin{appendices}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=148mm]{zeimena-pretty}
+    \caption{Lakaja and Žeimena river in context}
+\end{figure}
+
+\end{appendices}
 
 \end{document}
