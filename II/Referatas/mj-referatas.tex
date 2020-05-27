@@ -235,6 +235,34 @@ bends on the original map should be retained.
     \label{tab:comparison-zeimena}
 \end{figure}
 
+Let's zoom in to the river crossing area for some of the algorithms.
+
+
+\begin{figure}[h]
+    \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
+    \begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
+        Tolerance DP/VW                                                   &
+        Douglas \& Peucker                                                &
+        Visvalingam-Whyatt                                                \tabularnewline \hline
+
+        125/15625                                                         &
+        \includegraphics[width=\linewidth]{crossing-zeimena-douglas-125}           &
+        \includegraphics[width=\linewidth]{crossing-zeimena-visvalingam-125}       \tabularnewline \hline
+
+        250/62500                                                         &
+        \includegraphics[width=.5\linewidth]{crossing-zeimena-douglas-250}         &
+        \includegraphics[width=.5\linewidth]{crossing-zeimena-visvalingam-250}     \tabularnewline \hline
+
+        500/250000                                                        &
+        \includegraphics[width=.25\linewidth]{crossing-zeimena-douglas-500}        &
+        \includegraphics[width=.25\linewidth]{crossing-zeimena-visvalingam-500}    \tabularnewline \hline
+    \end{tabularx}
+    \caption{{\DP} and {\VW} on river crossing area}
+    \label{tab:comparison-zoomed}
+\end{figure}
+
+
+
 
 To sum up, both {\VW} and {\DP} simplify the lines, but their cartographic
 output poorly represents lines and bends. Where to look for better output?
