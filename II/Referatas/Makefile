@@ -16,7 +16,7 @@ GEN2 = $(addsuffix .pdf, \
 		   $(addprefix overlaid-sinewave2-visvalingam-,$(SINEWAVE_TOLERANCES)))
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf \
-	sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2)
+			sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2)
 	latexmk -shell-escape -g -pdf $<
 
 define algo2img
