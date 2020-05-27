@@ -22,17 +22,17 @@ crossing-$(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
 endef
 
 define gpkg2pdf
-$(2).pdf: $(1).gpkg ./layer2img.py $(4)
-	./layer2img.py $(3) --infile=$(1).gpkg --outfile $(2).pdf
+$(1): $(2) ./layer2img.py
+	./layer2img.py $(3) --infile=$$< --outfile $(1).pdf
 endef
 
 $(eval $(call algo2img,sinewave,douglas,52x12))
 $(eval $(call algo2img,sinewave,visvalingam,52x12))
 $(eval $(call algo2img,zeimena,douglas,52x74))
 $(eval $(call algo2img,zeimena,visvalingam,52x74))
-$(eval $(call gpkg2pdf,sinewave,sinewave,--size=52x15))
-$(eval $(call gpkg2pdf,zeimena,zeimena,--size=135x191 --overlay-infile rectangle.gpkg,rectangle.gpkg))
-$(eval $(call gpkg2pdf,zeimena,crossing,--size=105x74 --clip $(CROSSING)))
+$(eval $(call gpkg2pdf,sinewave.pdf,sinewave.gpkg,,--size=52x15))
+$(eval $(call gpkg2pdf,zeimena.pdf,zeimena.gpkg rectangle.gpkg,--size=135x191 --overlay-infile rectangle.gpkg))
+$(eval $(call gpkg2pdf,crossing.pdf,zeimena.gpkg,--size=105x74 --clip $(CROSSING)))
 
 sinewave.gpkg: fig2layer.py
 	./fig2layer.py -o $@ sine
