@@ -54,11 +54,11 @@ sinewave%.gpkg: fig2layer.py
 rectangle.gpkg: fig2layer.py
 	./fig2layer.py -o $@ rect --bounds $(CROSSING)
 
-db/.faux_ready: zeimena.gpkg sinewave.gpkg managedb
+db/.faux_ready: zeimena.gpkg sinewave2.gpkg managedb
 	-./managedb stop; rm -fr db
 	./managedb init
 	ogr2ogr -f PostgreSQL "PG:host=127.0.0.1 user=osm dbname=osm" zeimena.gpkg
-	ogr2ogr -f PostgreSQL "PG:host=127.0.0.1 user=osm dbname=osm" sinewave.gpkg
+	ogr2ogr -f PostgreSQL "PG:host=127.0.0.1 user=osm dbname=osm" sinewave2.gpkg
 	touch $@
 
 REF = $(shell git describe --tags)
