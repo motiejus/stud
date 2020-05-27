@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# https://gis.stackexchange.com/questions/131716/plot-shapefile-with-matplotlib
+# blue: #377eb8
 
 import argparse
 import geopandas
@@ -57,13 +57,13 @@ def main():
     fig, ax = plt.subplots()
     if args.size:
         fig.set_size_inches(args.size)
-    primary.plot(ax=ax)
+    primary.plot(ax=ax, color='#4daf4a')
     if c := args.clip:
         ax.set_xlim(left=c[0], right=c[2])
         ax.set_ylim(bottom=c[1], top=c[3])
 
     if overlay is not None:
-        overlay.plot(ax=ax)
+        overlay.plot(ax=ax, color='#e41a1c')
 
     ax.axis('off')
     ax.margins(0, 0)
