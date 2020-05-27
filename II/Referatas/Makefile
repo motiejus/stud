@@ -8,17 +8,14 @@ GEN1 = $(addsuffix .pdf, \
 		  $(addprefix sinewave-visvalingam-,$(SINEWAVE_TOLERANCES)) \
 		  $(addprefix zeimena-douglas-,$(ZEIMENA_TOLERANCES)) \
 		  $(addprefix zeimena-visvalingam-,$(ZEIMENA_TOLERANCES)))
-
 GEN2 = $(addsuffix .pdf, \
 		   $(addprefix overlaid-zeimena-douglas-,$(CROSSING_TOLERANCES)) \
-		   $(addprefix overlaid-zeimena-visvalingam-,$(CROSSING_TOLERANCES)))
-
-GEN3 = $(addsuffix .pdf, \
+		   $(addprefix overlaid-zeimena-visvalingam-,$(CROSSING_TOLERANCES)) \
 		   $(addprefix overlaid-sinewave-douglas-,$(SINEWAVE_TOLERANCES)) \
 		   $(addprefix overlaid-sinewave-visvalingam-,$(SINEWAVE_TOLERANCES)))
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf \
-	sinewave.pdf crossing.pdf $(GEN1) $(GEN2) $(GEN3)
+	sinewave.pdf crossing.pdf $(GEN1) $(GEN2)
 	latexmk -g -pdf $<
 
 define algo2img
@@ -28,12 +25,10 @@ db/.faux_$(1)-$(2)-%: $(2).sql db/.faux_ready
 $(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
 	./layer2img.py --group2-table=$(1)_$(2)_$$* --size=$(3) --outfile $$@
 endef
-
 define algo2overlay
 overlaid-$(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
 	./layer2img.py $(3) --group1-table=$(1) --group2-table=$(1)_$(2)_$$* --outfile $$@
 endef
-
 define gpkg2pdf
 $(1): $(2) ./layer2img.py
 	./layer2img.py $(3) --group1-infile=$$< --outfile $(1)
