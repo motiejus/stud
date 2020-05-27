@@ -15,7 +15,7 @@ GEN2 = $(addsuffix .pdf, \
 		   $(addprefix overlaid-sinewave-visvalingam-,$(SINEWAVE_TOLERANCES)))
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf \
-	sinewave.pdf crossing.pdf $(GEN1) $(GEN2)
+	sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2)
 	latexmk -g -pdf $<
 
 define algo2img
@@ -38,7 +38,8 @@ $(eval $(call algo2img,sinewave,douglas,60x24))
 $(eval $(call algo2img,sinewave,visvalingam,60x24))
 $(eval $(call algo2img,zeimena,douglas,210x297))
 $(eval $(call algo2img,zeimena,visvalingam,210x297))
-$(eval $(call gpkg2pdf,sinewave.pdf,sinewave.gpkg,,--size=$(SINEWAVE_SIZE)))
+$(eval $(call gpkg2pdf,sinewave1.pdf,sinewave1.gpkg,,--size=$(SINEWAVE_SIZE)))
+$(eval $(call gpkg2pdf,sinewave2.pdf,sinewave2.gpkg,,--size=$(SINEWAVE_SIZE)))
 $(eval $(call gpkg2pdf,zeimena.pdf,zeimena.gpkg rectangle.gpkg,--size=134x191 --group2-infile rectangle.gpkg))
 $(eval $(call gpkg2pdf,crossing.pdf,zeimena.gpkg,--size=105x74 --clip $(CROSSING)))
 $(eval $(call algo2overlay,zeimena,douglas,--size 148x105 --clip $(CROSSING)))
@@ -46,8 +47,8 @@ $(eval $(call algo2overlay,zeimena,visvalingam,--size 148x105 --clip $(CROSSING)
 $(eval $(call algo2overlay,sinewave,douglas,--size $(SINEWAVE_SIZE)))
 $(eval $(call algo2overlay,sinewave,visvalingam,--size $(SINEWAVE_SIZE)))
 
-sinewave.gpkg: fig2layer.py
-	./fig2layer.py -o $@ sine
+sinewave%.gpkg: fig2layer.py
+	./fig2layer.py -o $@ sine --numwaves=$*
 
 rectangle.gpkg: fig2layer.py
 	./fig2layer.py -o $@ rect --bounds $(CROSSING)
