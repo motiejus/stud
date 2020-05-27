@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# blue: #377eb8
-
 import argparse
 import geopandas
 import psycopg2
@@ -10,6 +8,7 @@ from matplotlib import rc, patches
 
 INCH = 25.4  # mm
 BOUNDS = ('xmin', 'ymin', 'xmax', 'ymax')
+GREEN, ORANGE, PURPLE = '#1b9e77', '#d95f02', '#7570b3'
 
 
 def plt_size(string):
@@ -57,13 +56,13 @@ def main():
     fig, ax = plt.subplots()
     if args.size:
         fig.set_size_inches(args.size)
-    primary.plot(ax=ax, color='#4daf4a')
+    primary.plot(ax=ax, color=PURPLE)
     if c := args.clip:
         ax.set_xlim(left=c[0], right=c[2])
         ax.set_ylim(bottom=c[1], top=c[3])
 
     if overlay is not None:
-        overlay.plot(ax=ax, color='#e41a1c')
+        overlay.plot(ax=ax, color=ORANGE)
 
     ax.axis('off')
     ax.margins(0, 0)

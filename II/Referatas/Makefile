@@ -23,7 +23,7 @@ endef
 
 define gpkg2pdf
 $(1): $(2) ./layer2img.py
-	./layer2img.py $(3) --infile=$$< --outfile $(1).pdf
+	./layer2img.py $(3) --infile=$$< --outfile $(1)
 endef
 
 $(eval $(call algo2img,sinewave,douglas,52x12))
