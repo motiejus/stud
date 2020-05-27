@@ -20,6 +20,7 @@ __pycache__
 *.run.xml
 *.toc
 *.lof
+*.lol
 *.gpkg-wal
 *.gpkg-shm
 
@@ -27,3 +28,4 @@ env/
 *.pyc
 version.tex
 db/
+_minted-*/
