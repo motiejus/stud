@@ -164,7 +164,7 @@ Since the map area is large (approx. 20km by 28km, scale $1:300 000$), we will
 also review a subset of the area of approx 2200m by 1575m. The zoomed-in
 version will help explain some of the deficiencies in the reviewed algorithms.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=67.5mm]{zeimena}
     \caption{Lakaja and Žeimena, with marked river crossing area, $1:300 000$}
@@ -200,7 +200,7 @@ bends to chopped lines. This is especially visible in tolerances 256 and 512.
 In a more robust simplification algorithm, the larger tolerance, the larger the
 bends on the original map should be retained.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
     \begin{tabularx}{\textwidth}{ p{2.1cm} | X | X | }
         Tolerance DP/VW                                                   &
@@ -235,13 +235,9 @@ bends on the original map should be retained.
     \label{tab:comparison-zeimena}
 \end{figure}
 
-Let's zoom in to the river crossing area for some of the algorithms; see
-table~\ref{tab:comparison-crossing} on page~\pageref{tab:comparison-crossing}.
-
-Both {\VW} and {\DP} simplify "blunt" bends (a "blunt" bent looks like a cutout
-from a large circle, see figure~\ref{fig:blunt-bent} on
-page~\pageref{fig:blunt-bent}). This is not ideal, because large blunt bents
-should be retained.
+To ease the discussion on shapes in the resulting output, it is useful to
+define what a "blunt bend" is: it is a river bent that looks like a cutout from
+a large circle, ilustrated in figure~\ref{fig:blunt-bent}.
 
 \begin{figure}[h]
     \centering
@@ -253,6 +249,11 @@ should be retained.
     \caption{Blunt bent}
     \label{fig:blunt-bent}
 \end{figure}
+
+Once zoomed in to the river crossing area with {\DP} and {\VW} applied, it becomes apparent that both large
+blunts are normalized to single lines, the shape becomes jagged and unpleasant
+for the eye. See table~\ref{tab:comparison-crossing} on
+page~\pageref{tab:comparison-crossing}.
 
 \begin{figure}[h]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
@@ -278,20 +279,19 @@ should be retained.
     \label{tab:comparison-crossing}
 \end{figure}
 
-
-To sum up, both {\VW} and {\DP} simplify the lines, but their cartographic
-output poorly represents lines and bends. Where to look for better output?
+There is another issue on the wishlist beyond jaggyness and loss of large bents
+-- combining close bends to larger ones.
 
 \subsection{Combining bends}
 
-Consecutive small bends should be combined into larger bends, and that is one
-of the least developed aspects of automatic line generalization, according to
-\cite{miuller1995generalization}. {\WM} encoded this process to an algorithm.
-
 Imagine there are two small bends close to each other, similar to
-figure~\ref{fig:sinewave} on page~\pageref{fig:sinewave}, and one needs to
+figure~\ref{fig:sinewave2} on page~\pageref{fig:sinewave2}, and one needs to
 generalize it. The bends are too large to ignore replace them with a straight
 line, but too small to retain both and retain their complexity.
+
+According to cartographic generalization rules
+(\cite{miuller1995generalization}), consecutive small bends should be combined
+into larger bends. {\WM} encoded this process to an algorithm.
 
 \begin{figure}[h]
     \centering
@@ -301,39 +301,39 @@ line, but too small to retain both and retain their complexity.
 \end{figure}
 
 When one applies {\DP} to figure~\ref{fig:sinewave2}, either both bends remain,
-or become a straight line, see table~\ref{tab:comparison-sinewave} on
-page~\pageref{tab:comparison-sinewave}.
+or become a straight line, see table~\ref{tab:comparison-sinewave2} on
+page~\pageref{tab:comparison-sinewave2}.
 
 \begin{figure}[h]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
     \begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
-        Tolerance DP/VW                                                      &
-        Douglas \& Peucker                                                   &
-        Visvalingam-Whyatt                                                   \tabularnewline \hline
+        Tolerance DP/VW                                                       &
+        Douglas \& Peucker                                                    &
+        Visvalingam-Whyatt                                                    \tabularnewline \hline
 
-        2/4                                                                  &
-        \includegraphics[width=\linewidth]{overlaid-sinewave-douglas-2}      &
-        \includegraphics[width=\linewidth]{overlaid-sinewave-visvalingam-2}  \tabularnewline \hline
+        2/4                                                                   &
+        \includegraphics[width=\linewidth]{overlaid-sinewave2-douglas-2}      &
+        \includegraphics[width=\linewidth]{overlaid-sinewave2-visvalingam-2}  \tabularnewline \hline
 
-        16/256                                                               &
-        \includegraphics[width=\linewidth]{overlaid-sinewave-douglas-16}     &
-        \includegraphics[width=\linewidth]{overlaid-sinewave-visvalingam-16} \tabularnewline \hline
+        16/256                                                                &
+        \includegraphics[width=\linewidth]{overlaid-sinewave2-douglas-16}     &
+        \includegraphics[width=\linewidth]{overlaid-sinewave2-visvalingam-16} \tabularnewline \hline
 
         32/1024                                                               &
-        \includegraphics[width=\linewidth]{overlaid-sinewave-douglas-32}     &
-        \includegraphics[width=\linewidth]{overlaid-sinewave-visvalingam-32} \tabularnewline \hline
+        \includegraphics[width=\linewidth]{overlaid-sinewave2-douglas-32}     &
+        \includegraphics[width=\linewidth]{overlaid-sinewave2-visvalingam-32} \tabularnewline \hline
 
-        40/1600                                                              &
-        \includegraphics[width=\linewidth]{overlaid-sinewave-douglas-40}     &
-        \includegraphics[width=\linewidth]{overlaid-sinewave-visvalingam-40} \tabularnewline \hline
+        40/1600                                                               &
+        \includegraphics[width=\linewidth]{overlaid-sinewave2-douglas-40}     &
+        \includegraphics[width=\linewidth]{overlaid-sinewave2-visvalingam-40} \tabularnewline \hline
 
     \end{tabularx}
     \caption{{\DP} and {\VW} on example wave}
-    \label{tab:comparison-sinewave}
+    \label{tab:comparison-sinewave2}
 \end{figure}
 
-Ideally, the double-bend in figure~\ref{fig:sinewave2} should be normalized to a
-larger single-bend, similar to figure~\ref{fig:sinewave1} on
+Ideally, the double-bend in figure~\ref{fig:sinewave2} should be normalized to
+a larger single-bend, similar to figure~\ref{fig:sinewave1} on
 page~\pageref{fig:sinewave2}.
 
 \begin{figure}[h]
@@ -342,6 +342,39 @@ page~\pageref{fig:sinewave2}.
     \caption{Possible river bend generalization}
     \label{fig:sinewave1}
 \end{figure}
+
+To recap, both {\VW} and {\DP} simplify the lines, but their cartographic
+output, when zoomed in, looks poorly to the human eye. Can a better solution be
+found?
+
+\section{Recommendation}
+\label{sec:recommendation}
+
+So far, we have reviewed two widely available open-source generalization
+algorithms {\DP} and {\VW}, and now can enumerate the shortcomings:
+\begin{itemize}
+    \item Resulting generalized lines look jaggy and, when zoomed in,
+        unpleasant to the eye.
+    \item Blunt bends are generalized to straight lines, even though sometimes
+        they should remain blunt bends (or even exhagerated bends).
+    \item Consecutive small bends should be normalized into a larger bend.
+\end{itemize}
+
+According to \cite{wang1998line}, their algorithm fixes all 3 issues above. The
+algorithm is relatively simple to understand for a non-expert cartographer
+software developer, and thus should be feasible to implement in a few weeks.
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+We have evaluated two readily available line simplification algorithms using a
+river sample and a synthetic bend: {\VW} and {\DP}. Once looking at the
+examples, it is quite easy to see the most glaring deficiencies when applying
+those two for comparing cartographic generalization.
+
+We are suggesting to complement open-source list of
+available algorithms with {\WM}, which was created for cartographic
+generalization, and should fix the shortcomings identified in this paper.
 
 \section{Related Work and future suggestions}
 \label{sec:related_work}
@@ -356,13 +389,6 @@ As noted in parameter~\ref{itm:2} on page~\pageref{itm:2}, it would be useful
 to have a formula mapping {\DP} tolerance to {\VW}. That way, visual
 comparisons between line simplification algorithms could be more objective.
 
-\section{Conclusions}
-\label{sec:conclusions}
-
-We have practically evaluated two readily available line simplification
-algorithms with a river sample: {\VW} and {\DP}, and outlined their
-deficiencies. We are suggesting to implement {\WM} and compare it to the other
-two.
 
 \printbibliography
 

@@ -5,15 +5,15 @@ CROSSING_TOLERANCES = 64 128 256
 SINEWAVE_SIZE = 120x48
 #CROSSING=622916 6119267 626066 6121487
 GEN1 = $(addsuffix .pdf, \
-		  $(addprefix sinewave-douglas-,$(SINEWAVE_TOLERANCES)) \
-		  $(addprefix sinewave-visvalingam-,$(SINEWAVE_TOLERANCES)) \
+		  $(addprefix sinewave2-douglas-,$(SINEWAVE_TOLERANCES)) \
+		  $(addprefix sinewave2-visvalingam-,$(SINEWAVE_TOLERANCES)) \
 		  $(addprefix zeimena-douglas-,$(ZEIMENA_TOLERANCES)) \
 		  $(addprefix zeimena-visvalingam-,$(ZEIMENA_TOLERANCES)))
 GEN2 = $(addsuffix .pdf, \
 		   $(addprefix overlaid-zeimena-douglas-,$(CROSSING_TOLERANCES)) \
 		   $(addprefix overlaid-zeimena-visvalingam-,$(CROSSING_TOLERANCES)) \
-		   $(addprefix overlaid-sinewave-douglas-,$(SINEWAVE_TOLERANCES)) \
-		   $(addprefix overlaid-sinewave-visvalingam-,$(SINEWAVE_TOLERANCES)))
+		   $(addprefix overlaid-sinewave2-douglas-,$(SINEWAVE_TOLERANCES)) \
+		   $(addprefix overlaid-sinewave2-visvalingam-,$(SINEWAVE_TOLERANCES)))
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf \
 	sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2)
@@ -35,8 +35,8 @@ $(1): $(2) ./layer2img.py
 	./layer2img.py $(3) --group1-infile=$$< --outfile $(1)
 endef
 
-$(eval $(call algo2img,sinewave,douglas,60x24))
-$(eval $(call algo2img,sinewave,visvalingam,60x24))
+$(eval $(call algo2img,sinewave2,douglas,60x24))
+$(eval $(call algo2img,sinewave2,visvalingam,60x24))
 $(eval $(call algo2img,zeimena,douglas,210x297))
 $(eval $(call algo2img,zeimena,visvalingam,210x297))
 $(eval $(call gpkg2pdf,sinewave1.pdf,sinewave1.gpkg,,--size=$(SINEWAVE_SIZE)))
@@ -45,8 +45,8 @@ $(eval $(call gpkg2pdf,zeimena.pdf,zeimena.gpkg rectangle.gpkg,--size=134x191 --
 $(eval $(call gpkg2pdf,crossing.pdf,zeimena.gpkg,--size=105x74 --clip $(CROSSING)))
 $(eval $(call algo2overlay,zeimena,douglas,--size 148x105 --clip $(CROSSING)))
 $(eval $(call algo2overlay,zeimena,visvalingam,--size 148x105 --clip $(CROSSING)))
-$(eval $(call algo2overlay,sinewave,douglas,--size $(SINEWAVE_SIZE)))
-$(eval $(call algo2overlay,sinewave,visvalingam,--size $(SINEWAVE_SIZE)))
+$(eval $(call algo2overlay,sinewave2,douglas,--size $(SINEWAVE_SIZE)))
+$(eval $(call algo2overlay,sinewave2,visvalingam,--size $(SINEWAVE_SIZE)))
 
 sinewave%.gpkg: fig2layer.py
 	./fig2layer.py -o $@ sine --numwaves=$*
