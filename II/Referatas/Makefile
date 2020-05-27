@@ -38,7 +38,7 @@ sinewave.gpkg: fig2layer.py
 	./fig2layer.py -o $@ sine
 
 rectangle.gpkg: fig2layer.py
-	./fig2layer.py -o $@ rectangle --bounds $(CROSSING)
+	./fig2layer.py -o $@ rect --bounds $(CROSSING)
 
 db/.faux_ready: zeimena.gpkg sinewave.gpkg managedb
 	-./managedb stop; rm -fr db
