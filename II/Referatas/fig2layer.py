@@ -24,7 +24,7 @@ def sinewave(args):
         TAIL_LEN, SINE_LEN = 7, 7
         TAILS = np.zeros(int(TAIL_LEN / INTERVAL))
         sin_range = np.arange(-pi/4, SINE_LEN, INTERVAL) * pi / 2
-        amplitude = (np.sin(sin_range)+1)*2
+        amplitude = (np.sin(sin_range)+1)
     else:
         TAIL_LEN, SINE_LEN = 3.5, 3.5
         TAILS = np.zeros(int(TAIL_LEN / INTERVAL))
