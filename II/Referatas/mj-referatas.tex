@@ -23,6 +23,7 @@
 \usepackage{tabularx}
 \usepackage{float}
 \usepackage{tikz}
+\usepackage{minted}
 \usetikzlibrary{er,positioning}
 \input{version}
 
@@ -385,18 +386,49 @@ As noted in parameter~\ref{itm:2} on page~\pageref{itm:2}, it would be useful
 to have a formula mapping {\DP} tolerance to {\VW}. That way, visual
 comparisons between line simplification algorithms could be more objective.
 
-
 \printbibliography
 
-\iffalse
-may enable this before publishing
 \begin{appendices}
+
+\section{Žeimena and Lakaja in context}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=148mm]{zeimena-pretty}
     \caption{Lakaja and Žeimena river in context}
 \end{figure}
-\end{appendices}
-\fi
 
+\section{Code listings}
+
+For the curious users it may be useful to see how the analysis was executed.
+Also, given the source listings, it should be relatively straightforward to
+re-run the same analysis on a different area.
+
+\subsection{douglas.sql}
+Transforms a layer ({\tt :src}) to {\DP} using $tolerance$ tolerance.
+\inputminted[fontsize=\small]{sql}{douglas.sql}
+
+\subsection{visvalingam.sql}
+Transforms a layer ({\tt :src}) to {\VW} using $tolerance^2$ tolerance.
+\inputminted[fontsize=\small]{sql}{visvalingam.sql}
+
+\subsection{fig2layer.py}
+Creates figures (square, sine wave) as geopackage files.
+\inputminted[fontsize=\small]{python}{fig2layer.py}
+
+\subsection{Makefile}
+This file binds all the pieces together:
+\begin{itemize}
+    \item Prepares the PostGIS database.
+    \item Generates helper figures (sine waves, squares).
+    \item Runs analysis on input files ({\DP} and {\VW}).
+    \item Invokes {\tt latexmk} as a final report generation step.
+\end{itemize}
+\inputminted[fontsize=\small]{make}{Makefile}
+
+\subsection{layer2img.py}
+This file accepts a layer (or two) and generates a PDF image suitable for embedding into the report.
+\inputminted[fontsize=\small]{python}{layer2img.py}
+
+\end{appendices}
 \end{document}

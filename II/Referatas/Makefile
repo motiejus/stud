@@ -17,18 +17,24 @@ GEN2 = $(addsuffix .pdf, \
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf \
 	sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2)
-	latexmk -g -pdf $<
+	latexmk -shell-escape -g -pdf $<
 
 define algo2img
 db/.faux_$(1)-$(2)-%: $(2).sql db/.faux_ready
-	./managedb -- --echo-all -v ON_ERROR_STOP=1 -v src=$(1) -v tolerance=$$* -v tbl=$(1)_$(2)_$$* -f $(2).sql
+	./managedb -- --echo-all \
+		-v ON_ERROR_STOP=1 \
+		-v src=$(1) \
+		-v tolerance=$$* \
+		-v tbl=$(1)_$(2)_$$* \
+		-f $(2).sql
 	touch $$@
 $(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
 	./layer2img.py --group2-table=$(1)_$(2)_$$* --size=$(3) --outfile $$@
 endef
 define algo2overlay
 overlaid-$(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
-	./layer2img.py $(3) --group1-table=$(1) --group2-table=$(1)_$(2)_$$* --outfile $$@
+	./layer2img.py $(3) --group1-table=$(1) --group2-table=$(1)_$(2)_$$* \
+		--outfile $$@
 endef
 define gpkg2pdf
 $(1): $(2) ./layer2img.py
@@ -41,7 +47,8 @@ $(eval $(call algo2img,zeimena,douglas,210x297))
 $(eval $(call algo2img,zeimena,visvalingam,210x297))
 $(eval $(call gpkg2pdf,sinewave1.pdf,sinewave1.gpkg,--size=$(SINEWAVE_SIZE)))
 $(eval $(call gpkg2pdf,sinewave2.pdf,sinewave2.gpkg,--size=$(SINEWAVE_SIZE)))
-$(eval $(call gpkg2pdf,zeimena.pdf,zeimena.gpkg rectangle.gpkg,--size=134x191 --group2-infile rectangle.gpkg))
+$(eval $(call gpkg2pdf,zeimena.pdf,zeimena.gpkg rectangle.gpkg,\
+	--size=134x191 --group2-infile rectangle.gpkg))
 $(eval $(call gpkg2pdf,crossing.pdf,zeimena.gpkg,--size=105x74 --clip $(CROSSING)))
 $(eval $(call algo2overlay,zeimena,douglas,--size 148x105 --clip $(CROSSING)))
 $(eval $(call algo2overlay,zeimena,visvalingam,--size 148x105 --clip $(CROSSING)))
