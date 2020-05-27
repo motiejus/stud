@@ -37,6 +37,9 @@ $(eval $(call gpkg2pdf,zeimena,crossing,--size=105x74 --clip $(CROSSING)))
 sinewave.gpkg: fig2layer.py
 	./fig2layer.py -o $@ sine
 
+rectangle.gpkg: fig2layer.py
+	./fig2layer.py -o $@ rectangle --bounds $(CROSSING)
+
 db/.faux_ready: zeimena.gpkg sinewave.gpkg managedb
 	-./managedb stop; rm -fr db
 	./managedb init

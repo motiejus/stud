@@ -5,7 +5,8 @@ import argparse
 import geopandas
 import psycopg2
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+
+from matplotlib import rc, patches
 
 INCH = 25.4  # mm
 BOUNDS = ('xmin', 'ymin', 'xmax', 'ymax')
@@ -45,6 +46,8 @@ def main():
         f = geopandas.read_postgis(sql, con=conn, geom_col='geom')
     else:
         f = geopandas.read_file(args.infile)
+
+    rc('text', usetex=True)
     fig, ax = plt.subplots()
     if args.size:
         fig.set_size_inches(args.size)
