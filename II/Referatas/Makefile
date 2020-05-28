@@ -41,8 +41,8 @@ $(1): $(2) ./layer2img.py
 	./layer2img.py $(3) --group1-infile=$$< --outfile $(1)
 endef
 
-$(eval $(call algo2img,sinewave2,douglas,60x24))
-$(eval $(call algo2img,sinewave2,visvalingam,60x24))
+$(eval $(call algo2img,sinewave2,douglas,$(SINEWAVE_SIZE)))
+$(eval $(call algo2img,sinewave2,visvalingam,$(SINEWAVE_SIZE)))
 $(eval $(call algo2img,zeimena,douglas,210x297))
 $(eval $(call algo2img,zeimena,visvalingam,210x297))
 $(eval $(call gpkg2pdf,sinewave1.pdf,sinewave1.gpkg,--size=$(SINEWAVE_SIZE)))
