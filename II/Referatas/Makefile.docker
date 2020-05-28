@@ -1,0 +1,6 @@
+mj-referatas.pdf: .faux_docker
+	docker run -ti --rm -v `pwd`:/x -w /x mj-referatas make $(MAKEFLAGS)
+
+.faux_docker: Dockerfile
+	docker build -t mj-referatas .
+	touch $@
