@@ -25,6 +25,7 @@
 \usepackage{tikz}
 \usepackage{minted}
 \usetikzlibrary{er,positioning}
+\definecolor{mypurple}{RGB}{117,112,179}
 \input{version}
 
 \newcommand{\DP}{Douglas \& Peucker}
@@ -243,9 +244,9 @@ a large circle, ilustrated in figure~\ref{fig:blunt-bent}.
 \begin{figure}[h]
     \centering
     \begin{tikzpicture}
-        \draw (-5,0) -- (-3, 0) ;
-        \draw (0,0) arc (60:120:3) ;
-        \draw (0,0) -- (2, 0) ;
+        \draw[color=mypurple] (-5,0) -- (-3, 0) ;
+        \draw[color=mypurple] (0,0) arc (60:120:3) ;
+        \draw[color=mypurple] (0,0) -- (2, 0) ;
     \end{tikzpicture}
     \caption{Blunt bent}
     \label{fig:blunt-bent}
