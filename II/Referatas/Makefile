@@ -68,11 +68,10 @@ db/.faux_ready: zeimena.gpkg sinewave2.gpkg managedb
 	ogr2ogr -f PostgreSQL "PG:host=127.0.0.1 user=osm dbname=osm" sinewave2.gpkg
 	touch $@
 
-REF = $(shell git describe --tags)
-DIRTY = $(shell git status --porcelain | awk '{print"-dirty";exit}')
+REF = $(shell git describe --tags --dirty)
 GIT_DIR = $(shell git rev-parse --show-toplevel)/.git
 version.tex: $(shell git ls-files .) $(GIT_DIR)
 	( \
 		date '+\gdef\GeneratedAt{%F %T %Z}%'; \
-		printf '\gdef\VCDescribe{%s%s}%%\n' $(REF) $(DIRTY); \
+		printf '\gdef\VCDescribe{%s}%%\n' $(REF); \
 	) > $@
