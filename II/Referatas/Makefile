@@ -15,9 +15,16 @@ GEN2 = $(addsuffix .pdf, \
 		   $(addprefix overlaid-sinewave2-douglas-,$(SINEWAVE_TOLERANCES)) \
 		   $(addprefix overlaid-sinewave2-visvalingam-,$(SINEWAVE_TOLERANCES)))
 
+.PHONY: all
+all: mj-referatas.pdf mj-prezentacija.pdf
+
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf \
 			sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2)
 	latexmk -shell-escape -g -pdf $<
+
+mj-prezentacija.pdf: mj-presentacija.tex ../../misc/Logo_vilniaus_universitetas.png \
+	crossing.pdf $(GEN2)
+	latexmk -pdf $<
 
 define algo2img
 db/.faux_$(1)-$(2)-%: $(2).sql db/.faux_ready

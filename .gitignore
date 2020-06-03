@@ -21,6 +21,8 @@ __pycache__
 *.toc
 *.lof
 *.lol
+*.nav
+*.snm
 *.gpkg-wal
 *.gpkg-shm
 
