@@ -123,6 +123,7 @@
         \item Mažinant mastelį reikia mažinti detalumą.
         \item Detalumo mažinimas yra sudėtinga problema.
     \end{itemize}
+    \onslide<+->{Paimkime pavyzdį.}
 \end{frame}
 
 \begin{frame}{Žeimena ir Lakaja}
@@ -132,6 +133,7 @@
 \end{frame}
 
 \begin{frame}{Kas yra prieinama?}
+    \pause
     \begin{itemize}[<+->]
         \item Atvira ir galima naudoti:
             \begin{itemize}[<+->]
@@ -163,6 +165,17 @@
     \end{tabularx}
 \end{frame}
 
+\begin{frame}{Problemos}
+    Ne taip, kaip kartografai generalizuotų:
+    \pause
+    \begin{itemize}[<+->]
+        \item Daug "kampų" ir "dantų".
+        \item Nedideli vingiai visiškai dingsta.
+        \item Upės beveik niekada nebūna tiesios.
+    \end{itemize}
+\end{frame}
+
+
 \section{Pasiūlymas}
 
 \begin{frame}{Algoritmas}
@@ -174,12 +187,19 @@
 \end{frame}
 
 \begin{frame}{Pagrindiniai privalumai}
-    Sukurtas pagal tai, kaip kartografai generalizuoja:
+    Sukurtas pagal tai, kaip kartografai generalizuotų:
     \pause
     \begin{itemize}[<+->]
-        \item Išvengia "kampų" ir "dantų".
-        \item Kelios linijos "prastinamos" į vieną.
-        \item Vengiama itin tiesių linijų.
+        \item Nesukuriami "kampai" ir "dantys".
+        \item Nedideli vingiai "prastinami" į vieną didesnį.
+        \item Nesukuria tiesių upių.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Technologijos}
+    \begin{itemize}[<+->]
+        \item {\texttt qgis.core}
+        \item PostGIS 3.x
     \end{itemize}
 \end{frame}
 
@@ -189,13 +209,6 @@
     \begin{itemize}[<+->]
         \item Parašyti algoritmą.
         \item Aprašyti rezultatus.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Technologijos}
-    \begin{itemize}[<+->]
-        \item {\texttt qgis.core}
-        \item PostGIS 3.x
     \end{itemize}
 \end{frame}
 
