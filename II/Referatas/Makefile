@@ -23,7 +23,7 @@ mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf \
 	latexmk -shell-escape -g -pdf $<
 
 mj-prezentacija.pdf: mj-presentacija.tex ../../misc/Logo_vilniaus_universitetas.png \
-	crossing.pdf $(GEN2)
+	zeimena.pdf crossing.pdf $(GEN2)
 	latexmk -pdf $<
 
 define algo2img
