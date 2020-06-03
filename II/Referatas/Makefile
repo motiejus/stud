@@ -22,7 +22,7 @@ mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf \
 			sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2)
 	latexmk -shell-escape -g -pdf $<
 
-mj-prezentacija.pdf: mj-presentacija.tex ../../misc/Logo_vilniaus_universitetas.png \
+mj-prezentacija.pdf: mj-prezentacija.tex ../../misc/Logo_vilniaus_universitetas.png \
 	zeimena.pdf crossing.pdf $(GEN2) images/wang1998line.png
 	latexmk -pdf $<
 
