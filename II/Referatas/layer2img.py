@@ -35,6 +35,10 @@ def parse_args():
     group2 = parser.add_mutually_exclusive_group()
     group2.add_argument('--group2-infile', type=str)
     group2.add_argument('--group2-table', type=str)
+
+    group3 = parser.add_mutually_exclusive_group()
+    group3.add_argument('--group3-infile', type=str)
+    group3.add_argument('--group3-table', type=str)
     return parser.parse_args()
 
 
@@ -51,6 +55,7 @@ def main():
     args = parse_args()
     group1 = read_layer(args.group1_table, args.group1_infile)
     group2 = read_layer(args.group2_table, args.group2_infile)
+    group3 = read_layer(args.group3_table, args.group3_infile)
 
     rc('text', usetex=True)
     fig, ax = plt.subplots()
@@ -64,6 +69,8 @@ def main():
         group1.plot(ax=ax, color=PURPLE)
     if group2 is not None:
         group2.plot(ax=ax, color=ORANGE)
+    if group3 is not None:
+        group3.plot(ax=ax, color=GREEN)
 
     ax.axis('off')
     ax.margins(0, 0)

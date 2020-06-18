@@ -34,12 +34,11 @@ db/.faux_$(1)_$(2)_%: $(2).sql db/.faux_ready
 		-v tbl=$(1)_$(2)_$$* \
 		-f $(2).sql
 	touch $$@
-db/.chaikin_$(1)_%: chaikin.sql db/.faux_ready
+db/.chaikin_$(1)_$(2)_%: db/.faux_$(1)_$(2)_% chaikin.sql
 	./managedb -- --echo-all \
 		-v ON_ERROR_STOP=1 \
-		-v src=$(1) \
-		-v param1=$$* \
-		-v tbl=chaikin_$(1)_$$* \
+		-v src=$(1)_$(2)_$$* \
+		-v tbl=chaikin_$(1)_$(2)_$$* \
 		-f chaikin.sql
 	touch $$@
 $(1)_$(2)_%.pdf: layer2img.py db/.faux_$(1)_$(2)_%
