@@ -148,7 +148,13 @@ are often used for line generalization:
 
     \item \cite{visvalingam1993line} via
         \href{https://postgis.net/docs/ST_SimplifyVW.html}{PostGIS SimplifyVW}.
+
 \end{itemize}
+
+Since both algorithms produce jaggy output lines, it is worthwhile to process
+those through a widely available \cite{chaikin1974algorithm} smoothing
+algorithm via \href{https://postgis.net/docs/ST_ChaikinSmoothing.html}{PostGIS
+ChaikinSmoothing}.
 
 Review of the available algorithms will be followed by desiderata for a
 possible open-source addition. In the end, we will issue a recommendation,
@@ -251,10 +257,10 @@ a large circle, ilustrated in figure~\ref{fig:blunt-bent}.
     \label{fig:blunt-bent}
 \end{figure}
 
-Once zoomed in to the river crossing area with {\DP} and {\VW} applied, it becomes apparent that both large
-blunts are normalized to single lines, the shape becomes jagged and unpleasant
-for the eye. See table~\ref{tab:comparison-crossing} on
-page~\pageref{tab:comparison-crossing}.
+Once zoomed in to the river crossing area with {\DP} and {\VW} applied, it
+becomes apparent that both large blunts are normalized to single lines, the
+shape becomes jagged and unpleasant for the eye. See
+table~\ref{tab:comparison-crossing} on page~\pageref{tab:comparison-crossing}.
 
 \begin{figure}[h]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
@@ -278,6 +284,31 @@ page~\pageref{tab:comparison-crossing}.
     \end{tabularx}
     \caption{{\DP} and {\VW} on river crossing area}
     \label{tab:comparison-crossing}
+\end{figure}
+
+As the reader may observe, the output lines, especially with higher tolerances,
+are jaggy. Higher-tolerance jaggy outputs from {\VW} and {\DP}, passed through Chaikin,
+are displayed in table~\ref{tab:chaikin-crossing} on
+page~\page{tab:chaikin-crossing}.
+
+\begin{figure}[h]
+    \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
+    \begin{tabularx}{\textwidth}{ p{2.1cm} | X | X | }
+        Tolerance DP/VW                                                              &
+        Douglas \& Peucker                                                           &
+        Visvalingam-Whyatt                                                           \tabularnewline \hline
+
+        128/16384                                                                    &
+        \includegraphics[width=\linewidth]{chaikin_overlaid_zeimena_douglas_128}     &
+        \includegraphics[width=\linewidth]{chaikin_overlaid_zeimena_visvalingam_128} \tabularnewline \hline
+
+        256/65536                                                                    &
+        \includegraphics[width=\linewidth]{chaikin_overlaid_zeimena_douglas_256}     &
+        \includegraphics[width=\linewidth]{chaikin_overlaid_zeimena_visvalingam_256} \tabularnewline \hline
+
+    \end{tabularx}
+    \caption{Chaikin-smoothened {\DP} and {\VW} on river crossing area}
+    \label{tab:chaikin-crossing}
 \end{figure}
 
 There is another issue on the wishlist beyond jaggyness and loss of large bents

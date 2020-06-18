@@ -2,6 +2,7 @@ CROSSING = 622916 6109267 626066 6111487 # xmin ymin xmax ymax
 ZEIMENA_TOLERANCES = 128 256 512 1024 2048 4096
 SINEWAVE_TOLERANCES = 2 16 32
 CROSSING_TOLERANCES = 64 128 256
+CHAIKIN_CROSSING_TOLERANCES = 128 256
 SINEWAVE_SIZE = 120x48
 GEN1 = $(addsuffix .pdf, \
 		  $(addprefix sinewave2_douglas_,$(SINEWAVE_TOLERANCES)) \
@@ -13,12 +14,15 @@ GEN2 = $(addsuffix .pdf, \
 		   $(addprefix overlaid_zeimena_visvalingam_,$(CROSSING_TOLERANCES)) \
 		   $(addprefix overlaid_sinewave2_douglas_,$(SINEWAVE_TOLERANCES)) \
 		   $(addprefix overlaid_sinewave2_visvalingam_,$(SINEWAVE_TOLERANCES)))
+GEN3 = $(addsuffix .pdf, \
+		   $(addprefix overlaid_chaikin_zeimena_douglas_,$(CHAIKIN_CROSSING_TOLERANCES)) \
+		   $(addprefix overlaid_chaikin_zeimena_visvalingam_,$(CHAIKIN_CROSSING_TOLERANCES)))
 
 .PHONY: all
 all: mj-referatas.pdf mj-prezentacija.pdf
 
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf \
-			sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2)
+			sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2) $(GEN3)
 	latexmk -shell-escape -g -pdf $<
 
 mj-prezentacija.pdf: mj-prezentacija.tex ../../misc/Logo_vilniaus_universitetas.png \
@@ -47,6 +51,12 @@ endef
 define algo2overlay
 overlaid_$(1)_$(2)_%.pdf: layer2img.py db/.faux_$(1)_$(2)_%
 	./layer2img.py $(3) --group1-table=$(1) --group2-table=$(1)_$(2)_$$* \
+		--outfile $$@
+chaikin_overlaid_$(1)_$(2)_$(3)_%.pdf: layer2img.py db/.chaikin_$(1)_$(2)_%
+	./layer2img.py $(3) \
+		--group1-table=$(1) \
+		--group2-table=$(1)_$(2)_$$* \
+		--group3-table=chaikin_$(1)_$(2)_$$* \
 		--outfile $$@
 endef
 define gpkg2pdf
