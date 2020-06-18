@@ -73,7 +73,8 @@ $(eval $(call gpkg2pdf,sinewave1.pdf,sinewave1.gpkg,--size=$(SINEWAVE_SIZE)))
 $(eval $(call gpkg2pdf,sinewave2.pdf,sinewave2.gpkg,--size=$(SINEWAVE_SIZE)))
 $(eval $(call gpkg2pdf,zeimena.pdf,zeimena.gpkg rectangle.gpkg,\
 	--size=134x191 --group2-infile rectangle.gpkg))
-$(eval $(call gpkg2pdf,crossing.pdf,zeimena.gpkg,--size=105x74 --clip $(CROSSING)))
+$(eval $(call gpkg2pdf,crossing.pdf,zeimena.gpkg,\
+	--size=105x74  --group2-infile rectangle.gpkg --clip $(CROSSING)))
 $(eval $(call algo2overlay,zeimena,douglas,--size 148x105 --clip $(CROSSING)))
 $(eval $(call algo2overlay,zeimena,visvalingam,--size 148x105 --clip $(CROSSING)))
 $(eval $(call algo2overlay,sinewave2,douglas,--size $(SINEWAVE_SIZE)))
