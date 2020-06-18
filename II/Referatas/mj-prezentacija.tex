@@ -114,18 +114,18 @@
 \begin{frame}{Pritaikant dabartinius algoritmus}
     \pause
     \begin{tabularx}{\textwidth}{ | X | X | }
-        Douglas \& Peucker                                                   &
-        Visvalingam-Whyatt                                                   \tabularnewline \hline
+        Douglas \& Peucker                                                            &
+        Visvalingam-Whyatt                                                            \tabularnewline \hline
 
         \onslide<3->{\center
-            \includegraphics[width=.75\linewidth]{overlaid_zeimena_douglas_64}}      &
+            \includegraphics[width=.75\linewidth]{overlaid_zeimena_douglas_128}}      &
         \onslide<3->{\center
-            \includegraphics[width=.75\linewidth]{overlaid_zeimena_visvalingam_64}}  \tabularnewline \hline
+            \includegraphics[width=.75\linewidth]{overlaid_zeimena_visvalingam_128}}  \tabularnewline \hline
 
         \onslide<4->{\center
-            \includegraphics[width=.75\linewidth]{overlaid_zeimena_douglas_256}}     &
+            \includegraphics[width=.75\linewidth]{overlaid_zeimena_douglas_512}}     &
         \onslide<4->{\center
-            \includegraphics[width=.75\linewidth]{overlaid_zeimena_visvalingam_256}} \tabularnewline \hline
+            \includegraphics[width=.75\linewidth]{overlaid_zeimena_visvalingam_512}} \tabularnewline \hline
     \end{tabularx}
 \end{frame}
 
@@ -139,6 +139,36 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{"Kampai" ir "dantys"}
+    Dainai išspręsti kampuotas ir dantytas linijas galima naudojant Chaikin
+    algoritmą.
+\end{frame}
+
+\begin{frame}{DP ir VW po Chaikin algoritmo}
+    \pause
+    \begin{tabularx}{\textwidth}{ | X | X | }
+        {\DP}                                                                                &
+        {\VW}                                                                                \tabularnewline \hline
+
+        \onslide<3->{\center
+            \includegraphics[width=.75\linewidth]{overlaid_chaikin_zeimena_douglas_128}}     &
+        \onslide<3->{\center
+            \includegraphics[width=.75\linewidth]{overlaid_chaikin_zeimena_visvalingam_128}} \tabularnewline \hline
+
+        \onslide<4->{\center
+            \includegraphics[width=.75\linewidth]{overlaid_chaikin_zeimena_douglas_512}}     &
+        \onslide<4->{\center
+            \includegraphics[width=.75\linewidth]{overlaid_chaikin_zeimena_visvalingam_512}} \tabularnewline \hline
+    \end{tabularx}
+\end{frame}
+
+\begin{frame}{Likusi problematika}
+    \pause
+    \begin{itemize}[<+->]
+        \item Nedideli vingiai visiškai dingsta.
+        \item Dėl 2 žingsnių upių kreivumas praranda tikrumą.
+    \end{itemize}
+\end{frame}
 
 \section{Pasiūlymas}
 
