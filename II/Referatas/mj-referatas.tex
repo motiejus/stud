@@ -185,7 +185,7 @@ version will help explain some of the deficiencies in the reviewed algorithms.
     \label{fig:crossing}
 \end{figure}
 
-\section{Comparison algorithms and parameters}
+\subsection{Comparison algorithms and parameters}
 \label{sec:algs-and-params}
 
 To visually evaluate the Žeimena sample, examples for {\DP} and {\VW}
@@ -204,11 +204,13 @@ value from the other, so the results are comparable?), {\DP} tolerance was
 arbitrarily squared and fed to {\VW}. To author's eye, this provides comparable
 and reasonable results, though could be researched.
 
-Chaikin's smoothing algorithm was generated using $nIterations = 5$. That
-number was chosen for better visual appeal at the expense of computational
-power. Smaller number iterations would cause retain visible angles, whereas
-larger number of iterations, like 5 (PostGIS supports values from 1 to 5),
-causes the resulting lines to be very smooth.
+Chaikin's smoothing algorithm was generated using $nIterations = 5$. Number of
+iterations is a trade-off between visual appeal and required computational
+power to execute the algorithm. PostGIS supports values between 1 and 5. Because
+computational power for this analysis is not a concern, the maximum value was chosen,
+making the resulting smoothened lines most visually appealing.
+
+\subsection{Visual comparison results}
 
 As can be observed in table~\ref{tab:comparison-zeimena} on
 page~\pageref{tab:comparison-zeimena}, both simplification algorithms convert
