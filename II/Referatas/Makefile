@@ -48,17 +48,18 @@ db/.chaikin_$(1)_$(2)_%: db/.faux_$(1)_$(2)_% chaikin.sql
 $(1)_$(2)_%.pdf: layer2img.py db/.faux_$(1)_$(2)_%
 	./layer2img.py --group2-table=$(1)_$(2)_$$* --size=$(3) --outfile $$@
 endef
+
 define algo2overlay
 overlaid_$(1)_$(2)_%.pdf: layer2img.py db/.faux_$(1)_$(2)_%
 	./layer2img.py $(3) --group1-table=$(1) --group2-table=$(1)_$(2)_$$* \
 		--outfile $$@
-chaikin_overlaid_$(1)_$(2)_$(3)_%.pdf: layer2img.py db/.chaikin_$(1)_$(2)_%
+overlaid_chaikin_$(1)_$(2)_%.pdf: layer2img.py db/.chaikin_$(1)_$(2)_%
 	./layer2img.py $(3) \
 		--group1-table=$(1) \
-		--group2-table=$(1)_$(2)_$$* \
-		--group3-table=chaikin_$(1)_$(2)_$$* \
+		--group2-table=chaikin_$(1)_$(2)_$$* \
 		--outfile $$@
 endef
+
 define gpkg2pdf
 $(1): $(2) ./layer2img.py
 	./layer2img.py $(3) --group1-infile=$$< --outfile $(1)

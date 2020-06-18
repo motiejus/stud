@@ -287,24 +287,24 @@ table~\ref{tab:comparison-crossing} on page~\pageref{tab:comparison-crossing}.
 \end{figure}
 
 As the reader may observe, the output lines, especially with higher tolerances,
-are jaggy. Higher-tolerance jaggy outputs from {\VW} and {\DP}, passed through Chaikin,
-are displayed in table~\ref{tab:chaikin-crossing} on
-page~\page{tab:chaikin-crossing}.
+are jaggy. Higher-tolerance jaggy outputs from {\VW} and {\DP}, passed through
+Chaikin with 3 iterations, are displayed in table~\ref{tab:chaikin-crossing} on
+page~\pageref{tab:chaikin-crossing}.
 
 \begin{figure}[h]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
     \begin{tabularx}{\textwidth}{ p{2.1cm} | X | X | }
         Tolerance DP/VW                                                              &
-        Douglas \& Peucker                                                           &
-        Visvalingam-Whyatt                                                           \tabularnewline \hline
+        Douglas \& Peucker + Chaikin(3)                                              &
+        Visvalingam-Whyatt + Chaikin(3)                                              \tabularnewline \hline
 
         128/16384                                                                    &
-        \includegraphics[width=\linewidth]{chaikin_overlaid_zeimena_douglas_128}     &
-        \includegraphics[width=\linewidth]{chaikin_overlaid_zeimena_visvalingam_128} \tabularnewline \hline
+        \includegraphics[width=\linewidth]{overlaid_chaikin_zeimena_douglas_128}     &
+        \includegraphics[width=\linewidth]{overlaid_chaikin_zeimena_visvalingam_128} \tabularnewline \hline
 
         256/65536                                                                    &
-        \includegraphics[width=\linewidth]{chaikin_overlaid_zeimena_douglas_256}     &
-        \includegraphics[width=\linewidth]{chaikin_overlaid_zeimena_visvalingam_256} \tabularnewline \hline
+        \includegraphics[width=\linewidth]{overlaid_chaikin_zeimena_douglas_256}     &
+        \includegraphics[width=\linewidth]{overlaid_chaikin_zeimena_visvalingam_256} \tabularnewline \hline
 
     \end{tabularx}
     \caption{Chaikin-smoothened {\DP} and {\VW} on river crossing area}
