@@ -1,19 +1,18 @@
-CROSSING=622916 6109267 626066 6111487 # xmin ymin xmax ymax
+CROSSING = 622916 6109267 626066 6111487 # xmin ymin xmax ymax
 ZEIMENA_TOLERANCES = 128 256 512 1024 2048 4096
 SINEWAVE_TOLERANCES = 2 16 32
 CROSSING_TOLERANCES = 64 128 256
 SINEWAVE_SIZE = 120x48
-#CROSSING=622916 6119267 626066 6121487
 GEN1 = $(addsuffix .pdf, \
-		  $(addprefix sinewave2-douglas-,$(SINEWAVE_TOLERANCES)) \
-		  $(addprefix sinewave2-visvalingam-,$(SINEWAVE_TOLERANCES)) \
-		  $(addprefix zeimena-douglas-,$(ZEIMENA_TOLERANCES)) \
-		  $(addprefix zeimena-visvalingam-,$(ZEIMENA_TOLERANCES)))
+		  $(addprefix sinewave2_douglas_,$(SINEWAVE_TOLERANCES)) \
+		  $(addprefix sinewave2_visvalingam_,$(SINEWAVE_TOLERANCES)) \
+		  $(addprefix zeimena_douglas_,$(ZEIMENA_TOLERANCES)) \
+		  $(addprefix zeimena_visvalingam_,$(ZEIMENA_TOLERANCES)))
 GEN2 = $(addsuffix .pdf, \
-		   $(addprefix overlaid-zeimena-douglas-,$(CROSSING_TOLERANCES)) \
-		   $(addprefix overlaid-zeimena-visvalingam-,$(CROSSING_TOLERANCES)) \
-		   $(addprefix overlaid-sinewave2-douglas-,$(SINEWAVE_TOLERANCES)) \
-		   $(addprefix overlaid-sinewave2-visvalingam-,$(SINEWAVE_TOLERANCES)))
+		   $(addprefix overlaid_zeimena_douglas_,$(CROSSING_TOLERANCES)) \
+		   $(addprefix overlaid_zeimena_visvalingam_,$(CROSSING_TOLERANCES)) \
+		   $(addprefix overlaid_sinewave2_douglas_,$(SINEWAVE_TOLERANCES)) \
+		   $(addprefix overlaid_sinewave2_visvalingam_,$(SINEWAVE_TOLERANCES)))
 
 .PHONY: all
 all: mj-referatas.pdf mj-prezentacija.pdf
@@ -27,19 +26,27 @@ mj-prezentacija.pdf: mj-prezentacija.tex ../../misc/Logo_vilniaus_universitetas.
 	latexmk -pdf $<
 
 define algo2img
-db/.faux_$(1)-$(2)-%: $(2).sql db/.faux_ready
+db/.faux_$(1)_$(2)_%: $(2).sql db/.faux_ready
 	./managedb -- --echo-all \
 		-v ON_ERROR_STOP=1 \
 		-v src=$(1) \
-		-v tolerance=$$* \
+		-v param1=$$* \
 		-v tbl=$(1)_$(2)_$$* \
 		-f $(2).sql
 	touch $$@
-$(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
+db/.chaikin_$(1)_%: chaikin.sql db/.faux_ready
+	./managedb -- --echo-all \
+		-v ON_ERROR_STOP=1 \
+		-v src=$(1) \
+		-v param1=$$* \
+		-v tbl=chaikin_$(1)_$$* \
+		-f chaikin.sql
+	touch $$@
+$(1)_$(2)_%.pdf: layer2img.py db/.faux_$(1)_$(2)_%
 	./layer2img.py --group2-table=$(1)_$(2)_$$* --size=$(3) --outfile $$@
 endef
 define algo2overlay
-overlaid-$(1)-$(2)-%.pdf: layer2img.py db/.faux_$(1)-$(2)-%
+overlaid_$(1)_$(2)_%.pdf: layer2img.py db/.faux_$(1)_$(2)_%
 	./layer2img.py $(3) --group1-table=$(1) --group2-table=$(1)_$(2)_$$* \
 		--outfile $$@
 endef
