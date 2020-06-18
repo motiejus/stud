@@ -33,7 +33,7 @@
 \newcommand{\WM}{Wang--M{\"u}ller}
 
 \title{
-    Cartografic Generalization of Lines using free software \\
+    Cartographic Generalization of Lines using free software \\
     (example of rivers) \\ \vspace{4mm}
 }
 
@@ -185,6 +185,9 @@ version will help explain some of the deficiencies in the reviewed algorithms.
     \label{fig:crossing}
 \end{figure}
 
+\section{Comparison algorithms and parameters}
+\label{sec:algs-and-params}
+
 To visually evaluate the Žeimena sample, examples for {\DP} and {\VW}
 were created using the following parameters:
 
@@ -193,16 +196,22 @@ were created using the following parameters:
     \item {\VW} tolerance: $vwtolerance = tolerance ^ 2$\label{itm:2}.
 \end{enumerate}
 
-Parameter~\ref{itm:2} requires explanation. Tolerance for {\DP} is specified in
-linear units, in this case, meters. Tolerance for {\VW} is specified in area
-units $m^2$. As author was not able to locate formal comparisons between the
-two (i.e. how to calculate one tolerance value from the other, so the results
-are comparable?), {\DP} tolerance was arbitrarily squared and fed to {\VW}. To
-author's eye, this provides comparable and reasonable results, though could be
-researched.
+Tolerance squared, i.e. the parameter~\ref{itm:2} requires explanation.
+Tolerance for {\DP} is specified in linear units, in this case, meters.
+Tolerance for {\VW} is specified in area units $m^2$. As author was not able to
+locate formal comparisons between the two (i.e. how to calculate one tolerance
+value from the other, so the results are comparable?), {\DP} tolerance was
+arbitrarily squared and fed to {\VW}. To author's eye, this provides comparable
+and reasonable results, though could be researched.
+
+Chaikin's smoothing algorithm was generated using $nIterations = 5$. That
+number was chosen for better visual appeal at the expense of computational
+power. Smaller number iterations would cause retain visible angles, whereas
+larger number of iterations, like 5 (PostGIS supports values from 1 to 5),
+causes the resulting lines to be very smooth.
 
 As can be observed in table~\ref{tab:comparison-zeimena} on
-page~\pageref{tab:comparison-zeimena}, both simplication algorithms convert
+page~\pageref{tab:comparison-zeimena}, both simplification algorithms convert
 bends to chopped lines. This is especially visible in tolerances 256 and 512.
 In a more robust simplification algorithm, the larger tolerance, the larger the
 bends on the original map should be retained.
@@ -211,8 +220,8 @@ bends on the original map should be retained.
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
     \begin{tabularx}{\textwidth}{ p{2.1cm} | X | X | }
         Tolerance DP/VW                                                   &
-        Douglas \& Peucker                                                &
-        Visvalingam-Whyatt                                                \tabularnewline \hline
+        {\DP}                                                             &
+        {\VW}                                                             \tabularnewline \hline
 
         128/16384                                                         &
         \includegraphics[width=\linewidth]{zeimena_douglas_128}           &
@@ -244,7 +253,7 @@ bends on the original map should be retained.
 
 To ease the discussion on shapes in the resulting output, it is useful to
 define what a "blunt bend" is: it is a river bent that looks like a cutout from
-a large circle, ilustrated in figure~\ref{fig:blunt-bent}.
+a large circle, illustrated in figure~\ref{fig:blunt-bent}.
 
 \begin{figure}[h]
     \centering
@@ -266,12 +275,8 @@ table~\ref{tab:comparison-crossing} on page~\pageref{tab:comparison-crossing}.
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
     \begin{tabularx}{\textwidth}{ p{2.1cm} | X | X | }
         Tolerance DP/VW                                                      &
-        Douglas \& Peucker                                                   &
-        Visvalingam-Whyatt                                                   \tabularnewline \hline
-
-        64/4096                                                              &
-        \includegraphics[width=\linewidth]{overlaid_zeimena_douglas_64}      &
-        \includegraphics[width=\linewidth]{overlaid_zeimena_visvalingam_64}  \tabularnewline \hline
+        {\DP}                                                                &
+        {\VW}                                                                \tabularnewline \hline
 
         128/16384                                                            &
         \includegraphics[width=\linewidth]{overlaid_zeimena_douglas_128}     &
@@ -281,6 +286,10 @@ table~\ref{tab:comparison-crossing} on page~\pageref{tab:comparison-crossing}.
         \includegraphics[width=\linewidth]{overlaid_zeimena_douglas_256}     &
         \includegraphics[width=\linewidth]{overlaid_zeimena_visvalingam_256} \tabularnewline \hline
 
+        512/262144                                                            &
+        \includegraphics[width=\linewidth]{overlaid_zeimena_douglas_512}      &
+        \includegraphics[width=\linewidth]{overlaid_zeimena_visvalingam_512}  \tabularnewline \hline
+
     \end{tabularx}
     \caption{{\DP} and {\VW} on river crossing area}
     \label{tab:comparison-crossing}
@@ -288,15 +297,15 @@ table~\ref{tab:comparison-crossing} on page~\pageref{tab:comparison-crossing}.
 
 As the reader may observe, the output lines, especially with higher tolerances,
 are jaggy. Higher-tolerance jaggy outputs from {\VW} and {\DP}, passed through
-Chaikin with 3 iterations, are displayed in table~\ref{tab:chaikin-crossing} on
+Chaikin with 5 iterations, are displayed in table~\ref{tab:chaikin-crossing} on
 page~\pageref{tab:chaikin-crossing}.
 
 \begin{figure}[h]
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
     \begin{tabularx}{\textwidth}{ p{2.1cm} | X | X | }
         Tolerance DP/VW                                                              &
-        Douglas \& Peucker + Chaikin(3)                                              &
-        Visvalingam-Whyatt + Chaikin(3)                                              \tabularnewline \hline
+        {\DP} + Chaikin(5)                                                           &
+        {\VW} + Chaikin(5)                                                           \tabularnewline \hline
 
         128/16384                                                                    &
         \includegraphics[width=\linewidth]{overlaid_chaikin_zeimena_douglas_128}     &
@@ -306,12 +315,16 @@ page~\pageref{tab:chaikin-crossing}.
         \includegraphics[width=\linewidth]{overlaid_chaikin_zeimena_douglas_256}     &
         \includegraphics[width=\linewidth]{overlaid_chaikin_zeimena_visvalingam_256} \tabularnewline \hline
 
+        512/262144                                                                   &
+        \includegraphics[width=\linewidth]{overlaid_chaikin_zeimena_douglas_512}     &
+        \includegraphics[width=\linewidth]{overlaid_chaikin_zeimena_visvalingam_512} \tabularnewline \hline
+
     \end{tabularx}
     \caption{Chaikin-smoothened {\DP} and {\VW} on river crossing area}
     \label{tab:chaikin-crossing}
 \end{figure}
 
-There is another issue on the wishlist beyond jaggyness and loss of large bents
+There is another issue on the wishlist beyond jaggedness and loss of large bents
 -- combining close bends to larger ones.
 
 \subsection{Combining bends}
@@ -340,8 +353,8 @@ page~\pageref{tab:comparison-sinewave2}.
     \renewcommand{\tabularxcolumn}[1]{>{\center\small}m{#1}}
     \begin{tabularx}{\textwidth}{ p{1.5cm} | X | X | }
         Tolerance DP/VW                                                       &
-        Douglas \& Peucker                                                    &
-        Visvalingam-Whyatt                                                    \tabularnewline \hline
+        {\DP}                                                                 &
+        {\VW}                                                                 \tabularnewline \hline
 
         2/4                                                                   &
         \includegraphics[width=\linewidth]{overlaid_sinewave2_douglas_2}      &
@@ -384,7 +397,7 @@ algorithms {\DP} and {\VW}, and now can enumerate the shortcomings:
     \item Resulting generalized lines look jaggy and, when zoomed in,
         unpleasant to the eye.
     \item Blunt bends are generalized to straight lines, even though sometimes
-        they should remain blunt bends (or even exhagerated bends).
+        they should remain blunt bends (or even exaggerated bends).
     \item Consecutive small bends should be normalized into a larger bend.
 \end{itemize}
 
@@ -452,6 +465,13 @@ Transforms a layer ({\tt :src}) to {\DP} using $tolerance$ tolerance into
 Transforms a layer ({\tt :src}) to {\VW} using $tolerance^2$ tolerance into
 {\tt :tbl} table.
 \inputminted[fontsize=\small]{sql}{visvalingam.sql}
+
+\subsection{chaikin.sql}
+Smoothens a layer ({\tt :src}) using Chaikin's algorithm using $nIterations =
+    5$ into {\tt :tbl} table. The parameters are explained in
+    section~\ref{sec:algs-and-params} on page~\pageref{sec:algs-and-params}.
+
+\inputminted[fontsize=\small]{sql}{chaikin.sql}
 
 \subsection{fig2layer.py}
 Creates figures (square, sine wave) as geopackage files.

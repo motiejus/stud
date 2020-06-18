@@ -7,7 +7,7 @@ CREATE TABLE :tbl (
 
 INSERT INTO :tbl (geom) (
     SELECT
-        ST_ChaikinSmoothing (geom, 3) AS geoms
+        ST_ChaikinSmoothing (geom, 5) AS geoms
     FROM
         :src);
 
