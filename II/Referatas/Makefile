@@ -21,7 +21,7 @@ GEN3 = $(addsuffix .pdf, \
 .PHONY: all
 all: mj-referatas.pdf mj-prezentacija.pdf
 
-mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf \
+mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf zeimena-pretty.pdf \
 			sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2) $(GEN3)
 	latexmk -shell-escape -g -pdf $<
 
@@ -100,3 +100,7 @@ version.tex: $(shell git ls-files .) $(GIT_DIR)
 		date '+\gdef\GeneratedAt{%F %T %Z}%'; \
 		printf '\gdef\VCDescribe{%s}%%\n' $(REF); \
 	) > $@
+
+# Optional: vizualize and analyze dependencies and artifacts of this Makefile
+make.png:
+	$(MAKE) -Bnd | grep -Ev 'Makefile|version.tex|.git' | make2graph | dot -Tpng -o $@
