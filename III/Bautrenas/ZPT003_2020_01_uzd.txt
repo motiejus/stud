@@ -1,0 +1,58 @@
+Uzduoti parenge  A.Bautrenas  (Zemelapiu publikavimo technologijos) 
+2020.10.13 21:48:57(78537.97s)  RND=2
+
+
+Uzduotis Nr. ZPT003_2020_01
+Jakstys_Motiejus (1915375)
+ === Informacijos kiekiu skaiciavimas == (NAV_SK=0.27) ===
+Atlikti iki: 2020.10.31   21:48:57
+
+
+
+ 
+Uzduotis:  Naudojant pateiktus duomenimis apskaiciuoti teksto spausdinimui reikiamo popieriaus kieki ir kaina.
+           
+Pastaba: Vidutini simboliu skaiciu puslapyje apskaiciuoti programa <Word> naudojant pateikta teksto fragmenta [01_TXTfragmentas.txt]. Apskaiciavimui, is duoto teksto fragmento, sukurti 6 pilnus teksto puslapius (istrinant arba papildant iki reikiamo kiekio) su nurodytais teksto ir lapo parametrais  
+
+Uzduoties duomenys:
+
+ Vid.Simboliu skaicius puslapyje apskaiciuojamas pagal 6 Word doc puslapius etaloninio teksto
+ Spausdinamos informacijos kiekis = 515.349913 KB
+ Reikes atspausdinti = 173 egz.
+ Spauda = Dvipuse
+ Parastes (mm): T=27 B=28 L=35 R=18
+ Intervalas tarp eiluciu = 2
+ Popieriaus formatas = A4
+ Supakuota po = 200 lapu
+ Paketo kaina = 3.05 Eu
+
+
+===== Tekstu ir dydziu kiekiai  ==== 
++++  A. teksto dalies sriftas (fontas) = CAMBERIC  +++ 
+ Siuo fontu spausdinama  44.0% viso teksto. 
+ Teksto kiekiai pagal simboliu dydi (proc.nuo viso siuo fontu spausd.txt. kiekio)
+A.1 Simboliu dydis = 16p, uzima 66.6% teksto
+A.2 Simboliu dydis = 6p, uzima 33.4% teksto
+
++++  B. teksto dalies sriftas (fontas) = AMELIA  +++ 
+ Siuo fontu spausdinama  56.0% viso teksto. 
+ Teksto kiekiai pagal simboliu dydi (proc.nuo viso siuo fontu spausd.txt. kiekio)
+B.1 Simboliu dydis = 16p, uzima 65.7% teksto
+B.2 Simboliu dydis = 14p, uzima 34.3% teksto
+
+
+
+Pastabos: 
+1. Atliktu skaiciavimu rezultatus bei kitus duomenis (pvz. vardas, pavarde) surasyti i rinkmena [01sablonas_ats.txt].
+ Rinkmenos [01sablonas_ats.txt] strukturos nekeisti. Atsakymus surasyti tik i jiems skirtas vietas, t.y. vietoje 'zvaigzduciu' (*****). Visu skaitmenu (atsakymu) desintaine dalis turi buti atskirta TASKU, o ne kableliu, pvz. 12345.236[TAIP], 12345,236[NE].Neteisinga uzrasymo forma bus vertinama kaip klaida! 
+2. Apskaiciuotas lapu ar poku kiekis leidyboje apvalinamas i didesni sveika skaiciu, pavyzdziui, apskaiciuota, kad reikes 10.23 lapu ar poku, tai reiketu apvalinti i 11 lapu ar poku, taciau sioje uzduotyje paliekame rezultatus nurodytu tikslumu.
+3. Rinkmenos pavadinima [01sablonas_ats.txt] pakeisti i savo uzduoties nr., pvz. [ZPT003_2020_01_ats.txt] ir atsiusti kartu su rinkmenomis [viso keturios DOC rinkmenos],kurios buvo sukurtos simboliu skaiciui puslapyje apskaiciuoti. Rinkmenos (DOC) vardai turi buti [fontas_punktai.doc], pvz. [Amelia_16.doc] ir kt.  
+4. Kad reikiamas fontas atsirastu MsWord programoje, ji reikia isarchyvuoti ir isidiegti savo kompiuteryje.  
+5. Skaiciavimo rezultatai turi buti atsiusti iki nurodytos datos. Uz kiekviena paveluota valanda (skaiciuojant nuo rudens sesijos pradzios) vertinimo balas mazinamas 0.05 balo.
+
+Pabaiga: 2020.10.13 21:48:57
+
+
+Ispejimas:
+Jei si uzduotis skirta ne Jums, prasome ja perduoti adresatui arba grazinti siuntejui 
+ir istrinti is savo duomenu bazes.
