@@ -4,10 +4,10 @@
 # \partNUMBER{
 # where NUMBER := (one | two | three | four). The ^ and $ signify line's
 # beginning and end marks. When section begins, assign `idx` to its number.
-/^\\partone\{$/ { idx=1; }
-/^\\parttwo\{$/ { idx=2; }
+/^\\partone\{$/   { idx=1; }
+/^\\parttwo\{$/   { idx=2; }
 /^\\partthree\{$/ { idx=3; }
-/^\\partfour\{$/ { idx=4; }
+/^\\partfour\{$/  { idx=4; }
 
 # Section ends with "}" as a sole character in the line.
 /^\}$/ { idx=0; }
@@ -24,5 +24,5 @@ END {
     printf("number of characters in part1: %d\n", part[1]);
     printf("number of characters in part2: %d\n", part[2]);
     printf("number of characters in part3: %d\n", part[3]);
-    printf("number of characters in part4: %d\n", part[3]);
+    printf("number of characters in part4: %d\n", part[4]);
 }
