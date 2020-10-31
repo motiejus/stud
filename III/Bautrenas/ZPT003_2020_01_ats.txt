@@ -6,74 +6,81 @@ Jakstys Motiejus
 Zinomas informacijos kiekis (duotas)(irasyti pvz. 1.221400 GB) :  
 515.349913 KB
 Visas simboliu skaicius duotame informacijos kiekyje (1 simb.tiksl.):  
-*******
+527718
 A. teksto dalies sriftas (irasyti pavadinima)(duotas) :
 CAMBERIC
 A. teksto dalies kiekis (0.0%)(duotas):
 44.0%
 Visas simboliu kiekis spausdinamas A. sriftu (1 simb.tiksl.):
-*******
+232196
 A.1 teksto dalies srifto dydis (punktais) (duotas) :
 16
 A.1teksto dalies srifto dydzio kiekis (0.0%)(duotas):
 66.6%
 Visas A.1 dydzio simboliu kiekis tekste: 
-*******
+153249
 Vidutinis A.1 simboliu kiekis puslapyje (1 simb.tiksl.):
-*******
+2333
 Popieriaus kiekis A.1 spausdinimui (0.01 psl. tiksl.):
-*******
+65.68
 A.2 teksto dalies srifto dydis (punktais) (duotas) :
 6
 A.2teksto dalies srifto dydzio kiekis (0.0%)(duotas):
 33.4%
 Visas A.2 dydzio simboliu kiekis tekste: 
-*******
+77553
 Vidutinis A.2 simboliu kiekis puslapyje (1 simb.tiksl.):
-*******
+12295
 Popieriaus kiekis A.2 spausdinimui (0.01 psl. tiksl.):
-*******
+6.30
 Visas psl./lapu kiekis reikalingas spausdinat A. sriftu:
-*******
+72
 B. teksto dalies sriftas (irasyti pavadinima)(duotas) :
 AMELIA
 B. teksto dalies kiekis (0.0%)(duotas):
 56.0%
 Visas simboliu kiekis spausdinamas B. sriftu (1 simb.tiksl.):
-*******
+295522
 B.1 teksto dalies srifto dydis (punktais) (duotas) :
 16
 B.1teksto dalies srifto dydzio kiekis (0.0%)(duotas):
 65.7%
 Visas B.1 dydzio simboliu kiekis tekste: 
-*******
+194158
 Vidutinis B.1 simboliu kiekis puslapyje (1 simb.tiksl.):
-*******
+2369
 Popieriaus kiekis B.1 spausdinimui (0.01 psl. tiksl.):
-*******
+81.96
 B.2 teksto dalies srifto dydis (punktais) (duotas) :
 14
 B.2teksto dalies srifto dydzio kiekis (0.0%)(duotas):
 34.3%
 Visas B.2 dydzio simboliu kiekis tekste: 
-*******
+101364
 Vidutinis B.2 simboliu kiekis puslapyje (1 simb.tiksl.):
-*******
+2369
 Popieriaus kiekis B.2 spausdinimui (0.01 psl. tiksl.):
-*******
+42.79
 Visas psl./lapu kiekis reikalingas spausdinat B. sriftu:
-*******
+125
 Tirazas (egz.)(duotas) 
 173
 Visas popieriaus kiekis reikalingas visu egz. atspausdinimui (0.01 psl. tiksl.)
-*******
+17127.00
 Popieriaus paketu kiekis (pokais 0.01 poko tikslumu)
-*******
+85.64
 Popieriaus paketu kiekis atsargai (pokais) priklausomai nuo tirazo (0.01 poko tikslumu).
-*******
+0.98
 Visas popieriaus paketu kiekis (pokais)[Paskaiciuotas+Atsarga] (0.01 poko tikslumu)
-*******
+86.61
 Viso reikalingo popieriaus kaina (0.01 Eu tikslumu)
-*******
+265.35
 Kokioje Word versijoje skaiciuoti simboliai (irasyti pvz. Word2007)
-*******
+LaTeX + GNU AWK 5.0.1. LaTeX įvesties ir išvesties dokumentai ir AWK programa
+prisegta. Programos išvestis duotiems kodo failams:
+
+    ./stats.awk amelia14.tex amelia16.tex camberic16.tex camberic6.tex
+    number of characters in part1: 14000
+    number of characters in part2: 73768
+    number of characters in part3: 14214
+    number of characters in part4: 14214
