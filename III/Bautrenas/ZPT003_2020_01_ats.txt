@@ -1,0 +1,79 @@
+Uzduotis Nr. 
+1
+Skaiciavo(Pavarde Vardas):
+Jakstys Motiejus
+ ===  Skaiciavimo rezultatai: ===
+Zinomas informacijos kiekis (duotas)(irasyti pvz. 1.221400 GB) :  
+515.349913 KB
+Visas simboliu skaicius duotame informacijos kiekyje (1 simb.tiksl.):  
+*******
+A. teksto dalies sriftas (irasyti pavadinima)(duotas) :
+CAMBERIC
+A. teksto dalies kiekis (0.0%)(duotas):
+44.0%
+Visas simboliu kiekis spausdinamas A. sriftu (1 simb.tiksl.):
+*******
+A.1 teksto dalies srifto dydis (punktais) (duotas) :
+16
+A.1teksto dalies srifto dydzio kiekis (0.0%)(duotas):
+66.6%
+Visas A.1 dydzio simboliu kiekis tekste: 
+*******
+Vidutinis A.1 simboliu kiekis puslapyje (1 simb.tiksl.):
+*******
+Popieriaus kiekis A.1 spausdinimui (0.01 psl. tiksl.):
+*******
+A.2 teksto dalies srifto dydis (punktais) (duotas) :
+6
+A.2teksto dalies srifto dydzio kiekis (0.0%)(duotas):
+33.4%
+Visas A.2 dydzio simboliu kiekis tekste: 
+*******
+Vidutinis A.2 simboliu kiekis puslapyje (1 simb.tiksl.):
+*******
+Popieriaus kiekis A.2 spausdinimui (0.01 psl. tiksl.):
+*******
+Visas psl./lapu kiekis reikalingas spausdinat A. sriftu:
+*******
+B. teksto dalies sriftas (irasyti pavadinima)(duotas) :
+AMELIA
+B. teksto dalies kiekis (0.0%)(duotas):
+56.0%
+Visas simboliu kiekis spausdinamas B. sriftu (1 simb.tiksl.):
+*******
+B.1 teksto dalies srifto dydis (punktais) (duotas) :
+16
+B.1teksto dalies srifto dydzio kiekis (0.0%)(duotas):
+65.7%
+Visas B.1 dydzio simboliu kiekis tekste: 
+*******
+Vidutinis B.1 simboliu kiekis puslapyje (1 simb.tiksl.):
+*******
+Popieriaus kiekis B.1 spausdinimui (0.01 psl. tiksl.):
+*******
+B.2 teksto dalies srifto dydis (punktais) (duotas) :
+14
+B.2teksto dalies srifto dydzio kiekis (0.0%)(duotas):
+34.3%
+Visas B.2 dydzio simboliu kiekis tekste: 
+*******
+Vidutinis B.2 simboliu kiekis puslapyje (1 simb.tiksl.):
+*******
+Popieriaus kiekis B.2 spausdinimui (0.01 psl. tiksl.):
+*******
+Visas psl./lapu kiekis reikalingas spausdinat B. sriftu:
+*******
+Tirazas (egz.)(duotas) 
+173
+Visas popieriaus kiekis reikalingas visu egz. atspausdinimui (0.01 psl. tiksl.)
+*******
+Popieriaus paketu kiekis (pokais 0.01 poko tikslumu)
+*******
+Popieriaus paketu kiekis atsargai (pokais) priklausomai nuo tirazo (0.01 poko tikslumu).
+*******
+Visas popieriaus paketu kiekis (pokais)[Paskaiciuotas+Atsarga] (0.01 poko tikslumu)
+*******
+Viso reikalingo popieriaus kaina (0.01 Eu tikslumu)
+*******
+Kokioje Word versijoje skaiciuoti simboliai (irasyti pvz. Word2007)
+*******
