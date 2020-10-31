@@ -7,25 +7,25 @@
 \usepackage[a4paper, top=27mm,bottom=28mm,left=35mm,right=18mm]{geometry}
 
 \usepackage{fontspec}
+\linespread{1.6}
 
 \newcommand\partone[1]{{   \fontspec{CAMBERIC.TTF} \fontsize{16}{32} \selectfont #1}}
 \newcommand\parttwo[1]{{   \fontspec{CAMBERIC.TTF} \fontsize{6}{12}  \selectfont #1}}
 \newcommand\partthree[1]{{ \fontspec{AMELIA.TTF} \fontsize{16}{32} \selectfont #1}}
-\newcommand\partfour[1]{{  \fontspec{AMELIA.TTF} \fontsize{14}{32} \selectfont #1}}
+\newcommand\partfour[1]{{  \fontspec{AMELIA.TTF} \fontsize{14}{28} \selectfont #1}}
 
 \begin{document}
 
-\partone{
-
+\parttwo{
 I have long bemoaned the absence of any support for tabulated text in AutoCAD, and so have many other people. It is a common need to place tables of textual information on drawings. The only obvious method appears to be to use a mono-spaced font and space out the columns with multiple spaces, which is not very satisfactory.
 Some users create their tables in Microsoft Excel and then paste a selected region of the Excel table into AutoCAD as an OLE linked object. That has its problems. If you use a black background, as most AutoCAD users seem to do persist with, despite my advice, then the Excel table with its white background looks a bit odd. But, more seriously, Microsoft?s OLE mechanism in Windows is far from reliable, has severe limitations on the amount of linked data, and is a serious resource hog. I have always recommended AutoCAD users to avoid OLE if possible, and it usually is.
 I only found out recently from a long-time user of AutoCAD that it is possible to import Excel table data quite satisfactorily as AutoCAD text. To prove this and explain the options, I made a test table in Excel by cutting some text out of part of the ACAD.PGP file and editing it with tabs so that it would paste into Excel in rows and columns. The illustration here shows three ways at pasting it into AutoCAD. After selecting the cell range in Excel and copying it to the clipboard by Ctrl-C, I opened AutoCAD and used the Edit menu, Paste Special. The resulting dialog box, shown here, presents several options of the form in which to paste the clipboard data.
 Method 1 used the ?Paste as text? option. The result is a single ?Multiline Text? object, with each row of Excel cells as one text line with hard line-end, but with all the column spacing lost. That?s not much use as a text table. Also, even though pasting Word text into AutoCAD?s Mtext dialog-editor preserves the fonts and formatting nicely, this operation ignored the Excel text format and inserted it as the current AutoCAD Style, which in my test used the awful-looking TXT.SHX font that is still AutoCAD?s default for its Standard Style.
 Method 2 used the ?Paste as Picture (Metafile)? option. This gives quite a good result, more so if you use a white background in AutoCAD, but you cannot edit it in any way at all. 
-Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as %PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted text objects used new Styles called ?WMF-Arial0? (for the top row in bold) and ?WMF-Arial1? (for the other cells).
+Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as \%PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted text objects used new Styles called ?WMF-Arial0? (for the top row in bold) and ?WMF-Arial1? (for the other cells).
 I also tried it with one of the cells set up in Excel with wrapped multi-line text. This pasted into AutoCAD with each wrapped line as a separate single-line text object. It spaced the adjoining cells appropriately even though they had only single-line text in them.
 This method allows for some minor text editing in AutoCAD, since the text is ordinary text. If the editing widened a cell of text so that it overlapped, you?d have to manually move all the other cells around to make room and keep the tabular format. For any serious alterations, it would be better to delete all the pasted text objects, edit the Excel data, and redo the copy-paste operation.
-So, this ?Paste as %PRODUCT Entities? facility provides a quite useable text table mechanism. The odd thing is that it seems to be a bit of a secret.
+So, this ?Paste as \%PRODUCT Entities? facility provides a quite useable text table mechanism. The odd thing is that it seems to be a bit of a secret.
 This is a digital copy of a book that was preserved for generations on library shelves before it was carefully scanned by Google as part of a project 
 to make the world's books discoverable online. 
 It has survived long enough for the copyright to expire and the book to enter the public domain. A public domain book is one that was never subject 
@@ -37,8 +37,6 @@ Usage guidelines
 Google is proud to partner with libraries to digitize public domain materials and make them widely accessible. Public domain books belong to the 
 public and we are merely their custodians. Nevertheless, this work is expensive, so in order to keep providing this resource, we have taken steps to 
 prevent abuse by commercial parties, including placing technical restrictions on automated querying. 
-}
-\parttwo{
 We also ask that you: 
 + Make non-commercial use of the files We designed Google Book Search for use by individuals, and we request that you use these files for 
 personal, non-commercial purposes. 
@@ -60,146 +58,151 @@ Some users create their tables in Microsoft Excel and then paste a selected regi
 I only found out recently from a long-time user of AutoCAD that it is possible to import Excel table data quite satisfactorily as AutoCAD text. To prove this and explain the options, I made a test table in Excel by cutting some text out of part of the ACAD.PGP file and editing it with tabs so that it would paste into Excel in rows and columns. The illustration here shows three ways at pasting it into AutoCAD. After selecting the cell range in Excel and copying it to the clipboard by Ctrl-C, I opened AutoCAD and used the Edit menu, Paste Special. The resulting dialog box, shown here, presents several options of the form in which to paste the clipboard data.
 Method 1 used the ?Paste as text? option. The result is a single ?Multiline Text? object, with each row of Excel cells as one text line with hard line-end, but with all the column spacing lost. That?s not much use as a text table. Also, even though pasting Word text into AutoCAD?s Mtext dialog-editor preserves the fonts and formatting nicely, this operation ignored the Excel text format and inserted it as the current AutoCAD Style, which in my test used the awful-looking TXT.SHX font that is still AutoCAD?s default for its Standard Style.
 Method 2 used the ?Paste as Picture (Metafile)? option. This gives quite a good result, more so if you use a white background in AutoCAD, but you cannot edit it in any way at all. If the table neded altering you?d ave to alter it in Excel, delete the present AutoCAD insertion and paste the picture again.
+Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as \%PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted text objects used new Styles called ?WMF-Arial0? (for the top row in bold) and ?WMF-Arial1? (for the other cells).
+I also tried it with one of the cells set up in Excel with wrapped multi-line text. This pasted into AutoCAD with each wrapped line as a separate single-line text object. It spaced the adjoining cells appropriately even though they had only single-line text in them.
+This method allows for some minor text editing in AutoCAD, since the text is ordinary text. If the editing widened a cell of text so that it overlapped, you?d have to manually move all the other cells around to make room and keep the tabular format. For any serious alterations, it would be better to delete all the pasted text objects, edit the Excel data, and redo the copy-paste operation.
+So, this ?Paste as \%PRODUCT Entities? facility provides a quite useable text table mechanism. The odd thing is that it seems to be a bit of a secret.
+This is a digital copy of a book that was preserved for generations on library shelves before it was carefully scanned by Google as part of a project 
+to make the world's books discoverable online. 
+It has survived long enough for the copyright to expire and the book to enter the public domain. A public domain book is one that was never subject 
+to copyright or whose legal copyright term has expired. Whether a book is in the public domain may vary country to country. Public domain books 
+are our gateways to the past, representing a wealth of history, culture and knowledge that's often difficult to discover. 
+Marks, notations and other marginalia present in the original volume will appear in this file - a reminder of this book's long journey from the 
+publisher to a library and finally to you. 
+Usage guidelines 
+Google is proud to partner with libraries to digitize public domain materials and make them widely accessible. Public domain books belong to the 
+public and we are merely their custodians. Nevertheless, this work is expensive, so in order to keep providing this resource, we have taken steps to 
+prevent abuse by commercial parties, including placing technical restrictions on automated querying. 
+We also ask that you: 
++ Make non-commercial use of the files We designed Google Book Search for use by individuals, and we request that you use these files for 
+personal, non-commercial purposes. 
++ Refrain from automated querying Do not send automated queries of any sort to Google's system: If you are conducting research on machine 
+translation, optical character recognition or other areas where access to a large amount of text is helpful, please contact us. We encourage the 
+use of public domain materials for these purposes and may be able to help. 
++ Maintain attribution The Google "watermark" you see on each file is essential for informing people about this project and helping them find 
+additional materials through Google Book Search. Please do not remove it. 
++ Keep it legal Whatever your use, remember that you are responsible for ensuring that what you are doing is legal. Do not assume that just 
+because we believe a book is in the public domain for users in the United States, that the work is also in the public domain for users in other 
+countries. Whether a book is still in copyright varies from country to country, and we can't offer guidance on whether any specific use of 
+any specific book is allowed. Please do not assume that a book's appearance in Google Book Search means it can be used in any manner 
+anywhere in the world. Copyright infringement liability can be quite severe. 
+About Google Book Search 
+Google's mission is to organize the world's information and to make it universally accessible and useful. Google Book Search helps readers 
+discover the world's books while helping authors and publishers reach new audiences. You can search through the full text of this book on the web 
+I have long bemoaned the absence of any support for tabulated text in AutoCAD, and so have many other people. It is a common need to place tables of textual information on drawings. The only obvious method appears to be to use a mono-spaced font and space out the columns with multiple spaces, which is not very satisfactory.
+Some users create their tables in Microsoft Excel and then paste a selected region of the Excel table into AutoCAD as an OLE linked object. That has its problems. If you use a black background, as most AutoCAD users seem to do persist with, despite my advice, then the Excel table with its white background looks a bit odd. But, more seriously, Microsoft?s OLE mechanism in Windows is far from reliable, has severe limitations on the amount of linked data, and is a serious resource hog. I have always recommended AutoCAD users to avoid OLE if possible, and it usually is.
+I only found out recently from a long-time user of AutoCAD that it is possible to import Excel table data quite satisfactorily as AutoCAD text. To prove this and explain the options, I made a test table in Excel by cutting some text out of part of the ACAD.PGP file and editing it with tabs so that it would paste into Excel in rows and columns. The illustration here shows three ways at pasting it into AutoCAD. After selecting the cell range in Excel and copying it to the clipboard by Ctrl-C, I opened AutoCAD and used the Edit menu, Paste Special. The resulting dialog box, shown here, presents several options of the form in which to paste the clipboard data.
+Method 1 used the ?Paste as text? option. The result is a single ?Multiline Text? object, with each row of Excel cells as one text line with hard line-end, but with all the column spacing lost. That?s not much use as a text table. Also, even though pasting Word text into AutoCAD?s Mtext dialog-editor preserves the fonts and formatting nicely, this operation ignored the Excel text format and inserted it as the current AutoCAD Style, which in my test used the awful-looking TXT.SHX font that is still AutoCAD?s default for its Standard Style.
+Method 2 used the ?Paste as Picture (Metafile)? option. This gives quite a good result, more so if you use a white background in AutoCAD, but you cannot edit it in any way at all. If the table neded altering you?d ave to alter it in Excel, delete the present AutoCAD insertion and paste the picture again.
+Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as \%PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted text objects used new Styles called ?WMF-Arial0? (for the top row in bold) and ?WMF-Arial1? (for the other cells).
+I also tried it with one of the cells set up in Excel with wrapped multi-line text. This pasted into AutoCAD with each wrapped line as a separate single-line text object. It spaced the adjoining cells appropriately even though they had only single-line text in them.
+This method allows for some minor text editing in AutoCAD, since the text is ordinary text. If the editing widened a cell of text so that it overlapped, you?d have to manually move all the other cells around to make room and keep the tabular format. For any serious alterations, it would be better to delete all the pasted text objects, edit the Excel data, and redo the copy-paste operation.
+So, this ?Paste as \%PRODUCT Entities? facility provides a quite useable text table mechanism. The odd thing is that it seems to be a bit of a secret.
+This is a digital copy of a book that was preserved for generations on library shelves before it was carefully scanned by Google as part of a project 
+to make the world's books discoverable online. 
+It has survived long enough for the copyright to expire and the book to enter the public domain. A public domain book is one that was never subject 
+to copyright or whose legal copyright term has expired. Whether a book is in the public domain may vary country to country. Public domain books 
+are our gateways to the past, representing a wealth of history, culture and knowledge that's often difficult to discover. 
+Marks, notations and other marginalia present in the original volume will appear in this file - a reminder of this book's long journey from the 
+publisher to a library and finally to you. 
+Usage guidelines 
+Google is proud to partner with libraries to digitize public domain materials and make them widely accessible. Public domain books belong to the 
+public and we are merely their custodians. Nevertheless, this work is expensive, so in order to keep providing this resource, we have taken steps to 
+prevent abuse by commercial parties, including placing technical restrictions on automated querying. 
+We also ask that you: 
++ Make non-commercial use of the files We designed Google Book Search for use by individuals, and we request that you use these files for 
+personal, non-commercial purposes. 
++ Refrain from automated querying Do not send automated queries of any sort to Google's system: If you are conducting research on machine 
+translation, optical character recognition or other areas where access to a large amount of text is helpful, please contact us. We encourage the 
+use of public domain materials for these purposes and may be able to help. 
++ Maintain attribution The Google "watermark" you see on each file is essential for informing people about this project and helping them find 
+additional materials through Google Book Search. Please do not remove it. 
++ Keep it legal Whatever your use, remember that you are responsible for ensuring that what you are doing is legal. Do not assume that just 
+because we believe a book is in the public domain for users in the United States, that the work is also in the public domain for users in other 
+countries. Whether a book is still in copyright varies from country to country, and we can't offer guidance on whether any specific use of 
+any specific book is allowed. Please do not assume that a book's appearance in Google Book Search means it can be used in any manner 
+anywhere in the world. Copyright infringement liability can be quite severe. 
+About Google Book Search 
+Google's mission is to organize the world's information and to make it universally accessible and useful. Google Book Search helps readers 
+discover the world's books while helping authors and publishers reach new audiences. You can search through the full text of this book on the web 
+I have long bemoaned the absence of any support for tabulated text in AutoCAD, and so have many other people. It is a common need to place tables of textual information on drawings. The only obvious method appears to be to use a mono-spaced font and space out the columns with multiple spaces, which is not very satisfactory.
+Some users create their tables in Microsoft Excel and then paste a selected region of the Excel table into AutoCAD as an OLE linked object. That has its problems. If you use a black background, as most AutoCAD users seem to do persist with, despite my advice, then the Excel table with its white background looks a bit odd. But, more seriously, Microsoft?s OLE mechanism in Windows is far from reliable, has severe limitations on the amount of linked data, and is a serious resource hog. I have always recommended AutoCAD users to avoid OLE if possible, and it usually is.
+I only found out recently from a long-time user of AutoCAD that it is possible to import Excel table data quite satisfactorily as AutoCAD text. To prove this and explain the options, I made a test table in Excel by cutting some text out of part of the ACAD.PGP file and editing it with tabs so that it would paste into Excel in rows and columns. The illustration here shows three ways at pasting it into AutoCAD. After selecting the cell range in Excel and copying it to the clipboard by Ctrl-C, I opened AutoCAD and used the Edit menu, Paste Special. The resulting dialog box, shown here, presents several options of the form in which to paste the clipboard data.
+Method 1 used the ?Paste as text? option. The result is a single ?Multiline Text? object, with each row of Excel cells as one text line with hard line-end, but with all the column spacing lost. That?s not much use as a text table. Also, even though pasting Word text into AutoCAD?s Mtext dialog-editor preserves the fonts and formatting nicely, this operation ignored the Excel text format and inserted it as the current AutoCAD Style, which in my test used the awful-looking TXT.SHX font that is still AutoCAD?s default for its Standard Style.
+Method 2 used the ?Paste as Picture (Metafile)? option. This gives quite a good result, more so if you use a white background in AutoCAD, but you cannot edit it in any way at all. If the table neded altering you?d ave to alter it in Excel, delete the present AutoCAD insertion and paste the picture again.
+Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as \%PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted text objects used new Styles called ?WMF-Arial0? (for the top row in bold) and ?WMF-Arial1? (for the other cells).
+I also tried it with one of the cells set up in Excel with wrapped multi-line text. This pasted into AutoCAD with each wrapped line as a separate single-line text object. It spaced the adjoining cells appropriately even though they had only single-line text in them.
+This method allows for some minor text editing in AutoCAD, since the text is ordinary text. If the editing widened a cell of text so that it overlapped, you?d have to manually move all the other cells around to make room and keep the tabular format. For any serious alterations, it would be better to delete all the pasted text objects, edit the Excel data, and redo the copy-paste operation.
+So, this ?Paste as \%PRODUCT Entities? facility provides a quite useable text table mechanism. The odd thing is that it seems to be a bit of a secret.
+This is a digital copy of a book that was preserved for generations on library shelves before it was carefully scanned by Google as part of a project 
+to make the world's books discoverable online. 
+It has survived long enough for the copyright to expire and the book to enter the public domain. A public domain book is one that was never subject 
+to copyright or whose legal copyright term has expired. Whether a book is in the public domain may vary country to country. Public domain books 
+are our gateways to the past, representing a wealth of history, culture and knowledge that's often difficult to discover. 
+Marks, notations and other marginalia present in the original volume will appear in this file - a reminder of this book's long journey from the 
+publisher to a library and finally to you. 
+Usage guidelines 
+Google is proud to partner with libraries to digitize public domain materials and make them widely accessible. Public domain books belong to the 
+public and we are merely their custodians. Nevertheless, this work is expensive, so in order to keep providing this resource, we have taken steps to 
+prevent abuse by commercial parties, including placing technical restrictions on automated querying. 
+We also ask that you: 
++ Make non-commercial use of the files We designed Google Book Search for use by individuals, and we request that you use these files for 
+personal, non-commercial purposes. 
++ Refrain from automated querying Do not send automated queries of any sort to Google's system: If you are conducting research on machine 
+translation, optical character recognition or other areas where access to a large amount of text is helpful, please contact us. We encourage the 
+use of public domain materials for these purposes and may be able to help. 
++ Maintain attribution The Google "watermark" you see on each file is essential for informing people about this project and helping them find 
+additional materials through Google Book Search. Please do not remove it. 
++ Keep it legal Whatever your use, remember that you are responsible for ensuring that what you are doing is legal. Do not assume that just 
+because we believe a book is in the public domain for users in the United States, that the work is also in the public domain for users in other 
+countries. Whether a book is still in copyright varies from country to country, and we can't offer guidance on whether any specific use of 
+any specific book is allowed. Please do not assume that a book's appearance in Google Book Search means it can be used in any manner 
+anywhere in the world. Copyright infringement liability can be quite severe. 
+About Google Book Search 
+Google's mission is to organize the world's information and to make it universally accessible and useful. Google Book Search helps readers 
+discover the world's books while helping authors and publishers reach new audiences. You can search through the full text of this book on the web 
+I have long bemoaned the absence of any support for tabulated text in AutoCAD, and so have many other people. It is a common need to place tables of textual information on drawings. The only obvious method appears to be to use a mono-spaced font and space out the columns with multiple spaces, which is not very satisfactory.
+Some users create their tables in Microsoft Excel and then paste a selected region of the Excel table into AutoCAD as an OLE linked object. That has its problems. If you use a black background, as most AutoCAD users seem to do persist with, despite my advice, then the Excel table with its white background looks a bit odd. But, more seriously, Microsoft?s OLE mechanism in Windows is far from reliable, has severe limitations on the amount of linked data, and is a serious resource hog. I have always recommended AutoCAD users to avoid OLE if possible, and it usually is.
+I only found out recently from a long-time user of AutoCAD that it is possible to import Excel table data quite satisfactorily as AutoCAD text. To prove this and explain the options, I made a test table in Excel by cutting some text out of part of the ACAD.PGP file and editing it with tabs so that it would paste into Excel in rows and columns. The illustration here shows three ways at pasting it into AutoCAD. After selecting the cell range in Excel and copying it to the clipboard by Ctrl-C, I opened AutoCAD and used the Edit menu, Paste Special. The resulting dialog box, shown here, presents several options of the form in which to paste the clipboard data.
+Method 1 used the ?Paste as text? option. The result is a single ?Multiline Text? object, with each row of Excel cells as one text line with hard line-end, but with all the column spacing lost. That?s not much use as a text table. Also, even though pasting Word text into AutoCAD?s Mtext dialog-editor preserves the fonts and formatting nicely, this operation ignored the Excel text format and inserted it as the current AutoCAD Style, which in my test used the awful-looking TXT.SHX font that is still AutoCAD?s default for its Standard Style.
+Method 2 used the ?Paste as Picture (Metafile)? option. This gives quite a good result, more so if you use a white background in AutoCAD, but you cannot edit it in any way at all. If the table neded altering you?d ave to alter it in Excel, delete the present AutoCAD insertion and paste the picture again.
+Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as \%PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted text objects used new Styles called ?WMF-Arial0? (for the top row in bold) and ?WMF-Arial1? (for the other cells).
+I also tried it with one of the cells set up in Excel with wrapped multi-line text. This pasted into AutoCAD with each wrapped line as a separate single-line text object. It spaced the adjoining cells appropriately even though they had only single-line text in them.
+This method allows for some minor text editing in AutoCAD, since the text is ordinary text. If the editing widened a cell of text so that it overlapped, you?d have to manually move all the other cells around to make room and keep the tabular format. For any serious alterations, it would be better to delete all the pasted text objects, edit the Excel data, and redo the copy-paste operation.
+So, this ?Paste as \%PRODUCT Entities? facility provides a quite useable text table mechanism. The odd thing is that it seems to be a bit of a secret.
+This is a digital copy of a book that was preserved for generations on library shelves before it was carefully scanned by Google as part of a project 
+to make the world's books discoverable online. 
+It has survived long enough for the copyright to expire and the book to enter the public domain. A public domain book is one that was never subject 
+to copyright or whose legal copyright term has expired. Whether a book is in the public domain may vary country to country. Public domain books 
+are our gateways to the past, representing a wealth of history, culture and knowledge that's often difficult to discover. 
+Marks, notations and other marginalia present in the original volume will appear in this file - a reminder of this book's long journey from the 
+publisher to a library and finally to you. 
+Usage guidelines 
+Google is proud to partner with libraries to digitize public domain materials and make them widely accessible. Public domain books belong to the 
+public and we are merely their custodians. Nevertheless, this work is expensive, so in order to keep providing this resource, we have taken steps to 
+prevent abuse by commercial parties, including placing technical restrictions on automated querying. 
+We also ask that you: 
++ Make non-commercial use of the files We designed Google Book Search for use by individuals, and we request that you use these files for 
+personal, non-commercial purposes. 
++ Refrain from automated querying Do not send automated queries of any sort to Google's system: If you are conducting research on machine 
+translation, optical character recognition or other areas where access to a large amount of text is helpful, please contact us. We encourage the 
+use of public domain materials for these purposes and may be able to help. 
++ Maintain attribution The Google "watermark" you see on each file is essential for informing people about this project and helping them find 
+additional materials through Google Book Search. Please do not remove it. 
++ Keep it legal Whatever your use, remember that you are responsible for ensuring that what you are doing is legal. Do not assume that just 
+because we believe a book is in the public domain for users in the United States, that the work is also in the public domain for users in other 
+countries. Whether a book is still in copyright varies from country to country, and we can't offer guidance on whether any specific use of 
+any specific book is allowed. Please do not assume that a book's appearance in Google Book Search means it can be used in any manner 
+anywhere in the world. Copyright infringement liability can be quite severe. 
+About Google Book Search 
+Google's mission is to organize the world's information and to make it universally accessible and useful. Google Book Search helps readers 
+discover the world's books while helping authors and publishers reach new audiences. You can search through the full text of this book on the web 
+I have long bemoaned the absence of any support for tabulated text in AutoCAD, and so have many other people. It is a common need to place tables of textual information on drawings. The only obvious method appears to be to use a mono-spaced font and space out the columns with multiple spaces, which is not very satisfactory.
+Some users create their tables in Microsoft Excel and then paste a selected region of the Excel table into AutoCAD as an OLE linked object. That has its problems. If you use a black background, as most AutoCAD users seem to do persist with, despite my advice, then the Excel table with its white background looks a bit odd. But, more seriously, Microsoft?s OLE mechanism in Windows is far from reliable, has severe limitations on the amount of linked data, and is a serious resource hog. I have always recommended AutoCAD users to avoid OLE if possible, and it usually is.
+I only found out recently from a long-time user of AutoCAD that it is possible to import Excel table data quite satisfactorily as AutoCAD text. To prove this and explain the options, I made a test table in Excel by cutting some text out of part of the ACAD.PGP file and editing it with tabs so that it would paste into Excel in rows and columns. The illustration here shows three ways at pasting it into AutoCAD. After selecting the cell range in Excel and copying it to the clipboard by Ctrl-C, I opened AutoCAD and used the Edit menu, Paste Special. The resulting dialog box, shown here, presents several options of the form in which to paste the clipboard data.
+Method 1 used the ?Paste as text? option. The result is a single ?Multiline Text? object, with each row of Excel cells as one text line with hard line-end, but with all the column spacing lost. That?s not much use as a text table. Also, even though pasting Word text into AutoCAD?s Mtext dialog-editor preserves the fonts and formatting nicely, this operation ignored the Excel text format and inserted it as the current AutoCAD Style, which in my test used the awful-looking TXT.SHX font that is still AutoCAD?s default for its Standard Style.
+Method 2 used the ?Paste as Picture (Metafile)? option. This gives quite a good result, more so if you use a white background in AutoCAD, but you cannot edit it in any way at all. 
+Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as \%PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted.
 }
-
-Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as %PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted text objects used new Styles called ?WMF-Arial0? (for the top row in bold) and ?WMF-Arial1? (for the other cells).
-I also tried it with one of the cells set up in Excel with wrapped multi-line text. This pasted into AutoCAD with each wrapped line as a separate single-line text object. It spaced the adjoining cells appropriately even though they had only single-line text in them.
-This method allows for some minor text editing in AutoCAD, since the text is ordinary text. If the editing widened a cell of text so that it overlapped, you?d have to manually move all the other cells around to make room and keep the tabular format. For any serious alterations, it would be better to delete all the pasted text objects, edit the Excel data, and redo the copy-paste operation.
-So, this ?Paste as %PRODUCT Entities? facility provides a quite useable text table mechanism. The odd thing is that it seems to be a bit of a secret.
-This is a digital copy of a book that was preserved for generations on library shelves before it was carefully scanned by Google as part of a project 
-to make the world's books discoverable online. 
-It has survived long enough for the copyright to expire and the book to enter the public domain. A public domain book is one that was never subject 
-to copyright or whose legal copyright term has expired. Whether a book is in the public domain may vary country to country. Public domain books 
-are our gateways to the past, representing a wealth of history, culture and knowledge that's often difficult to discover. 
-Marks, notations and other marginalia present in the original volume will appear in this file - a reminder of this book's long journey from the 
-publisher to a library and finally to you. 
-Usage guidelines 
-Google is proud to partner with libraries to digitize public domain materials and make them widely accessible. Public domain books belong to the 
-public and we are merely their custodians. Nevertheless, this work is expensive, so in order to keep providing this resource, we have taken steps to 
-prevent abuse by commercial parties, including placing technical restrictions on automated querying. 
-We also ask that you: 
-+ Make non-commercial use of the files We designed Google Book Search for use by individuals, and we request that you use these files for 
-personal, non-commercial purposes. 
-+ Refrain from automated querying Do not send automated queries of any sort to Google's system: If you are conducting research on machine 
-translation, optical character recognition or other areas where access to a large amount of text is helpful, please contact us. We encourage the 
-use of public domain materials for these purposes and may be able to help. 
-+ Maintain attribution The Google "watermark" you see on each file is essential for informing people about this project and helping them find 
-additional materials through Google Book Search. Please do not remove it. 
-+ Keep it legal Whatever your use, remember that you are responsible for ensuring that what you are doing is legal. Do not assume that just 
-because we believe a book is in the public domain for users in the United States, that the work is also in the public domain for users in other 
-countries. Whether a book is still in copyright varies from country to country, and we can't offer guidance on whether any specific use of 
-any specific book is allowed. Please do not assume that a book's appearance in Google Book Search means it can be used in any manner 
-anywhere in the world. Copyright infringement liability can be quite severe. 
-About Google Book Search 
-Google's mission is to organize the world's information and to make it universally accessible and useful. Google Book Search helps readers 
-discover the world's books while helping authors and publishers reach new audiences. You can search through the full text of this book on the web 
-I have long bemoaned the absence of any support for tabulated text in AutoCAD, and so have many other people. It is a common need to place tables of textual information on drawings. The only obvious method appears to be to use a mono-spaced font and space out the columns with multiple spaces, which is not very satisfactory.
-Some users create their tables in Microsoft Excel and then paste a selected region of the Excel table into AutoCAD as an OLE linked object. That has its problems. If you use a black background, as most AutoCAD users seem to do persist with, despite my advice, then the Excel table with its white background looks a bit odd. But, more seriously, Microsoft?s OLE mechanism in Windows is far from reliable, has severe limitations on the amount of linked data, and is a serious resource hog. I have always recommended AutoCAD users to avoid OLE if possible, and it usually is.
-I only found out recently from a long-time user of AutoCAD that it is possible to import Excel table data quite satisfactorily as AutoCAD text. To prove this and explain the options, I made a test table in Excel by cutting some text out of part of the ACAD.PGP file and editing it with tabs so that it would paste into Excel in rows and columns. The illustration here shows three ways at pasting it into AutoCAD. After selecting the cell range in Excel and copying it to the clipboard by Ctrl-C, I opened AutoCAD and used the Edit menu, Paste Special. The resulting dialog box, shown here, presents several options of the form in which to paste the clipboard data.
-Method 1 used the ?Paste as text? option. The result is a single ?Multiline Text? object, with each row of Excel cells as one text line with hard line-end, but with all the column spacing lost. That?s not much use as a text table. Also, even though pasting Word text into AutoCAD?s Mtext dialog-editor preserves the fonts and formatting nicely, this operation ignored the Excel text format and inserted it as the current AutoCAD Style, which in my test used the awful-looking TXT.SHX font that is still AutoCAD?s default for its Standard Style.
-Method 2 used the ?Paste as Picture (Metafile)? option. This gives quite a good result, more so if you use a white background in AutoCAD, but you cannot edit it in any way at all. If the table neded altering you?d ave to alter it in Excel, delete the present AutoCAD insertion and paste the picture again.
-Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as %PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted text objects used new Styles called ?WMF-Arial0? (for the top row in bold) and ?WMF-Arial1? (for the other cells).
-I also tried it with one of the cells set up in Excel with wrapped multi-line text. This pasted into AutoCAD with each wrapped line as a separate single-line text object. It spaced the adjoining cells appropriately even though they had only single-line text in them.
-This method allows for some minor text editing in AutoCAD, since the text is ordinary text. If the editing widened a cell of text so that it overlapped, you?d have to manually move all the other cells around to make room and keep the tabular format. For any serious alterations, it would be better to delete all the pasted text objects, edit the Excel data, and redo the copy-paste operation.
-So, this ?Paste as %PRODUCT Entities? facility provides a quite useable text table mechanism. The odd thing is that it seems to be a bit of a secret.
-This is a digital copy of a book that was preserved for generations on library shelves before it was carefully scanned by Google as part of a project 
-to make the world's books discoverable online. 
-It has survived long enough for the copyright to expire and the book to enter the public domain. A public domain book is one that was never subject 
-to copyright or whose legal copyright term has expired. Whether a book is in the public domain may vary country to country. Public domain books 
-are our gateways to the past, representing a wealth of history, culture and knowledge that's often difficult to discover. 
-Marks, notations and other marginalia present in the original volume will appear in this file - a reminder of this book's long journey from the 
-publisher to a library and finally to you. 
-Usage guidelines 
-Google is proud to partner with libraries to digitize public domain materials and make them widely accessible. Public domain books belong to the 
-public and we are merely their custodians. Nevertheless, this work is expensive, so in order to keep providing this resource, we have taken steps to 
-prevent abuse by commercial parties, including placing technical restrictions on automated querying. 
-We also ask that you: 
-+ Make non-commercial use of the files We designed Google Book Search for use by individuals, and we request that you use these files for 
-personal, non-commercial purposes. 
-+ Refrain from automated querying Do not send automated queries of any sort to Google's system: If you are conducting research on machine 
-translation, optical character recognition or other areas where access to a large amount of text is helpful, please contact us. We encourage the 
-use of public domain materials for these purposes and may be able to help. 
-+ Maintain attribution The Google "watermark" you see on each file is essential for informing people about this project and helping them find 
-additional materials through Google Book Search. Please do not remove it. 
-+ Keep it legal Whatever your use, remember that you are responsible for ensuring that what you are doing is legal. Do not assume that just 
-because we believe a book is in the public domain for users in the United States, that the work is also in the public domain for users in other 
-countries. Whether a book is still in copyright varies from country to country, and we can't offer guidance on whether any specific use of 
-any specific book is allowed. Please do not assume that a book's appearance in Google Book Search means it can be used in any manner 
-anywhere in the world. Copyright infringement liability can be quite severe. 
-About Google Book Search 
-Google's mission is to organize the world's information and to make it universally accessible and useful. Google Book Search helps readers 
-discover the world's books while helping authors and publishers reach new audiences. You can search through the full text of this book on the web 
-I have long bemoaned the absence of any support for tabulated text in AutoCAD, and so have many other people. It is a common need to place tables of textual information on drawings. The only obvious method appears to be to use a mono-spaced font and space out the columns with multiple spaces, which is not very satisfactory.
-Some users create their tables in Microsoft Excel and then paste a selected region of the Excel table into AutoCAD as an OLE linked object. That has its problems. If you use a black background, as most AutoCAD users seem to do persist with, despite my advice, then the Excel table with its white background looks a bit odd. But, more seriously, Microsoft?s OLE mechanism in Windows is far from reliable, has severe limitations on the amount of linked data, and is a serious resource hog. I have always recommended AutoCAD users to avoid OLE if possible, and it usually is.
-I only found out recently from a long-time user of AutoCAD that it is possible to import Excel table data quite satisfactorily as AutoCAD text. To prove this and explain the options, I made a test table in Excel by cutting some text out of part of the ACAD.PGP file and editing it with tabs so that it would paste into Excel in rows and columns. The illustration here shows three ways at pasting it into AutoCAD. After selecting the cell range in Excel and copying it to the clipboard by Ctrl-C, I opened AutoCAD and used the Edit menu, Paste Special. The resulting dialog box, shown here, presents several options of the form in which to paste the clipboard data.
-Method 1 used the ?Paste as text? option. The result is a single ?Multiline Text? object, with each row of Excel cells as one text line with hard line-end, but with all the column spacing lost. That?s not much use as a text table. Also, even though pasting Word text into AutoCAD?s Mtext dialog-editor preserves the fonts and formatting nicely, this operation ignored the Excel text format and inserted it as the current AutoCAD Style, which in my test used the awful-looking TXT.SHX font that is still AutoCAD?s default for its Standard Style.
-Method 2 used the ?Paste as Picture (Metafile)? option. This gives quite a good result, more so if you use a white background in AutoCAD, but you cannot edit it in any way at all. If the table neded altering you?d ave to alter it in Excel, delete the present AutoCAD insertion and paste the picture again.
-Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as %PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted text objects used new Styles called ?WMF-Arial0? (for the top row in bold) and ?WMF-Arial1? (for the other cells).
-I also tried it with one of the cells set up in Excel with wrapped multi-line text. This pasted into AutoCAD with each wrapped line as a separate single-line text object. It spaced the adjoining cells appropriately even though they had only single-line text in them.
-This method allows for some minor text editing in AutoCAD, since the text is ordinary text. If the editing widened a cell of text so that it overlapped, you?d have to manually move all the other cells around to make room and keep the tabular format. For any serious alterations, it would be better to delete all the pasted text objects, edit the Excel data, and redo the copy-paste operation.
-So, this ?Paste as %PRODUCT Entities? facility provides a quite useable text table mechanism. The odd thing is that it seems to be a bit of a secret.
-This is a digital copy of a book that was preserved for generations on library shelves before it was carefully scanned by Google as part of a project 
-to make the world's books discoverable online. 
-It has survived long enough for the copyright to expire and the book to enter the public domain. A public domain book is one that was never subject 
-to copyright or whose legal copyright term has expired. Whether a book is in the public domain may vary country to country. Public domain books 
-are our gateways to the past, representing a wealth of history, culture and knowledge that's often difficult to discover. 
-Marks, notations and other marginalia present in the original volume will appear in this file - a reminder of this book's long journey from the 
-publisher to a library and finally to you. 
-Usage guidelines 
-Google is proud to partner with libraries to digitize public domain materials and make them widely accessible. Public domain books belong to the 
-public and we are merely their custodians. Nevertheless, this work is expensive, so in order to keep providing this resource, we have taken steps to 
-prevent abuse by commercial parties, including placing technical restrictions on automated querying. 
-We also ask that you: 
-+ Make non-commercial use of the files We designed Google Book Search for use by individuals, and we request that you use these files for 
-personal, non-commercial purposes. 
-+ Refrain from automated querying Do not send automated queries of any sort to Google's system: If you are conducting research on machine 
-translation, optical character recognition or other areas where access to a large amount of text is helpful, please contact us. We encourage the 
-use of public domain materials for these purposes and may be able to help. 
-+ Maintain attribution The Google "watermark" you see on each file is essential for informing people about this project and helping them find 
-additional materials through Google Book Search. Please do not remove it. 
-+ Keep it legal Whatever your use, remember that you are responsible for ensuring that what you are doing is legal. Do not assume that just 
-because we believe a book is in the public domain for users in the United States, that the work is also in the public domain for users in other 
-countries. Whether a book is still in copyright varies from country to country, and we can't offer guidance on whether any specific use of 
-any specific book is allowed. Please do not assume that a book's appearance in Google Book Search means it can be used in any manner 
-anywhere in the world. Copyright infringement liability can be quite severe. 
-About Google Book Search 
-Google's mission is to organize the world's information and to make it universally accessible and useful. Google Book Search helps readers 
-discover the world's books while helping authors and publishers reach new audiences. You can search through the full text of this book on the web 
-I have long bemoaned the absence of any support for tabulated text in AutoCAD, and so have many other people. It is a common need to place tables of textual information on drawings. The only obvious method appears to be to use a mono-spaced font and space out the columns with multiple spaces, which is not very satisfactory.
-Some users create their tables in Microsoft Excel and then paste a selected region of the Excel table into AutoCAD as an OLE linked object. That has its problems. If you use a black background, as most AutoCAD users seem to do persist with, despite my advice, then the Excel table with its white background looks a bit odd. But, more seriously, Microsoft?s OLE mechanism in Windows is far from reliable, has severe limitations on the amount of linked data, and is a serious resource hog. I have always recommended AutoCAD users to avoid OLE if possible, and it usually is.
-I only found out recently from a long-time user of AutoCAD that it is possible to import Excel table data quite satisfactorily as AutoCAD text. To prove this and explain the options, I made a test table in Excel by cutting some text out of part of the ACAD.PGP file and editing it with tabs so that it would paste into Excel in rows and columns. The illustration here shows three ways at pasting it into AutoCAD. After selecting the cell range in Excel and copying it to the clipboard by Ctrl-C, I opened AutoCAD and used the Edit menu, Paste Special. The resulting dialog box, shown here, presents several options of the form in which to paste the clipboard data.
-Method 1 used the ?Paste as text? option. The result is a single ?Multiline Text? object, with each row of Excel cells as one text line with hard line-end, but with all the column spacing lost. That?s not much use as a text table. Also, even though pasting Word text into AutoCAD?s Mtext dialog-editor preserves the fonts and formatting nicely, this operation ignored the Excel text format and inserted it as the current AutoCAD Style, which in my test used the awful-looking TXT.SHX font that is still AutoCAD?s default for its Standard Style.
-Method 2 used the ?Paste as Picture (Metafile)? option. This gives quite a good result, more so if you use a white background in AutoCAD, but you cannot edit it in any way at all. If the table neded altering you?d ave to alter it in Excel, delete the present AutoCAD insertion and paste the picture again.
-Method 3 is the most satisfactory, I think. This used the option that surprised me: ?Paste as %PRODUCT entities?. I cannot find any reference to any such type of entity. It inserts the cells each as a separate ?Single-line Text? object, and automatically organises the insertion points of the text objects vertically and horizontally to form a sensibly arranged table. It also, and rather surprisingly, creates new Text Styles to reproduce the format of the Excel text! In my test, which used Excel?s default Arial font and size, but with the header row in bold, the pasted text objects used new Styles called ?WMF-Arial0? (for the top row in bold) and ?WMF-Arial1? (for the other cells).
-I also tried it with one of the cells set up in Excel with wrapped multi-line text. This pasted into AutoCAD with each wrapped line as a separate single-line text object. It spaced the adjoining cells appropriately even though they had only single-line text in them.
-This method allows for some minor text editing in AutoCAD, since the text is ordinary text. If the editing widened a cell of text so that it overlapped, you?d have to manually move all the other cells around to make room and keep the tabular format. For any serious alterations, it would be better to delete all the pasted text objects, edit the Excel data, and redo the copy-paste operation.
-So, this ?Paste as %PRODUCT Entities? facility provides a quite useable text table mechanism. The odd thing is that it seems to be a bit of a secret.
-This is a digital copy of a book that was preserved for generations on library shelves before it was carefully scanned by Google as part of a project 
-to make the world's books discoverable online. 
-It has survived long enough for the copyright to expire and the book to enter the public domain. A public domain book is one that was never subject 
-to copyright or whose legal copyright term has expired. Whether a book is in the public domain may vary country to country. Public domain books 
-are our gateways to the past, representing a wealth of history, culture and knowledge that's often difficult to discover. 
-Marks, notations and other marginalia present in the original volume will appear in this file - a reminder of this book's long journey from the 
-publisher to a library and finally to you. 
-Usage guidelines 
-Google is proud to partner with libraries to digitize public domain materials and make them widely accessible. Public domain books belong to the 
-public and we are merely their custodians. Nevertheless, this work is expensive, so in order to keep providing this resource, we have taken steps to 
-prevent abuse by commercial parties, including placing technical restrictions on automated querying. 
-We also ask that you: 
-+ Make non-commercial use of the files We designed Google Book Search for use by individuals, and we request that you use these files for 
-personal, non-commercial purposes. 
-+ Refrain from automated querying Do not send automated queries of any sort to Google's system: If you are conducting research on machine 
-translation, optical character recognition or other areas where access to a large amount of text is helpful, please contact us. We encourage the 
-use of public domain materials for these purposes and may be able to help. 
-+ Maintain attribution The Google "watermark" you see on each file is essential for informing people about this project and helping them find 
-additional materials through Google Book Search. Please do not remove it. 
-+ Keep it legal Whatever your use, remember that you are responsible for ensuring that what you are doing is legal. Do not assume that just 
-because we believe a book is in the public domain for users in the United States, that the work is also in the public domain for users in other 
-countries. Whether a book is still in copyright varies from country to country, and we can't offer guidance on whether any specific use of 
-any specific book is allowed. Please do not assume that a book's appearance in Google Book Search means it can be used in any manner 
-anywhere in the world. Copyright infringement liability can be quite severe. 
-About Google Book Search 
-Google's mission is to organize the world's information and to make it universally accessible and useful. Google Book Search helps readers 
-discover the world's books while helping authors and publishers reach new audiences. You can search through the full text of this book on the web 
 
 \end{document}
