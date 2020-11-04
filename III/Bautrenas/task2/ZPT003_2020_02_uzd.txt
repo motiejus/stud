@@ -1,0 +1,64 @@
+Uzduoti parenge  A.Bautrenas  (Zemelapiu publikavimo technologijos) 
+2020.11.03 18:47:01(67621.9s)  RND=3
+
+
+Uzduotis Nr. ZPT003_2020_02
+Jakstys_Motiejus (1915375)
+ === Papildomo popieriaus gaminimas (02 uzd.) == (NAV_SK=0.27) ===
+Atlikti iki: 2020.11.17   18:47:01
+
+
+
+ 
+Uzduotis:  Naudojant pateiktus duomenimis apskaiciuoti pagaminto popieriaus ir kartono lapu skaiciu bei ju savikaina.
+           
+ 
+ 
+Popieriaus gaminimas:
+Gaminami [Ultra3C] popieriaus lapai
+Popieriaus gamybos kaina(Eu) 969.42
+ 
+1. Mediena: Baltalksnis
+Popieriaus gamybos metodas: Cheminis/Sulfitinis
+Rastu kiekis: 5
+Storgalio apimtis su zieve (cm) 119.4
+Plongalio apimtis su zieve (cm) 46.2
+Rastu ilgis (m) 5.38
+2. Mediena: Egle
+Popieriaus gamybos metodas: Mechaninis/Cheminis
+Rastu kiekis: 3
+Storgalio apimtis su zieve (cm) 136.7
+Plongalio apimtis su zieve (cm) 58.7
+Rastu ilgis (m) 4.50
+ 
+ 
+KNYGINIO KARTONO gaminimas:
+Gaminami [SRA2/2] kartono lapai
+Kartono gamybos kaina(Eu) 755.78
+ 
+1. Mediena: Drebule
+Kartono gamybos metodas: Mechaninis
+Rastu kiekis: 6
+Storgalio apimtis su zieve (cm) 121.0
+Plongalio apimtis su zieve (cm) 13.2
+Rastu ilgis (m) 3.46
+2. Mediena: Berzas
+Kartono gamybos metodas: Cheminis/Sulfatinis
+Rastu kiekis: 9
+Storgalio apimtis su zieve (cm) 148.6
+Plongalio apimtis su zieve (cm) 30.2
+Rastu ilgis (m) 5.20
+
+Pastabos: 
+1. Atliktu skaiciavimu rezultatus bei kitus duomenis (pvz. vardas, pavarde) surasyti i rinkmena [02sablonas_ats.txt].
+ Rinkmenos [02sablonas_ats.txt] strukturos nekeisti. Atsakymus surasyti tik i jiems skirtas vietas, t.y. vietoje 'zvaigzduciu' (*****). Visu skaitmenu (atsakymu) desintaine dalis turi buti atskirta TASKU, o ne kableliu, pvz. 12345.236[TAIP], 12345,236[NE].Neteisinga uzrasymo forma bus vertinama kaip klaida! 
+2. Parenkant  zieves stori (is lenteles)apskaiciuotas skersmuo apvalinamas i sveika skaiciu, pvz. skersmuo = 27.56 = 28 cm 
+3. Apskaiciuotas popieriaus ir kartono lapu kiekis apvalinamas i mazesni sveika skaiciu, pavyzdziui, apskaiciuota, kad gaunasi 10.83 lapu, tai apvalinam i 10 lapu.
+5. Skaiciavimo rezultatai turi buti atsiusti iki nurodytos datos. Uz kiekviena paveluota valanda (skaiciuojant nuo rudens sesijos pradzios) vertinimo balas mazinamas 0.05 balo.
+
+Pabaiga: 2020.11.03 18:47:01
+
+
+Ispejimas:
+Jei si uzduotis skirta ne Jums, prasome ja perduoti adresatui arba grazinti siuntejui 
+ir istrinti is savo duomenu bazes.
