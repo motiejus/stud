@@ -1,3 +1,5 @@
+
+
 print("""
 Uzduoties Nr. 
 ZPT003_2020_02
@@ -5,7 +7,7 @@ Skaiciavo(Pavarde Vardas):
 Jakstys_Motiejus
 ==== POPIERIUS ====
 Gaminamo popieriaus pavadinimas pvz. ULTRA/62 (duota) 
-*******
+Ultra3C
 Gaminamo popieriaus lapo plotis W (mm) 
 *******
 Gaminamo popieriaus lapo ilgis L (mm) 
