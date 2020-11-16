@@ -12,8 +12,8 @@ t1_plongalio_skersmuo_su_zieve=t1_plongalio_apimtis_su_zieve/pi  # cm
 
 t1_rastu_kiekis=5
 t1_rastu_ilgis=5.38 # m
-t1_storgalio_zieves_storis=10.6 # mm
-t1_plongalio_zieves_storis=10.5 # mm
+t1_storgalio_zieves_storis=10.0 # mm
+t1_plongalio_zieves_storis=7.5 # mm
 t1_storgalio_skersmuo_be_zieves=round(t1_storgalio_skersmuo_su_zieve-t1_storgalio_zieves_storis/10*2+.5) # cm
 t1_plongalio_skersmuo_be_zieves=round(t1_plongalio_skersmuo_su_zieve-t1_plongalio_zieves_storis/10*2+.5) # cm
 
@@ -91,17 +91,17 @@ t2_storgalio_skersmuo_su_zieve=t2_storgalio_apimtis_su_zieve/pi  # cm
 t2_plongalio_skersmuo_su_zieve=t2_plongalio_apimtis_su_zieve/pi  # cm
 
 t2_rastu_kiekis=3
-t2_rastu_ilgis=5.38 # m
-t2_storgalio_zieves_storis=10.6 # mm
-t2_plongalio_zieves_storis=10.5 # mm
+t2_rastu_ilgis=4.5 # m
+t2_storgalio_zieves_storis=21.6 # mm
+t2_plongalio_zieves_storis=11.6 # mm
 t2_storgalio_skersmuo_be_zieves=round(t2_storgalio_skersmuo_su_zieve-t2_storgalio_zieves_storis/10*2+.5) # cm
 t2_plongalio_skersmuo_be_zieves=round(t2_plongalio_skersmuo_su_zieve-t2_plongalio_zieves_storis/10*2+.5) # cm
 
 t2_vieno_rasto_turis=nupjauto_kugio_turis(t2_rastu_ilgis, t2_plongalio_skersmuo_be_zieves/100, t2_storgalio_skersmuo_be_zieves/100) # m3
 t2_visu_rastu_turis=t2_vieno_rasto_turis*t2_rastu_kiekis # m3
-t2_medienos_svoris=800 # kg/m3
+t2_medienos_svoris=794 # kg/m3
 t2_visu_rastu_svoris=t2_visu_rastu_turis*t2_medienos_svoris # kg
-t2_gaunamas_popieriaus_kiekis_perc=6.82 # [0-100]%
+t2_gaunamas_popieriaus_kiekis_perc=13.22 # [0-100]%
 t2_gaunamas_popieriaus_kiekis_trupm=t2_gaunamas_popieriaus_kiekis_perc/100 # [0-1]
 t2_medienos_svoris_popieriaus_gaminimui=t2_visu_rastu_svoris*t2_gaunamas_popieriaus_kiekis_trupm # kg
 t2_popieriaus_tankis=0.09 # kg/m2
@@ -150,15 +150,23 @@ Viso pagaminto popieriaus plotas (0.000 m2 tikslumu)
 Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
 {t2_vieno_lapo_plotas:.3f}
 Pagaminta popieriaus lapu (vnt.)
-{t2_pagaminta_popieriaus_lapu}
-== APIBENDRINIMAS == 
+{t2_pagaminta_popieriaus_lapu}"""
+print(tpl2.format(**(dict(locals()))))
+
+isviso_pagaminta_lapu=int(t1_pagaminta_popieriaus_lapu+t2_pagaminta_popieriaus_lapu) # vnt
+popieriaus_gamybos_kaina=969.42 # eur
+vieno_popieriaus_lapo_savikaina=popieriaus_gamybos_kaina/isviso_pagaminta_lapu # eur
+
+tpl12="""== APIBENDRINIMAS == 
 Isviso pagaminta popieriaus lapu (vnt.) 
-*******
+{isviso_pagaminta_lapu}
 Popieriaus gamybos kaina Eu (duota) 
-*******
+{popieriaus_gamybos_kaina:.2f}
 Vieno popieriaus lapo savikaina (0.00 Eu) 
-*******
-==== KNYGINIS KARTONAS ====
+{vieno_popieriaus_lapo_savikaina:.2f}"""
+print(tpl12.format(**(dict(locals()))))
+
+tplf="""==== KNYGINIS KARTONAS ====
 Gaminamo kartono pavadinimas pvz. REX/1 (duota) 
 *******
 Gaminamo kartono lapo plotis W (mm) 
@@ -258,4 +266,4 @@ Vieno kartono lapo savikaina (0.00 Eu)
 *******
 """
 
-print(tpl2.format(**(dict(locals()))))
+print(tplf.format(**(dict(locals()))))
