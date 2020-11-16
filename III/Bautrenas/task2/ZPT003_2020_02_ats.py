@@ -166,16 +166,88 @@ Vieno popieriaus lapo savikaina (0.00 Eu)
 {vieno_popieriaus_lapo_savikaina:.2f}"""
 print(tpl12.format(**(dict(locals()))))
 
-tplf="""==== KNYGINIS KARTONAS ====
+
+t3_gaminamo_kartono_plotis=500 # mm
+t3_gaminamo_kartono_ilgis=700 # mm
+t3_gaminamo_kartono_metro_svoris=330 # g/m2
+t3_rastu_kiekis=6
+t3_storgalio_apimtis_su_zieve=121.0 # cm
+t3_plongalio_apimtis_su_zieve=13.2 # cm
+t3_rastu_ilgis=3.46
+
+t3_storgalio_skersmuo_su_zieve=t3_storgalio_apimtis_su_zieve/pi  # cm
+t3_plongalio_skersmuo_su_zieve=t3_plongalio_apimtis_su_zieve/pi  # cm
+t3_storgalio_zieves_storis=25.8
+t3_storgalio_skersmuo_be_zieves=round(t3_storgalio_skersmuo_su_zieve-t3_storgalio_zieves_storis/10*2+.5) # cm
+t3_plongalio_zieves_storis=5.0
+t3_plongalio_skersmuo_be_zieves=round(t3_plongalio_skersmuo_su_zieve-t3_plongalio_zieves_storis/10*2+.5) # cm
+
+t3_vieno_rasto_turis=nupjauto_kugio_turis(t3_rastu_ilgis, t3_plongalio_skersmuo_be_zieves/100, t3_storgalio_skersmuo_be_zieves/100) # m3
+t3_visu_rastu_turis=t3_vieno_rasto_turis*t3_rastu_kiekis # m3
+
+t3_medienos_svoris=762
+t3_visu_rastu_svoris=t3_visu_rastu_turis*t3_medienos_svoris # kg
+t3_gaunamas_popieriaus_kiekis_perc=13.22 # [0-100]%
+t3_gaunamas_popieriaus_kiekis_trupm=t3_gaunamas_popieriaus_kiekis_perc/100 # [0-1]
+t3_medienos_svoris_popieriaus_gaminimui=t3_visu_rastu_svoris*t3_gaunamas_popieriaus_kiekis_trupm # kg
+t3_popieriaus_tankis=0.09 # kg/m2
+t3_viso_pagaminto_popieriaus_plotas=t3_medienos_svoris_popieriaus_gaminimui/t3_popieriaus_tankis # m2
+t3_vieno_lapo_plotas=.75*.9 # m2
+t3_pagaminta_popieriaus_lapu=int(t3_viso_pagaminto_popieriaus_plotas/t3_vieno_lapo_plotas) # kiekis
+
+tpl3="""==== KNYGINIS KARTONAS ====
 Gaminamo kartono pavadinimas pvz. REX/1 (duota)
-*******
+SRA2/2
 Gaminamo kartono lapo plotis W (mm)
-*******
+{t3_gaminamo_kartono_plotis}
 Gaminamo kartono lapo ilgis L (mm)
-*******
+{t3_gaminamo_kartono_ilgis}
 Gaminamo kartono metro kv. svoris  (g/m2)
-*******
+{t3_gaminamo_kartono_metro_svoris}
 1.   Kartonas gaminamas is medienos pvz. AZUOLAS (duota)
+Drebule
+kartono gamybos metodas (nurodytas)
+Mechaninis
+Rastu kiekis (duotas)
+{t3_rastu_kiekis}
+Storgalio apimtis su zieve cm (0.0) (duota)
+{t3_storgalio_apimtis_su_zieve:.1f}
+Plongalio apimtis su zieve  cm (0.0) (duota)
+{t3_plongalio_apimtis_su_zieve:.1f}
+Rastu ilgis (duotas)
+{t3_rastu_ilgis:.2f}
+== Skaiciavimai ==
+Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
+{t3_storgalio_skersmuo_su_zieve:.2f}
+Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
+{t3_storgalio_zieves_storis:.1f}
+Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
+{t3_storgalio_skersmuo_be_zieves:.2f}
+Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
+{t3_plongalio_skersmuo_su_zieve:.2f}
+Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
+{t3_plongalio_zieves_storis:.1f}
+Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
+{t3_plongalio_skersmuo_be_zieves:.2f}
+VIENO rasto turis (0.000 m3 tikslumu)
+{t3_vieno_rasto_turis:.3f}
+VISU rastu turis (0.000 m3 tikslumu)
+{t3_visu_rastu_turis:.3f}
+Visos rastu Medienos svoris (0.000 kg tikslumu)
+{t3_visu_rastu_svoris:.3f}
+Gaunamas kartono kiekis muo medienos svorio (% duota)
+{t3_gaunamas_popieriaus_kiekis_perc:.2f}
+Medienos svoris kartono gaminimui (0.000 kg tikslumu)
+{t3_medienos_svoris_popieriaus_gaminimui:.3f}
+Viso pagaminto kartono plotas (0.000 m2 tikslumu)
+{t3_viso_pagaminto_popieriaus_plotas:.3f}
+Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
+{t3_vieno_lapo_plotas:.3f}
+Pagaminta kartono lapu (vnt.)
+{t3_pagaminta_popieriaus_lapu}"""
+print(tpl3.format(**(dict(locals()))))
+
+tpl4="""2.   Kartonas gaminamas is medienos pvz. AZUOLAS (duota)
 *******
 kartono gamybos metodas (nurodytas)
 *******
@@ -215,49 +287,10 @@ Viso pagaminto kartono plotas (0.000 m2 tikslumu)
 Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
 *******
 Pagaminta kartono lapu (vnt.)
-*******
-2.   Kartonas gaminamas is medienos pvz. AZUOLAS (duota)
-*******
-kartono gamybos metodas (nurodytas)
-*******
-Rastu kiekis (duotas)
-*******
-Storgalio apimtis su zieve cm (0.0) (duota)
-*******
-Plongalio apimtis su zieve  cm (0.0) (duota)
-*******
-Rastu ilgis (duotas)
-*******
-== Skaiciavimai ==
-Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
-*******
-Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
-*******
-Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
-*******
-Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
-*******
-Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
-*******
-Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
-*******
-VIENO rasto turis (0.000 m3 tikslumu)
-*******
-VISU rastu turis (0.000 m3 tikslumu)
-*******
-Visos rastu Medienos svoris (0.000 kg tikslumu)
-*******
-Gaunamas kartono kiekis muo medienos svorio (% duota)
-*******
-Medienos svoris kartono gaminimui (0.000 kg tikslumu)
-*******
-Viso pagaminto kartono plotas (0.000 m2 tikslumu)
-*******
-Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
-*******
-Pagaminta kartono lapu (vnt.)
-*******
-== APIBENDRINIMAS ==
+*******"""
+print(tpl4.format(**(dict(locals()))))
+
+tpl34="""== APIBENDRINIMAS ==
 Isviso pagaminta kartono lapu (vnt.)
 *******
 kartono gamybos kaina Eu (duota)
@@ -265,5 +298,4 @@ kartono gamybos kaina Eu (duota)
 Vieno kartono lapo savikaina (0.00 Eu)
 *******
 """
-
-print(tplf.format(**(dict(locals()))))
+print(tpl34.format(**(dict(locals()))))
