@@ -101,7 +101,7 @@ t2_vieno_rasto_turis=nupjauto_kugio_turis(t2_rastu_ilgis, t2_plongalio_skersmuo_
 t2_visu_rastu_turis=t2_vieno_rasto_turis*t2_rastu_kiekis # m3
 t2_medienos_svoris=794 # kg/m3
 t2_visu_rastu_svoris=t2_visu_rastu_turis*t2_medienos_svoris # kg
-t2_gaunamas_popieriaus_kiekis_perc=13.22 # [0-100]%
+t2_gaunamas_popieriaus_kiekis_perc=9.74 # [0-100]%
 t2_gaunamas_popieriaus_kiekis_trupm=t2_gaunamas_popieriaus_kiekis_perc/100 # [0-1]
 t2_medienos_svoris_popieriaus_gaminimui=t2_visu_rastu_svoris*t2_gaunamas_popieriaus_kiekis_trupm # kg
 t2_popieriaus_tankis=0.09 # kg/m2
@@ -153,17 +153,17 @@ Pagaminta popieriaus lapu (vnt.)
 {t2_pagaminta_popieriaus_lapu}"""
 print(tpl2.format(**(dict(locals()))))
 
-isviso_pagaminta_lapu=int(t1_pagaminta_popieriaus_lapu+t2_pagaminta_popieriaus_lapu) # vnt
-popieriaus_gamybos_kaina=969.42 # eur
-vieno_popieriaus_lapo_savikaina=popieriaus_gamybos_kaina/isviso_pagaminta_lapu # eur
+t12_isviso_pagaminta_lapu=int(t1_pagaminta_popieriaus_lapu+t2_pagaminta_popieriaus_lapu) # vnt
+t12_popieriaus_gamybos_kaina=969.42 # eur
+t12_vieno_popieriaus_lapo_savikaina=t12_popieriaus_gamybos_kaina/t12_isviso_pagaminta_lapu # eur
 
 tpl12="""== APIBENDRINIMAS ==
 Isviso pagaminta popieriaus lapu (vnt.)
-{isviso_pagaminta_lapu}
+{t12_isviso_pagaminta_lapu}
 Popieriaus gamybos kaina Eu (duota)
-{popieriaus_gamybos_kaina:.2f}
+{t12_popieriaus_gamybos_kaina:.2f}
 Vieno popieriaus lapo savikaina (0.00 Eu)
-{vieno_popieriaus_lapo_savikaina:.2f}"""
+{t12_vieno_popieriaus_lapo_savikaina:.2f}"""
 print(tpl12.format(**(dict(locals()))))
 
 
@@ -187,7 +187,7 @@ t3_visu_rastu_turis=t3_vieno_rasto_turis*t3_rastu_kiekis # m3
 
 t3_medienos_svoris=762
 t3_visu_rastu_svoris=t3_visu_rastu_turis*t3_medienos_svoris # kg
-t3_gaunamas_popieriaus_kiekis_perc=13.22 # [0-100]%
+t3_gaunamas_popieriaus_kiekis_perc=28.11 # [0-100]%
 t3_gaunamas_popieriaus_kiekis_trupm=t3_gaunamas_popieriaus_kiekis_perc/100 # [0-1]
 t3_medienos_svoris_popieriaus_gaminimui=t3_visu_rastu_svoris*t3_gaunamas_popieriaus_kiekis_trupm # kg
 t3_popieriaus_tankis=0.09 # kg/m2
@@ -247,55 +247,87 @@ Pagaminta kartono lapu (vnt.)
 {t3_pagaminta_popieriaus_lapu}"""
 print(tpl3.format(**(dict(locals()))))
 
+t4_gaminamo_kartono_plotis=500 # mm
+t4_gaminamo_kartono_ilgis=700 # mm
+t4_gaminamo_kartono_metro_svoris=330 # g/m2
+t4_rastu_kiekis=9
+t4_storgalio_apimtis_su_zieve=148.6 # cm
+t4_plongalio_apimtis_su_zieve=30.2 # cm
+t4_rastu_ilgis=5.2
+
+t4_storgalio_skersmuo_su_zieve=t4_storgalio_apimtis_su_zieve/pi  # cm
+t4_plongalio_skersmuo_su_zieve=t4_plongalio_apimtis_su_zieve/pi  # cm
+t4_storgalio_zieves_storis=48.4 # mm
+t4_storgalio_skersmuo_be_zieves=round(t4_storgalio_skersmuo_su_zieve-t4_storgalio_zieves_storis/10*2+.5) # cm
+t4_plongalio_zieves_storis=7.0 # mm
+t4_plongalio_skersmuo_be_zieves=round(t4_plongalio_skersmuo_su_zieve-t4_plongalio_zieves_storis/10*2+.5) # cm
+
+t4_vieno_rasto_turis=nupjauto_kugio_turis(t4_rastu_ilgis, t4_plongalio_skersmuo_be_zieves/100, t4_storgalio_skersmuo_be_zieves/100) # m3
+t4_visu_rastu_turis=t4_vieno_rasto_turis*t4_rastu_kiekis # m3
+
+t4_medienos_svoris=878
+t4_visu_rastu_svoris=t4_visu_rastu_turis*t4_medienos_svoris # kg
+t4_gaunamas_popieriaus_kiekis_perc=11.79 # [0-100]%
+t4_gaunamas_popieriaus_kiekis_trupm=t4_gaunamas_popieriaus_kiekis_perc/100 # [0-1]
+t4_medienos_svoris_popieriaus_gaminimui=t4_visu_rastu_svoris*t4_gaunamas_popieriaus_kiekis_trupm # kg
+t4_popieriaus_tankis=0.09 # kg/m2
+t4_viso_pagaminto_popieriaus_plotas=t4_medienos_svoris_popieriaus_gaminimui/t4_popieriaus_tankis # m2
+t4_vieno_lapo_plotas=.75*.9 # m2
+t4_pagaminta_popieriaus_lapu=int(t4_viso_pagaminto_popieriaus_plotas/t4_vieno_lapo_plotas) # kiekis
+
+
 tpl4="""2.   Kartonas gaminamas is medienos pvz. AZUOLAS (duota)
-*******
+Berzas
 kartono gamybos metodas (nurodytas)
-*******
+Cheminis/Sulfatinis
 Rastu kiekis (duotas)
-*******
+{t4_rastu_kiekis}
 Storgalio apimtis su zieve cm (0.0) (duota)
-*******
+{t4_storgalio_apimtis_su_zieve:.1f}
 Plongalio apimtis su zieve  cm (0.0) (duota)
-*******
+{t4_plongalio_apimtis_su_zieve:.1f}
 Rastu ilgis (duotas)
-*******
+{t4_rastu_ilgis:.2f}
 == Skaiciavimai ==
 Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
-*******
+{t4_storgalio_skersmuo_su_zieve:.2f}
 Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
-*******
+{t4_storgalio_zieves_storis:.1f}
 Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
-*******
+{t4_storgalio_skersmuo_be_zieves:.2f}
 Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
-*******
+{t4_plongalio_skersmuo_su_zieve:.2f}
 Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
-*******
+{t4_plongalio_zieves_storis:.1f}
 Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
-*******
+{t4_plongalio_skersmuo_be_zieves:.2f}
 VIENO rasto turis (0.000 m3 tikslumu)
-*******
+{t4_vieno_rasto_turis:.3f}
 VISU rastu turis (0.000 m3 tikslumu)
-*******
+{t4_visu_rastu_turis:.3f}
 Visos rastu Medienos svoris (0.000 kg tikslumu)
-*******
+{t4_visu_rastu_svoris:.3f}
 Gaunamas kartono kiekis muo medienos svorio (% duota)
-*******
+{t4_gaunamas_popieriaus_kiekis_perc:.2f}
 Medienos svoris kartono gaminimui (0.000 kg tikslumu)
-*******
+{t4_medienos_svoris_popieriaus_gaminimui:.3f}
 Viso pagaminto kartono plotas (0.000 m2 tikslumu)
-*******
+{t4_viso_pagaminto_popieriaus_plotas:.3f}
 Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
-*******
+{t4_vieno_lapo_plotas:.3f}
 Pagaminta kartono lapu (vnt.)
-*******"""
+{t4_pagaminta_popieriaus_lapu}"""
 print(tpl4.format(**(dict(locals()))))
+
+t34_isviso_pagaminta_lapu=int(t3_pagaminta_popieriaus_lapu+t4_pagaminta_popieriaus_lapu) # vnt
+t34_popieriaus_gamybos_kaina=969.42 # eur
+t34_vieno_popieriaus_lapo_savikaina=t34_popieriaus_gamybos_kaina/t34_isviso_pagaminta_lapu # eur
 
 tpl34="""== APIBENDRINIMAS ==
 Isviso pagaminta kartono lapu (vnt.)
-*******
+{t34_isviso_pagaminta_lapu}
 kartono gamybos kaina Eu (duota)
-*******
+{t34_popieriaus_gamybos_kaina:.2f}
 Vieno kartono lapo savikaina (0.00 Eu)
-*******
-"""
+{t34_vieno_popieriaus_lapo_savikaina:.2f}"""
 print(tpl34.format(**(dict(locals()))))
