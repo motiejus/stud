@@ -1,0 +1,60 @@
+Uzduoti parenge  A.Bautrenas  (Zemelapiu publikavimo technologijos) 
+2020.11.23 15:24:13(55453.92s)  RND=5
+
+
+Uzduotis Nr. ZPT003_2020_03
+Jakstys_Motiejus (1915375)
+ === Maketavimo zonos ir parasciu skaiciavimas (03 uzd.) == (NAV_SK=0.27) ===
+Atlikti iki: 2020.12.07   15:24:13
+
+
+
+ 
+Uzduotis: 
+I. Pagal duotus duomenis apskaiciuoti teksto bloko ir parasciu dydzius.
+ Sutartiniai pazymejimai:          
+ L - puslapio plotis mm, H - puslapio aukstis mm 
+ Lt - teksto bloko plotis mm, Ht - teksto bloko aukstis mm 
+ Pvid - vidines Parastes plotis mm, Pisr - isorines Parastes plotis mm 
+ Pv - virsutines Parastes plotis mm, Pa - apatines Parastes plotis mm 
+Pastaba: Visiems skaiciavimo budams puslapio dydis vienodas 
+ 
+II. Paskaiciuoti kokiu tirazu butu galima atspausdinti leidini (ant pasigaminto popieriaus), spausdinant teksta pagal jau turimus ir pateiktus duomenis.
+Pastaba: Vidut.simb. skaicius puslapyje apskaiciuojama kaip 01 darbe,  tik papildomai ivertinant iliustracijoms skirta vieta
+ 
+Uzduoties duomenys: 
+Jusu puslapio dydis (plotis x aukstis): 
+Lp(mm) = 271 x  Hp(mm) = 582
+Puslapiai spausdinami pasigaminto popieriaus spaudos lapuose, kuriu duomenys (pavadinimas, matmenys, kiekis ir apskaiciuota savikaina) pateikti arba apskaiciuoti 02 uzduotyje.
+Visas simboliu kiekis apskaiciuotas 01 uzduotyje.
+Jusu spausdinamo teksto parametrai:
+Spauda: VIENPUSE
+Fontas: ELPHINSTONE
+Sriftas: 6p
+Intervalas tarp eiluciu: 2
+Kiekviename puslapyje palikta vietos iliustracijai:
+Iliustracijos tipas = [Uzdara iki krasto]
+Iliustracijai skirtos vietos ilgis (mm) = 55 (lygiagretus virsutiniam puslapio krastui)
+Iliustracijai skirtos vietos  aukstis (mm) = 151
+ 
+Puslapio dizaino variantai:
+ 
+[2.2] Teksto blokas: OPTIMALUS  Parastes: 12/10
+ 
+ 
+ 
+
+Pastabos: 
+1. Atliktu skaiciavimu rezultatus bei kitus duomenis (pvz. vardas, pavarde) surasyti i rinkmena [03sablonas_ats.txt] ir pakeisti i savo uzduoties Nr. .
+ Rinkmenos [03sablonas_ats.txt] strukturos nekeisti. Atsakymus surasyti tik i jiems skirtas vietas, t.y. vietoje 'zvaigzduciu' (*****). Visu skaitmenu (atsakymu) desintaine dalis turi buti atskirta TASKU, o ne kableliu, pvz. 345.2[TAIP], 345,2[NE].Neteisinga uzrasymo forma bus vertinama kaip klaida! 
+2. Ispjaunamu puslapiu skaiciavimo pvz. pateiktas [Puslapiu_ispjovimas.pdf]
+3. Vidutini simboliu kieki ispjautame puslapyje (kiekvienam  parasciu isdestymo variantui) apskaiciuojeme taip  kaip 01 uzduotyje, naudojant ta pati teksto fragmenta ir nurodyta psl. skaiciu vidutinio simboliu kiekio apskaiciavimui.
+4. DOC failai (simboliu skaiciavimui)  turi buti atsiusti kartu su atsakymu failu.  DOC pavadinime turi buti 'Fontas_Dydis_Variantas', Pavyzdziui, ARIAL_14p_11.doc arba ARIAL_14p_32.doc ir t.t.
+5. Skaiciavimo rezultatai turi buti atsiusti iki nurodytos datos. Uz kiekviena paveluota valanda (skaiciuojant nuo rudens sesijos pradzios) vertinimo balas mazinamas 0.05 balo.
+
+Pabaiga: 2020.11.23 15:24:13
+
+
+Ispejimas:
+Jei si uzduotis skirta ne Jums, prasome ja perduoti adresatui arba grazinti siuntejui 
+ir istrinti is savo duomenu bazes.

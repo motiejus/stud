@@ -1,0 +1,57 @@
+Uzduoties Nr. 
+*******
+Skaiciavo(Pavarde Vardas):
+*******_*******
+Puslapio plotis Lp(mm) (duotas) 
+*******
+Puslapio aukstis Hp(mm) (duotas) 
+*******
+Vieta iliustracijai ILGIS(mm) (duotas) 
+*******
+Vieta iliustracijai AUKSTIS(mm) (duotas) 
+*******
+Iliustracijos tipas (duotas) 
+*******
+Teksto bloko variantas (duotas. pvz.[1.2])
+*******
+Teksto bloko plotis Lt (0.1 mm tikslumu)
+*******
+Vidine paraste Pvid (0.1 mm tikslumu)
+*******
+Isorine paraste Pisr (0.1 mm tikslumu)
+*******
+Virsutine paraste Pv (0.1 mm tikslumu)
+*******
+Apatine paraste Pa (0.1 mm tikslumu)
+*******
+Teksto bloko aukstis Ht (0.1 mm tikslumu)
+*******
+=== KAINU SKAICIAVIMAS ===
+Spaudos lapo (SL) pavadinimas (duotas 02 uzd.) pvz. ULTRA62
+*******
+Spaudos lapo (SL) plotis Wsl (mm)(duotas 02 uzd.) 
+*******
+Spaudos lapo (SL) ilgis Lsl (mm)(duotas 02 uzd.) 
+*******
+Kiek (is viso) pagaminta popieriaus spaudos lapu (apskaiciuota 02 uzd.) 
+*******
+Vieno popieriaus lapo savikaina 0.00 eu (apskaiciuota 02 uzd.) 
+*******
+Kiek puslapiu (duoto formato) galima ispjauti is vieno SL (max. kiekis vnt.)
+*******
+Vieno ispjauto puslapio savikaina (0.0000 Eu tikslumu)
+*******
+Kiek puslapiu (is viso) galima ispjauti is visu pasigamintu SL
+*******
+Visas spausdinamu simboliu kiekis (vnt. paskaiciuota 01 uzd.)
+*******
+VISAS simboliu kiekis DOC faile (atmetus vieta iliustracijai) 
+*******
+VIDUTINIS simboliu kiekis puslapyje 
+*******
+Puslapiu kiekis visu simboliu atspausdinimui 
+*******
+Visu puslapiu popieriaus kaina (0.00 Eu) 
+*******
+Koks galimas atspausdinimo tirazas (vnt.)
+*******
