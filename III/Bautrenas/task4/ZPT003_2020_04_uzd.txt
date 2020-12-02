@@ -1,0 +1,200 @@
+Uzduoti parenge  A.Bautrenas  (Zemelapiu publikavimo technologijos) 
+2020.12.02 22:06:19(79580s)  RND=5
+
+
+Uzduotis Nr. ZPT003_2020_04
+Jakstys_Motiejus (1915375)
+ === Leidinio maketo sanaudu skaiciavimas (04 uzd.) == (NAV_SK=0.27) ===
+Atlikti iki: 2020.12.16   22:06:19
+
+
+
+ 
+Uzduotis: 
+Sukurti kartografinio leidinio maketa ir apskaiciuoti leidybos sanaudas. 
+ 
+==========  Dalis 04/1 ==========
+ Pasirinkti ir Apskaiciuoti Jusu maketo dydzius ir kiekius
+ 
+Pastaba: Pagalbines ir pagrindines tekstines informacijos kiekiai skaiciuojami Word programoje, iliustraciju matmenys maketavimui nustatomi  su grafinemis programomis, o iliustraciju matmenys spausdinimui Indesign programoje. Makete turi buti visu tipu iliustraciju (spalvotu ir nespalvotu iliustraciju bei zemelapiu) 
+ 
+ 
+==========  Dalis 04/2 ==========
+Popieriaus parinkimas ir kiekiu apskaiciavimas (pagrindiniam tirazui)
+1. Parinkti popietiaus spaudos lapus pagrindiniam leidinio turiniui
+Pastaba: Parenkant popieriu atsizvelgti i popieriaus plauseliu krypti.  
+2. Apskaiciuoti visam tirazui reikalingo popieriaus kiekius ir galimas atliekas.
+ 
+ 
+==========  Dalis 04/3 ==========
+Kartono parinkimas ir kiekiu apskaiciavimas (pagrindiniam tirazui)
+1. Parinkti kartono spaudos lapus virseliui
+2. Apskaiciuoti visam tirazui reikalingo kartono kiekius ir galimas atliekas.
+ 
+ 
+==========  Dalis 04/4 ==========
+Sanaudu ir pelno apskaiciavimas (pagrindiniam tirazui)
+1. Ivertinti popieriaus ir kartono sanaudas (kainas) 
+2. Apskaiciuoti islaidas (maketavimo (teksto, iliustraciju), leidybos, transporto, saugojimo ir t.t.). 
+3. Apskaiciuoti pradine leidinio  ir viso tirazo savikaina.
+4. Apskaiciuoti reklamos islaidas, kurios sudaro 0.051 % nuo leidinio viso tirazo savikainos
+5. Apskaiciuoti po kiek reiketu parduoti kiekviena egzemplioriu, kad jusu turimas leidybinis biudzetas  butu virsytas DVIGUBAI
+
+
+Pagrindiniai reikalavimai leidinio maketui:
+
+LEIDINIO TEMA: Laisvai pasirinkta kartografine tema
+ 
+Spaudos budas:  VIENPUSE
+Irisimas:  VIRSUTINIS
+Virselis: KIETAS, medziaga KARTONAS
+Parastes ir teksto blokas: KARTOGRAFINIS + 10/10 taisykle 
+Puslapio forma: STACIAKAMPIS
+Autorinio Puslapio plotis L(mm) : PASIRENKAMAS LAISVAI 
+Autorinio Puslapio aukstis H(mm) : PASIRENKAMAS LAISVAI 
+Puslapio orientacija: ALBUMINE
+
+Tekstas: 
+Teksto koloneliu: VIENA arba DAUGIAU (Pasirenkama laisvai)
+Sriftas, simboliu dydis, tarpai tarp eiluciu: PASIRENKAMA LAISVAI
+Leidinio struktura: PILNA 
+(Ziur. faila [Leidinio struktura.pdf] )
+ Virselis:  ILIUSTRUOTAS (Pavadinimas ir iliustracija turi atitikti leidinio tema)
+Pastaba. Virselio galine puse iliustruota su leidyklos pavadinimu (sugalvota) .
+Pastaba. Virselis maketuojamas atskirame faile. 
+Avantitule turi buti: LEIDYBINIS ZENKLAS
+Kontrtitulas:  PASIRINKTI VIENA IS TRADICINIU VARIANTU
+Titulinis lapas:  Su FRONTISPISU (paciame tituliniame lape)
+Turinys:  Laisva forma 
+Pratarme ir ivadas:  TURI BUTI (Gali buti trumpi) 
+Pagrindine tema: TEKSTAS, ZEMELAPIAI, ILIUSTRACIJOS  (Nemaziau 20 puslapiu (arba 10 lapu) su PAGRINDINE informacija. Visi kiti puslapiai (Turinys, titulinis ir t.t.) yra papildomi.)
+Iliustracijos: LAISVOS FORMOS, bet nedidesnes kaip 1/5 tekstinio bloko. Zemelapiai gali buti didesni.
+(Iliustracijas panaudoti visu tipu (Atviros, Uzdaros iki krasto, Uzdaro pjuvio ir kt.)
+Bibliografija: BUTINA jei iliustracijos ir tekstas imami is interneto.
+Baigiamoji dalis:  KOLOFONAS BUTINAS, o kitu daliu (pvz. zodynelio) gali nebuti.
+Metrika: BUTINA (laisvai sugalvota informacija apie leidini).
+
+ Maketavimo programa: INDESIGN arba SCRIBUS
+
+
+Techniniai duomenys:
+Jusu leidinio biudzetas (Eu): 14953.54
+
+Leidinio tirazas: 721 egz.
+Jusu originalus maketas labai nedidelis (tik pabandymui), todel visi jame esantys originalus duomenys (puslapiai,tekstas,iliustracijos,zemelapiai) didinami nuradytu koeficientu.
+Maketo puslapiu kiekio padidinimas = 8.9 kartu.
+Teksto simb. kiekis didinamas = 167.8 kartu.
+JB iliustraciju plotas didinamas = 39.1 kartu.
+SP iliustraciju plotas didinamas = 26.1 kartu.
+JB zemelapiu plotas didinamas = 14.6 kartu.
+SP zemelapiu plotas didinamas = 10.3 kartu.
+Pavyzdziui, Jusu makete yra 1245 teksto simboliai, tai islaidas maketavimui reikes skaiciuoti [1245 * 167.8] t.y. 208968 simboliams. Tas pats su iliustraciju ir zemelapiu plotais (apvaliname i sveikus cm2). 
+
+Duomenys tranportavimo islaidoms:
+1. Apskaiciuotas pagrindiniam tirazui reikalingas popieriaus ir kartono kiekis gabenamas is pop.kombinato i spaustuve.
+2. Visas pasigamintas (is turimu rastu) popierius ir kartonas gabenamas is pop.kombinato i leidykla.
+3. Popierius ir kartonas reikalingas tik papildomo tirazo spausdinimui gabenamos is leidyklos i spaustuve.
+4. Visos popieriaus ir kartono atliekos gabenamos ir superkamos perdirbimo gamykloje. Gautos pajamos grazinamos i leidykla.
+5. Visas tirazas (pagrindinis ir papildomas) gabenamas is spaustuves tiesiai i sandeli
+6. Visas tirazas (pagrindinis ir papildomas) saugomas nurodyta laika.(saugojimo islaidos iskaiciuojamos i leidinio savikaina)
+7. Po saugojimo, dalis tirazo transportuojama i platintoju tarnyba ir platinama uz nurodyta kaina, o kita dalis - grazinama i leidykla ir platinama leidyklos kainomis
+
+Atstumai ir gabenimo kainos:
+Atstumas nuo popieriaus kombinato iki spaustuves (km): 104
+Atstumas nuo popieriaus kombinato iki leidyklos (km): 106
+Atstumas nuo spaustuves iki leidyklos (km): 62
+Atstumas nuo spaustuves iki sandelio (km): 90
+Atstumas nuo leidyklos iki sandelio(km): 47
+Atstumas nuo sandelio iki platinimo tarnybos (km): 77
+Atstumas nuo spaustuves iki atlieku perdirbimo imones(km): 286
+Popieriaus atliekos superkamos po(Eu uz tona): 143.49
+Kartono atliekos superkamos po(Eu uz tona): 52.4
+Gabenimo kaina(Eu t/km): 1.351
+Sandeliavimo kaina ne sildymo sezono metu (Eu m3/24h): 0.85
+Sandeliavimo kaina sildymo sezono metu (Eu m3/24h): 10.07
+
+Saugojimo terminas:
+Visa atspausdinta tiraza reikes saugoti:  nuo 2021.03.15d. 08h  iki 2021.07.29d. 23h
+(Pastaba: Sildymo sezonas prasideda spalio 16d 00h, baigiasi - balandzio 29d 24h)
+
+Visas reikalingas (pasirinktas) POPIERIUS perkamas:
+Tonomis: 40 % nuo viso reikalingo popieriaus.
+ Kaina (Eu/T): 2532.15
+Lapais: 60 % nuo viso reikalingo popieriaus.
+ Kaina (Eu/lapas): 1.90
+Visas reikalingas (pasirinktas) KARTONAS perkamas:
+Tonomis: 78 % nuo viso reikalingo kartono.
+ Kaina (Eu/T): 1090.49
+Lapais: 22 % nuo viso reikalingo kartono.
+ Kaina (Eu/lapas): 0.45
+
+Maketavimo ikainiai (nepriklausomi nuo tirazo):
+Tekstas (Eu/aut.lankas): 18.63
+Iliustracijos nespalvotos (Eu/cm2): 0.67
+Iliustracijos spalvotos (Eu/cm2): 0.84
+Zemelapiai nespalvoti (Eu/cm2): 1.64
+Zemelapiai spalvoti (Eu/cm2): 2.82
+Virselio maketavimas (Eu/cm2): 3.85
+
+Spausdinimo ikainiai (priklausomi nuo tirazo):
+Tekstas (Eu/aut.lankas): 0.20
+Iliustracijos nespalvotos (Eu/cm2): 0.062
+Iliustracijos spalvotos (Eu/cm2): 0.077
+Zemelapiai nespalvoti (Eu/cm2): 0.071
+Zemelapiai spalvoti (Eu/cm2): 0.284
+Virselis su irisimu (Eu/cm2): 0.443
+
+ Pastaba: Iliustraciju maketavimo kainos skaiciuojamos pagal  originalius iliustraciju dydzius, o spausdinimo - pagal dydzius leidinio makete.
+
+************* TEORINIO MAKETO DUOMENYS *****************
+
+ Pastaba: Gali buti, kad originalaus maketo tiksliu duomenu dar neturite, todel tolimesniems skaiciavimams galima naudoti -  'Teorinio' maketo duomenis. Tada Jusu originalus maketas liks nepriklausomas (gales skirtis) nuo skaiciavimo rezultatu.
+
+Autorinio Puslapio plotis L(mm) = 345
+Autorinio Puslapio aukstis H(mm) = 279
+Pagrindines informacijos lapu skaicius (vnt.)(sumaketuota) = 23
+Pagalbines informacijos lapu skaicius (vnt.)(sumaketuota) = 14
+Pagrindinio teksto simb. skaicius (su tarpais) (sumaketuota) = 779
+Pagalbinio teksto simb. skaicius (su tarpais) (sumaketuota) = 586
+Nespalvotu iliustraciju kiekis makete (vnt.) = 8
+Spalvotu iliustraciju kiekis makete (vnt.) = 10
+Nespalvotu zemelapiu kiekis makete (vnt.) = 5
+Spalvotu zemelapiu kiekis makete (vnt.) = 7
+Nespalvotu iliustraciju plotas (cm2) (originalu) = 137
+Spalvotu iliustraciju plotas (cm2) (originalu) = 417
+Nespalvotu zemelapiu plotas (cm2) (originalu) = 1641
+Spalvotu zemelapiu plotas (cm2) (originalu) = 2682
+Nespalvotu iliustraciju plotas (cm2) (sumaketuota) = 32
+Spalvotu iliustraciju plotas (cm2) (sumaketuota) = 92
+Nespalvotu zemelapiu plotas (cm2) (sumaketuota) = 1214
+Spalvotu zemelapiu plotas (cm2) (sumaketuota) = 1931
+
+ Pastaba: Visi kiti duomenys (psl.forma, orientacija, parastes, koeficientai ir t.t.)  reikalingi tolimesniems skaiciavimam nurodyti uzduotyje (ziur. auksciau).  
+******** TEORINIO MAKETO DUOMENU PABAIGA *********
+
+Pastabos: 
+
+
+Atsiskaitymui pateikti:
+1. Leidinio maketa Indesign formatu (visi failai turi buti atskiroje direktorijoje)
+2. Leidinio maketa PDF formatu.
+3. Vieno puslapio (kuriame daugiau iliustraciju) spalvu skaidyma PDF formatu. 
+4. Kiekybiniai ir Leidybiniu islaidu/pelno paskaiciavimai. 
+Pastaba: Visi sablonai, atsakymu surasymui, bus siunciami atskirai. 
+
+
+
+Bendros pastabos:
+1. Tekstine ir grafine informacija gali buti imama is Interneto. Tada bibliografijoje  pateikti tik nuorodas i puslapius is kur paimta informacija (tekste nuorodu nereikia)
+
+2. Leidejas (leidykla) - tai Jusu laisvai susigalvota 'leidykla' su savo logotipu ir kitokia informacija.  
+
+3. Direktorijos (su maketo failais) pavadinimas - Jusu uzduoties numeris. 
+
+
+Pabaiga: 2020.12.02 22:06:20
+
+
+Ispejimas:
+Jei si uzduotis skirta ne Jums, prasome ja perduoti adresatui arba grazinti siuntejui 
+ir istrinti is savo duomenu bazes.

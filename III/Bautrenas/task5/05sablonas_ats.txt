@@ -1,0 +1,112 @@
+Uzduoties 04/2 Nr. 
+*******
+Skaiciavo(Pavarde Vardas):
+******* *******
+ ===  Pradiniai duomenys ===
+Spauda (nurodyta): irasyti V arba D  (V=vienpuse D=dvipuse)
+*******
+Irisimas (nurodytas): irasyti V arba K  (V=virsutinis K=kairinis)
+*******
+Spauda (duota): irasyti 1,2 arba 4(1=vienspalves,2=dvispalves,4=keturspalves)
+*******
+Virselis (duota): irasyti K arba P  (K=kartonas P=plastikas)
+*******
+== Leidinio formatas (autorinis apipjautas lapas mm)(jau pasirinktas)==
+Plotis L(mm)
+*******
+Aukstis H(mm)
+*******
+Viso Puslapiu makete (apskaièiuotas 04/1 dalyje)
+*******
+Puslapiu skaiciau didinimo koeficientas (duota 04/1)
+*******
+Visas puslapiu sk.leidinyje (padidintas duotu koef.):
+*******
+Pagrindinis Tirazas (duotas 04/1) (egz.)
+*******
+===  POPIERIUS PAGRINDINIAM TIRAZUI ===
+===  Popieriaus parinkimas (PSL = popieriaus spaudos lapas) ===
+[1. Leidinio psl. formatas (su apipjovimo pataisomis) ]
+Plotis pataisytas Lp(mm)
+*******
+Aukstis pataisytas Hp(mm)
+*******
+[2. Apskaiciuotas PSL formatas (su technologinemis pataisomis)]
+PSL Plotis W(mm)
+*******
+PSL Ilgis L(mm)
+*******
+[3.Parinkto PSL charakteristikos ]
+Popieriaus(P) pavadinimas (pvz. Ultra1B)
+*******
+Plotis PSLW(mm)
+*******
+Ilgis PSLL(mm)
+*******
+Svoris PSV(g/m2)
+*******
+Storis PST(mk)
+*******
+Purumas PP(0.00 Vol) (paskaiciuoti)
+*******
+[4.Puslapiu kiekis viename PSL (derinti plausu krypti) ]
+Keliais stulpeliais galima ispjauti leidinio puslapiu is vieno PSL
+*******
+Keliomis eilemis galima ispjauti leidinio puslapiu is vieno PSL
+*******
+Leidinio LAPU kiekis viename PSL
+*******
+[5. PSL kiekis visam pagrindiniam tirazui ]
+PSL kiekis VIENO leidinio lapu atspausdinimui (0.0 vnt.)
+*******
+PSL kiekis tirazo atspausdinimui (0.0 vnt.)
+*******
+PSL atsargos norma (nurodyta %)
+*******
+PSL atsarga (0.0 vnt.)
+*******
+Visas PSL kiekis (su atsarg) pagrindiniam tirazui VPSL (0.0 vnt.)
+*******
+[6.Popieriaus atlieku paskaiciavimas]
+Parinkto PSL lapo svoris (0.0 g)
+*******
+Plotas, kuri uzima leidinio lapai(apipjauti) viename PSL (mm2)
+*******
+Atlieku plotas viename PSL (mm2)
+*******
+Vieno PSL atlieku svoris (0.0 g)
+*******
+Visu PSL (be atsargos) atlieku svoris (0.001 kg)
+*******
+Visos PSL atsargos svoris (0.001 kg)
+*******
+Visu popieriaus atlieku svoris (0.001 kg)
+*******
+[7.Popieriaus kiekiai pagrindiniam tirazui]
+Parinkto popieriaus purumas PP(0.00 Vol)
+*******
+Suristu vieno leidinio Lapu SToris LST(0.00 mm)
+*******
+Tukstancio(1000) PSL svoris PSV1000(0.000 kg)
+*******
+Visu PSL lapu (su atsarga) svoris PVIS(0.000 t)
+*******
+[8.Popieriaus kaina pagrindiniam tirazui]
+Popieriaus vienos tonos kaina 0.00 Eu (duota)
+*******
+Popieriaus kiekis perkamas tonomis (%) (duota)
+*******
+Perkamo tonomis popieriaus svoris (0.000 t)
+*******
+Perkamo tonomis popieriaus kaina (0.00 Eu)
+*******
+Vieno PSL lapo kaina 0.00 Eu (duota)
+*******
+Popieriaus kiekis perkamas lapais (%) (duota)
+*******
+Perkamu PSL lapu kiekis (0.0 vnt)
+*******
+Perkamo PSL lapus kaina (0.00 Eu)
+*******
+Visa (tonomis+lapais) reikalingo popieriaus kaina (0.00 Eu)
+*******

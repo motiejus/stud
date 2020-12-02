@@ -1,0 +1,74 @@
+===== 04/1 SABLONAS ========
+Uzduoties Nr. 
+*******
+Skaiciavo(Pavarde Vardas):
+*******_*******
+---  MAKETO DUOMENYS  ----
+Leidinio pavadinimas (pvz. KELIONIU ATLASAS) 
+*******
+Spaudos budas (duota) 
+*******
+Irisimas (duota) 
+*******
+Virselis (duota) 
+*******
+Puslapio forma (duota) 
+*******
+Puslapio orientacija (duota) 
+*******
+Autorinio puslapio plotis L(mm) (pasirinktas) 
+*******
+Autorinio puslapio aukstis H(mm) (pasirinktas) 
+*******
+Parastes apskaiciuojamos pagal taisykle (duota) 
+*******
+Vidine paraste Pvid(mm)(apskaiciuota) 
+*******
+Isorine paraste Pisr(mm)(apskaiciuota) 
+*******
+Virsutine paraste Pv(mm)(apskaiciuota) 
+*******
+Apatine paraste Pa(mm)(apskaiciuota) 
+*******
+Teksto bloko ilgis Lt(mm)(apskaiciuota) 
+*******
+Teksto bloko aukstis Ht(mm)(apskaiciuota) 
+*******
+Pagrindines informacijos lapu skaicius (vnt.)(sumaketuota) 
+*******
+Pagalbines informacijos lapu skaicius (vnt.)(sumaketuota) 
+*******
+Viso lapu leidinyje (vnt.)(sumaketuota) 
+*******
+Pagrindinio teksto simb. skaicius (su tarpais) (sumaketuota) 
+*******
+Pagalbinio teksto simb. skaicius (su tarpais) (sumaketuota) 
+*******
+Viso simboliu makete (su tarpais) (sumaketuota) 
+*******
+Nespalvotu iliustraciju kiekis makete (vnt.) 
+*******
+Spalvotu iliustraciju kiekis makete (vnt.) 
+*******
+Nespalvotu zemelapiu kiekis makete (vnt.)
+*******
+Spalvotu zemelapiu kiekis makete (vnt.)
+*******
+Nespalvotu iliustraciju plotas (cm2) (originalu) 
+*******
+Spalvotu iliustraciju plotas (cm2) (originalu) 
+*******
+Nespalvotu zemelapiu plotas (cm2) (originalu) 
+*******
+Spalvotu zemelapiu plotas (cm2) (originalu) 
+*******
+Nespalvotu iliustraciju plotas (cm2) (sumaketuota) 
+*******
+Spalvotu iliustraciju plotas (cm2) (sumaketuota) 
+*******
+Nespalvotu zemelapiu plotas (cm2) (sumaketuota) 
+*******
+Spalvotu zemelapiu plotas (cm2) (sumaketuota) 
+*******
+Kokie duomenys surasyti sablone (irasyti ORIGINALUS arba TEORINIAI) 
+*******

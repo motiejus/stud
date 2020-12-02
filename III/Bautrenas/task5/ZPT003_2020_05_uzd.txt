@@ -1,0 +1,41 @@
+Uzduoti parenge  A.Bautrenas  (Zemelapiu publikavimo technologijos) 
+2020.12.02 23:06:35(83195.56s)  RND=5
+
+
+Uzduotis Nr. ZPT003_2020_05
+Jakstys_Motiejus (1915375)
+ === 04/2 Popieriaus kiekiai ir kainos == (NAV_SK=0.27) ===
+Atlikti iki: 2020.12.18   23:06:15
+
+
+
+ 
+Uzduotis 04/2 (04(maketas) ir 04/1(maketo inf.kiekiai) uzduociu) tesinys: 
+Parinkti popieriu leidiniui, apskaiciuoti techninius parametrus, popieriaus sanaudas, atliekas ir kainas. 
+ 
+=== Papildomi duomenys ir patikslinimai skaiciavimams === 
+ 
+Pastaba: Sakiciavimams naudoti duomenis padidintus nurodytais koeficientais. 
+ Jei 04/1 uzduotyje maketo apimti pasiskaiciavote lapais, tai perskaiciuokite i puslapius. Pavyzdziui,  viso maketo apimtis 24 lapai (pagrind.turinys + pagalbine inf.),tai bus 48 psl. x 7.2 = 346 (visada suapvalinam i sveika lygini psl.skaiciu)
+Skaiciavimams (pagal formules) naudokite apskaiciuota puslapiu skaiciu daugindami is spaudos budo (SB) koeficiento. Jei spauda vienpuse,tai SB = 1, jei dvipuse - SB = 0.5 
+ 
+Papildomi, 04/1 uzduotyje nepamineti duomenys:
+Puslapiu (Lapo) apipjovimas: PRESUOJANT (ziur. 'Apipjovimo dydziu lentele')
+ 
+Spauda: KETURSPALVE (ziur. 'Technologiniai priedai' 
+
+
+
+Bendros pastabos:
+1.  Popieriaus spaudos lapas (PSL) turi buti parinktas taip, kad sutaptu PSL ir leidinio lapu celiuliozes plausu kryptys. Leidinyje plausu kryptis lygiagreti irisimui.
+2.  Popieriaus atsarga skirta sugadintu lapu pakeitimui. Jei butu spausdinama be broko, tai visa atsarga apskaiciuojama kaip spaudos atliekos. Bet kuriuo atveju, atsarga - tai busimos atliekos.
+3. Pataisos puslapiu apipjovimui pateiktos [Apipjovimu_dydziu_lentele.pdf]
+4. Pataisos PSL dydzio skaiciavimui pateiktos [Technologiniai_priedai.pdf].
+5. PSL ir KSL formatai ir atsargos normos pateiktos [Popierius_Kartonas_atsarga.pdf]. 
+
+Pabaiga: 2020.12.02 23:06:35
+
+
+Ispejimas:
+Jei si uzduotis skirta ne Jums, prasome ja perduoti adresatui arba grazinti siuntejui 
+ir istrinti is savo duomenu bazes.
