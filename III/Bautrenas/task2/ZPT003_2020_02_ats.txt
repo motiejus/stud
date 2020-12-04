@@ -70,32 +70,32 @@ Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
 Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
 21.6
 Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
-40.00
+39.69
 Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
 18.68
 Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
 11.6
 Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
-17.00
+16.86
 VIENO rasto turis (0.000 m3 tikslumu)
-0.303
+0.298
 VISU rastu turis (0.000 m3 tikslumu)
-0.908
+0.894
 Visu rastu Medienos svoris (0.000 kg tikslumu)
-720.920
+709.836
 Gaunamas popieriaus kiekis priklausomai muo gamybos metodo (% duota)
 9.74
 Medienos svoris popieriaus gaminimui (0.000 kg tikslumu)
-70.218
+69.138
 Viso pagaminto popieriaus plotas (0.000 m2 tikslumu)
-780.196
+768.200
 Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
 0.675
 Pagaminta popieriaus lapu (vnt.)
-1155
+1138
 == APIBENDRINIMAS ==
 Isviso pagaminta popieriaus lapu (vnt.)
-2434
+2417
 Popieriaus gamybos kaina Eu (duota)
 969.42
 Vieno popieriaus lapo savikaina (0.00 Eu)
@@ -195,6 +195,6 @@ Pagaminta kartono lapu (vnt.)
 Isviso pagaminta kartono lapu (vnt.)
 6403
 kartono gamybos kaina Eu (duota)
-969.42
+755.78
 Vieno kartono lapo savikaina (0.00 Eu)
-0.15
+0.12
