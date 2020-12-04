@@ -104,11 +104,11 @@ Vieno popieriaus lapo savikaina (0.00 Eu)
 Gaminamo kartono pavadinimas pvz. REX/1 (duota)
 SRA2/2
 Gaminamo kartono lapo plotis W (mm)
-500
+470
 Gaminamo kartono lapo ilgis L (mm)
-700
+640
 Gaminamo kartono metro kv. svoris  (g/m2)
-330
+320
 1.   Kartonas gaminamas is medienos pvz. AZUOLAS (duota)
 Drebule
 kartono gamybos metodas (nurodytas)
@@ -127,29 +127,29 @@ Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
 Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
 25.8
 Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
-34.00
+33.86
 Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
 4.20
 Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
 5.0
 Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
-4.00
+3.70
 VIENO rasto turis (0.000 m3 tikslumu)
-0.118
+0.116
 VISU rastu turis (0.000 m3 tikslumu)
-0.711
+0.696
 Visos rastu Medienos svoris (0.000 kg tikslumu)
-541.700
+530.352
 Gaunamas kartono kiekis muo medienos svorio (% duota)
 28.11
 Medienos svoris kartono gaminimui (0.000 kg tikslumu)
-152.272
+149.082
 Viso pagaminto kartono plotas (0.000 m2 tikslumu)
-1691.909
+1656.467
 Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
-0.675
+0.301
 Pagaminta kartono lapu (vnt.)
-2506
+5503
 2.   Kartonas gaminamas is medienos pvz. AZUOLAS (duota)
 Berzas
 kartono gamybos metodas (nurodytas)
@@ -168,33 +168,33 @@ Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
 Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
 48.4
 Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
-38.00
+38.12
 Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
 9.61
 Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
 7.0
 Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
-9.00
+8.71
 VIENO rasto turis (0.000 m3 tikslumu)
-0.254
+0.253
 VISU rastu turis (0.000 m3 tikslumu)
-2.287
+2.277
 Visos rastu Medienos svoris (0.000 kg tikslumu)
-2008.414
+1999.206
 Gaunamas kartono kiekis muo medienos svorio (% duota)
 11.79
 Medienos svoris kartono gaminimui (0.000 kg tikslumu)
-236.792
+235.706
 Viso pagaminto kartono plotas (0.000 m2 tikslumu)
-2631.023
+2618.956
 Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
-0.675
+0.301
 Pagaminta kartono lapu (vnt.)
-3897
+8700
 == APIBENDRINIMAS ==
 Isviso pagaminta kartono lapu (vnt.)
-6403
+14203
 kartono gamybos kaina Eu (duota)
 755.78
 Vieno kartono lapo savikaina (0.00 Eu)
-0.12
+0.05

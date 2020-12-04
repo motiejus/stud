@@ -10,12 +10,14 @@ t1_plongalio_apimtis_su_zieve=46.2  # cm
 t1_medienos_svoris=800 # kg/m3
 t1_gaunamas_popieriaus_kiekis_perc=6.82 # [0-100]%
 t1_popieriaus_tankis=0.09 # kg/m2
-t1_vieno_lapo_plotas=round(.75*.9,3) # m2
 t1_rastu_kiekis=5
 t1_rastu_ilgis=5.38 # m
 t1_storgalio_zieves_storis=10.0 # mm
 t1_plongalio_zieves_storis=7.5 # mm
+t1_lapo_ilgis=.75 # m
+t1_lapo_plotis=.9 # m
 
+t1_vieno_lapo_plotas=round(t1_lapo_ilgis*t1_lapo_plotis,3) # m2
 t1_storgalio_skersmuo_su_zieve=round(t1_storgalio_apimtis_su_zieve/pi,2)  # cm
 t1_plongalio_skersmuo_su_zieve=round(t1_plongalio_apimtis_su_zieve/pi,2)  # cm
 t1_storgalio_skersmuo_be_zieves=round(t1_storgalio_skersmuo_su_zieve-t1_storgalio_zieves_storis/10*2+.5,2) # cm
@@ -89,12 +91,14 @@ t2_plongalio_apimtis_su_zieve=58.7  # cm
 t2_medienos_svoris=794 # kg/m3
 t2_gaunamas_popieriaus_kiekis_perc=9.74 # [0-100]%
 t2_popieriaus_tankis=0.09 # kg/m2
-t2_vieno_lapo_plotas=.75*.9 # m2
 t2_rastu_kiekis=3
 t2_rastu_ilgis=4.5 # m
 t2_storgalio_zieves_storis=21.6 # mm
 t2_plongalio_zieves_storis=11.6 # mm
+t2_lapo_ilgis=.75 # m
+t2_lapo_plotis=.9 # m
 
+t2_vieno_lapo_plotas=round(t2_lapo_ilgis*t2_lapo_plotis,3) # m2
 t2_storgalio_skersmuo_su_zieve=round(t2_storgalio_apimtis_su_zieve/pi,2)  # cm
 t2_plongalio_skersmuo_su_zieve=round(t2_plongalio_apimtis_su_zieve/pi,2)  # cm
 t2_storgalio_skersmuo_be_zieves=round(t2_storgalio_skersmuo_su_zieve-t2_storgalio_zieves_storis/10*2+.5,2) # cm
@@ -164,32 +168,30 @@ Vieno popieriaus lapo savikaina (0.00 Eu)
 print(tpl12.format(**(dict(locals()))))
 
 
-t3_gaminamo_kartono_plotis=500 # mm
-t3_gaminamo_kartono_ilgis=700 # mm
-t3_gaminamo_kartono_metro_svoris=330 # g/m2
+t3_gaminamo_kartono_plotis=470 # mm
+t3_gaminamo_kartono_ilgis=640 # mm
+t3_gaminamo_kartono_metro_svoris=320 # g/m2
 t3_rastu_kiekis=6
 t3_storgalio_apimtis_su_zieve=121.0 # cm
 t3_plongalio_apimtis_su_zieve=13.2 # cm
-t3_rastu_ilgis=3.46
-
-t3_storgalio_skersmuo_su_zieve=t3_storgalio_apimtis_su_zieve/pi  # cm
-t3_plongalio_skersmuo_su_zieve=t3_plongalio_apimtis_su_zieve/pi  # cm
 t3_storgalio_zieves_storis=25.8
-t3_storgalio_skersmuo_be_zieves=round(t3_storgalio_skersmuo_su_zieve-t3_storgalio_zieves_storis/10*2+.5) # cm
 t3_plongalio_zieves_storis=5.0
-t3_plongalio_skersmuo_be_zieves=round(t3_plongalio_skersmuo_su_zieve-t3_plongalio_zieves_storis/10*2+.5) # cm
-
-t3_vieno_rasto_turis=nupjauto_kugio_turis(t3_rastu_ilgis, t3_plongalio_skersmuo_be_zieves/100, t3_storgalio_skersmuo_be_zieves/100) # m3
-t3_visu_rastu_turis=t3_vieno_rasto_turis*t3_rastu_kiekis # m3
-
+t3_rastu_ilgis=3.46
 t3_medienos_svoris=762
-t3_visu_rastu_svoris=t3_visu_rastu_turis*t3_medienos_svoris # kg
 t3_gaunamas_popieriaus_kiekis_perc=28.11 # [0-100]%
-t3_gaunamas_popieriaus_kiekis_trupm=t3_gaunamas_popieriaus_kiekis_perc/100 # [0-1]
-t3_medienos_svoris_popieriaus_gaminimui=t3_visu_rastu_svoris*t3_gaunamas_popieriaus_kiekis_trupm # kg
 t3_popieriaus_tankis=0.09 # kg/m2
-t3_viso_pagaminto_popieriaus_plotas=t3_medienos_svoris_popieriaus_gaminimui/t3_popieriaus_tankis # m2
-t3_vieno_lapo_plotas=.75*.9 # m2
+
+t3_vieno_lapo_plotas=round(t3_gaminamo_kartono_plotis/1000*t3_gaminamo_kartono_ilgis/1000,3) # m2
+t3_storgalio_skersmuo_su_zieve=round(t3_storgalio_apimtis_su_zieve/pi,2)  # cm
+t3_plongalio_skersmuo_su_zieve=round(t3_plongalio_apimtis_su_zieve/pi,2)  # cm
+t3_storgalio_skersmuo_be_zieves=round(t3_storgalio_skersmuo_su_zieve-t3_storgalio_zieves_storis/10*2+.5,2) # cm
+t3_plongalio_skersmuo_be_zieves=round(t3_plongalio_skersmuo_su_zieve-t3_plongalio_zieves_storis/10*2+.5,2) # cm
+t3_vieno_rasto_turis=round(nupjauto_kugio_turis(t3_rastu_ilgis, t3_plongalio_skersmuo_be_zieves/100, t3_storgalio_skersmuo_be_zieves/100),3) # m3
+t3_visu_rastu_turis=round(t3_vieno_rasto_turis*t3_rastu_kiekis,3) # m3
+t3_visu_rastu_svoris=round(t3_visu_rastu_turis*t3_medienos_svoris,3) # kg
+t3_gaunamas_popieriaus_kiekis_trupm=t3_gaunamas_popieriaus_kiekis_perc/100 # [0-1]
+t3_medienos_svoris_popieriaus_gaminimui=round(t3_visu_rastu_svoris*t3_gaunamas_popieriaus_kiekis_trupm,3) # kg
+t3_viso_pagaminto_popieriaus_plotas=round(t3_medienos_svoris_popieriaus_gaminimui/t3_popieriaus_tankis,3) # m2
 t3_pagaminta_popieriaus_lapu=int(t3_viso_pagaminto_popieriaus_plotas/t3_vieno_lapo_plotas) # kiekis
 
 tpl3="""==== KNYGINIS KARTONAS ====
@@ -244,32 +246,30 @@ Pagaminta kartono lapu (vnt.)
 {t3_pagaminta_popieriaus_lapu}"""
 print(tpl3.format(**(dict(locals()))))
 
-t4_gaminamo_kartono_plotis=500 # mm
-t4_gaminamo_kartono_ilgis=700 # mm
+t4_gaminamo_kartono_plotis=470 # mm
+t4_gaminamo_kartono_ilgis=640 # mm
 t4_gaminamo_kartono_metro_svoris=330 # g/m2
 t4_rastu_kiekis=9
 t4_storgalio_apimtis_su_zieve=148.6 # cm
 t4_plongalio_apimtis_su_zieve=30.2 # cm
 t4_rastu_ilgis=5.2
-
-t4_storgalio_skersmuo_su_zieve=t4_storgalio_apimtis_su_zieve/pi  # cm
-t4_plongalio_skersmuo_su_zieve=t4_plongalio_apimtis_su_zieve/pi  # cm
 t4_storgalio_zieves_storis=48.4 # mm
-t4_storgalio_skersmuo_be_zieves=round(t4_storgalio_skersmuo_su_zieve-t4_storgalio_zieves_storis/10*2+.5) # cm
 t4_plongalio_zieves_storis=7.0 # mm
-t4_plongalio_skersmuo_be_zieves=round(t4_plongalio_skersmuo_su_zieve-t4_plongalio_zieves_storis/10*2+.5) # cm
-
-t4_vieno_rasto_turis=nupjauto_kugio_turis(t4_rastu_ilgis, t4_plongalio_skersmuo_be_zieves/100, t4_storgalio_skersmuo_be_zieves/100) # m3
-t4_visu_rastu_turis=t4_vieno_rasto_turis*t4_rastu_kiekis # m3
-
 t4_medienos_svoris=878
-t4_visu_rastu_svoris=t4_visu_rastu_turis*t4_medienos_svoris # kg
 t4_gaunamas_popieriaus_kiekis_perc=11.79 # [0-100]%
-t4_gaunamas_popieriaus_kiekis_trupm=t4_gaunamas_popieriaus_kiekis_perc/100 # [0-1]
-t4_medienos_svoris_popieriaus_gaminimui=t4_visu_rastu_svoris*t4_gaunamas_popieriaus_kiekis_trupm # kg
 t4_popieriaus_tankis=0.09 # kg/m2
-t4_viso_pagaminto_popieriaus_plotas=t4_medienos_svoris_popieriaus_gaminimui/t4_popieriaus_tankis # m2
-t4_vieno_lapo_plotas=.75*.9 # m2
+
+t4_vieno_lapo_plotas=round(t4_gaminamo_kartono_plotis/1000*t4_gaminamo_kartono_ilgis/1000,3) # m2
+t4_storgalio_skersmuo_su_zieve=round(t4_storgalio_apimtis_su_zieve/pi,2)  # cm
+t4_plongalio_skersmuo_su_zieve=round(t4_plongalio_apimtis_su_zieve/pi,2)  # cm
+t4_storgalio_skersmuo_be_zieves=round(t4_storgalio_skersmuo_su_zieve-t4_storgalio_zieves_storis/10*2+.5,2) # cm
+t4_plongalio_skersmuo_be_zieves=round(t4_plongalio_skersmuo_su_zieve-t4_plongalio_zieves_storis/10*2+.5,2) # cm
+t4_vieno_rasto_turis=round(nupjauto_kugio_turis(t4_rastu_ilgis, t4_plongalio_skersmuo_be_zieves/100, t4_storgalio_skersmuo_be_zieves/100),3) # m3
+t4_visu_rastu_turis=round(t4_vieno_rasto_turis*t4_rastu_kiekis,3) # m3
+t4_visu_rastu_svoris=round(t4_visu_rastu_turis*t4_medienos_svoris,3) # kg
+t4_gaunamas_popieriaus_kiekis_trupm=t4_gaunamas_popieriaus_kiekis_perc/100 # [0-1]
+t4_medienos_svoris_popieriaus_gaminimui=round(t4_visu_rastu_svoris*t4_gaunamas_popieriaus_kiekis_trupm,3) # kg
+t4_viso_pagaminto_popieriaus_plotas=round(t4_medienos_svoris_popieriaus_gaminimui/t4_popieriaus_tankis,3) # m2
 t4_pagaminta_popieriaus_lapu=int(t4_viso_pagaminto_popieriaus_plotas/t4_vieno_lapo_plotas) # kiekis
 
 
