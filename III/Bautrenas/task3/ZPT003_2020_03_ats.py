@@ -5,16 +5,19 @@ from consts import wc
 Lp=271 # mm
 Hp=582 # mm
 
+sl_ilgis=.75 # m
+sl_plotis=.9 # m
+sl_ilgis_mm=sl_ilgis*1000 # mm
+sl_plotis_mm=sl_plotis*1000 # mm
+
 Lt=round(Lp*2./3., 1) # mm
 Ht=round(Hp*2./3., 1) # mm
-
 Pvid=round(4/10*(Lp-Lt), 1)
 Pisr=round(6/10*(Lp-Lt), 1)
-
 Pv=round(5/10*(Hp-Ht),1)
 Pa=round(7/10*(Hp-Ht),1)
-
 avg_wc = round(wc / 6)
+
 
 tpl="""Uzduoties Nr. 
 ZPT003_2020_03
@@ -46,11 +49,11 @@ Teksto bloko aukstis Ht (0.1 mm tikslumu)
 {Ht}
 === KAINU SKAICIAVIMAS ===
 Spaudos lapo (SL) pavadinimas (duotas 02 uzd.) pvz. ULTRA62
-*******
+Ultra3C
 Spaudos lapo (SL) plotis Wsl (mm)(duotas 02 uzd.) 
-*******
+{sl_ilgis_mm}
 Spaudos lapo (SL) ilgis Lsl (mm)(duotas 02 uzd.) 
-*******
+{sl_plotis_mm}
 Kiek (is viso) pagaminta popieriaus spaudos lapu (apskaiciuota 02 uzd.) 
 *******
 Vieno popieriaus lapo savikaina 0.00 eu (apskaiciuota 02 uzd.) 

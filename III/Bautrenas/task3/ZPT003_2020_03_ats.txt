@@ -28,11 +28,11 @@ Teksto bloko aukstis Ht (0.1 mm tikslumu)
 388.0
 === KAINU SKAICIAVIMAS ===
 Spaudos lapo (SL) pavadinimas (duotas 02 uzd.) pvz. ULTRA62
-*******
+Ultra3C
 Spaudos lapo (SL) plotis Wsl (mm)(duotas 02 uzd.) 
-*******
+750.0
 Spaudos lapo (SL) ilgis Lsl (mm)(duotas 02 uzd.) 
-*******
+900.0
 Kiek (is viso) pagaminta popieriaus spaudos lapu (apskaiciuota 02 uzd.) 
 *******
 Vieno popieriaus lapo savikaina 0.00 eu (apskaiciuota 02 uzd.) 
