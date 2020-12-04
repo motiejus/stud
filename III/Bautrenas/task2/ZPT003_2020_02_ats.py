@@ -14,8 +14,8 @@ t1_rastu_kiekis=5
 t1_rastu_ilgis=5.38 # m
 t1_storgalio_zieves_storis=10.0 # mm
 t1_plongalio_zieves_storis=7.5 # mm
-t1_storgalio_skersmuo_be_zieves=t1_storgalio_skersmuo_su_zieve-t1_storgalio_zieves_storis/10*2+.5 # cm
-t1_plongalio_skersmuo_be_zieves=t1_plongalio_skersmuo_su_zieve-t1_plongalio_zieves_storis/10*2+.5 # cm
+t1_storgalio_skersmuo_be_zieves=round(t1_storgalio_skersmuo_su_zieve-t1_storgalio_zieves_storis/10*2+.5,2) # cm
+t1_plongalio_skersmuo_be_zieves=round(t1_plongalio_skersmuo_su_zieve-t1_plongalio_zieves_storis/10*2+.5,2) # cm
 
 t1_vieno_rasto_turis=nupjauto_kugio_turis(t1_rastu_ilgis, t1_plongalio_skersmuo_be_zieves/100, t1_storgalio_skersmuo_be_zieves/100) # m3
 t1_visu_rastu_turis=t1_vieno_rasto_turis*t1_rastu_kiekis # m3

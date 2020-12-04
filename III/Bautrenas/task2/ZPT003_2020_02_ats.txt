@@ -1,0 +1,200 @@
+Uzduoties Nr.
+ZPT003_2020_02
+Skaiciavo(Pavarde Vardas):
+Jakstys_Motiejus
+==== POPIERIUS ====
+Gaminamo popieriaus pavadinimas pvz. ULTRA/62 (duota)
+Ultra3C
+Gaminamo popieriaus lapo plotis W (mm)
+750
+Gaminamo popieriaus lapo ilgis L (mm)
+900
+Gaminamo popieriaus metro kv. svoris  (g/m2)
+95
+1.   Popierius gaminamas is medienos pvz. AZUOLAS (duota)
+Baltalksnis
+Popieriaus gamybos metodas (nurodytas)
+Cheminis/Sulfitinis
+Rastu kiekis (duotas)
+5
+Storgalio apimtis cm (0.0) (duota)
+119.4
+Plongalio apimtis cm (0.0) (duota)
+46.2
+Rastu ilgis (duotas)
+5.38
+== Skaiciavimai ==
+Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
+38.01
+Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
+10.0
+Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
+36.51
+Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
+14.71
+Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
+7.5
+Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
+13.71
+VIENO rasto turis (0.000 m3 tikslumu)
+0.285
+VISU rastu turis (0.000 m3 tikslumu)
+1.423
+Visu rastu Medienos svoris (0.000 kg tikslumu)
+1138.563
+Gaunamas popieriaus kiekis priklausomai muo gamybos metodo (% duota)
+6.82
+Medienos svoris popieriaus gaminimui (0.000 kg tikslumu)
+77.650
+Viso pagaminto popieriaus plotas (0.000 m2 tikslumu)
+862.778
+Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
+0.675
+Pagaminta popieriaus lapu (vnt.)
+1278
+2.   Popierius gaminamas is medienos pvz. AZUOLAS (duota)
+Egle
+Popieriaus gamybos metodas (nurodytas)
+Mechaninis/Cheminis
+Rastu kiekis (duotas)
+3
+Storgalio apimtis cm (0.0) (duota)
+136.7
+Plongalio apimtis cm (0.0) (duota)
+58.7
+Rastu ilgis (duotas)
+4.50
+== Skaiciavimai ==
+Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
+43.51
+Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
+21.6
+Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
+40.00
+Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
+18.68
+Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
+11.6
+Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
+17.00
+VIENO rasto turis (0.000 m3 tikslumu)
+0.303
+VISU rastu turis (0.000 m3 tikslumu)
+0.908
+Visu rastu Medienos svoris (0.000 kg tikslumu)
+720.920
+Gaunamas popieriaus kiekis priklausomai muo gamybos metodo (% duota)
+9.74
+Medienos svoris popieriaus gaminimui (0.000 kg tikslumu)
+70.218
+Viso pagaminto popieriaus plotas (0.000 m2 tikslumu)
+780.196
+Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
+0.675
+Pagaminta popieriaus lapu (vnt.)
+1155
+== APIBENDRINIMAS ==
+Isviso pagaminta popieriaus lapu (vnt.)
+2433
+Popieriaus gamybos kaina Eu (duota)
+969.42
+Vieno popieriaus lapo savikaina (0.00 Eu)
+0.40
+==== KNYGINIS KARTONAS ====
+Gaminamo kartono pavadinimas pvz. REX/1 (duota)
+SRA2/2
+Gaminamo kartono lapo plotis W (mm)
+500
+Gaminamo kartono lapo ilgis L (mm)
+700
+Gaminamo kartono metro kv. svoris  (g/m2)
+330
+1.   Kartonas gaminamas is medienos pvz. AZUOLAS (duota)
+Drebule
+kartono gamybos metodas (nurodytas)
+Mechaninis
+Rastu kiekis (duotas)
+6
+Storgalio apimtis su zieve cm (0.0) (duota)
+121.0
+Plongalio apimtis su zieve  cm (0.0) (duota)
+13.2
+Rastu ilgis (duotas)
+3.46
+== Skaiciavimai ==
+Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
+38.52
+Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
+25.8
+Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
+34.00
+Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
+4.20
+Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
+5.0
+Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
+4.00
+VIENO rasto turis (0.000 m3 tikslumu)
+0.118
+VISU rastu turis (0.000 m3 tikslumu)
+0.711
+Visos rastu Medienos svoris (0.000 kg tikslumu)
+541.700
+Gaunamas kartono kiekis muo medienos svorio (% duota)
+28.11
+Medienos svoris kartono gaminimui (0.000 kg tikslumu)
+152.272
+Viso pagaminto kartono plotas (0.000 m2 tikslumu)
+1691.909
+Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
+0.675
+Pagaminta kartono lapu (vnt.)
+2506
+2.   Kartonas gaminamas is medienos pvz. AZUOLAS (duota)
+Berzas
+kartono gamybos metodas (nurodytas)
+Cheminis/Sulfatinis
+Rastu kiekis (duotas)
+9
+Storgalio apimtis su zieve cm (0.0) (duota)
+148.6
+Plongalio apimtis su zieve  cm (0.0) (duota)
+30.2
+Rastu ilgis (duotas)
+5.20
+== Skaiciavimai ==
+Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
+47.30
+Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
+48.4
+Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
+38.00
+Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
+9.61
+Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
+7.0
+Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
+9.00
+VIENO rasto turis (0.000 m3 tikslumu)
+0.254
+VISU rastu turis (0.000 m3 tikslumu)
+2.287
+Visos rastu Medienos svoris (0.000 kg tikslumu)
+2008.414
+Gaunamas kartono kiekis muo medienos svorio (% duota)
+11.79
+Medienos svoris kartono gaminimui (0.000 kg tikslumu)
+236.792
+Viso pagaminto kartono plotas (0.000 m2 tikslumu)
+2631.023
+Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
+0.675
+Pagaminta kartono lapu (vnt.)
+3897
+== APIBENDRINIMAS ==
+Isviso pagaminta kartono lapu (vnt.)
+6403
+kartono gamybos kaina Eu (duota)
+969.42
+Vieno kartono lapo savikaina (0.00 Eu)
+0.15
