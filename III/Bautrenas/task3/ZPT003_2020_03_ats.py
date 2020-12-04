@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+from consts import wc
+
 Lp=271 # mm
 Hp=582 # mm
 
@@ -11,6 +13,8 @@ Pisr=round(6/10*(Lp-Lt), 1)
 
 Pv=round(5/10*(Hp-Ht),1)
 Pa=round(7/10*(Hp-Ht),1)
+
+avg_wc = round(wc / 6)
 
 tpl="""Uzduoties Nr. 
 ZPT003_2020_03
@@ -60,9 +64,9 @@ Kiek puslapiu (is viso) galima ispjauti is visu pasigamintu SL
 Visas spausdinamu simboliu kiekis (vnt. paskaiciuota 01 uzd.)
 *******
 VISAS simboliu kiekis DOC faile (atmetus vieta iliustracijai) 
-*******
+{wc}
 VIDUTINIS simboliu kiekis puslapyje 
-*******
+{avg_wc}
 Puslapiu kiekis visu simboliu atspausdinimui 
 *******
 Visu puslapiu popieriaus kaina (0.00 Eu) 
