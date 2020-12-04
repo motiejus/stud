@@ -39,19 +39,19 @@ Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
 VIENO rasto turis (0.000 m3 tikslumu)
 0.285
 VISU rastu turis (0.000 m3 tikslumu)
-1.423
+1.425
 Visu rastu Medienos svoris (0.000 kg tikslumu)
-1138.563
+1140.000
 Gaunamas popieriaus kiekis priklausomai muo gamybos metodo (% duota)
 6.82
 Medienos svoris popieriaus gaminimui (0.000 kg tikslumu)
-77.650
+77.748
 Viso pagaminto popieriaus plotas (0.000 m2 tikslumu)
-862.778
+863.867
 Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
 0.675
 Pagaminta popieriaus lapu (vnt.)
-1278
+1279
 2.   Popierius gaminamas is medienos pvz. AZUOLAS (duota)
 Egle
 Popieriaus gamybos metodas (nurodytas)
@@ -95,7 +95,7 @@ Pagaminta popieriaus lapu (vnt.)
 1155
 == APIBENDRINIMAS ==
 Isviso pagaminta popieriaus lapu (vnt.)
-2433
+2434
 Popieriaus gamybos kaina Eu (duota)
 969.42
 Vieno popieriaus lapo savikaina (0.00 Eu)
