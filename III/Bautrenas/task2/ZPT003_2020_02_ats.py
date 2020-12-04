@@ -7,26 +7,25 @@ def nupjauto_kugio_turis(h, d1, d2):
 
 t1_storgalio_apimtis_su_zieve=119.4 # cm
 t1_plongalio_apimtis_su_zieve=46.2  # cm
-t1_storgalio_skersmuo_su_zieve=t1_storgalio_apimtis_su_zieve/pi  # cm
-t1_plongalio_skersmuo_su_zieve=t1_plongalio_apimtis_su_zieve/pi  # cm
-
+t1_medienos_svoris=800 # kg/m3
+t1_gaunamas_popieriaus_kiekis_perc=6.82 # [0-100]%
+t1_popieriaus_tankis=0.09 # kg/m2
+t1_vieno_lapo_plotas=round(.75*.9,3) # m2
 t1_rastu_kiekis=5
 t1_rastu_ilgis=5.38 # m
 t1_storgalio_zieves_storis=10.0 # mm
 t1_plongalio_zieves_storis=7.5 # mm
+
+t1_storgalio_skersmuo_su_zieve=round(t1_storgalio_apimtis_su_zieve/pi,2)  # cm
+t1_plongalio_skersmuo_su_zieve=round(t1_plongalio_apimtis_su_zieve/pi,2)  # cm
 t1_storgalio_skersmuo_be_zieves=round(t1_storgalio_skersmuo_su_zieve-t1_storgalio_zieves_storis/10*2+.5,2) # cm
 t1_plongalio_skersmuo_be_zieves=round(t1_plongalio_skersmuo_su_zieve-t1_plongalio_zieves_storis/10*2+.5,2) # cm
-
-t1_vieno_rasto_turis=nupjauto_kugio_turis(t1_rastu_ilgis, t1_plongalio_skersmuo_be_zieves/100, t1_storgalio_skersmuo_be_zieves/100) # m3
-t1_visu_rastu_turis=t1_vieno_rasto_turis*t1_rastu_kiekis # m3
-t1_medienos_svoris=800 # kg/m3
-t1_visu_rastu_svoris=t1_visu_rastu_turis*t1_medienos_svoris # kg
-t1_gaunamas_popieriaus_kiekis_perc=6.82 # [0-100]%
+t1_vieno_rasto_turis=round(nupjauto_kugio_turis(t1_rastu_ilgis, t1_plongalio_skersmuo_be_zieves/100, t1_storgalio_skersmuo_be_zieves/100),3) # m3
+t1_visu_rastu_turis=round(t1_vieno_rasto_turis*t1_rastu_kiekis,3) # m3
+t1_visu_rastu_svoris=round(t1_visu_rastu_turis*t1_medienos_svoris,3) # kg
 t1_gaunamas_popieriaus_kiekis_trupm=t1_gaunamas_popieriaus_kiekis_perc/100 # [0-1]
-t1_medienos_svoris_popieriaus_gaminimui=t1_visu_rastu_svoris*t1_gaunamas_popieriaus_kiekis_trupm # kg
-t1_popieriaus_tankis=0.09 # kg/m2
-t1_viso_pagaminto_popieriaus_plotas=t1_medienos_svoris_popieriaus_gaminimui/t1_popieriaus_tankis # m2
-t1_vieno_lapo_plotas=.75*.9 # m2
+t1_medienos_svoris_popieriaus_gaminimui=round(t1_visu_rastu_svoris*t1_gaunamas_popieriaus_kiekis_trupm,3) # kg
+t1_viso_pagaminto_popieriaus_plotas=round(t1_medienos_svoris_popieriaus_gaminimui/t1_popieriaus_tankis,3) # m2
 t1_pagaminta_popieriaus_lapu=int(t1_viso_pagaminto_popieriaus_plotas/t1_vieno_lapo_plotas) # kiekis
 
 tpl1="""Uzduoties Nr.
