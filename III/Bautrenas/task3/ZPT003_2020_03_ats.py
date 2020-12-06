@@ -2,6 +2,11 @@
 
 from consts import wc
 
+def _pusl_kiekis(sl_ilgis_mm, sl_plotis_mm, puslapio_ilgis_mm, puslapio_plotis_mm):
+    nw1, nh1 = int(sl_ilgis_mm / puslapio_ilgis_mm), int(sl_plotis_mm / puslapio_plotis_mm)
+    nw2, nh2 = int(sl_ilgis_mm / puslapio_plotis_mm), int(sl_plotis_mm / puslapio_ilgis_mm)
+    return max(nw1*nh1, nw2*nh2)
+
 Lp=271 # mm
 Hp=582 # mm
 
@@ -18,6 +23,11 @@ Pv=round(5/10*(Hp-Ht),1)
 Pa=round(7/10*(Hp-Ht),1)
 avg_wc = round(wc / 6)
 
+viso_pagaminta_lapu=1212
+popieriaus_lapo_savikaina=0.42
+
+pusl_kiekis=_pusl_kiekis(sl_ilgis_mm, sl_plotis_mm, Lp, Hp)
+pusl_savikaina=round(popieriaus_lapo_savikaina/pusl_kiekis,4)
 
 tpl="""Uzduoties Nr. 
 ZPT003_2020_03
@@ -55,13 +65,13 @@ Spaudos lapo (SL) plotis Wsl (mm)(duotas 02 uzd.)
 Spaudos lapo (SL) ilgis Lsl (mm)(duotas 02 uzd.) 
 {sl_plotis_mm}
 Kiek (is viso) pagaminta popieriaus spaudos lapu (apskaiciuota 02 uzd.) 
-*******
+{viso_pagaminta_lapu}
 Vieno popieriaus lapo savikaina 0.00 eu (apskaiciuota 02 uzd.) 
-*******
+{popieriaus_lapo_savikaina}
 Kiek puslapiu (duoto formato) galima ispjauti is vieno SL (max. kiekis vnt.)
-*******
+{pusl_kiekis}
 Vieno ispjauto puslapio savikaina (0.0000 Eu tikslumu)
-*******
+{pusl_savikaina}
 Kiek puslapiu (is viso) galima ispjauti is visu pasigamintu SL
 *******
 Visas spausdinamu simboliu kiekis (vnt. paskaiciuota 01 uzd.)

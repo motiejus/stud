@@ -34,13 +34,13 @@ Spaudos lapo (SL) plotis Wsl (mm)(duotas 02 uzd.)
 Spaudos lapo (SL) ilgis Lsl (mm)(duotas 02 uzd.) 
 900.0
 Kiek (is viso) pagaminta popieriaus spaudos lapu (apskaiciuota 02 uzd.) 
-*******
+1212
 Vieno popieriaus lapo savikaina 0.00 eu (apskaiciuota 02 uzd.) 
-*******
+0.42
 Kiek puslapiu (duoto formato) galima ispjauti is vieno SL (max. kiekis vnt.)
-*******
+3
 Vieno ispjauto puslapio savikaina (0.0000 Eu tikslumu)
-*******
+0.14
 Kiek puslapiu (is viso) galima ispjauti is visu pasigamintu SL
 *******
 Visas spausdinamu simboliu kiekis (vnt. paskaiciuota 01 uzd.)
