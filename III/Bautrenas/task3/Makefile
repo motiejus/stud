@@ -7,4 +7,4 @@ ZPT003_2020_03_ats.txt: ZPT003_2020_03_ats.py consts.py
 	python3 $< > $@
 
 consts.py: elphistone_6.pdf
-	printf "wc = %d\n" $$(pdftotext $< - | wc -w) > $@
+	printf "wc = %d\n" $$(pdftotext $< - | tr -d '[:space:]' | wc -m) > $@
