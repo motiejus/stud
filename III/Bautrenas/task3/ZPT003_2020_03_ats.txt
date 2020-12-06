@@ -42,16 +42,16 @@ Kiek puslapiu (duoto formato) galima ispjauti is vieno SL (max. kiekis vnt.)
 Vieno ispjauto puslapio savikaina (0.0000 Eu tikslumu)
 0.14
 Kiek puslapiu (is viso) galima ispjauti is visu pasigamintu SL
-*******
+3636
 Visas spausdinamu simboliu kiekis (vnt. paskaiciuota 01 uzd.)
-*******
+527718
 VISAS simboliu kiekis DOC faile (atmetus vieta iliustracijai) 
 16091
 VIDUTINIS simboliu kiekis puslapyje 
 2682
 Puslapiu kiekis visu simboliu atspausdinimui 
-*******
+197
 Visu puslapiu popieriaus kaina (0.00 Eu) 
-*******
+27.58
 Koks galimas atspausdinimo tirazas (vnt.)
 *******

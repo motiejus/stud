@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+from math import ceil
+
 from consts import wc
 
 def _pusl_kiekis(sl_ilgis_mm, sl_plotis_mm, puslapio_ilgis_mm, puslapio_plotis_mm):
@@ -22,12 +24,19 @@ Pisr=round(6/10*(Lp-Lt), 1)
 Pv=round(5/10*(Hp-Ht),1)
 Pa=round(7/10*(Hp-Ht),1)
 avg_wc = round(wc / 6)
-
 viso_pagaminta_lapu=1212
 popieriaus_lapo_savikaina=0.42
 
 pusl_kiekis=_pusl_kiekis(sl_ilgis_mm, sl_plotis_mm, Lp, Hp)
 pusl_savikaina=round(popieriaus_lapo_savikaina/pusl_kiekis,4)
+viso_pagaminta_pusl=viso_pagaminta_lapu*pusl_kiekis
+
+t1_viso_a=232196
+t1_viso_b=295522
+t1_viso=t1_viso_a+t1_viso_b
+
+viso_pusl_pagal_simbolius=ceil(t1_viso/avg_wc)
+visu_pusl_popieriaus_kaina=round(viso_pusl_pagal_simbolius*pusl_savikaina,2)
 
 tpl="""Uzduoties Nr. 
 ZPT003_2020_03
@@ -73,17 +82,17 @@ Kiek puslapiu (duoto formato) galima ispjauti is vieno SL (max. kiekis vnt.)
 Vieno ispjauto puslapio savikaina (0.0000 Eu tikslumu)
 {pusl_savikaina}
 Kiek puslapiu (is viso) galima ispjauti is visu pasigamintu SL
-*******
+{viso_pagaminta_pusl}
 Visas spausdinamu simboliu kiekis (vnt. paskaiciuota 01 uzd.)
-*******
+{t1_viso}
 VISAS simboliu kiekis DOC faile (atmetus vieta iliustracijai) 
 {wc}
 VIDUTINIS simboliu kiekis puslapyje 
 {avg_wc}
 Puslapiu kiekis visu simboliu atspausdinimui 
-*******
+{viso_pusl_pagal_simbolius}
 Visu puslapiu popieriaus kaina (0.00 Eu) 
-*******
+{visu_pusl_popieriaus_kaina}
 Koks galimas atspausdinimo tirazas (vnt.)
 *******"""
 
