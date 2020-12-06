@@ -1,0 +1,90 @@
+Uzduotis Nr.
+1  [NE]
+Skaiciavo(Pavarde Vardas):
+Jakstys Motiejus  [TAIP]
+===  Skaiciavimo rezultatai: ===
+Zinomas informacijos kiekis (duotas)(irasyti pvz. 1.221400 GB) :
+515.349913 KB  [TAIP]
+Visas simboliu skaicius duotame informacijos kiekyje (1 simb.tiksl.):
+527718  [TAIP]
+A. teksto dalies sriftas (irasyti pavadinima)(duotas) :
+CAMBERIC  [TAIP]
+A. teksto dalies kiekis (0.0%)(duotas):
+44.0  [TAIP]
+Visas simboliu kiekis spausdinamas A. sriftu (1 simb.tiksl.):
+232196  [TAIP]
+A.1 teksto dalies srifto dydis (punktais) (duotas) :
+16  [TAIP]
+A.1teksto dalies srifto dydzio kiekis (0.0%)(duotas):
+66.6  [TAIP]
+Visas A.1 dydzio simboliu kiekis tekste:
+154642  [TAIP]
+Vidutinis A.1 simboliu kiekis puslapyje (1 simb.tiksl.):
+2333  [TAIP]
+Popieriaus kiekis A.1 spausdinimui (0.01 psl. tiksl.):
+66.28  [NE]
+A.2 teksto dalies srifto dydis (punktais) (duotas) :
+6  [TAIP]
+A.2teksto dalies srifto dydzio kiekis (0.0%)(duotas):
+33.4  [TAIP]
+Visas A.2 dydzio simboliu kiekis tekste:
+77553  [TAIP]
+Vidutinis A.2 simboliu kiekis puslapyje (1 simb.tiksl.):
+6146  [TAIP]
+Popieriaus kiekis A.2 spausdinimui (0.01 psl. tiksl.):
+12.62  [NE]
+Visas psl./lapu kiekis reikalingas spausdinat A. sriftu:
+79  [NE]
+B. teksto dalies sriftas (irasyti pavadinima)(duotas) :
+AMELIA  [TAIP]
+B. teksto dalies kiekis (0.0%)(duotas):
+56.0  [TAIP]
+Visas simboliu kiekis spausdinamas B. sriftu (1 simb.tiksl.):
+295522  [TAIP]
+B.1 teksto dalies srifto dydis (punktais) (duotas) :
+16  [TAIP]
+B.1teksto dalies srifto dydzio kiekis (0.0%)(duotas):
+65.7  [TAIP]
+Visas B.1 dydzio simboliu kiekis tekste:
+194158  [TAIP]
+Vidutinis B.1 simboliu kiekis puslapyje (1 simb.tiksl.):
+2369  [TAIP]
+Popieriaus kiekis B.1 spausdinimui (0.01 psl. tiksl.):
+81.96  [NE]
+B.2 teksto dalies srifto dydis (punktais) (duotas) :
+14  [TAIP]
+B.2teksto dalies srifto dydzio kiekis (0.0%)(duotas):
+34.3  [TAIP]
+Visas B.2 dydzio simboliu kiekis tekste:
+101364  [TAIP]
+Vidutinis B.2 simboliu kiekis puslapyje (1 simb.tiksl.):
+2709  [TAIP]
+Popieriaus kiekis B.2 spausdinimui (0.01 psl. tiksl.):
+37.42  [NE]
+Visas psl./lapu kiekis reikalingas spausdinat B. sriftu:
+120  [NE]
+Tirazas (egz.)(duotas)
+173  [TAIP]
+Visas popieriaus kiekis reikalingas visu egz. atspausdinimui (0.01 psl. tiksl.)
+17300.00  [TAIP]
+Popieriaus paketu kiekis (pokais 0.01 poko tikslumu)
+86.50  [TAIP]
+Popieriaus paketu kiekis atsargai (pokais) priklausomai nuo tirazo (0.01 poko tikslumu).
+0.99  [TAIP]
+Visas popieriaus paketu kiekis (pokais)[Paskaiciuotas+Atsarga] (0.01 poko tikslumu)
+87.49  [TAIP]
+Viso reikalingo popieriaus kaina (0.01 Eu tikslumu)
+268.40  [TAIP]
+Kokioje Word versijoje skaiciuoti simboliai (irasyti pvz. Word2007)
+LaTeX + GNU AWK 5.0.1.  [TAIP]
+
+Atsiusta
+2020.10.31 22:54
+ 
+ 
+Vertinimas  [NE = -0.07] : 
+III. [NE x 7] = -0.49
+V. Netvark. sablonas = -0.25
+Skaiciavimai = 10 - 0.49[III.] - 0.25[V.] = 9.26
+ 
+Galutinis vertinimas = 9.26 balu

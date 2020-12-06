@@ -1,0 +1,210 @@
+Uzduoties Nr.
+ZPT003_2020_02  [TAIP]
+Skaiciavo(Pavarde Vardas):
+Jakstys_Motiejus  [TAIP]
+==== POPIERIUS ====
+Gaminamo popieriaus pavadinimas pvz. ULTRA/62 (duota)
+Ultra3C  [TAIP]
+Gaminamo popieriaus lapo plotis W (mm)
+750  [TAIP]
+Gaminamo popieriaus lapo ilgis L (mm)
+900  [TAIP]
+Gaminamo popieriaus metro kv. svoris  (g/m2)
+95  [TAIP]
+1.   Popierius gaminamas is medienos pvz. AZUOLAS (duota)
+Baltalksnis  [TAIP]
+Popieriaus gamybos metodas (nurodytas)
+Cheminis/Sulfitinis  [TAIP]
+Rastu kiekis (duotas)
+5  [TAIP]
+Storgalio apimtis cm (0.0) (duota)
+119.4  [TAIP]
+Plongalio apimtis cm (0.0) (duota)
+46.2  [TAIP]
+Rastu ilgis (duotas)
+5.38  [TAIP]
+== Skaiciavimai ==
+Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
+38.01  [TAIP]
+Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
+10.0  [TAIP]
+Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
+36.51  [TAIP]
+Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
+14.71  [TAIP]
+Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
+7.5  [TAIP]
+Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
+13.71  [TAIP]
+VIENO rasto turis (0.000 m3 tikslumu)
+0.285  [TAIP]
+VISU rastu turis (0.000 m3 tikslumu)
+1.425  [TAIP]
+Visu rastu Medienos svoris (0.000 kg tikslumu)
+1140.000  [TAIP]
+Gaunamas popieriaus kiekis priklausomai muo gamybos metodo (% duota)
+6.82  [TAIP]
+Medienos svoris popieriaus gaminimui (0.000 kg tikslumu)
+77.748  [TAIP]
+Viso pagaminto popieriaus plotas (0.000 m2 tikslumu)
+863.867  [NE] t.b. 818.400
+Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
+0.675  [TAIP]
+Pagaminta popieriaus lapu (vnt.)
+1279  [NE] t.b. 1212
+2.   Popierius gaminamas is medienos pvz. AZUOLAS (duota)
+Egle  [TAIP]
+Popieriaus gamybos metodas (nurodytas)
+Mechaninis/Cheminis  [TAIP]
+Rastu kiekis (duotas)
+3  [TAIP]
+Storgalio apimtis cm (0.0) (duota)
+136.7  [TAIP]
+Plongalio apimtis cm (0.0) (duota)
+58.7  [TAIP]
+Rastu ilgis (duotas)
+4.50  [TAIP]
+== Skaiciavimai ==
+Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
+43.51  [TAIP]
+Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
+21.6  [TAIP]
+Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
+39.69  [TAIP]
+Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
+18.68  [TAIP]
+Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
+11.6  [TAIP]
+Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
+16.86  [TAIP]
+VIENO rasto turis (0.000 m3 tikslumu)
+0.298  [TAIP]
+VISU rastu turis (0.000 m3 tikslumu)
+0.894  [TAIP]
+Visu rastu Medienos svoris (0.000 kg tikslumu)
+709.836  [TAIP]
+Gaunamas popieriaus kiekis priklausomai muo gamybos metodo (% duota)
+9.74  [TAIP]
+Medienos svoris popieriaus gaminimui (0.000 kg tikslumu)
+69.138  [TAIP]
+Viso pagaminto popieriaus plotas (0.000 m2 tikslumu)
+768.200  [NE] t.b. 727.769
+Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
+0.675  [TAIP]
+Pagaminta popieriaus lapu (vnt.)
+1138  [NE] t.b. 1078
+== APIBENDRINIMAS ==
+Isviso pagaminta popieriaus lapu (vnt.)
+2417  [NE] t.b. 2290
+Popieriaus gamybos kaina Eu (duota)
+969.42  [TAIP]
+Vieno popieriaus lapo savikaina (0.00 Eu)
+0.40  [NE] t.b. 0.42
+==== KNYGINIS KARTONAS ====
+Gaminamo kartono pavadinimas pvz. REX/1 (duota)
+SRA2/2  [TAIP]
+Gaminamo kartono lapo plotis W (mm)
+470  [TAIP]
+Gaminamo kartono lapo ilgis L (mm)
+640  [TAIP]
+Gaminamo kartono metro kv. svoris  (g/m2)
+320  [TAIP]
+1.   Kartonas gaminamas is medienos pvz. AZUOLAS (duota)
+Drebule  [TAIP]
+kartono gamybos metodas (nurodytas)
+Mechaninis  [TAIP]
+Rastu kiekis (duotas)
+6  [TAIP]
+Storgalio apimtis su zieve cm (0.0) (duota)
+121.0  [TAIP]
+Plongalio apimtis su zieve  cm (0.0) (duota)
+13.2  [TAIP]
+Rastu ilgis (duotas)
+3.46  [TAIP]
+== Skaiciavimai ==
+Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
+38.52  [TAIP]
+Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
+25.8  [TAIP]
+Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
+33.86  [TAIP]
+Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
+4.20  [TAIP]
+Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
+5.0  [NE] t.b. 3.1
+Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
+3.70  [NE] t.b. 4.08
+VIENO rasto turis (0.000 m3 tikslumu)
+0.116  [TAIP]
+VISU rastu turis (0.000 m3 tikslumu)
+0.696  [TAIP]
+Visos rastu Medienos svoris (0.000 kg tikslumu)
+530.352  [NE] t.b. 539.496
+Gaunamas kartono kiekis muo medienos svorio (% duota)
+28.11  [TAIP]
+Medienos svoris kartono gaminimui (0.000 kg tikslumu)
+149.082  [NE] t.b. 151.652
+Viso pagaminto kartono plotas (0.000 m2 tikslumu)
+1656.467  [NE] t.b. 473.914
+Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
+0.301  [TAIP]
+Pagaminta kartono lapu (vnt.)
+5503  [NE] t.b. 1575
+2.   Kartonas gaminamas is medienos pvz. AZUOLAS (duota)
+Berzas  [TAIP]
+kartono gamybos metodas (nurodytas)
+Cheminis/Sulfatinis  [TAIP]
+Rastu kiekis (duotas)
+9  [TAIP]
+Storgalio apimtis su zieve cm (0.0) (duota)
+148.6  [TAIP]
+Plongalio apimtis su zieve  cm (0.0) (duota)
+30.2  [TAIP]
+Rastu ilgis (duotas)
+5.20  [TAIP]
+== Skaiciavimai ==
+Apskaiciuotas STORGALIO skersmuo su zieve (0.00 cm tikslumu)
+47.30  [TAIP]
+Storgalio zieves storis (is lenteles 0.0 mm tikslumu)
+48.4  [TAIP]
+Storgalio skersmuo (be zv.) su pataisa del rasto nelygumo (0.00 cm tikslumu)
+38.12  [TAIP]
+Apskaiciuotas PLONGALIO skersmuo su zieve (0.00 cm tikslumu)
+9.61  [TAIP]
+Plongalio zieves storis (is lenteles 0.0 mm tikslumu)
+7.0  [TAIP]
+Plongalio (be zv.) skersmuo su pataisa del rasto nelygumo (0.00 cm tikslumu)
+8.71  [TAIP]
+VIENO rasto turis (0.000 m3 tikslumu)
+0.253  [TAIP]
+VISU rastu turis (0.000 m3 tikslumu)
+2.277  [TAIP]
+Visos rastu Medienos svoris (0.000 kg tikslumu)
+1999.206  [TAIP]
+Gaunamas kartono kiekis muo medienos svorio (% duota)
+11.79  [TAIP]
+Medienos svoris kartono gaminimui (0.000 kg tikslumu)
+235.706  [TAIP]
+Viso pagaminto kartono plotas (0.000 m2 tikslumu)
+2618.956  [NE] t.b. 736.582
+Vieno gaminamo lapo plotas (0.000 m2 tikslumu)
+0.301  [TAIP]
+Pagaminta kartono lapu (vnt.)
+8700  [NE] t.b. 2448
+== APIBENDRINIMAS ==
+Isviso pagaminta kartono lapu (vnt.)
+14203  [NE] t.b. 4023
+kartono gamybos kaina Eu (duota)
+755.78  [TAIP]
+Vieno kartono lapo savikaina (0.00 Eu)
+0.05  [NE] t.b. 0.19
+
+Atsiusta
+2020.12.04 09:54
+ 
+ 
+Vertinimas ([NE] verte = -0.13): 
+III. [NE x 16] = -2.08
+Skaiciavimai = 10 - 2.08[III.] = 7.92
+ 
+Galutinis vertinimas = 7.92 balu
