@@ -46,12 +46,12 @@ Kiek puslapiu (is viso) galima ispjauti is visu pasigamintu SL
 Visas spausdinamu simboliu kiekis (vnt. paskaiciuota 01 uzd.)
 527718
 VISAS simboliu kiekis DOC faile (atmetus vieta iliustracijai) 
-76387
+92490
 VIDUTINIS simboliu kiekis puslapyje 
-12731
+15415
 Puslapiu kiekis visu simboliu atspausdinimui 
-42
+35
 Visu puslapiu popieriaus kaina (0.00 Eu) 
-5.88
+4.9
 Koks galimas atspausdinimo tirazas (vnt.)
 *******
