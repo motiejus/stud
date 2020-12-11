@@ -23,6 +23,11 @@ TODO:
    fragile postgis setup.
 2. Accept `BOUNDS` in a way that does not require to change the Makefile.
 
+Example
+-------
+
+![Užupis](https://github.com/motiejus/stud/blob/master/contours/example.jpg?raw=true)
+
 License
 -------
 

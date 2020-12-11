@@ -1,0 +1,11 @@
+- puslapio parametrai: dydis, atvartai
+- iliustracijos, laisvos formos tekstas
+- įkelti žemėlapį tinkamu mąsteliu. Kokios rekomenduojamos paraštės?
+- kaip pasidaryti kelių kolonėlių tekstą?
+- kaip pasidaryti šabloną, kur kartotųsi antraštės/paraštės?
+
+- apsipiešti formą ir įkelti tekstą (pen tool).
+    jei netelpa, kaip pratęsti fragmentą?
+    indesign: paspausti + ir pratęsti į kitą fragmentą.
+
+- kaip įdėti paveikslėlio fragmentą, ir kad tekstas apeitų?
