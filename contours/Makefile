@@ -31,7 +31,6 @@ all.tif: all.xyz
 
 .INTERMEDIATE: all.xyz
 all.xyz: $(XYZ)
-	echo $(XYZ)
 	$(SORT) -m $^ > $@
 
 .INTERMEDIATE: $(XYZ)
