@@ -9,6 +9,7 @@ Usage:
 3. Run `make -j$(nproc) smooth_<X>.gpkg`. This will output a geo-package with
    contour lines every `X` meters. X can be fractional (e.g.
    `smooth_2.5.gpkg`).
+4. Optional: you may generate a raster image with `layer2img.py`.
 
 Dependencies:
 
