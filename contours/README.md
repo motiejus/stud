@@ -21,3 +21,8 @@ TODO:
 1. Replace `managedb` stack with postgis-over-docker. This will lead to a less
    fragile postgis setup.
 2. Accept `BOUNDS` in a way that does not require to change the Makefile.
+
+License
+-------
+
+Code in this directory is public domain.
