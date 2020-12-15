@@ -1,0 +1,65 @@
+#!/usr/bin/python3
+
+import csv
+from math import degrees, radians, sin, asin, tan, e, pi, log
+from shapely.geometry import LineString
+import matplotlib.pyplot as plt
+
+phi_p, phi_s, dphi = 13, 49, 6
+nphi = int((phi_s-phi_p)/dphi)+1
+lambda_v, lambda_r, dlambda = 0, 24, 6
+nlambda = int((lambda_r-lambda_v)/dlambda)+1
+M = 25e6
+
+# label orientations
+W, E, N, S = (-25, -5), (10, -5), (-5, 10), (-5, -20)
+
+krasovskio = {}
+with open("krasovskio.csv") as f:
+    for row in csv.DictReader(f):
+        krasovskio[float(row['phi'])] = row
+
+points = []
+for i in range(nphi):
+    phid = phi_p + i*dphi
+    betamm = float(krasovskio[phid]["r"]) * 1000 / M
+    phi = radians(phid)
+    esinphi = e*sin(phi)
+    print(esinphi)
+    psi = asin(esinphi)
+    psi = asin(e*sin(phi))
+    U = tan(pi/4 + phi/2)/(tan(pi/4+psi/2)**e)
+    xmm = betamm * log(U)
+    on_y = []
+    for j in range(nlambda):
+        lambdad = lambda_v + j*dlambda
+        ymm = betamm * lambdad / degrees(1)
+        on_y.append((ymm, xmm))
+    points.append(on_y)
+
+fig, ax = plt.subplots()
+ax.set_aspect('equal')
+ax.axis("off")
+
+
+def annotate(ax, nr, point, heading):
+    text = "{}°".format(nr)
+    ax.annotate(text, point, textcoords="offset points", xytext=heading)
+
+
+# abscises
+for i in range(nphi):
+    row = [points[i][j] for j in range(nlambda)]
+    ax.plot(*(LineString(row).xy), color="xkcd:black", linewidth=.5)
+    annotate(ax, phi_p+i*dphi, row[0], W)
+    annotate(ax, phi_p+i*dphi, row[-1], E)
+
+# ordinates
+for i in range(nlambda):
+    col = [points[j][i] for j in range(nphi)]
+    ax.plot(*(LineString(col).xy), color="xkcd:black", linewidth=.5)
+    annotate(ax, lambda_v+i*dlambda, col[0], S)
+    annotate(ax, lambda_v+i*dlambda, col[-1], N)
+
+if __name__ == '__main__':
+    plt.show()
