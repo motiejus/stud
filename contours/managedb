@@ -1,32 +1,46 @@
 #!/bin/bash
 
-PATH=$PATH:/usr/lib/postgresql/12/bin
-case ${1:-} in
-    init)
-        mkdir -p db && initdb db
-        mkdir -p db/wal
-        sed -i "s/.*unix_socket_dir.*/unix_socket_directories = '.\/wal'/" \
-            db/postgresql.conf
-        pg_ctl -D db -l db/logfile start
+_psql() {
+    env \
+        PGPASSWORD=osm \
+        PGHOST=127.0.0.1 \
+        PGUSER=osm \
+        PGDATABASE=osm \
+        psql "$@"
+}
 
-        export PGHOST=127.0.0.1
-        psql postgres -c 'CREATE ROLE osm WITH SUPERUSER LOGIN'
-        psql postgres -c 'CREATE DATABASE osm'
-        psql osm osm -c 'CREATE EXTENSION postgis'
-        ;;
+_wait_for_postgres() {
+    >&2 echo -n "Waiting for postgres"
+    for _ in $(seq 240); do
+      if _psql -qc '\q' 2>/dev/null; then
+          >&2 echo " up"
+          exit 0
+      fi
+      >&2 echo -n .
+      sleep 1
+    done
+    >&2 echo " down"
+    exit 1
+}
+
+name=postgis-contours
+case ${1:-} in
     start)
-        pg_ctl -D db -l db/logfile start
+        docker run -d --rm \
+            -p 5432:5432 \
+            -e POSTGRES_DBNAME=osm \
+            -e POSTGRES_USER=osm \
+            -e POSTGRES_PASSWORD=osm \
+            --name "$name" \
+            postgis/postgis:13-3.0-alpine
+        _wait_for_postgres
         ;;
     stop)
-        pg_ctl -D db -l db/logfile stop
+        docker stop "$name"
         ;;
     "" | --)
         [[ $# -gt 1 ]] && shift
-        exec env \
-            PGHOST=127.0.0.1 \
-            PGUSER=osm \
-            PGDATABASE=osm \
-            psql "$@"
+        _psql "$@"
         ;;
     *)
         >&2 echo "Unknown command: '$*'"

@@ -1,5 +1,8 @@
-BOUNDS = xmin=582700 ymin=6060750 xmax=584830 ymax=6062750
-XYZ = $(patsubst %.zip,%.xyz,$(wildcard DTM_*.zip))
+#uzupis
+#BOUNDS = xmin=582700 ymin=6060750 xmax=584830 ymax=6062750
+#krekenava
+BOUNDS = xmin=493674 ymin=6146103 xmax=518869 ymax=6171741
+XYZ = $(patsubst %.zip,%.xyz,$(wildcard *.zip))
 SORT = sort -n -k2 -k1 -t,
 
 .PHONY: all
@@ -40,6 +43,5 @@ all.xyz: $(XYZ)
 		$(SORT) > $@
 
 db/.ready: managedb
-	-./managedb stop; rm -fr db
-	./managedb init
+	./managedb start
 	touch $@
