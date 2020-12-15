@@ -39,8 +39,7 @@ all.xyz: $(XYZ)
 .INTERMEDIATE: $(XYZ)
 %.xyz: %.zip
 	unzip -qq -c $< $@ | \
-		sed -e 's/^ \+//' -e 's/ \+/,/g' | \
-		./clip.awk $(addprefix -v ,$(BOUNDS)) | \
+		./clip-2009.awk $(addprefix -v ,$(BOUNDS)) | \
 		$(SORT) > $@
 
 db/.ready: managedb
