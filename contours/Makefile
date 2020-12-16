@@ -1,7 +1,7 @@
 include config.mk
 
 OUTSIZE = $(shell awk $(addprefix -v ,$(BOUNDS)) 'BEGIN{print ymax-ymin" "xmax-xmin}' /dev/null)
-XYZ = $(patsubst %.zip,%.xyz,$(wildcard 6*.zip))
+XYZ = $(patsubst %.zip,%.xyz,$(wildcard *.zip))
 SORT = sort -n -k2 -k1 -t,
 
 .PHONY: all
@@ -34,7 +34,7 @@ all.tif: all.vrt all.xyz
 		-outsize $(OUTSIZE)
 else
 ifeq ($(VARIANT),2017)
-all.tif: all.vrt all.xyz
+all.tif: all.xyz
 	gdal_translate $< $@ \
 		-ot Float32 -a_srs EPSG:3346 \
 		-co COMPRESS=DEFLATE -co PREDICTOR=2
@@ -50,7 +50,7 @@ all.xyz: $(XYZ)
 .INTERMEDIATE: $(XYZ)
 %.xyz: %.zip
 	unzip -qq -c $< $@ | \
-		./clip-2009.awk $(addprefix -v ,$(BOUNDS)) | \
+		./clip-$(VARIANT).awk $(addprefix -v ,$(BOUNDS)) | \
 		$(SORT) > $@
 
 db/.ready: managedb
