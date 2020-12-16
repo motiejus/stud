@@ -1,8 +1,6 @@
 #uzupis
-#BOUNDS = xmin=582700 ymin=6060750 xmax=584830 ymax=6062750
-#krekenava
-BOUNDS = xmin=493674 ymin=6146103 xmax=518869 ymax=6171741
-XYZ = $(patsubst %.zip,%.xyz,$(wildcard *.zip))
+BOUNDS = xmin=582700 ymin=6060750 xmax=584830 ymax=6062750
+XYZ = $(patsubst %.zip,%.xyz,$(wildcard 6*.zip))
 SORT = sort -n -k2 -k1 -t,
 
 .PHONY: all
@@ -27,19 +25,19 @@ db/contour_%: contour_%.gpkg db/.ready
 contour_%.gpkg: all.tif
 	gdal_contour -nln $(basename $@) -i $(subst _,.,$*) -a z $^ $@
 
-all.tif: all.xyz
+all.tif: all.csv
 	gdal_translate $< $@ \
 		-ot Float32 -a_srs EPSG:3346 \
 		-co COMPRESS=DEFLATE -co PREDICTOR=2
 
-.INTERMEDIATE: all.xyz
-all.xyz: $(XYZ)
+.INTERMEDIATE: all.csv
+all.csv: $(XYZ)
 	$(SORT) -m $^ > $@
 
 .INTERMEDIATE: $(XYZ)
 %.xyz: %.zip
 	unzip -qq -c $< $@ | \
-		./clip-2009.awk $(addprefix -v ,$(BOUNDS)) | \
+		./clip-2017.awk $(addprefix -v ,$(BOUNDS)) | \
 		$(SORT) > $@
 
 db/.ready: managedb

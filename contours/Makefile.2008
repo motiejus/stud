@@ -1,7 +1,10 @@
 #uzupis
 #BOUNDS = xmin=582700 ymin=6060750 xmax=584830 ymax=6062750
 #krekenava
-BOUNDS = xmin=493674 ymin=6146103 xmax=518869 ymax=6171741
+#BOUNDS = xmin=493674 ymin=6146103 xmax=518869 ymax=6171741
+BOUNDS = xmin=504440 ymin=6154741 xmax=507410 ymax=6158941
+#OUTSIZE = $(shell awk $(addprefix -v ,$(BOUNDS)) 'BEGIN{print ymax-ymin" "xmax-xmin}' /dev/null)
+OUTSIZE = $(shell awk $(addprefix -v ,$(BOUNDS)) 'BEGIN{print int((ymax-ymin)/8)" "int((xmax-xmin)/8)}' /dev/null)
 XYZ = $(patsubst %.zip,%.xyz,$(wildcard 6*.zip))
 SORT = sort -n -k2 -k1 -t,
 
@@ -28,7 +31,7 @@ contour_%.gpkg: all.tif
 	gdal_contour -nln $(basename $@) -i $(subst _,.,$*) -a z $^ $@
 
 all-grid.tif: all.vrt all.csv
-	gdal_grid $< $@ -ot Float32
+	gdal_grid $< $@ -ot Float32 -outsize $(OUTSIZE)
 
 all.tif: all-grid.tif
 	gdal_translate $< $@ \
