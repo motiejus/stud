@@ -16,9 +16,9 @@ but not available outside major cities.
  501991.670  6150000.000  57.689
 ```
 
-2009 variant is less dense, non-gridded, therefore significantly slower
-(`gdal_grid` must be used as an extra step, which is slow). This variant is
-less robust, but available throughout the country.
+2009 is less dense, non-gridded, therefore significantly slower (`gdal_grid`
+must be used as an extra step, which is slow). This is less robust, but
+available throughout the country.
 
 Usage
 -----
