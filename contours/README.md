@@ -23,7 +23,8 @@ less robust, but available throughout the country.
 Usage
 -----
 
-1. Download contour lines to zip files in this directory.
+1. Download contour line zip files to this directory. I.e. `<NAME>.zip` in this
+   directory must contain exactly one file named `<NAME>.xyz` (compressed).
 2. Adjust `BOUNDS` and `VARIANT` in `config.mk`.
 3. Run `make -j$(nproc) smooth_<X>.gpkg`. This will output a geo-package with
    contour lines every `X` meters. X can be fractional (e.g.
