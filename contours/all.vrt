@@ -1,7 +1,7 @@
 <OGRVRTDataSource>
   <OGRVRTLayer name="all">
     <LayerSRS>EPSG:3346</LayerSRS>
-    <SrcDataSource>all.csv</SrcDataSource>
+    <SrcDataSource>CSV:all.xyz</SrcDataSource>
     <GeometryType>wkbPoint</GeometryType>
     <GeometryField encoding="PointFromColumns" x="field_1" y="field_2" z="field_3"/>
   </OGRVRTLayer>

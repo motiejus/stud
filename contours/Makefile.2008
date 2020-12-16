@@ -30,7 +30,7 @@ db/contour_%: contour_%.gpkg db/.ready
 contour_%.gpkg: all.tif
 	gdal_contour -nln $(basename $@) -i $(subst _,.,$*) -a z $^ $@
 
-all-grid.tif: all.vrt all.csv
+all-grid.tif: all.vrt all.xyz
 	gdal_grid $< $@ -ot Float32 -outsize $(OUTSIZE)
 
 all.tif: all-grid.tif
@@ -38,8 +38,8 @@ all.tif: all-grid.tif
 		-ot Float32 -a_srs EPSG:3346 \
 		-co COMPRESS=DEFLATE -co PREDICTOR=2
 
-.INTERMEDIATE: all.csv
-all.csv: $(XYZ)
+.INTERMEDIATE: all.xyz
+all.xyz: $(XYZ)
 	$(SORT) -m $^ > $@
 
 .INTERMEDIATE: $(XYZ)
