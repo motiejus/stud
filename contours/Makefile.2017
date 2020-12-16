@@ -1,6 +1,6 @@
 #uzupis
 BOUNDS = xmin=582700 ymin=6060750 xmax=584830 ymax=6062750
-XYZ = $(patsubst %.zip,%.xyz,$(wildcard 6*.zip))
+XYZ = $(patsubst %.zip,%.xyz,$(wildcard *.zip))
 SORT = sort -n -k2 -k1 -t,
 
 .PHONY: all

@@ -1,6 +1,5 @@
-#krekenava
-BOUNDS = xmin=493674 ymin=6146103 xmax=518869 ymax=6171741
-#BOUNDS = xmin=504440 ymin=6154741 xmax=507410 ymax=6158941
+include config.mk
+
 OUTSIZE = $(shell awk $(addprefix -v ,$(BOUNDS)) 'BEGIN{print ymax-ymin" "xmax-xmin}' /dev/null)
 XYZ = $(patsubst %.zip,%.xyz,$(wildcard 6*.zip))
 SORT = sort -n -k2 -k1 -t,
@@ -27,11 +26,22 @@ db/contour_%: contour_%.gpkg db/.ready
 contour_%.gpkg: all.tif
 	gdal_contour -nln $(basename $@) -i $(subst _,.,$*) -a z $^ $@
 
+ifeq ($(VARIANT),2009)
 all.tif: all.vrt all.xyz
 	gdal_grid $< $@ \
 		-a nearest \
 		-ot Float32 -co COMPRESS=DEFLATE -co PREDICTOR=2 \
 		-outsize $(OUTSIZE)
+else
+ifeq ($(VARIANT),2017)
+all.tif: all.vrt all.xyz
+	gdal_translate $< $@ \
+		-ot Float32 -a_srs EPSG:3346 \
+		-co COMPRESS=DEFLATE -co PREDICTOR=2
+else
+$(error VARIANT must be 2009 or 2017)
+endif
+endif
 
 .INTERMEDIATE: all.xyz
 all.xyz: $(XYZ)
