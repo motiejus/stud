@@ -20,7 +20,8 @@ but not available outside major cities.
 before making contours, which is slow). However, available throughout the
 country.
 
-Usage:
+Usage
+-----
 
 1. Download contour lines to zip files in this directory.
 2. Adjust `BOUNDS` and `VARIANT` in `config.mk`.
