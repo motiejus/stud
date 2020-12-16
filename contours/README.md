@@ -3,20 +3,22 @@ Countour line generator from LIDAR data
 
 This accepts two kinds of contour data:
 
-*2009 variant*: x, y, z, separated by one or more spaces:
-```
- 501991.670  6150000.000  57.689
-```
-
-*Non-gridded*, therefore significantly slower (`gdal_grid` must be used before making contours, which is slow).
-
-
-*2017*: y, x, z, separated by commas:
+**2017 variant**: y, x, z, separated by commas:
 ```
 6062999.75,584000.75,88.07
 ```
 
-This is *gridded*, so quite fast.
+Recommended whenever available. It is more dense, gridded (thus much faster),
+but not available outside major cities.
+
+**2009 variant**: x, y, z, separated by one or more spaces:
+```
+ 501991.670  6150000.000  57.689
+```
+
+**Non-gridded**, therefore significantly slower (`gdal_grid` must be used
+before making contours, which is slow). However, available throughout the
+country.
 
 Usage:
 
