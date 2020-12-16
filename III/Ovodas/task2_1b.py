@@ -1,15 +1,16 @@
 #!/usr/bin/python3
 
 import csv
-from math import degrees, radians, sin, asin, tan, e, pi, log
+from math import degrees, radians, tan, pi, log
 from shapely.geometry import LineString
 import matplotlib.pyplot as plt
 
 phi_p, phi_s, dphi = 13, 49, 6
-nphi = int((phi_s-phi_p)/dphi)+1
 lambda_v, lambda_r, dlambda = 0, 24, 6
-nlambda = int((lambda_r-lambda_v)/dlambda)+1
 M = 25e6
+phil = round((phi_p+phi_s)/2)
+nphi = int((phi_s-phi_p)/dphi)+1
+nlambda = int((lambda_r-lambda_v)/dlambda)+1
 
 # label orientations
 W, E, N, S = (-25, -5), (10, -5), (-5, 10), (-5, -20)
@@ -18,17 +19,13 @@ krasovskio = {}
 with open("krasovskio.csv") as f:
     for row in csv.DictReader(f):
         krasovskio[float(row['phi'])] = row
+betamm = float(krasovskio[phil]["r"]) * 1000 / M
 
 points = []
 for i in range(nphi):
     phid = phi_p + i*dphi
-    betamm = float(krasovskio[phid]["r"]) * 1000 / M
     phi = radians(phid)
-    esinphi = e*sin(phi)
-    print(esinphi)
-    psi = asin(esinphi)
-    psi = asin(e*sin(phi))
-    U = tan(pi/4 + phi/2)/(tan(pi/4+psi/2)**e)
+    U = tan(pi/4 + phi/2)
     xmm = betamm * log(U)
     on_y = []
     for j in range(nlambda):
