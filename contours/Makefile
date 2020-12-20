@@ -24,7 +24,7 @@ db/contour_%: contour_%.gpkg db/.ready
 	touch $@
 
 contour_%.gpkg: all.tif
-	gdal_contour -nln $(basename $@) -i $(subst _,.,$*) -a z $^ $@
+	gdal_contour -a z -nln $(basename $@) -i $(subst _,.,$*) -a z $^ $@
 
 ifeq ($(VARIANT),2009)
 all.tif: all.vrt all.xyz
