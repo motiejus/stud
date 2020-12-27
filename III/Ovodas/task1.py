@@ -1,9 +1,15 @@
 #!/usr/bin/python3
 
-from math import sin, cos, sqrt, e, log, radians, pi, degrees
+from math import sin, cos, sqrt, e, log, radians, degrees
 
-sinq = lambda x: sin(x)**2
-sqr = lambda x: x**2
+
+def sinq(x):
+    return sin(x)**2
+
+
+def sqr(x):
+    return x**2
+
 
 # duota
 B = radians(13)
@@ -35,7 +41,7 @@ r = N * cos(B)
 # Lygiagretės lanko ilgis metrais
 Sn = r/degrees(1)
 
-## Trapecijos plotas esant 1 radiano platumai
+# Trapecijos plotas esant 1 radiano platumai
 P = sqr(b)/2 * ( sin(B)/(1-e2*sinq(B)) + 1/(2*e)*log( (1+e*sin(B))/(1-e*sin(B)) ) )
 
 g = globals()
