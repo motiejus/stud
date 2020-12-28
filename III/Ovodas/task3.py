@@ -21,7 +21,7 @@ dphi = 2
 dlambda = 2
 phi_p, phi_s = 0, 32
 lambda_v, lambda_r = -16, 16
-plt.xkcd()
+plt.xkcd(scale=0)
 
 # mano
 #phi_p, phi_s = 43, 53
