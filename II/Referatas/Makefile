@@ -21,7 +21,7 @@ GEN3 = $(addsuffix .pdf, \
 .PHONY: all
 all: mj-referatas.pdf mj-prezentacija.pdf
 
-mj-referatas-bundle.pdf: mj-referatas.pdf $(shell git ls-files | grep -v Makefile)
+mj-referatas-bundle.pdf: mj-referatas.pdf $(shell git ls-files)
 	cp $< .tmp-$@
 	for f in $^; do \
 		if [ "$$f" = "$<" ]; then continue; fi; \
