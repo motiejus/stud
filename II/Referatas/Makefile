@@ -21,6 +21,15 @@ GEN3 = $(addsuffix .pdf, \
 .PHONY: all
 all: mj-referatas.pdf mj-prezentacija.pdf
 
+mj-referatas-bundle.pdf: mj-referatas.pdf $(shell git ls-files | grep -v Makefile)
+	cp $< .tmp-$@
+	for f in $^; do \
+		if [ "$$f" = "$<" ]; then continue; fi; \
+		pdfattach .tmp-$@ $$f .tmp2-$@; \
+		mv .tmp2-$@ .tmp-$@; \
+	done
+	mv .tmp-$@ $@
+
 mj-referatas.pdf: mj-referatas.tex version.tex bib.bib zeimena.pdf zeimena-pretty.pdf \
 			sinewave1.pdf sinewave2.pdf crossing.pdf $(GEN1) $(GEN2) $(GEN3)
 	latexmk -shell-escape -g -pdf $<
