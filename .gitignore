@@ -32,3 +32,6 @@ version.tex
 db/
 _minted-*/
 *.qgz
+
+.faux*
+*.pbf
