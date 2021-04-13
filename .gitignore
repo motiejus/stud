@@ -28,7 +28,7 @@ __pycache__
 
 env/
 *.pyc
-version.tex
+*.inc.tex
 db/
 _minted-*/
 *.qgz
