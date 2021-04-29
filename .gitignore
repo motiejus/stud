@@ -27,6 +27,7 @@ __pycache__
 *.gpkg-wal
 *.gpkg-shm
 
+.tmp/
 env/
 *.pyc
 *.inc.tex
