@@ -51,6 +51,9 @@ insert into wm_figures (name, way) values ('multi-island','MULTILINESTRING((-15 
 insert into wm_figures (name, way) values ('selfcrossing-1','LINESTRING(-27 180,-20 166,-21 142,-18 136,55 136,55 136,71 145,44 165,37 146,22 145,14 164,11 164,3 146,-12 146,-13 176,-18 184)'::geometry);
 insert into wm_figures (name, way) values ('selfcrossing-1-rev',ST_Reverse(ST_Translate((select way from wm_figures where name='selfcrossing-1'), 0, 60)));
 
+insert into wm_figures (name, way) values ('isolated-1','LINESTRING(-56 103,-54 102,-30 103,-31 105,-31 108,-27 108,-26 103,0 103,2 104)'::geometry);
+
+
 delete from wm_debug where name in (select distinct name from wm_figures);
 delete from wm_demo where name in (select distinct name from wm_figures);
 insert into wm_demo (name, way) select name, ST_SimplifyWM(way, .1, name) from wm_figures where name != 'fig8';

@@ -508,6 +508,10 @@ begin
   foreach bendattr in array bendattrs loop
     i = i + 1;
     last_mutated = false;
+    if bendattr.isolated then
+      raise notice 'adjsize: %, desired size: %', bendattr.adjsize, desired_size;
+    end if;
+
     if bendattr.isolated and bendattr.adjsize < desired_size then
       bendattr.bend = wm_exaggerate_bend(
         bendattr.bend,
