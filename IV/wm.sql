@@ -76,12 +76,7 @@ begin
   if dbgname is not null then
     for i in 1..array_length(bends, 1) loop
       insert into wm_debug(stage, name, gen, nbend, way) values(
-        'bbends',
-        dbgname,
-        dbggen,
-        i,
-        bends[i]
-      );
+        'bbends', dbgname, dbggen, i, bends[i]);
 
       dbgpolygon = null;
       if st_npoints(bends[i]) >= 3 then
@@ -91,12 +86,7 @@ begin
           );
       end if;
       insert into wm_debug(stage, name, gen, nbend, way) values(
-        'bbends-polygon',
-        dbgname,
-        dbggen,
-        i,
-        dbgpolygon
-      );
+        'bbends-polygon', dbgname, dbggen, i, dbgpolygon);
     end loop;
   end if;
 end
@@ -137,12 +127,7 @@ begin
   if dbgname is not null then
     for i in 1..array_length(bends, 1) loop
       insert into wm_debug(stage, name, gen, nbend, way) values(
-        'cinflections',
-        dbgname,
-        dbggen,
-        i,
-        bends[i]
-      );
+        'cinflections', dbgname, dbggen, i, bends[i]);
 
       dbgpolygon = null;
       if st_npoints(bends[i]) >= 3 then
@@ -153,12 +138,7 @@ begin
       end if;
 
       insert into wm_debug(stage, name, gen, nbend, way) values(
-        'cinflections-polygon',
-        dbgname,
-        dbggen,
-        i,
-        dbgpolygon
-      );
+        'cinflections-polygon', dbgname, dbggen, i, dbgpolygon);
     end loop;
   end if;
 end
@@ -321,10 +301,7 @@ begin
 
   if dbgname is not null then
     insert into wm_debug(stage, name, gen, nbend, way) values(
-      'dcrossings',
-      dbgname,
-      dbggen,
-      generate_subscripts(bends, 1),
+      'dcrossings', dbgname, dbggen, generate_subscripts(bends, 1),
       unnest(bends)
     );
   end if;
@@ -389,11 +366,7 @@ begin
 
     if dbgname is not null then
       insert into wm_debug (stage, name, gen, nbend, way, props) values(
-        'ebendattrs',
-        dbgname,
-        dbggen,
-        i,
-        bend,
+        'ebendattrs', dbgname, dbggen, i, bend,
         jsonb_build_object(
           'adjsize', res.adjsize,
           'baselinelength', res.baselinelength,
@@ -498,36 +471,43 @@ create function wm_exaggeration(
 ) as $$
 declare
   desired_size constant float default pi() * ((dhalfcircle/2)^2)/2;
-  bendattr wm_t_bend_attrs;
+  tmpbendattr wm_t_bend_attrs;
   i integer;
   last_id integer;
-  last_mutated boolean;
 begin
   mutated = false;
-  i = 0;
-  foreach bendattr in array bendattrs loop
-    i = i + 1;
-    last_mutated = false;
-    if bendattr.isolated then
-      raise notice 'adjsize: %, desired size: %', bendattr.adjsize, desired_size;
-    end if;
+  for i in 1..array_length(bendattrs, 1) loop
 
-    if bendattr.isolated and bendattr.adjsize < desired_size then
-      bendattr.bend = wm_exaggerate_bend(
-        bendattr.bend,
-        bendattr.size,
+    if bendattrs[i].isolated and bendattrs[i].adjsize < desired_size then
+      mutated = true;
+      tmpbendattr.bend = wm_exaggerate_bend(
+        bendattrs[i].bend,
+        bendattrs[i].adjsize,
         desired_size
       );
-      last_mutated = true;
-      mutated = true;
+      bendattrs[i] = tmpbendattr;
+
+      -- remove last vertex of the previous bend and
+      -- first vertex of the next bend, because bends always
+      -- share a line segment together
+      -- this is duplicated in a few places, because PostGIS
+      -- does not allow (?) mutating an array when passed to a
+      -- function.
+      tmpbendattr.bend = st_removepoint(
+        bendattrs[i-1].bend,
+        st_npoints(bendattrs[i-1].bend)-1
+      );
+      bendattrs[i-1] = tmpbendattr;
+      tmpbendattr.bend = st_removepoint(bendattrs[i+1].bend, 0);
+      bendattrs[i+1] = tmpbendattr;
+
+      if dbgname is not null then
+        insert into wm_debug (stage, name, gen, nbend, way) values(
+          'gexaggeration', dbgname, dbggen, i, bendattrs[i].bend
+        );
+      end if;
     end if;
 
-    if dbgname is not null then
-      insert into wm_debug (stage, name, gen, nbend, way, props) values(
-        'gexaggeration', dbgname, dbggen, i, bendattr.bend,
-        jsonb_build_object('exaggerated', last_mutated)
-      );
-    end if;
   end loop;
 
 end
@@ -546,7 +526,7 @@ declare
   rightsize float;
   i int4;
   j int4;
-  tmpbendattrs wm_t_bend_attrs;
+  tmpbendattr wm_t_bend_attrs;
   dbgbends geometry[];
 begin
   mutated = false;
@@ -574,21 +554,21 @@ begin
 
     -- Local minimum. Elminate bend!
     mutated = true;
-    tmpbendattrs.bend = st_makeline(
+    tmpbendattr.bend = st_makeline(
       st_pointn(bendattrs[i].bend, 1),
       st_pointn(bendattrs[i].bend, -1)
     );
-    bendattrs[i] = tmpbendattrs;
+    bendattrs[i] = tmpbendattr;
     -- remove last vertex of the previous bend and
     -- first vertex of the next bend, because bends always
     -- share a line segment together
-    tmpbendattrs.bend = st_removepoint(
+    tmpbendattr.bend = st_removepoint(
       bendattrs[i-1].bend,
       st_npoints(bendattrs[i-1].bend)-1
     );
-    bendattrs[i-1] = tmpbendattrs;
-    tmpbendattrs.bend = st_removepoint(bendattrs[i+1].bend, 0);
-    bendattrs[i+1] = tmpbendattrs;
+    bendattrs[i-1] = tmpbendattr;
+    tmpbendattr.bend = st_removepoint(bendattrs[i+1].bend, 0);
+    bendattrs[i+1] = tmpbendattr;
     -- the next bend's adjsize is now messed up; it should not be taken
     -- into consideration for other local minimas. Skip over 2.
     i = i + 2;
@@ -631,6 +611,7 @@ begin
         jsonb_build_object('isolated', false)
       ) returning id into last_id;
     end if;
+    -- first and last bends cannot be isolated
     if i = 1 or i = array_length(bendattrs, 1) then
       continue;
     end if;
@@ -740,7 +721,7 @@ begin
       end if;
 
       bendattrs = array((select wm_bend_attrs(bends, dbgname, gen)));
-      perform wm_isolated_bends(bendattrs, dbgname, gen);
+      bendattrs = wm_isolated_bends(bendattrs, dbgname, gen);
 
       --select * from wm_exaggeration(
       --  bendattrs, dhalfcircle, dbgname, gen) into bendattrs, mutated;
@@ -757,6 +738,7 @@ begin
           bends[j] = bendattrs[j].bend;
         end loop;
         lines[i] = st_linemerge(st_union(bends));
+
         gen = gen + 1;
         continue;
       end if;

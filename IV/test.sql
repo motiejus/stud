@@ -56,8 +56,8 @@ insert into wm_figures (name, way) values ('isolated-1','LINESTRING(-56 103,-54 
 
 delete from wm_debug where name in (select distinct name from wm_figures);
 delete from wm_demo where name in (select distinct name from wm_figures);
-insert into wm_demo (name, way) select name, ST_SimplifyWM(way, .1, name) from wm_figures where name != 'fig8';
-insert into wm_demo (name, way) select name, ST_SimplifyWM(way, 11, name) from wm_figures where name = 'fig8';
+insert into wm_demo (name, way) select name, ST_SimplifyWM(way, .1, name) from wm_figures where name not in ('fig8', 'isolated-1');
+insert into wm_demo (name, way) select name, ST_SimplifyWM(way, 11, name) from wm_figures where name in ('fig8', 'isolated-1');
 
 
 do $$
