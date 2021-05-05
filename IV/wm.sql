@@ -422,7 +422,7 @@ begin
 
     points = array((
         select st_scale(
-          st_makepoint(st_x(geom), st_y(geom)),
+          st_setsrid(st_makepoint(st_x(geom), st_y(geom)), st_srid(geom)),
           st_makepoint(st_m(geom), st_m(geom)),
           midpoint
         )
@@ -462,6 +462,7 @@ begin
 end
 $$ language plpgsql;
 
+-- wm_exaggeration is the Exaggeration Operator described in the WM paper.
 create function wm_exaggeration(
   INOUT bendattrs wm_t_bend_attrs[],
   dhalfcircle float,
