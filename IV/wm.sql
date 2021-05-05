@@ -22,6 +22,7 @@ declare
 begin
   l_type = st_geometrytype(line);
   if l_type != 'ST_LineString' then
+    raise notice 'Got non-LineString: %', st_astext(line);
     raise 'This function works with ST_LineString, got %', l_type;
   end if;
 
@@ -422,7 +423,7 @@ begin
 
     points = array((
         select st_scale(
-          st_setsrid(st_makepoint(st_x(geom), st_y(geom)), st_srid(geom)),
+          st_makepoint(st_x(geom), st_y(geom)),
           st_makepoint(st_m(geom), st_m(geom)),
           midpoint
         )
@@ -430,7 +431,7 @@ begin
         order by path[1], path[2]
       ));
 
-    bend = st_makeline(points);
+    bend = st_setsrid(st_makeline(points), st_srid(bend));
     size = wm_adjsize(bend);
   end loop;
 end
@@ -691,6 +692,7 @@ declare
   bendattrs wm_t_bend_attrs[];
   mutated boolean;
   l_type text;
+  dbggeoms geometry[];
 begin
   l_type = st_geometrytype(geom);
   if l_type = 'ST_LineString' then
@@ -741,7 +743,18 @@ begin
         lines[i] = st_linemerge(st_union(bends));
 
         gen = gen + 1;
-        continue;
+        if st_geometrytype(lines[i]) != 'ST_lineString' then
+          dbggeoms = array((select a.geom from st_dump(lines[i]) a order by path[1] asc));
+          insert into wm_debug (stage, name, gen, nbend, way) values(
+            'manual', dbgname, gen,
+            generate_subscripts(dbggeoms, 1),
+            unnest(dbggeoms)
+          );
+          raise notice '% non-linestring: %', dbgname, st_summary(lines[i]);
+          exit;
+        else
+          continue;
+        end if;
       end if;
 
     end loop;
