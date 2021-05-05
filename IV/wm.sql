@@ -622,8 +622,19 @@ declare
   skip_next bool;
   res wm_t_bend_attrs;
   i int4;
+  last_id integer;
 begin
-  for i in 2..array_length(bendattrs, 1)-1 loop
+  for i in 1..array_length(bendattrs, 1) loop
+    if dbgname is not null then
+      insert into wm_debug (stage, name, gen, nbend, way, props) values(
+        'fisolated_bends', dbgname, dbggen, i, bendattrs[i].bend,
+        jsonb_build_object('isolated', false)
+      ) returning id into last_id;
+    end if;
+    if i = 1 or i = array_length(bendattrs, 1) then
+      continue;
+    end if;
+
     res = bendattrs[i];
     if skip_next then
       skip_next = false;
@@ -634,20 +645,13 @@ begin
         res.isolated = true;
         bendattrs[i] = res;
         skip_next = true;
-      end if;
-    end if;
 
-    if dbgname is not null then
-      insert into wm_debug (stage, name, gen, nbend, way, props) values(
-        'fisolated_bends', dbgname, dbggen, i, res.bend,
-        jsonb_build_object(
-          'area', res.area,
-          'adjsize', res.adjsize,
-          'baselinelength', res.baselinelength,
-          'curvature', res.curvature,
-          'isolated', res.isolated
-        )
-      );
+        if dbgname is not null then
+          update wm_debug
+          set props=props || jsonb_build_object('isolated', true)
+          where id=last_id;
+        end if;
+      end if;
     end if;
 
   end loop;
