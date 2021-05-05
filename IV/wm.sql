@@ -635,11 +635,7 @@ begin
 
     if dbgname is not null then
       insert into wm_debug (stage, name, gen, nbend, way, props) values(
-        'fisolated_bends',
-        dbgname,
-        dbggen,
-        i,
-        res.bend,
+        'fisolated_bends', dbgname, dbggen, i, res.bend,
         jsonb_build_object(
           'area', res.area,
           'adjsize', res.adjsize,
@@ -736,16 +732,18 @@ begin
       end if;
 
       bendattrs = array((select wm_bend_attrs(bends, dbgname, gen)));
-
-      -- code to detect isolated bends is there, but bend exaggeration
-      -- is not implemented.
       perform wm_isolated_bends(bendattrs, dbgname, gen);
 
       --select * from wm_exaggeration(
       --  bendattrs, dhalfcircle, dbgname, gen) into bendattrs, mutated;
 
-      select * from wm_elimination(
-        bendattrs, dhalfcircle, dbgname, gen) into bendattrs, mutated;
+      -- TODO: wm_combination
+
+      if not mutated then
+        select * from wm_elimination(
+          bendattrs, dhalfcircle, dbgname, gen) into bendattrs, mutated;
+      end if;
+
       if mutated then
         for j in 1..array_length(bendattrs, 1) loop
           bends[j] = bendattrs[j].bend;
@@ -754,6 +752,7 @@ begin
         gen = gen + 1;
         continue;
       end if;
+
     end loop;
 
   end loop;
