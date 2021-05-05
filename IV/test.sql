@@ -52,8 +52,7 @@ insert into wm_figures (name, way) values ('selfcrossing-1','LINESTRING(-27 180,
 insert into wm_figures (name, way) values ('selfcrossing-1-rev',ST_Reverse(ST_Translate((select way from wm_figures where name='selfcrossing-1'), 0, 60)));
 
 insert into wm_figures (name, way) values ('isolated-1','LINESTRING(-56 103,-54 102,-30 103,-31 105,-31 108,-27 108,-26 103,0 103,2 104)'::geometry);
-
-insert into wm_figures(name, way) values ('isolated-2', 'LINESTRING(2801325.2746406365 7226746.592740034,2801316.313421628 7226773.775365548,2801310.6472595464 7226787.509780527,2801304.0682776407 7226795.559684921,2801288.850903249 7226806.013127576,2801251.525477986 7226819.15625314,2801231.821928116 7226826.614843614,2801216.2928591496 7226837.373539025,2801207.331640141 7226849.009733273,2801203.7471525376 7226861.847718405,2801201.954908736 7226876.478850377,2801196.2887466545 7226884.853135042,2801186.1364090946 7226892.903139205)');
+insert into wm_figures (name, way) values ('isolated-2', 'LINESTRING(0 0,-9 27,-14 41,-21 49,-36 59,-73 72,-93 80,-109 90,-118 102,-121 115,-123 129,-129 138,-139 146)'::geometry);
 
 
 delete from wm_debug where name in (select distinct name from wm_figures);

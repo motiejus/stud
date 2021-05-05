@@ -751,7 +751,8 @@ begin
             unnest(dbggeoms)
           );
           raise notice '% non-linestring: %', dbgname, st_summary(lines[i]);
-          exit;
+          --exit;
+          continue;
         else
           continue;
         end if;
