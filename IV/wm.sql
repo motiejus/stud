@@ -171,7 +171,7 @@ create function wm_fix_gentle_inflections1(INOUT bends geometry[]) as $$
 declare
   -- the threshold when the angle is still "small", so gentle inflections can
   -- be joined
-  small_angle constant real default radians(45);
+  small_angle constant real default pi()/4;
   ptail geometry; -- tail point of tail bend
   phead geometry[]; -- 3 tail points of head bend
   i int4; -- bends[i] is the current head
@@ -406,9 +406,9 @@ begin
 end;
 $$ language plpgsql;
 
--- wm_exaggerate exaggerates a given bend. Must be a simple linestring.
-drop function if exists wm_exaggerate;
-create function wm_exaggerate(
+-- wm_exaggerate_bend exaggerates a given bend. Must be a simple linestring.
+drop function if exists wm_exaggerate_bend;
+create function wm_exaggerate_bend(
   INOUT bend geometry,
   size float,
   desired_size float
@@ -458,7 +458,6 @@ begin
       ));
 
     bend = st_makeline(points);
-
     size = wm_adjsize(bend);
   end loop;
 end
@@ -498,7 +497,34 @@ create function wm_exaggeration(
   OUT mutated boolean
 ) as $$
 declare
+  desired_size constant float default pi() * ((dhalfcircle/2)^2)/2;
+  bendattr wm_t_bend_attrs;
+  i integer;
+  last_id integer;
+  last_mutated boolean;
 begin
+  mutated = false;
+  i = 0;
+  foreach bendattr in array bendattrs loop
+    i = i + 1;
+    last_mutated = false;
+    if bendattr.isolated and bendattr.adjsize < desired_size then
+      bendattr.bend = wm_exaggerate_bend(
+        bendattr.bend,
+        bendattr.size,
+        desired_size
+      );
+      last_mutated = true;
+      mutated = true;
+    end if;
+
+    if dbgname is not null then
+      insert into wm_debug (stage, name, gen, nbend, way, props) values(
+        'gexaggeration', dbgname, dbggen, i, bendattr.bend,
+        jsonb_build_object('exaggerated', last_mutated)
+      );
+    end if;
+  end loop;
 
 end
 $$ language plpgsql;
@@ -511,7 +537,7 @@ create function wm_elimination(
   OUT mutated boolean
 ) as $$
 declare
-  area_threshold float;
+  desired_size constant float default pi() * ((dhalfcircle/2)^2)/2;
   leftsize float;
   rightsize float;
   i int4;
@@ -519,14 +545,13 @@ declare
   tmpbendattrs wm_t_bend_attrs;
   dbgbends geometry[];
 begin
-  area_threshold = radians(180) * ((dhalfcircle/2)^2)/2;
   mutated = false;
 
   i = 1;
   while i < array_length(bendattrs, 1)-1 loop
     i = i + 1;
     continue when bendattrs[i].adjsize = 0;
-    continue when bendattrs[i].adjsize > area_threshold;
+    continue when bendattrs[i].adjsize > desired_size;
 
     if i = 2 then
       leftsize = bendattrs[i].adjsize + 1;
@@ -571,7 +596,7 @@ begin
     end loop;
 
     insert into wm_debug(stage, name, gen, nbend, way) values(
-      'felimination',
+      'helimination',
       dbgname,
       dbggen,
       generate_subscripts(dbgbends, 1),
