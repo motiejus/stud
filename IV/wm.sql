@@ -152,7 +152,7 @@ create function wm_fix_gentle_inflections1(INOUT bends geometry[]) as $$
 declare
   -- the threshold when the angle is still "small", so gentle inflections can
   -- be joined
-  small_angle constant real default pi()/4;
+  small_angle constant real default radians(45);
   ptail geometry; -- tail point of tail bend
   phead geometry[]; -- 3 tail points of head bend
   i int4; -- bends[i] is the current head
