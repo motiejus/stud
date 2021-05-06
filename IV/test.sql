@@ -52,13 +52,13 @@ insert into wm_figures (name, way) values ('selfcrossing-1','LINESTRING(-27 180,
 insert into wm_figures (name, way) values ('selfcrossing-1-rev',ST_Reverse(ST_Translate((select way from wm_figures where name='selfcrossing-1'), 0, 60)));
 
 insert into wm_figures (name, way) values ('isolated-1','LINESTRING(-56 103,-54 102,-30 103,-31 105,-31 108,-27 108,-26 103,0 103,2 104)'::geometry);
-insert into wm_figures (name, way) values ('isolated-2', 'LINESTRING(0 0,-9 27,-14 41,-21 49,-36 59,-73 72,-93 80,-109 90,-118 102,-121 115,-123 129,-129 138,-139 146)'::geometry);
+insert into wm_figures (name, way) values ('isolated-2', 'LINESTRING(250 50,248 57,246 60,245 62,241 65,232 68,227 70,223 72,220 76,220 79,219 82,218 84,215 86)'::geometry);
 
 
 delete from wm_debug where name in (select distinct name from wm_figures);
 delete from wm_demo where name in (select distinct name from wm_figures);
 insert into wm_demo (name, way) select name, ST_SimplifyWM(way, .1, name) from wm_figures where name not in ('fig8', 'isolated-1');
-insert into wm_demo (name, way) select name, ST_SimplifyWM(way, 11, name) from wm_figures where name in ('fig8', 'isolated-1');
+insert into wm_demo (name, way) select name, ST_SimplifyWM(way, 11, name) from wm_figures where name in ('fig8', 'isolated-1', 'isolated-2');
 
 
 do $$
