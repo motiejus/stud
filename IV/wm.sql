@@ -750,9 +750,9 @@ begin
             generate_subscripts(dbggeoms, 1),
             unnest(dbggeoms)
           );
-          raise notice '% non-linestring: %', dbgname, st_summary(lines[i]);
-          --exit;
-          continue;
+          raise notice '% non-linestring: %', dbgname, st_astext(lines[i]);
+          exit;
+          --continue;
         else
           continue;
         end if;
