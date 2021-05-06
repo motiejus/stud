@@ -726,8 +726,8 @@ begin
       bendattrs = array((select wm_bend_attrs(bends, dbgname, gen)));
       bendattrs = wm_isolated_bends(bendattrs, dbgname, gen);
 
-      --select * from wm_exaggeration(
-      --  bendattrs, dhalfcircle, dbgname, gen) into bendattrs, mutated;
+      select * from wm_exaggeration(
+        bendattrs, dhalfcircle, dbgname, gen) into bendattrs, mutated;
 
       -- TODO: wm_combination
 
