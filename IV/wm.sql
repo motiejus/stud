@@ -22,7 +22,7 @@ declare
 begin
   l_type = st_geometrytype(line);
   if l_type != 'ST_LineString' then
-    raise notice 'Got non-LineString: %', st_astext(line);
+    raise notice 'Got non-LineString: %', st_summary(line);
     raise 'This function works with ST_LineString, got %', l_type;
   end if;
 
