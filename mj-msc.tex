@@ -1,0 +1,1132 @@
+\documentclass[a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[american]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fvextra}
+\usepackage[autostyle,english=american]{csquotes}
+\MakeOuterQuote{"}
+\usepackage[
+    maxbibnames=99,
+    style=numeric,
+    sorting=none,
+    alldates=iso,
+    seconds=true
+]{biblatex}
+\addbibresource{bib.bib}
+\usepackage[
+    pdfusetitle,
+    pdfkeywords={Line Generalization,Line Simplification,Wang--Mueller},
+    pdfborderstyle={/S/U/W 0} % /S/U/W 1 to enable reasonable decorations
+]{hyperref}
+\usepackage{enumitem}
+\usepackage[toc,page,title]{appendix}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{dcolumn}
+\usepackage{gensymb}
+\usepackage{units}
+\usepackage{varwidth}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{numprint}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows,positioning}
+\usepackage{fancyvrb}
+\usepackage{layouts}
+%\usepackage{charter}
+%\usepackage{setspace}
+%\doublespacing
+
+\input{version.inc}
+\input{vars.inc}
+\IfFileExists{./editorial-version}{\def \mjEditorial {}}{}
+\ifx \mjEditorial \undefined
+\usepackage{minted}
+\newcommand{\inputcode}[2]{\inputminted[fontsize=\small]{#1}{#2}}
+\else
+\usepackage{verbatim}
+\newcommand{\inputcode}[2]{\verbatiminput{#2}}
+\fi
+
+\newcommand{\onpage}[1]{\ref{#1} on page~\pageref{#1}}
+\newcommand{\titlecite}[1]{\citetitle{#1}\cite{#1}}
+\newcommand{\titleciteauthor}[1]{\citetitle{#1} by \citeauthor{#1}\cite{#1}}
+\newcommand{\DP}{Douglas \& Peucker}
+\newcommand{\VW}{Visvalingam--Whyatt}
+\newcommand{\WM}{Wang--M{\"u}ller}
+\newcommand{\WnM}{Wang and M{\"u}ller}
+% {\WM} algoritmo realizacija kartografinei upių generalizacijai
+\newcommand{\MYTITLE}{{\WM} algorithm realization for cartographic line generalization}
+\newcommand{\MYTITLENOCAPS}{wang--m{\"u}ller algorithm realization for cartographic line generalization}
+\newcommand{\MYAUTHOR}{Motiejus Jakštys}
+
+\title{\MYTITLE}
+\author{\MYAUTHOR}
+\date{\VCDescribe}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \includegraphics[width=0.2\textwidth]{vu.pdf} \\[4ex]
+
+        \large
+        \textbf{\textsc{
+            vilnius university \\
+            faculty of chemistry and geosciences \\
+            department of cartography and geoinformatics
+        }} \\[8ex]
+
+        \textbf{\MYAUTHOR} \\[8ex]
+
+        \normalsize
+        A thesis presented for the degree of Master in Cartography \\[8ex]
+
+        \LARGE
+        \textbf{\textsc{\MYTITLENOCAPS}}
+
+        \vfill
+
+        \normalsize
+        Supervisor Dr. Andrius Balčiūnas \\[16ex]
+
+        \VCDescribe
+    \end{center}
+\end{titlepage}
+
+\begin{abstract}
+\label{sec:abstract}
+
+Currently available line simplification algorithms are rooted in mathematics
+    and geometry, and are unfit for bendy map features like rivers and
+    coastlines. {\WnM} observed how cartographers simplify these natural
+    features and created an algorithm. We implemented this algorithm and
+    documented it in great detail. Our implementation makes {\WM} algorithm
+    freely available in PostGIS, and this paper explains it.
+
+\end{abstract}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+\listoffigures
+\listoftables
+
+\newpage
+
+\section{Introduction}
+\label{sec:introduction}
+
+\iffalse
+NOTICE: this value should be copied to layer2img.py:TEXTWIDTH, so dimensions
+of inline images are reasonable.
+
+Textwidth in cm: {\printinunitsof{cm}\prntlen{\textwidth}}
+\fi
+
+When creating small-scale maps, often the detail of the data source is greater
+than desired for the map. While many features can be removed or simplified, it
+is more tricky with natural features that have many bends, like coastlines,
+rivers or forest boundaries.
+
+To create a small-scale map from a large-scale data source, features need to be
+simplified, i.e., detail should be reduced. While performing the
+simplification, it is important to retain the "defining" shape of the original
+feature. Otherwise, if the simplified feature looks too different than the
+original, the result will look unrealistic.
+
+For example, if a river is nearly straight, it should remain such after
+simplification. An overly straightened river will look like a canal, and the
+other way around --- too curvy would not reflect the natural shape. Conversely,
+if the river originally is highly wiggly, the number of bends should be
+reduced, but not removed altogether.
+
+Simplification problem for other objects can often be solved by other
+non-geometric means:
+
+\begin{itemize}
+    \item Towns and cities can be filtered by number of inhabitants.
+    \item Roads can be eliminated by the road length, number of lanes, or
+        classification of the road (local, regional, international).
+\end{itemize}
+
+To sum up, natural line simplification problem can be viewed as a task of
+finding a delicate balance between two competing goals:
+
+\begin{itemize}
+    \item Reduce detail by removing or simplifying "less important" features.
+    \item Retain enough detail, so the original is still recognize-able.
+\end{itemize}
+
+Given the discussed complexities, a fine line between under-simplification
+(leaving object as-is) and over-simplification (making a straight line) needs
+to be found. Therein lies the complexity of simplification algorithms: all have
+different trade-offs.
+
+\section{Literature Review and Problematic}
+\label{sec:literature-review-problematic}
+
+\subsection{From Simplification to Generalization}
+\label{sec:from-simplification-to-generalization}
+
+It is important to note the distinction between simplification, line
+generalization and cartographic generalization.
+
+Simplification reduces object's detail in isolation, not taking object's
+natural properties or surrounding objects into account. For example, if a
+river is simplified, it may have an approximate shape of the original river,
+but lose some shapes that define it. For example:
+
+\begin{itemize}
+
+  \item Low-water rivers in slender slopes have many small bends next to each
+      other. A non-cartographic line simplification may remove all of them,
+        thus losing an important river's characteristic feature: after such
+        simplification, it will be hard to tell that the original river was
+        low-water in a slender slope.
+
+  \item Low-angle river bend river over a long distance differs significantly
+      from a completely straight canal. Non-cartographic line simplification
+        may replace a that bend with a straight line, making the river more
+        similar to a canal than a river.
+
+\end{itemize}
+
+In other words, simplification processes the line ignoring its geographic
+features. It is works well when the features are man-made (e.g., roads,
+administrative boundaries, buildings). There is a number of freely available
+non-cartographic line simplification algorithms, which this paper will review.
+
+Contrary to line simplification, Cartographic Generalization does not focus
+into a single feature class (e.g., rivers), but the whole map. For example,
+line simplification may change river bends in a way that bridges (and roads to
+the bridges) become misplaced. While line simplification is limited to a single
+feature class, cartographic generalization is not. Fully automatic cartographic
+generalization is not yet a solved problem <TODO: Reference needed>.
+
+Cartographic line generalization falls in between the two: it does more than
+line simplification, and less than cartographic generalization. Cartographic
+line generalization deals with a single feature class, but takes into account
+its geographic properties. This paper examines {\WM}'s
+\titlecite{wang1998line}, a cartographic line generalization algorithm.
+
+\subsection{Available algorithms}
+
+This section reviews the classical line simplification algorithms, which,
+besides being around for a long time, offer easily accessible implementations,
+as well as more modern ones, which only theorize, but do not provide an
+implementation.
+
+\subsection{Simplification requirements}
+
+\subsubsection{{\DP}, {\VW} and Chaikin's}
+\label{sec:dp-vw-chaikin}
+
+{\DP}\cite{douglas1973algorithms} and {\VW}\cite{visvalingam1993line} are
+"classical" line simplification computer graphics algorithms. They are
+relatively simple to implement, require few runtime resources. Both of them
+accept a single parameter, based on desired scale of the map, which makes them
+straightforward to adjust for different scales.
+
+Both algorithms are part of PostGIS, a free-software GIS suite:
+\begin{itemize}
+    \item {\DP} via
+        \href{https://postgis.net/docs/ST_Simplify.html}{PostGIS \textsc{st\_simplify}}.
+
+    \item {\VW} via
+        \href{https://postgis.net/docs/ST_SimplifyVW.html}{PostGIS
+        \textsc{st\_simplifyvw}}.
+\end{itemize}
+
+It may be worthwhile to post-process those through a widely available Chaikin's
+line smoothing algorithm\cite{chaikin1974algorithm} via
+\href{https://postgis.net/docs/ST_ChaikinSmoothing.html}{PostGIS
+\textsc{st\_chaikinsmoothing}}.
+
+To use in generalization examples, we will use two rivers: Šalčia and Visinčia.
+These rivers were chosen, because they have both large and small bends, and
+thus convenient to analyze for both small and large scale generalization.
+Figure~\onpage{fig:salvis-25} illustrates the original two rivers without any
+simplification.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{salvis-25k}
+    \caption{Example rivers for visual tests (1:{\numprint{25000}}).}
+    \label{fig:salvis-25}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{salvis-50k}
+        \caption{Example scaled 1:\numprint{50000}.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{.49\textwidth}
+        \centering
+        \includegraphics[width=.2\textwidth]{salvis-250k}
+        \caption{Example scaled 1:\numprint{250000}.}
+    \end{subfigure}
+    \caption{Down-scaled original river.}
+    \label{fig:salvis-50-250}
+\end{figure}
+
+Same rivers, unprocessed, but in higher scales (1:\numprint{50000} and
+1:\numprint{250000}) are depicted in figure~\onpage{fig:salvis-50-250}. Some
+river features are so compact that a reasonably thin line depicting the river
+is touching itself, creating a thicker line. We can assume that some
+simplification for scale 1:\numprint{50000} and especially for
+1:\numprint{250000} are worthwhile.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{salvis-douglas-64-50k}
+        \caption{Using {\DP}.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{salvis-visvalingam-64-50k}
+        \caption{Using {\VW}.}
+    \end{subfigure}
+    \caption{Simplified using classical algorithms (1:\numprint{50000}).}
+    \label{fig:salvis-generalized-50k}
+\end{figure}
+
+Figure~\onpage{fig:salvis-generalized-50k} illustrates the same river bend, but
+simplified using {\DP} and {\VW} algorithms. The resulting lines are jagged,
+thus the resulting line looks unlike a real river. To smoothen the jaggedness,
+traditionally, Chaikin's\cite{chaikin1974algorithm} is applied after
+generalization, illustrated in
+figure~\onpage{fig:salvis-generalized-chaikin-50k}.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{salvis-douglas-64-chaikin-50k}
+        \caption{{\DP} and Chaikin's.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{salvis-visvalingam-64-chaikin-50k}
+        \caption{{\VW} and Chaikin's.}
+    \end{subfigure}
+    \caption{Simplified and smoothened river (1:\numprint{50000}).}
+    \label{fig:salvis-generalized-chaikin-50k}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{salvis-overlaid-douglas-64-chaikin-50k}
+        \caption{{\DP} and Chaikin's.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{salvis-overlaid-visvalingam-64-chaikin-50k}
+        \caption{{\VW} and Chaikin's.}
+    \end{subfigure}
+    \caption{Zoomed-in simplified and smoothened river and original.}
+    \label{fig:salvis-overlaid-generalized-chaikin-50k}
+\end{figure}
+
+The resulting simplified and smoothened example
+(figure~\onpage{fig:salvis-generalized-chaikin-50k}) yields a more
+aesthetically pleasing result, however, it obscures natural river features.
+Given the absence of rocks, the only natural features that influence the river
+direction are topographic:
+
+\begin{itemize}
+
+    \item Relatively straight river (completely straight or with small-angled
+        bends over a relatively long distance) implies greater slope, more
+        water, and/or faster flow.
+
+    \item Bendy river, on the contrary, implies slower flow, slighter slope,
+        and/or less water.
+
+\end{itemize}
+
+Both {\VW} and {\DP} have a tendency to remove the small bends altogether, a
+valuable characterization of the river.
+
+Sometimes low-water rivers in slender slopes have many bends next to each
+other. In low resolutions (either in small-DPI screens or paper, or when the
+river is sufficiently zoomed out, or both), the small bends will amalgamate to
+a unintelligible blob. Figure~\onpage{fig:pixel-amalgamation} illustrates two
+real-world examples where a bendy river, normally 1 or 2 pixels wide, creates a
+wide area, of which the shapes of the bend are unintelligible. In this example,
+classical algorithms would remove these bends altogether. A cartographer would
+retain a few of those distinctive bends, but would increase the distance
+between the bends, remove some of the bends, or both.
+
+\begin{figure}[ht]
+    \includegraphics[width=\textwidth]{amalgamate1}
+    \caption{Narrow bends amalgamating into large unintelligible blobs.}
+    \label{fig:pixel-amalgamation}
+\end{figure}
+
+For the reasons discussed in this section, the "classical" {\DP} and {\VW} are
+not well suited for natural river generalization, and a more robust line
+generalization algorithm is worthwhile for to look for.
+
+\subsubsection{Modern approaches}
+
+% TODO:
+% https://pdfs.semanticscholar.org/e80b/1c64345583eb8f7a6c53834d1d40852595d5.pdf
+% A New Algorithm for Cartographic Simplification of Streams and Lakes Using
+% Deviation Angles and Error Bands
+
+Due to their simplicity and ubiquity, {\DP} and {\VW} have been established as
+go-to algorithms for line generalization. During recent years, alternatives
+have emerged. These modern replacements fall into roughly two categories:
+
+\begin{itemize}
+
+    \item Cartographic knowledge was encoded to an algorithm (bottom-up
+        approach). One among these are \titlecite{wang1998line}, also known
+        as {\WM}'s algorithm.
+
+    \item Mathematical shape transformation which yields a more cartographic
+        result. E.g., \titlecite{jiang2003line},
+        \titlecite{dyken2009simultaneous}, \titlecite{mustafa2006dynamic},
+        \titlecite{nollenburg2008morphing}.
+
+\end{itemize}
+
+Authors of most of the aforementioned articles have implemented the
+generalization algorithm, at least to generate the illustrations in the
+articles. However, code is not available for evaluation with a desired data
+set, much less for use as a basis for creating new maps. To author's knowledge,
+{\WM}\cite{wang1998line} is available in a commercial product, but requires a
+purchase of the commercial product suite, without a way to license the
+standalone algorithm.
+
+Lack of robust openly available generalization algorithm implementations poses
+a problem for map creation with free software: there is not a similar
+high-quality simplification algorithm to create down-scaled maps, so any
+cartographic work, which uses line generalization as part of its processing,
+will be of sub-par quality. We believe that availability of high-quality
+open-source tools is an important foundation for future cartographic
+experimentation and development, thus it it benefits the cartographic society
+as a whole.
+
+{\WM}'s commercial availability signals something about the value of the
+algorithm: at least the authors of the commercial software suite deemed it
+worthwhile to include it. However, not everyone has access to the commercial
+software suite, access to funds to buy the commercial suite, or access to the
+operating system required to run the commercial suite. PostGIS, in contrast, is
+free on itself, and runs on free platforms. Therefore, algorithm
+implementations that run on PostGIS or other free platforms are useful to a
+wider cartographic society than proprietary ones.
+
+\subsection{Problematic with generalization of rivers}
+
+Section~\ref{sec:dp-vw-chaikin} illustrates the current gaps with Line
+Simplification algorithms for real rivers. To sum up, we highlight the
+following cartographic problems from our examples:
+
+\begin{description}
+
+    \item[Long bends] should remain as long bends, instead of become fully
+        straight lines.
+
+    \item[Many small bends] should not be removed. To retain river's character,
+        the algorithm should retain some small bends, and, when they are too
+        small to be visible, should be combined or exaggerated.
+
+\end{description}
+
+Like discussed in section~\ref{sec:from-simplification-to-generalization}, we
+limiting the problem to cartographic line generalization. That is, full
+cartographic generalization, which takes topology and other feature classes
+into account, is out of scope.
+
+Figure~\ref{fig:wang125} illustrates {\WM} algorithm from their original
+paper. Note how the long bends retain curvy, and how some small bends got
+exaggerated.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.8\textwidth]{wang125}
+
+    \caption{Originally figure 12.5: cartographic line generalization example.}
+
+    \label{fig:wang125}
+\end{figure}
+
+\section{Methodology}
+\label{sec:methodology}
+
+The original {\WM}'s algorithm \cite{wang1998line} leaves something to be
+desired for a practical implementation: it is not straightforward to implement
+the algorithm from the paper alone.
+
+Explanations in this document are meant to expand, rather than substitute, the
+original description in {\WM}. Therefore familiarity with the original paper is
+assumed, and, for some sections, having the original close-by is necessary to
+meaningfully follow this document.
+
+This paper describes {\WM} in detail that is more useful for anyone who wishes
+to follow the algorithm implementation more closely: each section is expanded
+with additional commentary, and richer illustrations for non-obvious steps. In
+many cases, corner cases are discussed and clarified.
+
+Assume Euclidean geometry throughout this document, unless noted otherwise.
+
+\subsection{Main geometry elements}
+\label{sec:vocab}
+
+This section defines and explains the geometry elements that are used
+throughout this paper and the implementation.
+
+\begin{description}
+
+    \item[Vertex] is a point on a plane, can be expressed by a pair of $(x,y)$
+        coordinates.
+
+    \item[Line Segment] or \textsc{segment} joins two vertices by a straight
+        line. A segment can be expressed by two coordinate pairs: $(x_1, y_1)$
+        and $(x_2, y_2)$. Line Segment and Segment are used interchangeably.
+
+    \item[Line] or \textsc{linestring}, represents a single linear feature. For
+        example, a river or a coastline.
+
+        Geometrically, A line is a series of connected line segments, or,
+        equivalently, a series of connected vertices. Each vertex connects to
+        two other vertices, except those vertices at either ends of the line:
+        these two connect to a single other vertex.
+
+    \item[Multiline] or \textsc{multilinestring} is a collection of linear
+        features. Throughout this implementation this is used rarely (normally,
+        a river is a single line), but can be valid when, for example, a river
+        has an island.
+
+    \item[Bend] is a subset of a line that humans perceive as a curve. The
+        geometric definition is complex and is discussed in
+        section~\ref{sec:definition-of-a-bend}.
+
+    \item[Baseline] is a line between bend's first and last vertices.
+
+    \item[Sum of inner angles] TBD.
+
+    \item[Algorithmic Complexity] also called \textsc{big o notation}, is a
+        relative measure to explain how long will the algorithm runs depending
+        on it's input. It is widely used in computing science when discussing
+        the efficiency of a given algorithm.
+
+        For example, given $n$ objects and time complexity of $O(log(n))$, the
+        time it takes to execute the algorithm is logarithmic to $n$.
+        Conversely, if complexity is $O(n^2)$, then the time it takes to
+        execute the algorithm grows quadratically with input. Importantly, if
+        the input size doubles, the time it takes to run the algorithm
+        quadruples.
+
+        $O$ notation was first suggested by
+        Bachmann\cite{bachmann1894analytische} and Landau\cite{landau1911} in
+        late \textsc{xix} century, and clarified and popularized for
+        computing science by Donald Knuth\cite{knuth1976big} in the 1970s.
+
+\end{description}
+
+\subsection{Automated tests}
+\label{sec:automated-tests}
+
+As part of the algorithm realization, an automated test suite has been
+developed. Shapes to test each function have been hand-crafted and expected
+results have been manually calculated. The test suite executes parts of the
+algorithm against a predefined set of geometries, and asserts that the output
+matches the resulting hand-calculated geometry.
+
+The full set of test geometries is visualized in figure~\ref{fig:test-figures}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{test-figures}
+    \caption{Geometries for automated test cases.}
+    \label{fig:test-figures}
+\end{figure}
+
+The full test suite can be executed with a single command, and completes in
+about a second Having an easily accessible test suite boosts confidence that no
+unexpected bugs have snug in while modifying the algorithm.
+
+We will explain two instances on when automated tests were very useful during
+the implementation:
+\begin{itemize}
+
+    \item Created a function \textsc{wm\_exaggeration}, which exaggerates bends
+      following the rules. It worked well over simple geometries, but, due to a
+      subtle bug, created a self-crossing bend in Visinčia. We copied the
+      offending bend to the automated test suite and fixed the bug. The test
+      suite has the bend itself (a hook-looking bend on the right-hand side of
+      figure~\ref{fig:test-figures}) and code to verify that it was correctly
+      exaggerated.
+
+        Later, while adding a feature to exaggeration code, I introduced a
+        different bug, which was automatically captured by the same bend.
+
+    \item During algorithm development, I run automated tests about once a
+        minute. They quickly find logical and syntax errors. In contrast,
+        running the algorithm with real rivers takes a few minutes, which is
+        increases the feedback loop, and takes longer to fix the "simple"
+        errors.
+
+\end{itemize}
+
+Whenever I find and fix a bug, I aim to create an automated test case for it,
+so the same bug is not re-introduced by whoever works next on the same piece of
+code.
+
+Besides testing for specific cases, an automated test suite ensures future
+stability and longevity of the implementation itself: when new contributors
+start changing code, they have higher assurance they have not broken
+already-working code.
+
+\subsection{Reproducing generalizations in this paper}
+\label{sec:reproducing-the-paper}
+
+It is widely believed that the ability to reproduce the results of a published
+study is important to the scientific community. In practice, however, it is
+often hard to impossible: research methodologies, as well as algorithms
+themselves, are explained in prose, which, due to the nature of the non-machine
+language, lends itself to inexact interpretations.
+
+This article, besides explaining the algorithm in prose, includes the program
+of the algorithm in a way that can be executed on reader's workstation. On top
+of it, all the illustrations in this paper are generated using that algorithm,
+from a predefined list of test geometries (test geometries were explained in
+section~\ref{sec:automated-tests}).
+
+Instructions how to re-generate all the visualizations are found in
+appendix~\ref{sec:code-regenerate}. The visualization code serves as a good
+example reference for anyone willing to start using the algorithm.
+
+\subsection{Implementation workflow}
+
+\tikzset{
+  startstop/.style={trapezium,text centered,minimum height=2em,
+    trapezium left angle=70,trapezium right angle=110,draw=black,fill=red!20},
+  proc/.style={rectangle,minimum height=2em,text centered,draw=black,
+    fill=orange!20},
+  decision/.style={diamond,minimum height=2em,text centered,aspect=3,
+    draw=black,fill=green!20},
+  arrow/.style={thick,->,>=stealth},
+}
+
+\begin{figure}[!ht]
+  \centering
+  \begin{tikzpicture}[node distance=1.5cm,auto]
+    \node (start) [startstop] {Read \textsc{linestring}};
+    \node (detect) [proc,below of=start] {Detect bends};
+    \node (inflections) [proc,below of=detect] {Fix gentle inflections};
+    \node (selfcrossing) [proc,below of=inflections] {Eliminate self-crossing};
+    \node (mutated1) [decision,below of=selfcrossing] {Mutated?};
+    \node (bendattrs) [proc,below of=mutated1] {Compute bend attributes};
+    \node (exaggeration) [proc,below of=bendattrs] {Exaggeration};
+    \node (mutated2) [decision,below of=exaggeration] {Mutated?};
+    \node (elimination) [proc,below of=mutated2] {Elimination};
+    \node (mutated3) [decision,below of=elimination] {Mutated?};
+    \node (stop) [startstop,below of=mutated3] {Stop};
+
+    \coordinate [right of=mutated1,node distance=5cm] (mutated1y) {};
+    \coordinate [right of=mutated2,node distance=5cm] (mutated2y) {};
+    \coordinate [right of=mutated3,node distance=5cm] (mutated3y) {};
+
+    \draw [arrow] (start) -- (detect);
+    \draw [arrow] (detect) -- (inflections);
+    \draw [arrow] (inflections) -- (selfcrossing);
+    \draw [arrow] (selfcrossing) -- (mutated1);
+    \draw [arrow] (mutated1) -| node [near start] {Yes} (mutated1y) |- (detect);
+    \draw [arrow] (mutated1) -- node[anchor=west] {No} (bendattrs);
+    \draw [arrow] (bendattrs) -- (exaggeration);
+    \draw [arrow] (exaggeration) -- (mutated2);
+    \draw [arrow] (mutated2) -| node [near start] {Yes} (mutated2y) |- (detect);
+    \draw [arrow] (mutated2) -- node[anchor=west] {No} (elimination);
+    \draw [arrow] (mutated3) -| node [near start] {Yes} (mutated3y) |- (detect);
+    \draw [arrow] (mutated3) -- node[anchor=west] {No} (stop);
+    \draw [arrow] (elimination) -- (mutated3);
+  \end{tikzpicture}
+  \caption{Flow chart of the implementation workflow.}
+  \label{fig:flow-chart}
+\end{figure}
+
+Figure~\ref{fig:flow-chart} visualizes the algorithm steps for each line.
+\textsc{multilinestring} features are split to \textsc{linestring} features and
+executed in order.
+
+Judging from {\WM} prototype flow chart (depicted in Figure 11 of the original
+paper), their approach is iterative for the line: it will process the line in
+sequence, doing all steps, before moving on to the next step. We will call this
+approach "streaming", because it does not require to have the full line to
+process it.
+
+We have taken a different approach: process each step fully for the line,
+before moving to the next step. This way provides the following advantages:
+
+\begin{itemize}
+
+    \item \textsc{eliminate self-crossing}, when finds a bend with the right
+        sum of inflection angles, it checks the full line for self-crossings.
+        This is impossible with streaming, because it requires having the full
+        line in memory. It could be optimized by, for example, looking for a
+        fixed number of neighboring bends (say, 10), but that would complicate
+        the implementation.
+
+    \item \textsc{fix gentle inflections} is iterating the same line twice from
+        opposite directions. That could be re-written to streaming fashion, but
+        that complicates the implementation too.
+
+\end{itemize}
+
+On the other hand, comparing to the {\WM} prototype flow chart, our
+implementation uses more memory (because it needs to have the full line before
+processing), and some steps are unnecessarily repeated, like re-computing the
+bend's attributes.
+
+\section{Algorithm implementation}
+
+Like alluded in section~\ref{sec:introduction}, {\WM} paper skims over
+certain details, which are important to implement the algorithm. This section
+goes through each algorithm stage, illustrating the intermediate steps and
+explaining the author's desiderata for a more detailed description.
+
+Illustrations of the following sections are extracted from the automated test
+cases, which were written during the algorithm implementation (as discussed in
+section~\onpage{sec:automated-tests}).
+
+Illustrated lines are black. Bends themselves are linear features.
+Discriminating between bends in illustrations might be tricky, because
+sometimes a single \textsc{line segment} can belong to two bends.
+
+Given that, there is another way to highlight bends in a schematic drawing: by
+converting them to polygons and by altering their background colors. It works
+as follows:
+
+\begin{itemize}
+    \item Join the first and last vertices of the bend, creating a polygon.
+    \item Color the polygons using distinct colors.
+\end{itemize}
+
+This type of illustration works quite well, since polygons created from bends
+are almost never overlapping, and discriminating different backgrounds is
+easier than discriminating different line shapes or colors.
+
+\subsection{Debugging}
+
+NOTE: this will explain how intermediate debugging tables (\textsc{wm\_debug})
+work. This is not related to the algorithm, but the only the implementation
+itself (probably should come together with paper's regeneration and unit
+tests).
+
+\subsection{Merging pieces of the river into one}
+
+NOTE: explain how different river segments are merged into a single line. This
+is not explained in the {\WM} paper, but is a necessary prerequisite. This is
+implemented in \textsc{aggregate-rivers.sql}.
+
+\subsection{Bend scaling and dimensions}
+\label{sec:bend-scaling-and-dimensions}
+
+{\WM} accepts a single input parameter: the diameter of a half-circle. If the
+bend's adjusted size (explained in detail in
+section~\onpage{sec:shape-of-a-bend}) is greater than the area of the
+half-circle, then the bend will be left untouched. If the bend's adjusted size
+is smaller than the area of the provided half-circle, the bend will be
+simplified: either exaggerated, combined or eliminated.
+
+The half-circle's diameter depends on the desired scale of the target map: it
+should be small enough to retain small but visible bends,
+
+The extent of line simplification depends on the desired target scale.
+Simplification should be more aggressive for smaller target scales, and
+less aggressive for larger scales. This section goes through the process
+of finding the correct variable to {\WM} algorithm.
+
+What is the minimal, but still eligible figure that can should be displayed on
+the map?
+
+According to \titlecite{cartoucheMinimalDimensions}, the map is typically held
+at a distance of 30cm. Recommended minimum symbol size given viewing distance
+of 45cm (1.5 feet) is 1.5mm, as analyzed in \titlecite{mappingunits}.
+
+In our case, our target is line bend, rather than a symbol. Assume 1.5mm is a
+diameter of the bend. A semi-circle of 1.5mm diameter is depicted in
+figure~\ref{fig:half-circle}. In other words, a bend of this size or larger,
+when adjusted to scale, will not be simplified.
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[x=1mm,y=1mm]
+      \draw[] (-10, 0) -- (-.75,0) arc (225:-45:.75) -- (10, 0);
+  \end{tikzpicture}
+  \caption{Smallest feature that will be not simplified (to scale).}
+  \label{fig:half-circle}
+\end{figure}
+
+{\WM} algorithm does not have a notion of scale, but it does have a notion of
+distance: it accepts a single parameter $D$, the half-circle's diameter.
+Assuming measurement units in projected coordinate system are meters (for
+example, \titlecite{epsg3857}), values of some popular scales is highlighted in
+table~\ref{table:scale-halfcirlce-diameter}.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{ c  D{.}{.}{1} }
+        Scale               & \multicolumn{1}{c}{$D(m)$}  \\ \hline
+        1:\numprint{10000}  &  15                         \\
+        1:\numprint{15000}  &  22.5                       \\
+        1:\numprint{25000}  &  37.5                       \\
+        1:\numprint{50000}  &  75                         \\
+        1:\numprint{250000} & 375                         \\
+    \end{tabular}
+    \caption{{\WM} half-circle diameter $D$ for popular scales.}
+    \label{table:scale-halfcirlce-diameter}
+\end{table}
+
+Sometimes, when working with {\WM}, it is useful to convert between
+half-circle's diameter $D$ and adjusted size $A_{adj}$. These easily derive
+from circle's area formula $A = 2\pi \frac{D}{2}^2$:
+
+\[
+  D = 2\sqrt{\frac{2 A_{adj}}{\pi}}
+\]
+
+In reverse, adjusted size $A_{adj}$ from half-circle's diameter:
+
+\[
+  A_{adj} = \frac{\pi D^2}{8}
+\]
+
+\subsection{Definition of a Bend}
+\label{sec:definition-of-a-bend}
+
+The original article describes a bend as:
+
+\begin{displaycquote}{wang1998line}
+    A bend can be defined as that part of a line which contains a number of
+    subsequent vertices, with the inflection angles on all vertices included in
+    the bend being either positive or negative and the inflection of the bend's
+    two end vertices being in opposite signs.
+\end{displaycquote}
+
+While it gives a good intuitive understanding of what the bend is, this section
+provides more technical details. Here are some non-obvious characteristics that
+are necessary when writing code to detect the bends:
+
+\begin{itemize}
+    \item End segments of each line should also belong to bends. That way, all
+        segments belong to 1 or 2 bends.
+
+    \item First and last segments of each bend (except for the two end-line
+        segments) are also the first vertex of the next bend.
+\end{itemize}
+
+Properties above may be apparent when looking at illustrations at this article
+or reading here, but they are nowhere as such when looking at the original
+article.
+
+Figure~\ref{fig:fig8-definition-of-a-bend} illustrates article's figure 8,
+but with bends colored as polygons: each color is a distinctive bend.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{fig8-definition-of-a-bend}
+    \caption{Originally figure 8: detected bends are highlighted.}
+    \label{fig:fig8-definition-of-a-bend}
+\end{figure}
+
+\subsection{Gentle Inflection at End of a Bend}
+
+The gist of the section is in the original article:
+
+\begin{displaycquote}{wang1998line}
+    But if the inflection that marks the end of a bend is quite small, people
+    would not recognize this as the bend point of a bend
+\end{displaycquote}
+
+Figure~\ref{fig:fig5-gentle-inflection} visualizes original paper's figure 5,
+when a single vertex is moved outwards the end of the bend.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{fig5-gentle-inflection-before}
+        \caption{Before applying the inflection rule.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{fig5-gentle-inflection-after}
+        \caption{After applying the inflection rule.}
+    \end{subfigure}
+    \caption{Originally figure 5: gentle inflections at the ends of the bend.}
+    \label{fig:fig5-gentle-inflection}
+\end{figure}
+
+The illustration for this section was clear, but insufficient: it does not
+specify how many vertices should be included when calculating the end-of-bend
+inflection. The iterative approach was chosen --- as long as the angle is "right"
+and the distance is decreasing, the algorithm should keep re-assigning vertices
+to different bends; practically not having an upper bound on the number of
+iterations.
+
+To prove that the algorithm implementation is correct for multiple vertices,
+additional example was created, and illustrated in
+figure~\ref{fig:inflection-1-gentle-inflection}: the rule re-assigns two
+vertices to the next bend.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{inflection-1-gentle-inflection-before}
+        \caption{Before applying the inflection rule.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{inflection-1-gentle-inflection-after}
+        \caption{After applying the inflection rule.}
+    \end{subfigure}
+    \caption{Gentle inflection at the end of the bend with multiple vertices.}
+    \label{fig:inflection-1-gentle-inflection}
+\end{figure}
+
+Note that to find and fix the gentle bends' inflections, the algorithm should
+run twice, both ways. Otherwise, if it is executed only one way, the steps will
+fail to match some bends that should be adjusted. Current implementation works
+as follows:
+
+\begin{enumerate}
+    \item Run the algorithm from beginning to the end.
+    \item \label{rev1} Reverse the line and each bend.
+    \item Run the algorithm again.
+    \item \label{rev2} Reverse the line and each bend.
+    \item Return result.
+\end{enumerate}
+
+Reversing the line and its bends is straightforward to implement, but costly:
+the two reversal steps cost additional time and memory. The algorithm could be
+made more optimal with a similar version of the algorithm, but the one which
+goes backwards. In this case, steps \ref{rev1} and \ref{rev2} could be spared,
+that way saving memory and computation time.
+
+The "quite small angle" was arbitrarily chosen to $\smallAngle$.
+
+\subsection{Self-line Crossing When Cutting a Bend}
+
+When bend's baseline crosses another bend, it is called self-crossing.
+Self-crossing is undesirable for the upcoming bend manipulation operators, thus
+should be removed. There are a few rules on when and how they should be removed
+--- this section explains them in higher detail, discusses their time
+complexity and applied optimizations. Figure~\ref{fig:fig6-selfcrossing} is
+copied from the original article.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{fig6-selfcrossing-before}
+        \caption{Bend's baseline (dotted) is crossing a neighboring bend.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{fig6-selfcrossing-after}
+        \caption{Self-crossing removed.}
+    \end{subfigure}
+    \caption{Originally figure 6: simple case of self-line crossing.}
+    \label{fig:fig6-selfcrossing}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{selfcrossing-1-before}
+        \caption{Bend's baseline (dotted) is crossing a non-neighboring bend.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{.49\textwidth}
+        \includegraphics[width=\textwidth]{selfcrossing-1-after}
+        \caption{Self-crossing removed.}
+    \end{subfigure}
+    \caption{Self-crossing with non-neighboring bend.}
+    \label{fig:selfcrossing-1-non-neighbor}
+\end{figure}
+
+Looking at the {\WM} paper alone, it may seem like self-crossing may happen
+only with the neighboring bend. This would mean an efficient $O(n)$
+implementation\footnote{where $n$ is the number of bends in a line. See
+explanation of \textsc{algorithmic complexity} in section~\ref{sec:vocab}.}.
+However, as one can see in figure~\ref{fig:selfcrossing-1-non-neighbor}, it may
+not be the case: any other bend in the line may be crossing it.
+
+If one translates the requirements to code in a straightforward way, it would
+be quite computationally expensive: naively implemented, complexity of checking
+every bend with every bend is $O(n^2)$. In other words, the time it takes to
+run the algorithm grows quadratically with the with the number of vertices.
+
+It is possible to optimize this step and skip checking a large number of bends.
+Only bends whose sum of inner angles is larger than $180^\circ$ can ever
+self-cross. That way, only a fraction of bends need to be checked. The
+worst-case complexity is still $O(n^2)$, when all bends' inner angles are
+larger than $180^\circ$. Having this optimization, the algorithmic complexity
+(as a result, the time it takes to execute the algorithm) is drops by the
+fraction of bends whose sum of inner angles is smaller than $180^\circ$.
+
+\subsection{Attributes of a Single Bend}
+
+\textsc{compactness index} is "the ratio of the area of the polygon over the
+circle whose circumference length is the same as the length of the
+circumference of the polygon" \cite{wang1998line}. Given a bend, its
+compactness index is calculated as follows:
+
+\begin{enumerate}
+
+  \item Construct a polygon by joining first and last vertices of the bend.
+
+  \item Calculate area of the polygon $A_{p}$.
+
+  \item Calculate perimeter $P$ of the polygon. The same value is the
+      circumference of the circle: $C = P$.
+
+    \item Given circle's circumference $C$, circle's area $A_{c}$ is:
+
+    \[
+      A_{circle} = \frac{C^2}{4\pi}
+    \]
+
+  \item Compactness index $c$ is are of the polygon divided by the area of the
+    circle:
+
+    \[
+      c = \frac{A_{p}}{A_{c}} =
+        \frac{A_{p}}{ \frac{C^2}{4\pi} } =
+        \frac{4\pi A_{p}}{C^2}
+    \]
+
+\end{enumerate}
+
+Other than that, once this section is implemented, each bend will have a list
+of properties, upon which actions later will be performed.
+
+\subsection{Shape of a Bend}
+\label{sec:shape-of-a-bend}
+
+This section introduces \textsc{adjusted size} $A_{adj}$, which trivially
+derives from \textsc{compactness index} $c$ and "polygonized" bend's area $A_{p}$:
+
+\[
+  A_{adj} = \frac{0.75 A_{p}}{c}
+\]
+
+Adjusted size becomes necessary later to compare bends with each other, and
+decide if the bend is within the simplification threshold.
+
+Sometimes it is useful to convert adjusted size to half-circle's diameter $D$,
+which comes as a parameter to the {\WM} algorithm:
+
+\subsection{Isolated Bend}
+
+Bend itself and its "isolation" can be described by \textsc{average curvature},
+which is \textcquote{wang1998line}{geometrically defined as the ratio of
+inflection over the length of a curve.}
+
+Two conditions must be true to claim that a bend is isolated:
+
+\begin{enumerate}
+    \item \textsc{average curvature} of neighboring bends, should be larger
+        than the "candidate" bend's curvature. The article did not offer a
+        value, this implementation arbitrarily chose $\isolationThreshold$.
+
+    \item Bends on both sides of the "candidate" should be longer than a
+        certain value. This implementation does not (yet) define such a
+        constraint and will only follow the average curvature constraint above.
+\end{enumerate}
+
+\subsection{The Context of a Bend: Isolated and Similar Bends}
+
+To find out whether two bends are similar, they are compared by 3 components:
+
+\begin{enumerate}
+  \item \textsc{adjusted size} $A_{adj}$
+  \item \textsc{compactness index} $c$
+  \item \textsc{baseline length} $l$
+\end{enumerate}
+
+Components 1, 2 and 3 represent a point in a 3-dimensional space, and Euclidean
+distance $d(p,q)$ between those is calculated to differentiate bends $p$ and
+$q$:
+
+\[
+  d(p,q) = \sqrt{(A_{adj(p)}-A_{adj(q)})^2 +
+                   (c_p-c_q)^2 +
+                   (l_p-l_q)^2}
+\]
+
+The smaller the distance $d$, the more similar the bends are.
+
+\subsection{Elimination Operator}
+
+NOTE: implemented, explain.
+
+\subsection{Combination Operator}
+
+NOTE: not implemented.
+
+\subsection{Exaggeration Operator}
+
+NOTE: implemented, explain. Also {\textsc intersection\_tolerance} parameter.
+
+\section{Program Implementation}
+
+NOTE: this should provide a higher-level overview of the written code:
+
+\begin{itemize}
+    \item State machine (which functions call when).
+    \item Algorithmic complexity.
+    \item Expected runtime given the number of bends/vertices, some performance
+        experiments.
+\end{itemize}
+
+\section{Results of Experiments}
+
+NOTE: this can only be filled after the algorithm implementation is complete.
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+NOTE: write when all the sections before this are be complete.
+
+\section{Related Work and future suggestions}
+\label{sec:related_work}
+
+NOTE: write after section~\ref{sec:conclusions} is complete.
+
+\printbibliography
+
+\begin{appendices}
+
+\section{Code listings}
+
+This section contains code listings of a subset of files tightly related to the
+    {\WM} algorithm.
+
+\subsection{Re-generating this paper}
+\label{sec:code-regenerate}
+
+Like explained in section~\ref{sec:reproducing-the-paper}, illustrations in
+    this paper are generated from a small list of sample geometries. To observe
+    the source geometries or regenerate this paper, run this script (assuming
+    name of this document is {\tt mj-msc-full.pdf}):
+
+\inputcode{bash}{extract-and-generate}
+
+%\subsection{Function \textsc{st\_simplifywv}}
+%\inputcode{postgresql}{wm.sql}
+
+\subsection{Function \textsc{aggregate\_rivers}}
+\inputcode{postgresql}{aggregate-rivers.sql}
+
+\end{appendices}
+\end{document}
