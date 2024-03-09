@@ -1,11 +1,13 @@
 include config.mk
 
+export LC_ALL=C.UTF-8
+
 OUTSIZE = $(shell awk $(addprefix -v ,$(BOUNDS)) 'BEGIN{print ymax-ymin" "xmax-xmin}' /dev/null)
 XYZ = $(patsubst %.zip,%.xyz,$(wildcard *.zip))
 SORT = sort -n -k2 -k1 -t,
 
 .PHONY: all
-all: smooth_2_5.gpkg smooth_5.gpkg
+all: smooth_2.gpkg smooth_2_5.gpkg
 
 smooth_%.gpkg: db/smooth_%
 	ogr2ogr $@ "PG:host=127.0.0.1 user=osm dbname=osm password=osm" $(basename $@)
